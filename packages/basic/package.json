@@ -1,0 +1,30 @@
+{
+  "name": "@quark-code/basic",
+  "version": "0.0.1",
+  "description": "A Bare Bones Web Component Library.",
+  "main": "index.js",
+  "module": "index.js",
+  "private": false,
+  "scripts": {
+    "test": "",
+    "build": "",
+    "serve": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quark-code/quark.git",
+    "directory": "packages/basic"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Paul H Mason",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/quark-code/quark/issues"
+  },
+  "homepage": "https://github.com/quark-code/quark#readme",
+  "dependencies": {
+    "@quark-code/core": "^0.0.1"
+  }
+}

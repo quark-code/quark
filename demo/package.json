@@ -1,0 +1,30 @@
+{
+  "name": "@quark-code/demo",
+  "version": "0.0.1",
+  "description": "Quark Demo.",
+  "main": "index.html",
+  "module": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "",
+    "build": "",
+    "serve": "web-dev-server --node-resolve --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quark-code/quark.git",
+    "directory": "demo"
+  },
+  "author": "Paul H Mason",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/quark-code/quark/issues"
+  },
+  "homepage": "https://github.com/quark-code/quark#readme",
+  "dependencies": {
+    "@quark-code/basic": "^0.0.1"
+  },
+  "devDependencies": {
+    "@web/dev-server": "~0.1.28"
+  }
+}

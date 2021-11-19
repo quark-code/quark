@@ -1,0 +1,22 @@
+{
+  "name": "@quark-code/quark",
+  "version": "0.0.1",
+  "description": "Monorepo of all Quark Web Component packages.",
+  "private": false,
+  "scripts": {
+    "lerna-publish": "lerna publish --message \"chore: release new versions\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quark-code/quark.git"
+  },
+  "author": "Paul H Mason",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/quark-code/quark/issues"
+  },
+  "homepage": "https://github.com/quark-code/quark#readme",
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
+}
