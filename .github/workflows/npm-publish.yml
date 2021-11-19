@@ -19,6 +19,6 @@ jobs:
           node-version: 14
           registry-url: https://registry.npmjs.org/
       - name: Publish
-        run: lerna publish
+        run: lerna publish --skip-git --force-publish *
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_key}}
