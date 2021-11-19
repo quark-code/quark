@@ -1,3 +1,1 @@
-import '@quark-code/basic/test-element.js';
-
-console.log('hi')
+import '@quark-elements/basic/test-element.js';

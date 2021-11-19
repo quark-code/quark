@@ -1,4 +1,4 @@
-import { html, css, QuarkElement } from '@quark-code/core/QuarkElement.js';
+import { html, css, QuarkElement } from '@quark-elements/core/QuarkElement.js';
 
 export class TestElement extends QuarkElement {
     static get styles() {
