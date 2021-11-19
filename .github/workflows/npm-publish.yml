@@ -11,23 +11,12 @@ jobs:
   publish-npm:
     runs-on: ubuntu-latest
     steps:
-      - name: Clone repository
-        uses: actions/checkout@v1.0.0
-      - name: Checkout main branch
-        # GITHUB_REF:11 gets `refs/heads/main` => `main`.
-        # See https://github.com/actions/checkout/issues/6
-        run: |
-          git checkout "${GITHUB_REF:11}"
-          git pull
-      - name: Setup node
-        uses: actions/setup-node@v1
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
         with:
           node-version: 14
           registry-url: https://registry.npmjs.org/
-      - name: Install dependencies
-        run: |
-          npm install
-      - name: Publish to NPM registry
+      - name: Publish
         run: lerna publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_key}}
