@@ -19,7 +19,7 @@ export class TestElement extends QuarkElement {
 
     render() {
         return html`
-            <h3>test-element</h3>
+            <h3>test-element demo</h3>
         `;
     }
 }

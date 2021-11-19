@@ -1,6 +1,6 @@
 {
   "name": "@quark-code/quark",
-  "version": "0.0.1",
+  "version": "0.0.6",
   "description": "Monorepo of all Quark Web Component packages.",
   "private": false,
   "scripts": {
