@@ -12,10 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Checkout main branch
-        run: |
-          git checkout main
-          git pull
+        with:
+        ref: main
       - uses: actions/setup-node@v2
         with:
           node-version: 14
