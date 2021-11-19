@@ -1,6 +1,6 @@
 {
   "name": "@quark-code/basic",
-  "version": "0.0.6",
+  "version": "0.0.1",
   "description": "A Bare Bones Web Component Library.",
   "main": "index.js",
   "module": "index.js",
