@@ -133,7 +133,7 @@ If you want the value to be another design token (reference value), then it must
 
 You can also provide a default value if you use a reference value by separating it with a colon (`:`).
 
-`value: {my-background-color: #0000FF}` is transformed to `--something: var(--my-background-color,  #0000FF)`.
+`{my-background-color:#0000FF}` is transformed to `--something: var(--my-background-color,  #0000FF)`.
 
 ### register()
 Registers the theme instance. This simply calls the global `themeManager.register` method.
@@ -141,7 +141,7 @@ Registers the theme instance. This simply calls the global `themeManager.registe
 ### unregister()
 Unregisters the theme instance. This simply calls the global `themeManager.unregister` method.
 
-### use(el)
+### use()
 Applies the theme with the given name to the document. This simply calls the global `themeManager.use` method.
 
 ## Dark Mode
