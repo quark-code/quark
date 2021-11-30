@@ -8,7 +8,8 @@
   "scripts": {
     "test": "",
     "build": "",
-    "serve": "web-dev-server --node-resolve --open"
+    "serve": "npm run serve-demo",
+    "serve-demo": "web-dev-server --node-resolve --open"
   },
   "repository": {
     "type": "git",
@@ -22,9 +23,12 @@
   },
   "homepage": "https://github.com/quark-elements/quark#readme",
   "dependencies": {
-    "@quark-elements/basic": "^0.0.1"
+    "@quark-elements/basic": "^0.0.1",
+    "@quark-elements/theme": "^0.0.1"
   },
   "devDependencies": {
-    "@web/dev-server": "~0.1.28"
+    "@web/dev-server": "~0.1.28",
+    "@web/test-runner": "^0.13.22",
+    "@open-wc/testing": "^3.0.3"
   }
 }

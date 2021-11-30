@@ -1,7 +1,7 @@
 {
-  "name": "@quark-elements/core",
+  "name": "@quark-elements/doc",
   "version": "0.0.1",
-  "description": "A lookless native Web Component suite foundation library.",
+  "description": "A simple static site generator.",
   "main": "index.js",
   "module": "index.js",
   "private": false,
@@ -13,25 +13,26 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/quark-elements/quark.git",
-    "directory": "packages/core"
+    "directory": "packages/doc"
   },
   "publishConfig": {
     "access": "public"
   },
   "author": "Paul H Mason",
   "license": "MIT",
+  "bin": {
+    "quark-doc": "/bin/quark-doc.js"
+  },
   "bugs": {
     "url": "https://github.com/quark-elements/quark/issues"
   },
   "homepage": "https://github.com/quark-elements/quark#readme",
-  "dependencies": {
-    "@quark-elements/theme": "^0.0.1",
-    "lit": "^2.0.2"
-  },
   "devDependencies": {
-    "@web/dev-server": "~0.1.28",
+    "fs-extra": "^10.0.0",
+    "html-prettify": "^1.0.3",
+    "marked": "^3.0.4",
+    "prismjs": "^1.25.0",
     "@web/test-runner": "^0.13.22",
-    "@open-wc/testing": "^3.0.3",
-    "@web/test-runner-playwright": "^0.8.8"
+    "@open-wc/testing": "^3.0.3"
   }
 }

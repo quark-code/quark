@@ -1,14 +1,15 @@
 {
   "name": "@quark-elements/basic",
   "version": "0.0.1",
-  "description": "A Bare Bones Web Component Library.",
+  "description": "A simple no frills native Web Component library.",
   "main": "index.js",
   "module": "index.js",
   "private": false,
   "scripts": {
     "test": "",
     "build": "",
-    "serve": ""
+    "serve": "",
+    "pub:test": "npm publish --dry-run"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,13 @@
   },
   "homepage": "https://github.com/quark-elements/quark#readme",
   "dependencies": {
-    "@quark-elements/core": "^0.0.1"
+    "@quark-elements/core": "^0.0.1",
+    "@quark-elements/theme": "^0.0.1"
+  },
+  "devDependencies": {
+    "@web/dev-server": "~0.1.28",
+    "@web/test-runner": "^0.13.22",
+    "@open-wc/testing": "^3.0.3",
+    "@web/test-runner-playwright": "^0.8.8"
   }
 }
