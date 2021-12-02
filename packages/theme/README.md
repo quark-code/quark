@@ -47,7 +47,7 @@ themeManager.register(blueThemeBrand);
 ```
 
 # ThemeManager
-The `ThemeManager` class is exposed as the singleton `window._themeManager`, but is most easily accessed by importing a reference.
+The `ThemeManager` class is exposed as the singleton `window.themeManager`, but is most easily accessed by importing a reference.
 
 ```javascript
 import { themeManager } from '@quark-elements/theme';
@@ -151,12 +151,12 @@ A theme can use either `dark`, `light` or `system` (the browser determines the m
 this.addToken('test-surface-color', '#FAFAFA').dark('#1E1E1E');
 ```
 
-You should only provide dark mode override values where it makes sense. The default mode is `system` (the browser sets the mode type based on user proference, which may be a browser or OS setting). You can force the mode using the global `ThemeManager` instance (`window._themeManager`) or import it
+You should only provide dark mode override values where it makes sense. The default mode is `system` (the browser sets the mode type based on user proference, which may be a browser or OS setting). You can force the mode using the global `ThemeManager` instance (`window.themeManager`) or import it
 
 ```javascript
 import { themeManager } from "@quark-elements/theme";
 
-window._themeManager.mode = 'dark'; // or 'light' or 'system'.
+window.themeManager.mode = 'dark'; // or 'light' or 'system'.
 
 // OR
 themeManager.mode = 'dark';

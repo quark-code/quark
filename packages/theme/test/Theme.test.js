@@ -79,7 +79,7 @@ describe('theme', () => {
         const redThemeBrand = new TestTheme('red', 'white', 'red');
         redThemeBrand.mode = ThemeMode.light;
         expect(redThemeBrand.mode).to.equal(ThemeMode.light);
-        expect(window._themeManager.mode).to.equal(ThemeMode.light);
+        expect(window.themeManager.mode).to.equal(ThemeMode.light);
 
         const ss = redThemeBrand.styleSheet;
         expect(ss).to.contain(':root');
@@ -92,7 +92,7 @@ describe('theme', () => {
         const redThemeBrand = new TestTheme('red', 'white', 'red');
         redThemeBrand.mode = ThemeMode.dark;
         expect(redThemeBrand.mode).to.equal(ThemeMode.dark);
-        expect(window._themeManager.mode).to.equal(ThemeMode.dark);
+        expect(window.themeManager.mode).to.equal(ThemeMode.dark);
 
         const ss = redThemeBrand.styleSheet;
         expect(ss).to.contain(':root');
@@ -104,39 +104,39 @@ describe('theme', () => {
     it('can be registered with the global theme manager', async () => {
         const redThemeBrand = new TestTheme('red', 'white', 'red');
 
-        expect(window._themeManager.has('red')).to.equal(false);
+        expect(window.themeManager.has('red')).to.equal(false);
         redThemeBrand.register();
-        expect(window._themeManager.has('red')).to.equal(true);
+        expect(window.themeManager.has('red')).to.equal(true);
     });
 
     it('can be unregistered with the global theme manager', async () => {
         const redThemeBrand = new TestTheme('red', 'white', 'red');
         
         redThemeBrand.register();
-        expect(window._themeManager.has('red')).to.equal(true);
+        expect(window.themeManager.has('red')).to.equal(true);
 
         redThemeBrand.unregister();
-        expect(window._themeManager.has('red')).to.equal(false);
+        expect(window.themeManager.has('red')).to.equal(false);
     });
 
     it('can be set as default with the global theme manager', async () => {
         const redThemeBrand = new TestTheme('red', 'white', 'red');
 
         redThemeBrand.register();
-        expect(window._themeManager.has('red')).to.equal(true);
-        expect(window._themeManager.defaultThemeName).to.equal(null);
+        expect(window.themeManager.has('red')).to.equal(true);
+        expect(window.themeManager.defaultThemeName).to.equal(null);
 
         redThemeBrand.makeDefault();
-        expect(window._themeManager.defaultThemeName).to.equal('red');
+        expect(window.themeManager.defaultThemeName).to.equal('red');
     });
 
     it('can be set as active with the global theme manager', async () => {
         const redThemeBrand = new TestTheme('red', 'white', 'red');
 
         redThemeBrand.register();
-        expect(window._themeManager.activeThemeName).to.equal(null);
+        expect(window.themeManager.activeThemeName).to.equal(null);
 
         redThemeBrand.use();
-        expect(window._themeManager.activeThemeName).to.equal(redThemeBrand.name);
+        expect(window.themeManager.activeThemeName).to.equal(redThemeBrand.name);
     });
 });

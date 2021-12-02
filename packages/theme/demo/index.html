@@ -181,20 +181,20 @@
 
     <script>
         function darkChange(e) {
-            //e.target.checked ? window._themeManager.mode = 'dark' : window._themeManager.mode = 'light';
+            //e.target.checked ? window.themeManager.mode = 'dark' : window.themeManager.mode = 'light';
             if (e.target.checked) {
-                window._themeManager.mode = e.target.id;
+                window.themeManager.mode = e.target.id;
             }
         }
 
         function themeChange(e) {
             if (e.target.checked) {
-                window._themeManager.use(e.target.value);
+                window.themeManager.use(e.target.value);
             }
         }
 
         window.addEventListener('load', (event) => {
-            const radioHtml = window._themeManager.themeNames.map((theme, index) => {
+            const radioHtml = window.themeManager.themeNames.map((theme, index) => {
                 return `
                     <div class="flex-item">
                         <input type="radio" id="${theme}" name="theme" value="${theme}" ${index === 0 ? 'checked' : ''} onchange="themeChange(event)">

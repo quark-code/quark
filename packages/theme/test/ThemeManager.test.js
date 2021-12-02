@@ -19,126 +19,126 @@ class TestTheme extends Theme {
 
 describe('theme manager', () => {
     it('creates a singleton theme manager instance', async () => {
-        expect(window._themeManager).to.not.equal(null);
+        expect(window.themeManager).to.not.equal(null);
     });
 
     it('sets the default mode to system', async () => {
-        window._themeManager.unregisterAll();
+        window.themeManager.unregisterAll();
         const redThemeBrand = new TestTheme('red', 'white', 'red');
-        window._themeManager.register(redThemeBrand);
-        window._themeManager.use('red');
+        window.themeManager.register(redThemeBrand);
+        window.themeManager.use('red');
 
-        expect(window._themeManager.mode).to.equal('system');
+        expect(window.themeManager.mode).to.equal('system');
     });
 
     it('sets the mode to light', async () => {
-        window._themeManager.unregisterAll();
+        window.themeManager.unregisterAll();
         const redThemeBrand = new TestTheme('red', 'white', 'red');
-        window._themeManager.register(redThemeBrand);
-        window._themeManager.use('red');
+        window.themeManager.register(redThemeBrand);
+        window.themeManager.use('red');
 
-        window._themeManager.mode = 'light';
-        expect(window._themeManager.mode).to.equal('light');
+        window.themeManager.mode = 'light';
+        expect(window.themeManager.mode).to.equal('light');
     });
 
     it('sets the mode to dark', async () => {
-        window._themeManager.unregisterAll();
+        window.themeManager.unregisterAll();
         const redThemeBrand = new TestTheme('red', 'white', 'red');
-        window._themeManager.register(redThemeBrand);
-        window._themeManager.use('red');
+        window.themeManager.register(redThemeBrand);
+        window.themeManager.use('red');
 
-        window._themeManager.mode = 'dark';
-        expect(window._themeManager.mode).to.equal('dark');
+        window.themeManager.mode = 'dark';
+        expect(window.themeManager.mode).to.equal('dark');
     });
 
     it('can register a theme', async () => {
-        window._themeManager.unregisterAll();
+        window.themeManager.unregisterAll();
 
         const redThemeBrand = new TestTheme('red', 'white', 'red');
-        expect(window._themeManager.has('red')).to.equal(false);
+        expect(window.themeManager.has('red')).to.equal(false);
 
-        window._themeManager.register(redThemeBrand);
-        expect(window._themeManager.has('red')).to.equal(true);
+        window.themeManager.register(redThemeBrand);
+        expect(window.themeManager.has('red')).to.equal(true);
     });
 
     it('can unregister a theme', async () => {
-        window._themeManager.unregisterAll();
+        window.themeManager.unregisterAll();
 
         const redThemeBrand = new TestTheme('red', 'white', 'red');
-        expect(window._themeManager.has('red')).to.equal(false);
+        expect(window.themeManager.has('red')).to.equal(false);
 
-        window._themeManager.register(redThemeBrand);
-        expect(window._themeManager.has('red')).to.equal(true);
-        window._themeManager.use('red');
+        window.themeManager.register(redThemeBrand);
+        expect(window.themeManager.has('red')).to.equal(true);
+        window.themeManager.use('red');
 
-        window._themeManager.unregister('red');
-        expect(window._themeManager.has('red')).to.equal(false);
+        window.themeManager.unregister('red');
+        expect(window.themeManager.has('red')).to.equal(false);
     });
 
     it('can be set a theme as active', async () => {
-        window._themeManager.unregisterAll();
+        window.themeManager.unregisterAll();
 
         const redThemeBrand = new TestTheme('red', 'white', 'red');
 
-        window._themeManager.register(redThemeBrand);
-        expect(window._themeManager.has('red')).to.equal(true);
-        expect(window._themeManager.activeThemeName).to.equal(null);
+        window.themeManager.register(redThemeBrand);
+        expect(window.themeManager.has('red')).to.equal(true);
+        expect(window.themeManager.activeThemeName).to.equal(null);
         expect(window.document.querySelectorAll('style[quark-theme]').length).to.equal(0);
 
-        window._themeManager.use('red');
-        expect(window._themeManager.activeThemeName).to.equal('red');
+        window.themeManager.use('red');
+        expect(window.themeManager.activeThemeName).to.equal('red');
 
         expect(window.document.querySelectorAll('style[quark-theme]').length).to.equal(1);
     });
 
     it('can clear the active theme', async () => {
-        window._themeManager.unregisterAll();
+        window.themeManager.unregisterAll();
 
         const redThemeBrand = new TestTheme('red', 'white', 'red');
 
-        window._themeManager.register(redThemeBrand);
-        expect(window._themeManager.has('red')).to.equal(true);
-        expect(window._themeManager.activeThemeName).to.equal(null);
+        window.themeManager.register(redThemeBrand);
+        expect(window.themeManager.has('red')).to.equal(true);
+        expect(window.themeManager.activeThemeName).to.equal(null);
         expect(window.document.querySelectorAll('style[quark-theme]').length).to.equal(0);
 
-        window._themeManager.use('red');
-        expect(window._themeManager.activeThemeName).to.equal('red');
+        window.themeManager.use('red');
+        expect(window.themeManager.activeThemeName).to.equal('red');
         expect(window.document.querySelectorAll('style[quark-theme]').length).to.equal(1);
 
-        window._themeManager.clear();
-        expect(window._themeManager.activeThemeName).to.equal(null);
+        window.themeManager.clear();
+        expect(window.themeManager.activeThemeName).to.equal(null);
         expect(window.document.querySelectorAll('style[quark-theme]').length).to.equal(0);
     });
 
     it('uses a theme called "default"', async () => {
-        window._themeManager.unregisterAll();
+        window.themeManager.unregisterAll();
 
         const redThemeBrand = new TestTheme('default', 'white', 'red');
 
-        window._themeManager.register(redThemeBrand);
-        expect(window._themeManager.has('default')).to.equal(true);
-        expect(window._themeManager.activeThemeName).to.equal(null);
+        window.themeManager.register(redThemeBrand);
+        expect(window.themeManager.has('default')).to.equal(true);
+        expect(window.themeManager.activeThemeName).to.equal(null);
 
-        window._themeManager.use();
-        expect(window._themeManager.activeThemeName).to.equal('default');
+        window.themeManager.use();
+        expect(window.themeManager.activeThemeName).to.equal('default');
     });
     
     it('returns the registered theme names', async () => {
-        window._themeManager.unregisterAll();
+        window.themeManager.unregisterAll();
 
         const redThemeBrand = new TestTheme('red', 'white', 'red');
         const greenThemeBrand = new TestTheme('green', 'white', 'green');
         const blueThemeBrand = new TestTheme('blue', 'white', 'blue');
 
-        let names = window._themeManager.themeNames;
+        let names = window.themeManager.themeNames;
 
         expect(names.length).to.equal(0);
 
-        window._themeManager.register(redThemeBrand);
-        window._themeManager.register(greenThemeBrand);
-        window._themeManager.register(blueThemeBrand);
+        window.themeManager.register(redThemeBrand);
+        window.themeManager.register(greenThemeBrand);
+        window.themeManager.register(blueThemeBrand);
 
-        names = window._themeManager.themeNames;
+        names = window.themeManager.themeNames;
 
         expect(names.length).to.equal(3);
         expect(names.indexOf('red')).to.not.equal(-1);

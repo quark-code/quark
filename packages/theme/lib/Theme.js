@@ -5,7 +5,7 @@ Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
 import { DesignToken } from './DesignToken.js';
 
-class ThemeMode {
+export class ThemeMode {
     static get system() {
         return 'system';
     }
@@ -23,7 +23,7 @@ class ThemeMode {
     }
 }
 
-class Theme {
+export class Theme {
     constructor(name) {
         this._name = name;
         this._tokens = new Map;
@@ -53,7 +53,7 @@ class Theme {
     set mode(value) {
         if (ThemeMode.isValid(value) && (this._mode !== value)) {
             this._mode = value;
-            window._themeManager.mode = value;
+            window.themeManager.mode = value;
             this._styleSheet = this._createStyleSheet();
         }
     }
@@ -74,22 +74,22 @@ class Theme {
     }
 
     register() {
-        window._themeManager.register(this);
+        window.themeManager.register(this);
         return this;
     }
 
     unregister() {
-        window._themeManager.unregister(this.name);
+        window.themeManager.unregister(this.name);
         return this;
     }
 
     use() {
-        window._themeManager.use(this.name);
+        window.themeManager.use(this.name);
         return this;
     }
 
     makeDefault() {
-        window._themeManager.makeDefault(this.name);
+        window.themeManager.makeDefault(this.name);
         return this;
     }
 
@@ -152,5 +152,3 @@ class Theme {
         return ss;
     }
 }
-
-export { DesignToken, Theme, ThemeMode }
