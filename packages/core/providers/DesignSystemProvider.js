@@ -9,6 +9,10 @@ class DesignSystemProvider {
     constructor(themeType) {
         this._themeType = themeType;
     }
+
+    get themeType() {
+        return this._themeType;
+    }
     
     registerComponents() {
         return this;
@@ -18,7 +22,11 @@ class DesignSystemProvider {
         return this;
     }
 
-    registerThemeBrands() {
+    registerIcon() {
+        return this;
+    }
+
+    registerThemes() {
         for (let i = 0; i < arguments.length; i++) {
             const arg = arguments[i];
 
@@ -47,6 +55,20 @@ class DesignSystemProvider {
 
     withThemeMode(mode = 'system') {
         themeManager.mode = mode;
+        return this;
+    }
+
+    addIcon(name, content, size = 24) {
+        this.themeType.addIcon(name, {
+            content: content,
+            size: size
+        });
+        
+        return this;
+    }
+
+    aliasIcon(name, alias) {
+        this.themeType.aliasIcon(name, alias);
         return this;
     }
 }

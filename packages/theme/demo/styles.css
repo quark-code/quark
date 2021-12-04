@@ -38,6 +38,11 @@
     text-transform: var(--theme-typography-note-transform);
 }
 
+.typography-code {
+    font: var(--theme-typography-code);
+    text-transform: var(--theme-typography-code-transform);
+}
+
 /*
 .typography-headline {
     font-family: var(--theme-typography-headline-font);

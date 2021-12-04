@@ -3,20 +3,30 @@
 MIT License
 Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
-import { provideBasicDesignSystem, BasicTheme } from '@quark-elements/basic';
-import { QbButton } from '@quark-elements/basic/elements/button';
-import { QbStepper } from '@quark-elements/basic/elements/stepper';
+import { provideQuarkDesignSystem, QuarkTheme, AliasIcon } from '@quark-elements/quark';
 
-const redThemeBrand = new BasicTheme('red', 'white', 'red');
-const blueThemeBrand = new BasicTheme('blue', 'yellow', 'blue');
-const defaultThemeBrand = new BasicTheme('default', 'white', 'cornflowerblue');
+import { QbButton } from '@quark-elements/quark/elements/button';
+import { QbStepper } from '@quark-elements/quark/elements/stepper';
+import { QbIcon } from '@quark-elements/quark/elements/icon/QbIcon.js';
 
-provideBasicDesignSystem()
+import { EditIcon, ErrorIcon } from './customIcons.js';
+
+const redThemeBrand = new QuarkTheme('red', 'white', 'red');
+const blueThemeBrand = new QuarkTheme('blue', 'yellow', 'blue');
+const defaultThemeBrand = new QuarkTheme('default', 'white', 'cornflowerblue');
+
+provideQuarkDesignSystem()
+    .registerIcons(
+        EditIcon('my-edit-icon'),
+        ErrorIcon('my-error-icon'),
+        AliasIcon('chevron-left', 'back-icon')
+    )
     .registerComponents(
         QbButton('my-button'),
+        QbIcon('my-icon'),
         QbStepper('my-stepper')
     )
-    .registerThemeBrands(
+    .registerThemes(
         redThemeBrand,
         blueThemeBrand,
         defaultThemeBrand

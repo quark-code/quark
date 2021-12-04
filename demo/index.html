@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,17 +20,32 @@
         h3 {
             color: var(--test-background-color);
         }
+
+        .icons {
+            display: flex;
+            flex-wrap: wrap;
+        }
     </style>
+
+    <script type="module">
+        import './index.js';
+    </script>
 </head>
+
 <body>
     <h3>Quark Demo</h3>
-    
+
     <my-button id="btn" label="button"></my-button>
     <my-button label="button"></my-button>
     <my-stepper></my-stepper>
 
-    <script type="module">
-        import'./index.js';
-    </script>
+    <div class="icons">
+        <my-icon icon="chevron-left"></my-icon>
+        <my-icon icon="my-edit-icon"></my-icon>
+        <my-icon icon="back-icon"></my-icon>
+    </div>
+
+
 </body>
+
 </html>

@@ -6,11 +6,11 @@ Copyright (c) 2021 Paul H Mason. All rights reserved.
 import { ThemeMode } from './Theme.js';
 
 export class ThemeManager {
-    constructor() {
+    constructor(mode = ThemeMode.system) {
         this._themes = new Map();
         this._activeTheme = null;
         this._defaultThemeName = null;
-        this._mode = ThemeMode.system; 
+        this._mode = mode; 
     }
 
     get mode() {
@@ -73,12 +73,28 @@ export class ThemeManager {
             theme.mode = this.mode;
             this._addStylesToDocument(theme.styleSheet);
             this._activeTheme = theme;
+
+            const event = new CustomEvent('theme-changed', {
+                bubbles: true,
+                composed: true
+            });
+
+            window.dispatchEvent(event)
         }
     }
 
     clear() {
         this._removeStylesFromDocument();
         this._activeTheme = null;
+    }
+
+    // ICONS
+    getIcon(name) {
+        return this._activeTheme ? this._activeTheme.getIcon(name) : null;
+    }
+
+    get iconNames() {
+        return this._activeTheme ? this._activeTheme.iconNames : [];
     }
 
     _addStylesToDocument(styles) {

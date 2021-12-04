@@ -1,0 +1,1 @@
+export { QuarkElement } from '@quark-elements/core/elements';

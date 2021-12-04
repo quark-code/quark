@@ -4,9 +4,11 @@ MIT License
 Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
 function convertValue(value) {
-    value = value.replace(/({[^{]*?)\w(?=\})}/igm, (match) => `var(--${match.replace(/[{}]/g, '').replace(/\s*:\s*/, ', ')})`);
-    return value.replace('{', 'var(--').replace('}', ')').replace(/\s*:\s*/, ', ');
-    //return value.replace(/\s*{\s*/g, ' var(--').replace(/\s*}\s*/g, ') ').replace(/\s*:\s*/g, ', ').replace(/\s*\/\s*/g, '/').trim();
+    return value
+        .replace(/({[^{]*?)\w(?=\})}/igm, (match) => `var(--${match.replace(/[{}]/g, '').replace(/\s*:\s*/, ', ')})`)
+        .replace('{', 'var(--')
+        .replace('}', ')')
+        .replace(/\s*:\s*/, ', ');
 }
 
 export class DesignToken {

@@ -4,6 +4,9 @@ MIT License
 Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
 import { DesignToken } from './DesignToken.js';
+import { Icon } from './Icon.js';
+
+export { DesignToken, Icon }
 
 export class ThemeMode {
     static get system() {
@@ -26,8 +29,10 @@ export class ThemeMode {
 export class Theme {
     constructor(name) {
         this._name = name;
-        this._tokens = new Map;
+        this._tokens = new Map();
+        this._icons = new Map();
         this._mode = ThemeMode.system;
+        this._loadIcons();
     }
 
     get name() {
@@ -93,6 +98,88 @@ export class Theme {
         return this;
     }
 
+    // ICONS
+    /**
+     * Gets all the global (static) icons.
+     */
+    static get icons() {
+        if (!this._globalIcons) {
+            this._globalIcons = new Map();
+        }
+
+        return this._globalIcons;
+    }
+
+    /**
+     * Gets all the instance icons.
+     */
+    get icons() {
+        return this._icons;
+    }
+
+    /**
+     * Gets all the global (static) icon names.
+     */
+    static get iconNames() {
+        return [...new Set([...Theme.icons.keys()])].sort();
+    }
+
+    /**
+     * Gets all the instance and global (static) icon names.
+     */
+    get iconNames() {
+        return [...new Set([...this._icons.keys(), ...Theme.icons.keys()])].sort();
+    }
+    
+    static addIcon(name, content) {
+        if (!Theme.icons.has(name)) {
+            if (typeof content === 'string') {
+                Theme.icons.set(name, new Icon(name, content));
+            } else if (typeof content === 'object') {
+                Theme.icons.set(name, new Icon(name, content.content, content.size ? content.size : 24));
+            } else {
+                console.warn(`Design token '${name}' is invalid.`);
+            }
+        } else {
+            console.warn(`Design token '${name}' already exists.`);
+        }
+    }
+
+    addIcon(name, value, size = 24) {
+        if (name && value) {
+            this._icons.set(name, new Icon(name, value, size));
+        }
+    }
+
+    static aliasIcon(name, alias) {
+        if (name && alias && name !== alias) {
+            const icon = Theme.icons.get(name);
+
+            if (icon) {
+                Theme.icons.set(alias, icon);
+            }
+        }
+    }
+
+    aliasIcon(name, alias) {
+        if (name && alias && name !== alias) {
+            const icon = this.getIcon(name);
+
+            if (icon) {
+                this._icons.set(alias, icon);
+            }
+        }
+    }
+
+    renameIcon(name, newName) {
+        this._renameMapIcon(name, newName, this._icons);
+        this._renameMapIcon(name, newName, Theme.icons);
+    }
+
+    getIcon(name) {
+        return this._icons.has(name) ? this._icons.get(name) : Theme.icons.get(name);
+    }
+
     _createStyleSheet() {
         if (!this._themeCssVariables) {
             this._themeCssVariables = this.tokens.map(token => `${token.cssVariable}: ${token.value}`).join(';\n');
@@ -150,5 +237,27 @@ export class Theme {
         }
 
         return ss;
+    }
+
+    _loadIcons() {
+        if (!Theme._globalIconsLoaded) {
+            if (this.constructor.icons) {
+                const icons = Object.getOwnPropertyNames(this.constructor.icons);
+
+                icons.forEach(icon => {
+                    Theme.addIcon(icon, this.constructor.icons[icon]);
+                });
+            }
+
+            Theme._globalIconsLoaded = true;
+        }
+    }
+    
+    _renameMapIcon(name, newName, map) {
+        if ((map.has(name)) && (!map.has(newName))) {
+            const iconData = map.get(name);
+            map.delete(name);
+            map.set(newName, iconData);
+        }
     }
 }

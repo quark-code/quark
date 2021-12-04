@@ -3,8 +3,8 @@
 MIT License
 Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
-import { QuarkScopedElement } from '../QuarkScopedElement.js';
+import { QuarkElement } from '../QuarkElement.js';
 
-export class QuarkButtonElement extends QuarkScopedElement {
+export class QuarkButtonElement extends QuarkElement {
 
 }

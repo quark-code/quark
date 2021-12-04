@@ -3,10 +3,10 @@
 MIT License
 Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
-import { html, css, QuarkScopedElement } from '@quark-elements/core/elements';
+import { html, css, QuarkElement } from '@quark-elements/core/elements';
 import { QbButtonElement } from '../button';
 
-class QbStepperElement extends QuarkScopedElement {
+class QbStepperElement extends QuarkElement {
     static elementDefinitions = {
         'stepper-button': QbButtonElement,
     };

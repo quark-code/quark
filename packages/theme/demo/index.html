@@ -33,7 +33,24 @@
             align-items: center;
             width: 300px;
             height: 200px;
-            border-radius: 5px;
+        }
+
+        .icon-box {
+            box-sizing: border-box;
+            width: 276px;
+            height: 200px;
+        }
+
+        #iconContainer {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+        }
+
+        demo-icon {
+            margin: 8px;
+            width: 24px;
+            height: 24px;
         }
 
         .text-color-box {
@@ -44,10 +61,6 @@
             box-sizing: border-box;
             width: 300px;
             height: 200px;
-            border-radius: 5px;
-            border: 1px solid var(--theme-border-color);
-            background-color: var(--theme-surface-color);
-            padding: 24px;
         }
 
         .primary-light {
@@ -55,7 +68,7 @@
             background-color: var(--theme-primary-light-color);
         }
 
-        .text-color-box > div {
+        .text-color-box>div {
             margin-bottom: 16px;
         }
 
@@ -71,7 +84,7 @@
 
         .row-container {
             display: flex;
-            margin: 0 24px 16px 0;
+            margin-bottom: 32px;
         }
 
         .card {
@@ -98,35 +111,12 @@
 
 <body class="typography-body">
     <div class="row-container">
-        <div>
-            <h4 class="typography-subtitle">Mode</h4>
-            <div class="row-container">
-                <div class="flex-item">
-                    <input type="radio" id="system" name="mode" onchange="darkChange(event)" checked>
-                    <label for="system">System</label>
-                </div>
-
-                <div class="flex-item">
-                    <input type="radio" id="light" name="mode" onchange="darkChange(event)">
-                    <label for="light">Light</label>
-                </div>
-
-                <div class="flex-item">
-                    <input type="radio" id="dark" name="mode" onchange="darkChange(event)">
-                    <label for="dark">Dark</label>
-                </div>
-            </div>
-        </div>
-
-        <div>
-            <h4 class="typography-subtitle">Brand</h4>
-            <div class="row-container" id="radioContainer">
-            </div>
-        </div>
+        <demo-mode-switcher></demo-mode-switcher>
+        <demo-brand-switcher id="brandSwitcher"></demo-brand-switcher>
     </div>
 
     <div class="row-container">
-        <div class="flex-item card">
+        <demo-card class="flex-item">
             <div class="typography-item">
                 <div class="typography-headline">Headline</div>
                 <div class="typography-note info">Bold 40px</div>
@@ -166,45 +156,53 @@
                 <div class="typography-note">Note</div>
                 <div class="typography-note info">Regular 11px</div>
             </div>
-        </div>
 
-        <div class="flex-item color-box primary-light typography-title">Primary Light</div>
-        <div class="flex-item color-box primary typography-title">Primary</div>
-        <div class="flex-item color-box primary-dark typography-title">Primary Dark</div>
+            <div class="typography-item">
+                <div class="typography-code">Code</div>
+                <div class="typography-note info">Regular Mono 14px</div>
+            </div>
+        </demo-card>
 
-        <div class="flex-item text-color-box typography-subtitle">
+        <demo-card class="flex-item color-box primary-light typography-title">Primary Light</demo-card>
+        <demo-card class="flex-item color-box primary typography-title">Primary</demo-card>
+        <demo-card class="flex-item color-box primary-dark typography-title">Primary Dark</demo-card>
+
+        <demo-card class="flex-item text-color-box typography-subtitle">
             <div class="primary-text">Primary Text</div>
             <div class="secondary-text">Secondary Text</div>
             <div class="disabled-text">Disabled Text</div>
-        </div>
+        </demo-card>
+
+        <demo-card class="flex-item icon-box typography-body">
+            <div id="iconContainer"></div>
+        </demo-card>
     </div>
 
     <script>
-        function darkChange(e) {
-            //e.target.checked ? window.themeManager.mode = 'dark' : window.themeManager.mode = 'light';
-            if (e.target.checked) {
-                window.themeManager.mode = e.target.id;
-            }
-        }
-
         function themeChange(e) {
             if (e.target.checked) {
                 window.themeManager.use(e.target.value);
             }
         }
 
-        window.addEventListener('load', (event) => {
-            const radioHtml = window.themeManager.themeNames.map((theme, index) => {
-                return `
-                    <div class="flex-item">
-                        <input type="radio" id="${theme}" name="theme" value="${theme}" ${index === 0 ? 'checked' : ''} onchange="themeChange(event)">
-                        <label for="${theme}">${theme}</label>
-                    </div>
-                `;
-            }).join('');
+        function updateIcons() {
+            const iconContainer = document.getElementById('iconContainer');
+            iconContainer.innerHTML = '';
 
-            const radioContainer = document.getElementById('radioContainer');
-            radioContainer.innerHTML = radioHtml;
+            window.themeManager.iconNames.forEach(icon => {
+                const iconElement = document.createElement('demo-icon');
+                iconElement.icon = icon;
+                iconContainer.appendChild(iconElement);
+            });
+        }
+
+        window.addEventListener('theme-changed', () => {
+            updateIcons();
+        });
+
+        window.addEventListener('load', (event) => {
+            const brandSwitcher = document.getElementById('brandSwitcher');
+            brandSwitcher.load(); 
         });
     </script>
 </body>
