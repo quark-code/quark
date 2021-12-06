@@ -29,26 +29,15 @@ export class ThemeMode {
 export class Theme {
     constructor(name) {
         this._name = name;
-        this._tokens = new Map();
-        this._icons = new Map();
         this._mode = ThemeMode.system;
-        this._loadIcons();
+        this._localTokens = new Map();
+        this._localIcons = new Map();
+        this._loadGlobalTokens();
+        this._loadGlobalIcons();
     }
 
     get name() {
         return this._name;
-    }
-
-    get tokens() {
-        return [...this._tokens.values()];
-    }
-
-    get styleSheet() {
-        if (!this._styleSheet) {
-            this._styleSheet = this._createStyleSheet();
-        }
-
-        return this._styleSheet;
     }
 
     get mode() {
@@ -63,19 +52,12 @@ export class Theme {
         }
     }
 
-    addToken(name, value) {
-        let token = null;
-
-        if (!this._tokens.has(name)) {
-            token = new DesignToken(name, value);
-            this._tokens.set(name, token);
-            this._styleSheet = null;
-            this._themeCssVariables = null;
-        } else {
-            console.warn(`Design token '${name}' already exists.`);
+    get styleSheet() {
+        if (!this._styleSheet) {
+            this._styleSheet = this._createStyleSheet();
         }
 
-        return token;
+        return this._styleSheet;
     }
 
     register() {
@@ -98,11 +80,74 @@ export class Theme {
         return this;
     }
 
+    // TOKENS
+    /**
+     * Gets all the global (static) tokens.
+     */
+    static get globalTokens() {
+        if (!this._globalTokens) {
+            this._globalTokens = new Map();
+        }
+
+        return this._globalTokens;
+    }
+
+    /**
+     * Gets all the local (instance) tokens.
+     */
+    get localTokens() {
+        return this._localTokens;
+    }
+
+    /**
+     * Gets all the local (instance) and global (static) token names.
+     */
+    get tokenNames() {
+        return [...new Set([...this.localTokens.keys(), ...Theme.globalTokens.keys()])].sort();
+    }
+
+    static addToken(name, light, dark = null) {
+        if (!Theme.globalTokens.has(name)) {
+            Theme.globalTokens.set(name, new DesignToken(name, light, dark));
+            Theme._tokensDirty = true;
+        } else {
+            console.warn(`Global design token '${name}' already exists.`);
+        }
+    }
+
+    addToken(name, value, dark = null) {
+        this.localTokens.set(name, new DesignToken(name, value, dark));
+        this._styleSheet = null;
+        Theme._tokensDirty = true;
+    }
+
+    _loadGlobalTokens() {
+        if (!Theme._globalTokensLoaded) {
+            if (this.constructor.tokens) {
+                const tokenNames = Object.getOwnPropertyNames(this.constructor.tokens);
+
+                tokenNames.forEach(tokenName => {
+                    const tokenContent = this.constructor.tokens[tokenName];
+
+                    if (typeof tokenContent === 'string') {
+                        Theme.addToken(tokenName, tokenContent);
+                    } else if (typeof tokenContent === 'object') {
+                        Theme.addToken(tokenName, tokenContent.light, tokenContent.dark);
+                    } else {
+                        console.warn(`Global design token '${tokenName}' is invalid.`);
+                    }
+                });
+            }
+
+            Theme._globalTokensLoaded = true;
+        }
+    }
+
     // ICONS
     /**
      * Gets all the global (static) icons.
      */
-    static get icons() {
+    static get globalIcons() {
         if (!this._globalIcons) {
             this._globalIcons = new Map();
         }
@@ -111,52 +156,41 @@ export class Theme {
     }
 
     /**
-     * Gets all the instance icons.
+     * Gets all the local (instance) icons.
      */
-    get icons() {
-        return this._icons;
-    }
-
-    /**
-     * Gets all the global (static) icon names.
-     */
-    static get iconNames() {
-        return [...new Set([...Theme.icons.keys()])].sort();
+    get localIcons() {
+        return this._localIcons;
     }
 
     /**
      * Gets all the instance and global (static) icon names.
      */
     get iconNames() {
-        return [...new Set([...this._icons.keys(), ...Theme.icons.keys()])].sort();
+        return [...new Set([...this.localIcons.keys(), ...Theme.globalIcons.keys()])].sort();
     }
-    
-    static addIcon(name, content) {
-        if (!Theme.icons.has(name)) {
-            if (typeof content === 'string') {
-                Theme.icons.set(name, new Icon(name, content));
-            } else if (typeof content === 'object') {
-                Theme.icons.set(name, new Icon(name, content.content, content.size ? content.size : 24));
+
+    static addIcon(name, value, size = 24) {
+        if (name && value) {
+            if (!Theme.globalIcons.has(name)) {
+                Theme.globalIcons.set(name, new Icon(name, value, size));
             } else {
-                console.warn(`Design token '${name}' is invalid.`);
+                console.warn(`Global icon '${name}' already exists.`);
             }
-        } else {
-            console.warn(`Design token '${name}' already exists.`);
         }
     }
 
     addIcon(name, value, size = 24) {
         if (name && value) {
-            this._icons.set(name, new Icon(name, value, size));
+            this.localIcons.set(name, new Icon(name, value, size));
         }
     }
 
     static aliasIcon(name, alias) {
         if (name && alias && name !== alias) {
-            const icon = Theme.icons.get(name);
+            const icon = Theme.globalIcons.get(name);
 
             if (icon) {
-                Theme.icons.set(alias, icon);
+                Theme.globalIcons.set(alias, icon);
             }
         }
     }
@@ -166,35 +200,71 @@ export class Theme {
             const icon = this.getIcon(name);
 
             if (icon) {
-                this._icons.set(alias, icon);
+                this.localIcons.set(alias, icon);
             }
         }
     }
 
     renameIcon(name, newName) {
-        this._renameMapIcon(name, newName, this._icons);
-        this._renameMapIcon(name, newName, Theme.icons);
+        this._renameMapIcon(name, newName, this.localIcons);
+        this._renameMapIcon(name, newName, Theme.globalIcons);
     }
 
     getIcon(name) {
-        return this._icons.has(name) ? this._icons.get(name) : Theme.icons.get(name);
+        return this.localIcons.has(name) ? this.localIcons.get(name) : Theme.globalIcons.get(name);
+    }
+
+    _loadGlobalIcons() {
+        if (!Theme._globalIconsLoaded) {
+            if (this.constructor.icons) {
+                const iconNames = Object.getOwnPropertyNames(this.constructor.icons);
+
+                iconNames.forEach(iconName => {
+                    const iconContent = this.constructor.icons[iconName];
+
+                    if (typeof iconContent === 'string') {
+                        Theme.globalIcons.set(iconName, new Icon(iconName, iconContent));
+                    } else if (typeof iconContent === 'object') {
+                        Theme.globalIcons.set(iconName, new Icon(iconName, iconContent.icon, iconContent.size ? iconContent.size : 24));
+                    } else {
+                        console.warn(`Global icon '${iconName}' is invalid.`);
+                    }
+                });
+            }
+
+            Theme._globalIconsLoaded = true;
+        }
+    }
+
+    _renameMapIcon(name, newName, map) {
+        if ((map.has(name)) && (!map.has(newName))) {
+            const iconData = map.get(name);
+            map.delete(name);
+            map.set(newName, iconData);
+        }
     }
 
     _createStyleSheet() {
-        if (!this._themeCssVariables) {
-            this._themeCssVariables = this.tokens.map(token => `${token.cssVariable}: ${token.value}`).join(';\n');
+        if (Theme._tokensDirty || !this._allTokens) {
+            this._allTokens = [...new Map([...this.constructor.globalTokens, ...this._localTokens]).values()];
         }
 
-        if (!this._themeDarkCssVariables) {
-            this._themeDarkCssVariables = this.tokens.filter(token => token.hasDarkValue).map(token => `${token.cssVariable}: ${token.darkValue}`).join(';\n');
+        if (Theme._tokensDirty || !this._themeLightCssVariables) {
+            this._themeLightCssVariables = this._allTokens.map(token => `${token.cssVariable}: ${token.light}`).join(';\n');
         }
 
-        if (!this._themeAllDarkCssVariables) {
-            this._themeAllDarkCssVariables = [
-                ...this.tokens.filter(token => !token.hasDarkValue).map(token => `${token.cssVariable}: ${token.value}`),
-                ...this.tokens.filter(token => token.hasDarkValue).map(token => `${token.cssVariable}: ${token.darkValue}`)
+        if (Theme._tokensDirty || !this._themeDarkCssVariables) {
+            this._themeDarkCssVariables = this._allTokens.filter(token => token.hasDarkValue).map(token => `${token.cssVariable}: ${token.dark}`).join(';\n');
+        }
+
+        if (Theme._tokensDirty || !this._themeAllCssVariables) {
+            this._themeAllCssVariables = [
+                ...this._allTokens.filter(token => !token.hasDarkValue).map(token => `${token.cssVariable}: ${token.light}`),
+                ...this._allTokens.filter(token => token.hasDarkValue).map(token => `${token.cssVariable}: ${token.dark}`)
             ].join(';\n');
         }
+
+        Theme._tokensDirty = false;
 
         let ss = null;
 
@@ -202,7 +272,7 @@ export class Theme {
             case ThemeMode.light: {
                 ss = `
                     :root {
-                        ${this._themeCssVariables}
+                        ${this._themeLightCssVariables}
                     }
                 `;
 
@@ -212,7 +282,7 @@ export class Theme {
             case ThemeMode.dark: {
                 ss = `
                     :root {
-                        ${this._themeAllDarkCssVariables}
+                        ${this._themeAllCssVariables}
                     }
                 `;
 
@@ -222,7 +292,7 @@ export class Theme {
             default: {
                 ss = `
                     :root {
-                        ${this._themeCssVariables}
+                        ${this._themeLightCssVariables}
                     }
 
                     @media (prefers-color-scheme: dark) {
@@ -237,27 +307,5 @@ export class Theme {
         }
 
         return ss;
-    }
-
-    _loadIcons() {
-        if (!Theme._globalIconsLoaded) {
-            if (this.constructor.icons) {
-                const icons = Object.getOwnPropertyNames(this.constructor.icons);
-
-                icons.forEach(icon => {
-                    Theme.addIcon(icon, this.constructor.icons[icon]);
-                });
-            }
-
-            Theme._globalIconsLoaded = true;
-        }
-    }
-    
-    _renameMapIcon(name, newName, map) {
-        if ((map.has(name)) && (!map.has(newName))) {
-            const iconData = map.get(name);
-            map.delete(name);
-            map.set(newName, iconData);
-        }
     }
 }

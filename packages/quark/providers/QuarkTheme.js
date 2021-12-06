@@ -16,7 +16,7 @@ export class QuarkTheme extends Theme {
     constructor(name, foreground, background) {
         super(name);
 
-        this.addToken('test-surface-color', '#FAFAFA').dark('#1E1E1E');
+        this.addToken('test-surface-color', '#FAFAFA', '#1E1E1E');
         this.addToken('test-foreground-color', foreground);
         this.addToken('test-background-color', background);
         this.addToken('test-button-color', background);

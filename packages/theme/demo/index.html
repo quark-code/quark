@@ -192,6 +192,7 @@
             window.themeManager.iconNames.forEach(icon => {
                 const iconElement = document.createElement('demo-icon');
                 iconElement.icon = icon;
+                iconElement.title = icon;
                 iconContainer.appendChild(iconElement);
             });
         }

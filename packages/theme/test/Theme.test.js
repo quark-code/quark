@@ -10,8 +10,8 @@ class TestTheme extends Theme {
     constructor(name = null, foreground = null, background = null) {
         super(name ?? 'default');
 
-        this.addToken('test-surface-color', '#FAFAFA').dark('#1E1E1E');
-        this.addToken('test-on-surface-color', '#000000').dark('#FFFFFF');
+        this.addToken('test-surface-color', '#FAFAFA', '#1E1E1E');
+        this.addToken('test-on-surface-color', '#000000', '#FFFFFF');
         this.addToken('test-foreground-color', foreground ?? 'white');
         this.addToken('test-background-color', background ?? 'cornflowerblue');
     }
@@ -29,25 +29,23 @@ describe('theme', () => {
     it('sets the tokens correctly', async () => {
         const brand = new TestTheme('red', 'white', 'red');
 
-        expect(brand.tokens.length).to.equal(4);
-        expect(brand.tokens[0].name).to.equal('test-surface-color');
-        expect(brand.tokens[1].name).to.equal('test-on-surface-color');
-        expect(brand.tokens[2].name).to.equal('test-foreground-color');
-        expect(brand.tokens[3].name).to.equal('test-background-color');
+        expect(brand.tokenNames.length).to.equal(4);
+        expect(brand.tokenNames.indexOf('test-surface-color')).to.not.equal(-1);
+        expect(brand.tokenNames.indexOf('test-on-surface-color')).to.not.equal(-1);
+        expect(brand.tokenNames.indexOf('test-foreground-color')).to.not.equal(-1);
+        expect(brand.tokenNames.indexOf('test-background-color')).to.not.equal(-1);
     });
 
     it('does not add duplicate tokens', async () => {
         const brand = new TestTheme('red', 'white', 'red');
 
-        expect(brand.tokens.length).to.equal(4);
+        expect(brand.tokenNames.length).to.equal(4);
 
         const result1 = brand.addToken('test-background-color', 'green');
-        expect(brand.tokens.length).to.equal(4);
-        expect(result1).to.equal(null);
+        expect(brand.tokenNames.length).to.equal(4);
 
         const result2 = brand.addToken('test-background2-color', 'green');
-        expect(brand.tokens.length).to.equal(5);
-        expect(result2).to.not.equal(null);
+        expect(brand.tokenNames.length).to.equal(5);
     });
 
     it('sets the mode correctly', async () => {

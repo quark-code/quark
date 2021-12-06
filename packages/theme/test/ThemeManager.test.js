@@ -10,8 +10,8 @@ class TestTheme extends Theme {
     constructor(name = null, foreground = null, background = null) {
         super(name ?? 'default');
 
-        this.addToken('test-surface-color', '#FAFAFA').dark('#1E1E1E');
-        this.addToken('test-on-surface-color', '#000000').dark('#FFFFFF');
+        this.addToken('test-surface-color', '#FAFAFA', '#1E1E1E');
+        this.addToken('test-on-surface-color', '#000000', '#FFFFFF');
         this.addToken('test-foreground-color', foreground ?? 'white');
         this.addToken('test-background-color', background ?? 'cornflowerblue');
     }

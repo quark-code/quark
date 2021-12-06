@@ -10,7 +10,8 @@ export class ThemeManager {
         this._themes = new Map();
         this._activeTheme = null;
         this._defaultThemeName = null;
-        this._mode = mode; 
+        this._mode = mode;
+        this._dirty = true; 
     }
 
     get mode() {
@@ -29,6 +30,7 @@ export class ThemeManager {
     }
 
     get themeNames() {
+        // OPTIMIZE
         return Array.from(this._themes.keys());
     }
 
@@ -69,7 +71,7 @@ export class ThemeManager {
     use(name) {
         const theme = this._themes.get(name ?? (this._defaultThemeName ?? 'default'));
 
-        if (theme && theme.tokens.length > 0) {
+        if (theme) {
             theme.mode = this.mode;
             this._addStylesToDocument(theme.styleSheet);
             this._activeTheme = theme;
