@@ -7,11 +7,65 @@ import { css, html, svg, LitElement } from 'lit';
 import { adoptStyles } from '@lit/reactive-element/css-tag.js';
 import '../utils/ScopedCustomElementRegistry.js';
 
+const QuarkElements = new Set();
+
+const updateDir = () => {
+    const dir = document.documentElement.dir === 'rtl' ? 'rtl' : 'ltr';
+
+    QuarkElements.forEach((el) => {
+        el.setAttribute('dir', dir);
+    });
+};
+
+const dirObserver = new MutationObserver(updateDir);
+
+dirObserver.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['dir'],
+});
+
 class QuarkElement extends LitElement {
-    static registerElement(name) {
-        if (!customElements.get(name)) {
+    static as(name) {
+        name = name || this.defaultTag;
+        
+        if (name && !customElements.get(name)) {
             customElements.define(name, this);
         }
+    }
+
+    static asDefault() {
+        const name = this.defaultTag;
+        
+        if (name && !customElements.get(name)) {
+            customElements.define(name, this);
+        }
+    }
+
+    static get properties() {
+        return {
+
+        }
+    }
+
+    get isLTR() {
+        return this.dir === 'ltr';
+    }
+
+    constructor() {
+        super();
+        this.dir = 'ltr';
+    }
+
+    connectedCallback() {
+        super.connectedCallback();
+
+        this.setAttribute('dir', document.documentElement.dir === 'rtl' ? 'rtl' : 'ltr');
+        QuarkElements.add(this);
+    }
+
+    disconnectedCallback() {
+        QuarkElements.delete(this);
+        super.disconnectedCallback();
     }
 
     createRenderRoot() {

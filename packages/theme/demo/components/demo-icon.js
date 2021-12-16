@@ -12,6 +12,7 @@ export class DemoIcon extends LitElement {
         return [css`
             :host {
                 display: inline-block;
+                transition: var(--theme-transition);
                 width: 24px;
                 height: 24px;
             }

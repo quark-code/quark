@@ -55,5 +55,5 @@ export class QbIconElement extends QuarkElement {
 }
 
 export function QbIcon(name = 'qb-icon') {
-    QbIconElement.registerElement(name);
+    QbIconElement.as(name);
 }

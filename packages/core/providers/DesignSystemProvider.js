@@ -58,18 +58,18 @@ class DesignSystemProvider {
         return this;
     }
 
-    addIcon(name, content, size = 24) {
-        this.themeType.addIcon(name, {
-            content: content,
-            size: size
-        });
-        
+    withDensity(density = 'normal') {
+        themeManager.density = density;
         return this;
     }
 
-    aliasIcon(name, alias) {
-        this.themeType.aliasIcon(name, alias);
+    withDirection(dir = 'ltr') {
+        themeManager.dir = dir;
         return this;
+    }
+
+    withDevice(device = 'desktop') {
+        
     }
 }
 

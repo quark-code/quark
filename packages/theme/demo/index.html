@@ -14,12 +14,13 @@
     <style>
         html,
         body {
-            height: 100%;
+            min-height: 100%;
             padding: 8px;
             margin: 0;
             box-sizing: border-box;
             color: var(--theme-on-window-color);
             background-color: var(--theme-window-color);
+            transition: var(--theme-transition);
         }
 
         h4 {
@@ -84,6 +85,7 @@
 
         .row-container {
             display: flex;
+            flex-wrap: wrap;
             margin-bottom: 32px;
         }
 
@@ -97,26 +99,64 @@
         }
 
         .flex-item {
-            margin-right: 24px;
+            margin: 24px;
         }
 
         .info {
             margin-top: 4px;
             color: var(--theme-text-secondary-color);
         }
+
+        .font-box {
+            width: 300px;
+        }
+
+        .density-box {
+            height: 260px;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid lightgray;
+            text-align: left;
+            padding: 0 16px;
+            height: var(--theme-spacing-row-height);
+            min-height: var(--theme-spacing-row-height);
+            max-height: var(--theme-spacing-row-height);
+            box-sizing: border-box;
+        }
     </style>
 
     <link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
 
-<body class="typography-body">
+<body class="typography-body" hidden>
     <div class="row-container">
         <demo-mode-switcher></demo-mode-switcher>
         <demo-brand-switcher id="brandSwitcher"></demo-brand-switcher>
+        <demo-density-switcher></demo-density-switcher>
+        <demo-device-switcher></demo-device-switcher>
     </div>
 
     <div class="row-container">
-        <demo-card class="flex-item">
+        <demo-card class="flex-item color-box primary-light typography-title">Primary Light</demo-card>
+        <demo-card class="flex-item color-box primary typography-title">Primary</demo-card>
+        <demo-card class="flex-item color-box primary-dark typography-title">Primary Dark</demo-card>
+
+        <demo-card class="flex-item text-color-box typography-subtitle">
+            <div class="primary-text">Primary Text</div>
+            <div class="secondary-text">Secondary Text</div>
+            <div class="disabled-text">Disabled Text</div>
+        </demo-card>
+
+        <demo-card class="flex-item icon-box typography-body">
+            <div id="iconContainer"></div>
+        </demo-card>
+
+        <demo-card class="flex-item font-box">
             <div class="typography-item">
                 <div class="typography-headline">Headline</div>
                 <div class="typography-note info">Bold 40px</div>
@@ -163,18 +203,36 @@
             </div>
         </demo-card>
 
-        <demo-card class="flex-item color-box primary-light typography-title">Primary Light</demo-card>
-        <demo-card class="flex-item color-box primary typography-title">Primary</demo-card>
-        <demo-card class="flex-item color-box primary-dark typography-title">Primary Dark</demo-card>
+        <demo-card class="flex-item density-box">
+            <table>
+                <tr>
+                    <th>Dessert</th>
+                    <th>Calories</th>
+                    <th>Fat</th>
+                    <th>Carbs</th>
+                </tr>
 
-        <demo-card class="flex-item text-color-box typography-subtitle">
-            <div class="primary-text">Primary Text</div>
-            <div class="secondary-text">Secondary Text</div>
-            <div class="disabled-text">Disabled Text</div>
-        </demo-card>
+                <tr>
+                    <td>Frozen Yoghurt</td>
+                    <td>159</td>
+                    <td>6.0</td>
+                    <td>24</td>
+                </tr>
 
-        <demo-card class="flex-item icon-box typography-body">
-            <div id="iconContainer"></div>
+                <tr>
+                    <td>Ice Cream Sandwich</td>
+                    <td>237</td>
+                    <td>9.0</td>
+                    <td>37</td>
+                </tr>
+
+                <tr>
+                    <td>Eclair</td>
+                    <td>262</td>
+                    <td>16.0</td>
+                    <td>24</td>
+                </tr>
+            </table>
         </demo-card>
     </div>
 
@@ -203,7 +261,10 @@
 
         window.addEventListener('load', (event) => {
             const brandSwitcher = document.getElementById('brandSwitcher');
-            brandSwitcher.load(); 
+            brandSwitcher.load();
+
+            const body = document.querySelector('body');
+            body.hidden = false;
         });
     </script>
 </body>

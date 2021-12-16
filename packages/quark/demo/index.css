@@ -1,0 +1,32 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    padding: 8px;
+    margin: 0;
+    box-sizing: border-box;
+    color: var(--quark-on-background-color);
+    background-color: var(--quark-background-color);
+}
+
+.title {
+    font: var(--quark-font-title);
+}
+
+.body {
+    font: var(--quark-font-body);
+}
+
+.button {
+    font: var(--quark-font-button);
+}
+
+.note {
+    font: var(--quark-font-note);
+}
+
+.mono {
+    font: var(--quark-font-mono);
+}

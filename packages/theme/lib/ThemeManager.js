@@ -3,7 +3,7 @@
 MIT License
 Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
-import { ThemeMode } from './Theme.js';
+import { ThemeMode, DeviceType, ThemeDensity } from './Theme.js';
 
 export class ThemeManager {
     constructor(mode = ThemeMode.system) {
@@ -11,7 +11,35 @@ export class ThemeManager {
         this._activeTheme = null;
         this._defaultThemeName = null;
         this._mode = mode;
-        this._dirty = true; 
+        this._density = 'comfortable';
+        this._dir = 'ltr';
+        this._dirty = true;
+        this._deviceType = this._isMobile ? DeviceType.mobile : DeviceType.desktop;
+    }
+
+    get dir() {
+        return this._dir;
+    }
+
+    set dir(value) {
+        if (value !== this._dir) {
+            this._dir = (value === 'rtl') ? 'rtl' : 'ltr';
+            document.documentElement.dir = this._dir;
+        }
+    }
+
+    get deviceType() {
+        return this._deviceType;
+    }
+
+    set deviceType(value) {
+        if (DeviceType.isValid(value) && (this._deviceType !== value)) {
+            this._deviceType = value;
+
+            if (this._activeTheme) {
+                this.use(this._activeTheme.name);
+            }
+        }
     }
 
     get mode() {
@@ -23,14 +51,26 @@ export class ThemeManager {
             this._mode = value;
 
             if (this._activeTheme) {
-                this._activeTheme.mode = this._mode;
+                this.use(this._activeTheme.name);
+            }
+        }
+    }
+
+    get density() {
+        return this._density;
+    }
+
+    set density(value) {
+        if (ThemeDensity.isValid(value) && (this._density !== value)) {
+            this._density = value;
+
+            if (this._activeTheme) {
                 this.use(this._activeTheme.name);
             }
         }
     }
 
     get themeNames() {
-        // OPTIMIZE
         return Array.from(this._themes.keys());
     }
 
@@ -43,6 +83,7 @@ export class ThemeManager {
     }
 
     register(theme) {
+        theme.deviceType = this.deviceType;
         this._themes.set(theme.name, theme);
     }
 
@@ -73,6 +114,8 @@ export class ThemeManager {
 
         if (theme) {
             theme.mode = this.mode;
+            theme.density = this.density;
+            theme.deviceType = this.deviceType;
             this._addStylesToDocument(theme.styleSheet);
             this._activeTheme = theme;
 
@@ -111,6 +154,18 @@ export class ThemeManager {
     }
 
     _removeStylesFromDocument() {
-        document.documentElement.querySelectorAll('style[quark-theme]').forEach((s) => document.documentElement.removeChild(s));
+        const styles = document.documentElement.querySelectorAll('style[quark-theme]');
+
+        for (let i = 0; i < styles.length; i++) {
+            document.documentElement.removeChild(styles[i]);
+        }
+    }
+
+    get _isMobile() {
+        if (navigator.userAgentData) {
+            return navigator.userAgentData.mobile;
+        }
+
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     }
 }

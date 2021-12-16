@@ -7,7 +7,7 @@ This is how you would set up a typical documentation site.
 Just install the npm package - no big deal.
 
 ```
-npm i @quark-code/quark-doc --save-dev
+npm i @quark-elements/doc --save-dev
 ```
 
 ## Setup

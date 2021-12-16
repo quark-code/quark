@@ -7,7 +7,7 @@ Now that you have everything [set up](Introduction.md), let's have a look at how
 All templates (layouts, includes and regular pages) are expected to be named `{something}.template.js`. The default page should be called `index.template.js` and be placed in the root of the source folder. Here's a minimal page:
 
 ```javascript
-const { html } = require('@quark/quark-doc');
+const { html } = require('@quark-elements/doc');
 
 const config = {
     layout: 'default',
@@ -26,10 +26,10 @@ module.exports = {
 
 All templates (layouts, includes and regular pages) will have a similar structure, with the parts as follows:
 
-Firstly, we import the `html` tagged template literal from `@quark/quark-doc` which does a bit of magic when creating template markup.
+Firstly, we import the `html` tagged template literal from `@quark-elements/doc` which does a bit of magic when creating template markup.
 
 ```javascript
-const { html } = require('@quark/quark-doc');
+const { html } = require('@quark-elements/doc');
 ```
 
 Then we create the `config` object which provides various bits of information to the page generator. For now we'll just provide the layout to use (corresponds to a file `_layouts/default.template.js`) and a title for the page.
@@ -64,7 +64,7 @@ module.exports = {
 The layout template page should be placed in the `_layouts` folder and be called `default.template.js` (you can call it anything, as long as it ends with `.template.js`).
 
 ```javascript
-const { html } = require('@quark/quark-doc');
+const { html } = require('@quark-elements/doc');
 
 const config = {
 }
@@ -173,7 +173,7 @@ Before getting into the navigation, let's just quickly stub out the `Installatio
 Add the following code to each one, replacing "TITLE" with "Installation", "Usage" or "Components" as appropriate.
 
 ```javascript
-const { html } = require('@quark/quark-doc');
+const { html } = require('@quark-elements/doc');
 
 const config = {
     layout: 'default',
@@ -248,7 +248,7 @@ The layout page (`default.template.js`) needs to show the navigation pane on the
  An `include` is just a template whose content (markup) gets injected into a layout or page template. You can think of them as a kind of component. As mentioned before, we'll use an `include` to implement the navigator for our component documentation site. Create a file called `navigator.template.js` in the `_includes` folder with the following content (for now):
 
  ```javascript
-const { html } = require('@quark/quark-doc');
+const { html } = require('@quark-elements/doc');
 
 const render = (data) => html`
     <span>TODO</span>
@@ -370,7 +370,7 @@ ${include.navigator(data.$.categories)}
 Finally, we can fill out the `render` function of the navigator `include`, which maps each category that has at least one page to an `h4` and `ul`, and maps each page in the category to a `li` containing an anchor tag. Pretty simple, actually.
 
 ```javascript
-const { html } = require('@quark/quark-doc');
+const { html } = require('@quark-elements/doc');
 
 const render = (data) => {
     return html`
@@ -494,7 +494,7 @@ The array objects must have the following fields:
 All of the pages will be generated in a parent folder with the same name as the template folder and use the same layout template. The code below is the most simple example using the component data (just displays the component name and tag name).
 
 ```javascript
-const { html } = require('@quark/quark-doc');
+const { html } = require('@quark-elements/doc');
 
 const config = {
     layout: 'default',

@@ -1,0 +1,71 @@
+{
+  "name": "@quark-elements/material",
+  "version": "0.0.1",
+  "description": "A Material Design native Web Component library.",
+  "main": "index.js",
+  "module": "index.js",
+  "private": false,
+  "scripts": {
+    "build-demo": "npm run build-material-demo",
+    "build-material-demo": "rimraf demo-build && rollup -c ./demo/rollup.config.js",
+    "serve-material-demo-build": "web-dev-server --app-index demo-build/index.html --open",
+    "serve-demo": "npm run serve-material-demo",
+    "serve-material-demo": "web-dev-server --node-resolve --app-index demo/index.html --open",
+    "serve-demo-build": "npm run serve-material-demo-build",
+    "test": "npm run test-material",
+    "test-coverage": "npm run test-material-coverage",
+    "test-material": "web-test-runner test/**/*.test.js --node-resolve --playwright --browsers chromium firefox webkit",
+    "test-material-coverage": "web-test-runner test/**/*.test.js --node-resolve --coverage --playwright --browsers chromium firefox webkit",
+    "serve-coverage": "npm run serve-material-coverage",
+    "serve-material-coverage": "web-dev-server --app-index coverage/lcov-report/index.html --open",
+    "analyze-material": "cem analyze --config \"custom-elements-manifest.config.mjs\"",
+    "analyze-material-old": "cem analyze --config custom-elements-manifest.config.js --litelement --globs \"**/*.js\" --exclude \"(demo|docs-src|docs)/**/*.js\"",
+    "analyze-material-old-older": "cem analyze --litelement --globs \"**/*.js\" --exclude \"demo/**/*.js\"",
+
+    "docs": "npm run material-docs",
+    "material-docs": "npm run material-docs-clean && npm run analyze-material && npm run material-docs-build && npm run material-docs-gen",
+    "material-docs-clean": "rimraf docs",
+    "material-docs-build": "rollup -c ./rollup-docs.config.js",
+    "material-docs-gen": "quark-doc",
+    "material-docs-serve": "web-dev-server --root-dir=docs --node-resolve --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quark-elements/quark.git",
+    "directory": "packages/material"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Paul H Mason",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/quark-elements/quark/issues"
+  },
+  "homepage": "https://github.com/quark-elements/quark#readme",
+  "dependencies": {
+    "@quark-elements/core": "^0.0.1",
+    "@quark-elements/theme": "^0.0.1"
+  },
+  "devDependencies": {
+    "@quark-elements/doc": "^0.0.1",
+    "@web/dev-server": "~0.1.28",
+    "@web/test-runner": "^0.13.22",
+    "@open-wc/testing": "^3.0.3",
+    "@web/test-runner-playwright": "^0.8.8",
+    "@open-wc/building-rollup": "^2.0.1",
+    "@custom-elements-manifest/analyzer": "^0.5.7",
+    "@rollup/plugin-node-resolve": "^13.0.4",
+    "@rollup/plugin-replace": "^3.0.0",
+    "rollup-plugin-summary": "^1.2.3",
+    "rollup-plugin-terser": "^7.0.2",
+    "deepmerge": "^4.2.2",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.60.2",
+    "rollup-plugin-copy": "^3.4.0",
+    "prism-themes": "^1.9.0",
+    "comment-parser": "^1.1.5"
+  },
+  "customElements": "custom-elements.json"
+}

@@ -11,6 +11,7 @@ export class DemoModeSwitcher extends LitElement {
         return [css`
             :host {
                 display: block;
+                transition: var(--theme-transition);
                 margin-right: 32px;
             }
 

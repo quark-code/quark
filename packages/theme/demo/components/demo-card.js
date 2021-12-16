@@ -10,10 +10,11 @@ export class DemoCard extends LitElement {
         return [css`
             :host {
                 display: block;
+                transition: var(--theme-transition);
                 color: var(--theme-on-surface-color);
                 background-color: var(--theme-surface-color);
                 padding: 16px 32px;
-                border-radius: 5px;
+                border-radius: var(--theme-border-radius-m);
                 border: 1px solid var(--theme-border-color);
                 box-sizing: border-box;
             }

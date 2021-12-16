@@ -4,7 +4,10 @@
   "description": "Monorepo of all Quark Web Component packages.",
   "private": false,
   "scripts": {
-    "lerna-publish": "lerna publish --message \"chore: release new versions\""
+    "lerna-publish": "lerna publish --message \"chore: release new versions\"",
+    "lerna-docs-clean": "rimraf docs",
+    "lerna-docs-material": "copyfiles -u 3 ./packages/material/docs/**/*.*  docs/material",
+    "lerna-docs": "npm run lerna-docs-clean && lerna run docs && npm run lerna-docs-material"
   },
   "repository": {
     "type": "git",
@@ -17,6 +20,8 @@
   },
   "homepage": "https://github.com/quark-elements/quark#readme",
   "devDependencies": {
-    "lerna": "^4.0.0"
+    "rimraf": "^3.0.2",
+    "lerna": "^4.0.0",
+    "copyfiles": "^2.4.1"
   }
 }

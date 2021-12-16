@@ -8,7 +8,7 @@ import { QbButtonElement } from '../button';
 
 class QbStepperElement extends QuarkElement {
     static elementDefinitions = {
-        'stepper-button': QbButtonElement,
+        'stepper-button': QbButtonElement
     };
 
     static get styles() {
@@ -44,7 +44,7 @@ class QbStepperElement extends QuarkElement {
 }
 
 function QbStepper(name = 'qb-stepper') {
-    QbStepperElement.registerElement(name);
+    QbStepperElement.as(name);
 }
 
 export { QbStepper, QbStepperElement }

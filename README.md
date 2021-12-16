@@ -19,15 +19,15 @@ npm install @quark-elements/core --save
 [Full Documentation]()
 
 # Quark
-A simple no frills white label native Web Component library for quick prototyping and simple applications where a fancy UI isn't required.
+A native Web Component library suitable for "desktop-like" web applications with a compact monochromatic UI (similar to Visual Studio Code).
 
 ## Installation
 ```
-npm install @quark-elements/basic --save
+npm install @quark-elements/quark --save
 ```
 
 ## Documentation
-[Overview](./packages/basic/README.md)
+[Overview](./packages/quark/README.md)
 
 [Full Documentation]()
 

@@ -8,6 +8,24 @@ import { Icon } from './Icon.js';
 
 export { DesignToken, Icon }
 
+export class ThemeDensity {
+    static get compact() {
+        return 'compact';
+    }
+
+    static get comfortable() {
+        return 'comfortable';
+    }
+
+    static get sparse() {
+        return 'sparse';
+    }
+
+    static isValid(value) {
+        return ['compact', 'comfortable', 'sparse'].indexOf(value) > -1;
+    }
+}
+
 export class ThemeMode {
     static get system() {
         return 'system';
@@ -21,15 +39,32 @@ export class ThemeMode {
         return 'dark';
     }
 
-    static isValid(mode) {
-        return ['system', 'light', 'dark'].indexOf(mode) > -1;
+    static isValid(value) {
+        return ['system', 'light', 'dark'].indexOf(value) > -1;
+    }
+}
+
+export class DeviceType {
+    static get mobile() {
+        return 'mobile';
+    }
+
+    static get desktop() {
+        return 'desktop';
+    }
+
+    static isValid(value) {
+        return ['mobile', 'desktop'].indexOf(value) > -1;
     }
 }
 
 export class Theme {
     constructor(name) {
+        this._tokensDirty = true;
         this._name = name;
         this._mode = ThemeMode.system;
+        this._density = ThemeDensity.comfortable;
+        this._deviceType = DeviceType.desktop;
         this._localTokens = new Map();
         this._localIcons = new Map();
         this._loadGlobalTokens();
@@ -45,15 +80,37 @@ export class Theme {
     }
 
     set mode(value) {
-        if (ThemeMode.isValid(value) && (this._mode !== value)) {
+        if ((this._mode !== value) && ThemeMode.isValid(value)) {
             this._mode = value;
-            window.themeManager.mode = value;
-            this._styleSheet = this._createStyleSheet();
+            this._tokensDirty = true;
+        }
+    }
+
+    get density() {
+        return this._density;
+    }
+
+    set density(value) {
+        if ((this._density !== value) && ThemeDensity.isValid(value)) {
+            this._density = value;
+            this._tokensDirty = true;
+        }
+    }
+
+    get deviceType() {
+        return this._deviceType;
+    }
+
+    set deviceType(value) {
+        if ((this._deviceType !== value) && DeviceType.isValid(value)) {
+            this._deviceType = value;
+            this._tokensDirty = true;
+            this._changeIconDeviceType();
         }
     }
 
     get styleSheet() {
-        if (!this._styleSheet) {
+        if (this._tokensDirty) {
             this._styleSheet = this._createStyleSheet();
         }
 
@@ -106,19 +163,19 @@ export class Theme {
         return [...new Set([...this.localTokens.keys(), ...Theme.globalTokens.keys()])].sort();
     }
 
-    static addToken(name, light, dark = null) {
+    static addToken(name, values) {
         if (!Theme.globalTokens.has(name)) {
-            Theme.globalTokens.set(name, new DesignToken(name, light, dark));
-            Theme._tokensDirty = true;
+            Theme.globalTokens.set(name, new DesignToken(name, values));
+            this._tokensDirty = true;
         } else {
             console.warn(`Global design token '${name}' already exists.`);
         }
     }
 
-    addToken(name, value, dark = null) {
-        this.localTokens.set(name, new DesignToken(name, value, dark));
+    addToken(name, values) {
+        this.localTokens.set(name, new DesignToken(name, values));
         this._styleSheet = null;
-        Theme._tokensDirty = true;
+        this._tokensDirty = true;
     }
 
     _loadGlobalTokens() {
@@ -126,17 +183,16 @@ export class Theme {
             if (this.constructor.tokens) {
                 const tokenNames = Object.getOwnPropertyNames(this.constructor.tokens);
 
-                tokenNames.forEach(tokenName => {
+                for (let i = 0; i < tokenNames.length; i++) {
+                    const tokenName = tokenNames[i];
                     const tokenContent = this.constructor.tokens[tokenName];
 
-                    if (typeof tokenContent === 'string') {
+                    if (tokenContent) {
                         Theme.addToken(tokenName, tokenContent);
-                    } else if (typeof tokenContent === 'object') {
-                        Theme.addToken(tokenName, tokenContent.light, tokenContent.dark);
                     } else {
                         console.warn(`Global design token '${tokenName}' is invalid.`);
                     }
-                });
+                }
             }
 
             Theme._globalTokensLoaded = true;
@@ -169,19 +225,19 @@ export class Theme {
         return [...new Set([...this.localIcons.keys(), ...Theme.globalIcons.keys()])].sort();
     }
 
-    static addIcon(name, value, size = 24) {
+    static addIcon(name, value) {
         if (name && value) {
             if (!Theme.globalIcons.has(name)) {
-                Theme.globalIcons.set(name, new Icon(name, value, size));
+                Theme.globalIcons.set(name, new Icon(name, value, this.deviceType));
             } else {
                 console.warn(`Global icon '${name}' already exists.`);
             }
         }
     }
 
-    addIcon(name, value, size = 24) {
+    addIcon(name, value) {
         if (name && value) {
-            this.localIcons.set(name, new Icon(name, value, size));
+            this.localIcons.set(name, new Icon(name, value, this.deviceType));
         }
     }
 
@@ -214,22 +270,24 @@ export class Theme {
         return this.localIcons.has(name) ? this.localIcons.get(name) : Theme.globalIcons.get(name);
     }
 
+    _changeIconDeviceType() {
+        const icons = [...Theme.globalIcons.values(), ...this.localIcons.values()];
+
+        for (let i = 0; i < icons.length; i++) {
+            icons[i].deviceType = this.deviceType;
+        }
+    }
+
     _loadGlobalIcons() {
         if (!Theme._globalIconsLoaded) {
             if (this.constructor.icons) {
                 const iconNames = Object.getOwnPropertyNames(this.constructor.icons);
 
-                iconNames.forEach(iconName => {
+                for (let i = 0; i < iconNames.length; i++) {
+                    const iconName = iconNames[i];
                     const iconContent = this.constructor.icons[iconName];
-
-                    if (typeof iconContent === 'string') {
-                        Theme.globalIcons.set(iconName, new Icon(iconName, iconContent));
-                    } else if (typeof iconContent === 'object') {
-                        Theme.globalIcons.set(iconName, new Icon(iconName, iconContent.icon, iconContent.size ? iconContent.size : 24));
-                    } else {
-                        console.warn(`Global icon '${iconName}' is invalid.`);
-                    }
-                });
+                    Theme.globalIcons.set(iconName, new Icon(iconName, iconContent, this.deviceType));
+                }
             }
 
             Theme._globalIconsLoaded = true;
@@ -245,67 +303,44 @@ export class Theme {
     }
 
     _createStyleSheet() {
-        if (Theme._tokensDirty || !this._allTokens) {
-            this._allTokens = [...new Map([...this.constructor.globalTokens, ...this._localTokens]).values()];
+        if (!this._allTokens) {
+            this._allTokens = [...new Map([...this.constructor.globalTokens, ...this.localTokens]).values()];
         }
 
-        if (Theme._tokensDirty || !this._themeLightCssVariables) {
-            this._themeLightCssVariables = this._allTokens.map(token => `${token.cssVariable}: ${token.light}`).join(';\n');
+        //console.time('Create Stylesheet');
+        this._tokensDirty = false;
+        const themeLightCssVariablesArray = [];
+        const themeDarkCssVariablesArray = [];
+        const themeAllCssVariablesArray = [];
+        
+        for (let i = 0; i < this._allTokens.length; i++) {
+            const token = this._allTokens[i];
+            const light = `${token.cssVariable}: ${token.getValue('light', this.deviceType, this.density)}`;
+
+            themeLightCssVariablesArray.push(light);
+
+            if (this.mode !== ThemeMode.light) {
+                if (token.hasDarkValue) {
+                    const dark = `${token.cssVariable}: ${token.getValue('dark', this.deviceType, this.density)}`;
+                    themeDarkCssVariablesArray.push(dark);
+                    themeAllCssVariablesArray.push(dark);
+                } else {
+                    if (this.mode === ThemeMode.dark) {
+                        themeAllCssVariablesArray.push(light);
+                    }
+                }
+            }
         }
-
-        if (Theme._tokensDirty || !this._themeDarkCssVariables) {
-            this._themeDarkCssVariables = this._allTokens.filter(token => token.hasDarkValue).map(token => `${token.cssVariable}: ${token.dark}`).join(';\n');
-        }
-
-        if (Theme._tokensDirty || !this._themeAllCssVariables) {
-            this._themeAllCssVariables = [
-                ...this._allTokens.filter(token => !token.hasDarkValue).map(token => `${token.cssVariable}: ${token.light}`),
-                ...this._allTokens.filter(token => token.hasDarkValue).map(token => `${token.cssVariable}: ${token.dark}`)
-            ].join(';\n');
-        }
-
-        Theme._tokensDirty = false;
-
-        let ss = null;
+        
+        const themeLightCssVariables = themeLightCssVariablesArray.join(';\n');
+        const themeDarkCssVariables = themeDarkCssVariablesArray.join(';\n');
+        const themeAllCssVariables = themeAllCssVariablesArray.join(';\n');
+        //console.timeEnd('Create Stylesheet');
 
         switch (this.mode) {
-            case ThemeMode.light: {
-                ss = `
-                    :root {
-                        ${this._themeLightCssVariables}
-                    }
-                `;
-
-                break;
-            }
-
-            case ThemeMode.dark: {
-                ss = `
-                    :root {
-                        ${this._themeAllCssVariables}
-                    }
-                `;
-
-                break;
-            }
-
-            default: {
-                ss = `
-                    :root {
-                        ${this._themeLightCssVariables}
-                    }
-
-                    @media (prefers-color-scheme: dark) {
-                        :root {
-                            ${this._themeDarkCssVariables}
-                        }
-                    }
-                `;
-
-                break;
-            }
+            case ThemeMode.light: return `:root {${themeLightCssVariables}}`;
+            case ThemeMode.dark: return `:root {${themeAllCssVariables}}`;
+            default: return `:root {${themeLightCssVariables}} @media (prefers-color-scheme: dark) {:root {${themeDarkCssVariables}}}`;
         }
-
-        return ss;
     }
 }

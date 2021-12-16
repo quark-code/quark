@@ -18,11 +18,17 @@ marked.setOptions({
     sanitize: false,
     smartLists: true,
     smartypants: false,
-    xhtml: false
+    xhtml: false,
+    highlight: (code, lang) => Prism.highlight(code, Prism.languages[lang], lang)
 });
+
 
 function html(strings, ...values) {
     return strings.map((str, idx) => str + (Array.isArray(values[idx]) ? values[idx].join('\n') : values[idx] || '')).join('');
+}
+
+function md(strings, ...values) {
+    return marked(html(strings, ...values));
 }
 
 function code(data, language = 'markup', options) {
@@ -33,7 +39,8 @@ function code(data, language = 'markup', options) {
     }
 
     let lineArray = Prism.highlight(data, Prism.languages[language], language).split('\n');
-    let lines = lineArray.map(line => line.trim()).filter(line => line.length > 0);
+    let lines = lineArray.filter(line => line.length > 0);
+    // let lines = lineArray.map(line => line.trim()).filter(line => line.length > 0);
 
     if (lines.length > 0) {
         lines[0] = (`<pre class="language-${language}" ${inline ? 'inline' : ''}><code class="language-${language}">${lines[0]}`).trim();
@@ -77,6 +84,7 @@ function includeExists(include) {
 
 module.exports = {
     html: html,
+    md: md,
     code: code,
     table: table,
     escape: escape,

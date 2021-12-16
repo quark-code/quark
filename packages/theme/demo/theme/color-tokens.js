@@ -1,8 +1,16 @@
 export const Colors = {
     // Window
     'theme-window-color': {
-        light: '#FAFAFA',
-        dark: '#1E1E1E'
+        light: {
+            //mobile: '#E0F2F1',
+            mobile: 'khaki',
+            desktop: '#FAFAFA'
+        },
+
+        dark: {
+            mobile: '#1A237E',
+            desktop: '#1E1E1E'
+        }
     },
     'theme-on-window-color': {
         light: 'rgba(0, 0, 0, 0.87)',

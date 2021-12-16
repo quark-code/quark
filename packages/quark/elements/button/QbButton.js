@@ -53,7 +53,7 @@ class QbButtonElement extends QuarkButtonElement {
 }
 
 function QbButton(name = 'qb-button') {
-    QbButtonElement.registerElement(name);
+    QbButtonElement.as(name);
 }
 
 export { QbButton, QbButtonElement }

@@ -1,0 +1,1171 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "index.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "elements/index.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "providers/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "provideMaterialDesignSystem",
+          "declaration": {
+            "name": "provideMaterialDesignSystem",
+            "module": "./MaterialDesignSystemProvider.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "MaterialTheme",
+          "declaration": {
+            "name": "MaterialTheme",
+            "module": "./MaterialDesignSystemProvider.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "providers/MaterialDesignSystemProvider.js",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "provideMaterialDesignSystem"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "provideMaterialDesignSystem",
+          "declaration": {
+            "name": "provideMaterialDesignSystem",
+            "module": "providers/MaterialDesignSystemProvider.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "MaterialTheme",
+          "declaration": {
+            "name": "MaterialTheme",
+            "module": "providers/MaterialDesignSystemProvider.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "themeManager",
+          "declaration": {
+            "name": "themeManager",
+            "module": "providers/MaterialDesignSystemProvider.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "styling/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "displayLarge",
+          "declaration": {
+            "name": "displayLarge",
+            "module": "../providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "displayMedium",
+          "declaration": {
+            "name": "displayMedium",
+            "module": "../providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "displaySmall",
+          "declaration": {
+            "name": "displaySmall",
+            "module": "../providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "headlineLarge",
+          "declaration": {
+            "name": "headlineLarge",
+            "module": "../providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "headlineMedium",
+          "declaration": {
+            "name": "headlineMedium",
+            "module": "../providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "headlineSmall",
+          "declaration": {
+            "name": "headlineSmall",
+            "module": "../providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "titleLarge",
+          "declaration": {
+            "name": "titleLarge",
+            "module": "../providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "titleMedium",
+          "declaration": {
+            "name": "titleMedium",
+            "module": "../providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "titleSmall",
+          "declaration": {
+            "name": "titleSmall",
+            "module": "../providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "labelLarge",
+          "declaration": {
+            "name": "labelLarge",
+            "module": "../providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "labelMedium",
+          "declaration": {
+            "name": "labelMedium",
+            "module": "../providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "labelSmall",
+          "declaration": {
+            "name": "labelSmall",
+            "module": "../providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "bodyLarge",
+          "declaration": {
+            "name": "bodyLarge",
+            "module": "../providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "bodyMedium",
+          "declaration": {
+            "name": "bodyMedium",
+            "module": "../providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "bodySmall",
+          "declaration": {
+            "name": "bodySmall",
+            "module": "../providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "codeLarge",
+          "declaration": {
+            "name": "codeLarge",
+            "module": "../providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "codeMedium",
+          "declaration": {
+            "name": "codeMedium",
+            "module": "../providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "codeSmall",
+          "declaration": {
+            "name": "codeSmall",
+            "module": "../providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "elevation0",
+          "declaration": {
+            "name": "elevation0",
+            "module": "../providers/theme/tokens/elevation.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "elevation1",
+          "declaration": {
+            "name": "elevation1",
+            "module": "../providers/theme/tokens/elevation.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "elevation2",
+          "declaration": {
+            "name": "elevation2",
+            "module": "../providers/theme/tokens/elevation.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "elevation3",
+          "declaration": {
+            "name": "elevation3",
+            "module": "../providers/theme/tokens/elevation.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "elevation4",
+          "declaration": {
+            "name": "elevation4",
+            "module": "../providers/theme/tokens/elevation.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "elevation5",
+          "declaration": {
+            "name": "elevation5",
+            "module": "../providers/theme/tokens/elevation.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "elements/demo/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./QmKitchenSink.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "elements/demo/QmKitchenSink.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Don't use this.",
+          "name": "QmKitchenSinkElement",
+          "slots": [
+            {
+              "description": "Default",
+              "name": ""
+            }
+          ],
+          "members": [],
+          "superclass": {
+            "name": "QuarkElement",
+            "package": "@quark-elements/core/elements"
+          },
+          "summary": "A demo component for documentation testing.",
+          "type": {
+            "text": "component"
+          },
+          "tagName": "qm-kitchen-sink",
+          "customElement": true,
+          "displayname": "Kitchen Sink"
+        },
+        {
+          "kind": "function",
+          "name": "QmKitchenSink",
+          "parameters": [
+            {
+              "name": "name",
+              "default": "'qm-kitchen-sink'"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "QmKitchenSinkElement",
+          "declaration": {
+            "name": "QmKitchenSinkElement",
+            "module": "elements/demo/QmKitchenSink.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "QmKitchenSink",
+          "declaration": {
+            "name": "QmKitchenSink",
+            "module": "elements/demo/QmKitchenSink.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "elements/panel/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./QmFilledPanel.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./QmFlatPanel.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./QmOutlinedPanel.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./QmRaisedPanel.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "elements/panel/QmFilledPanel.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Some random description.",
+          "name": "QmFilledPanelElement",
+          "slots": [
+            {
+              "description": "Default",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "name",
+              "privacy": "public",
+              "description": "The name to say \"Hello\" to.",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "count",
+              "privacy": "public",
+              "description": "The number of times the button has been clicked.",
+              "type": {
+                "text": "number"
+              },
+              "attribute": "count"
+            },
+            {
+              "kind": "field",
+              "name": "variant",
+              "privacy": "public",
+              "description": "The different visual styles.",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "variant",
+              "allowedvalues": [
+                "text",
+                "outlined",
+                "filled",
+                "raised"
+              ]
+            }
+          ],
+          "attributes": [
+            {
+              "name": "name",
+              "description": "The name to say \"Hello\" to.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "name"
+            },
+            {
+              "name": "count",
+              "description": "The number of times the button has been clicked.",
+              "type": {
+                "text": "number"
+              },
+              "fieldName": "count"
+            },
+            {
+              "name": "variant",
+              "description": "The different visual styles.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "variant",
+              "allowedvalues": [
+                "text",
+                "outlined",
+                "filled",
+                "raised"
+              ]
+            }
+          ],
+          "superclass": {
+            "name": "QuarkPanelElement",
+            "package": "@quark-elements/core/elements"
+          },
+          "summary": "A filled variant Material Design panel.",
+          "type": {
+            "text": "component"
+          },
+          "tagName": "qm-filled-panel",
+          "customElement": true,
+          "displayname": "Filled Panel",
+          "category": "Panels "
+        },
+        {
+          "kind": "function",
+          "name": "QmFilledPanel",
+          "parameters": [
+            {
+              "name": "name",
+              "default": "'qm-filled-panel'"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "QmFilledPanelElement",
+          "declaration": {
+            "name": "QmFilledPanelElement",
+            "module": "elements/panel/QmFilledPanel.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "QmFilledPanel",
+          "declaration": {
+            "name": "QmFilledPanel",
+            "module": "elements/panel/QmFilledPanel.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "elements/panel/QmFlatPanel.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Some random description.",
+          "name": "QmFlatPanelElement",
+          "slots": [
+            {
+              "description": "Default",
+              "name": ""
+            }
+          ],
+          "members": [],
+          "superclass": {
+            "name": "QuarkPanelElement",
+            "package": "@quark-elements/core/elements"
+          },
+          "summary": "A flat variant Material Design panel.",
+          "type": {
+            "text": "component"
+          },
+          "tagName": "qm-flat-panel",
+          "customElement": true,
+          "displayname": "Flat Panel",
+          "category": "Panels "
+        },
+        {
+          "kind": "function",
+          "name": "QmFlatPanel",
+          "parameters": [
+            {
+              "name": "name",
+              "default": "'qm-flat-panel'"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "QmFlatPanelElement",
+          "declaration": {
+            "name": "QmFlatPanelElement",
+            "module": "elements/panel/QmFlatPanel.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "QmFlatPanel",
+          "declaration": {
+            "name": "QmFlatPanel",
+            "module": "elements/panel/QmFlatPanel.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "elements/panel/QmOutlinedPanel.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Some random description.",
+          "name": "QmOutlinedPanelElement",
+          "slots": [
+            {
+              "description": "Default",
+              "name": ""
+            }
+          ],
+          "members": [],
+          "superclass": {
+            "name": "QuarkPanelElement",
+            "package": "@quark-elements/core/elements"
+          },
+          "summary": "An outlined variant Material Design panel.",
+          "type": {
+            "text": "component"
+          },
+          "tagName": "qm-outlined-panel",
+          "customElement": true,
+          "displayname": "Outlined Panel",
+          "category": "Panels "
+        },
+        {
+          "kind": "function",
+          "name": "QmOutlinedPanel",
+          "parameters": [
+            {
+              "name": "name",
+              "default": "'qm-outlined-panel'"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "QmOutlinedPanelElement",
+          "declaration": {
+            "name": "QmOutlinedPanelElement",
+            "module": "elements/panel/QmOutlinedPanel.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "QmOutlinedPanel",
+          "declaration": {
+            "name": "QmOutlinedPanel",
+            "module": "elements/panel/QmOutlinedPanel.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "elements/panel/QmRaisedPanel.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Some random description.",
+          "name": "QmRaisedPanelElement",
+          "slots": [
+            {
+              "description": "Default",
+              "name": ""
+            }
+          ],
+          "members": [],
+          "superclass": {
+            "name": "QuarkPanelElement",
+            "package": "@quark-elements/core/elements"
+          },
+          "summary": "A raised variant Material Design panel.",
+          "type": {
+            "text": "component"
+          },
+          "tagName": "qm-raised-panel",
+          "customElement": true,
+          "displayname": "Raised Panel",
+          "category": "Panels "
+        },
+        {
+          "kind": "function",
+          "name": "QmRaisedPanel",
+          "parameters": [
+            {
+              "name": "name",
+              "default": "'qm-raised-panel'"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "QmRaisedPanelElement",
+          "declaration": {
+            "name": "QmRaisedPanelElement",
+            "module": "elements/panel/QmRaisedPanel.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "QmRaisedPanel",
+          "declaration": {
+            "name": "QmRaisedPanel",
+            "module": "elements/panel/QmRaisedPanel.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "providers/theme/MaterialTheme.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Some random description.",
+          "name": "MaterialTheme",
+          "members": [
+            {
+              "kind": "field",
+              "name": "tokens",
+              "static": true
+            },
+            {
+              "kind": "field",
+              "name": "icons",
+              "static": true
+            }
+          ],
+          "superclass": {
+            "name": "Theme",
+            "package": "@quark-elements/core/providers"
+          },
+          "summary": "The Material Design theme definition.",
+          "type": {
+            "text": "theme"
+          },
+          "displayname": "Material Theme"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MaterialTheme",
+          "declaration": {
+            "name": "MaterialTheme",
+            "module": "providers/theme/MaterialTheme.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "providers/theme/tokens/border.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "BorderTokens",
+          "type": {
+            "text": "designtoken"
+          },
+          "default": "{\r\n    'md-sys-border-radius-transition': 'border-radius 0.28s cubic-bezier(0.4, 0, 0.2, 1)',\r\n    'md-sys-border-radius-0': '0px',\r\n    'md-sys-border-radius-1': '8px',\r\n    'md-sys-border-radius-2': '12px',\r\n    'md-sys-border-radius-3': '16px',\r\n    'md-sys-border-radius-4': '28px',\r\n    'md-sys-border-radius-5': '9999px',\r\n\r\n    'md-sys-border-width-transition': 'border-radius 0.28s cubic-bezier(0.4, 0, 0.2, 1)',\r\n    'md-sys-border-width-1': '1px'\r\n}",
+          "summary": "The theme border tokens."
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "BorderTokens",
+          "declaration": {
+            "name": "BorderTokens",
+            "module": "providers/theme/tokens/border.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "providers/theme/tokens/color.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "ColorTokens",
+          "type": {
+            "text": "designtoken"
+          },
+          "default": "{\r\n    'md-sys-color-primary': {\r\n        light: '#6750A4',\r\n        dark: '#D0BCFF'\r\n    },\r\n\r\n    'md-sys-color-primary-container': {\r\n        light: '#EADDFF',\r\n        dark: '#4F378B'\r\n    },\r\n    \r\n    'md-sys-color-secondary': {\r\n        light: '#625B71',\r\n        dark: '#CCC2DC'\r\n    },\r\n    \r\n    'md-sys-color-secondary-container': {\r\n        light: '#E8DEF8',\r\n        dark: '#4A4458'\r\n    },\r\n    \r\n    'md-sys-color-tertiary': {\r\n        light: '#7D5260',\r\n        dark: '#EFB8C8'\r\n    },\r\n    \r\n    'md-sys-color-tertiary-container': {\r\n        light: '#FFD8E4',\r\n        dark: '#633B48'\r\n    },\r\n    \r\n    'md-sys-color-surface': {\r\n        //light: '#FFFBFE',\r\n        light: '#FFFFFF',\r\n        dark: '#1E1E1E'\r\n    },\r\n    \r\n    'md-sys-color-surface-variant': {\r\n        light: '#E7E0EC',\r\n        dark: '#49454F'\r\n    },\r\n    \r\n    'md-sys-color-background': {\r\n        light: '#FAFAFA',\r\n        dark: '#1C1B1F'\r\n    },\r\n    \r\n    'md-sys-color-error': {\r\n        light: '#B3261E',\r\n        dark: '#F2B8B5'\r\n    },\r\n    \r\n    'md-sys-color-error-container': {\r\n        light: '#F9DEDC',\r\n        dark: '#8C1D18'\r\n    },\r\n    \r\n    'md-sys-color-on-primary': {\r\n        light: '#FFFFFF',\r\n        dark: '#381E72'\r\n    },\r\n    \r\n    'md-sys-color-on-primary-container': {\r\n        light: '#21005E',\r\n        dark: '#EADDFF'\r\n    },\r\n    \r\n    'md-sys-color-on-secondary': {\r\n        light: '#FFFFFF',\r\n        dark: '#332D41'\r\n    },\r\n    \r\n    'md-sys-color-on-secondary-container': {\r\n        light: '#1E192B',\r\n        dark: '#E8DEF8'\r\n    },\r\n    \r\n    'md-sys-color-on-tertiary': {\r\n        light: '#FFFFFF',\r\n        dark: '#492532'\r\n    },\r\n    \r\n    'md-sys-color-on-tertiary-container': {\r\n        light: '#370B1E',\r\n        dark: '#FFD8E4'\r\n    },\r\n    \r\n    'md-sys-color-on-surface': {\r\n        light: '#1C1B1F',\r\n        dark: '#E6E1E5'\r\n    },\r\n    \r\n    'md-sys-color-on-surface-variant': {\r\n        light: '#49454E',\r\n        dark: '#CAC4D0'\r\n    },\r\n    \r\n    'md-sys-color-on-error': {\r\n        light: '#FFFFFF',\r\n        dark: '#601410'\r\n    },\r\n    \r\n    'md-sys-color-on-error-container': {\r\n        light: '#370B1E',\r\n        dark: '#F2B8B5'\r\n    },\r\n    \r\n    'md-sys-color-on-background': {\r\n        light: '#1C1B1F',\r\n        dark: '#E6E1E5'\r\n    },\r\n\r\n    'md-sys-color-outline': {\r\n        light: '#E1E1E1',\r\n        dark: '#938F99'\r\n    },\r\n    \r\n    /*\r\n    'md-sys-color-outline': {\r\n        light: '#79747E',\r\n        dark: '#938F99'\r\n    },\r\n    */\r\n\r\n    /*\r\n    'md-sys-color-shadow': {\r\n        light: '#000000',\r\n        dark: '#000000'\r\n    },\r\n    */\r\n    \r\n    'md-sys-color-inverse-surface': {\r\n        light: '#313033',\r\n        dark: '#E6E1E5'\r\n    },\r\n    \r\n    'md-sys-color-inverse-on-surface': {\r\n        light: '#F4EFF4',\r\n        dark: '#313033'\r\n    },\r\n    \r\n    'md-sys-color-inverse-primary': {\r\n        light: '#D0BCFF',\r\n        dark: '#6750A4'\r\n    }\r\n}",
+          "summary": "The theme color tokens."
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ColorTokens",
+          "declaration": {
+            "name": "ColorTokens",
+            "module": "providers/theme/tokens/color.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "providers/theme/tokens/elevation.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "ElevationTokens",
+          "type": {
+            "text": "designtoken"
+          },
+          "default": "{\r\n    'md-sys-elevation-transition': 'box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1)',\r\n    'md-sys-elevation-level-0': 'none',\r\n    'md-sys-elevation-level-1': '0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px -1px rgba(0, 0, 0, 0.2)',\r\n    'md-sys-elevation-level-2': '0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 1px 8px 0 rgba(0, 0, 0, 0.12), 0 3px 3px -2px rgba(0, 0, 0, 0.4)',\r\n    'md-sys-elevation-level-3': '0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.4)',\r\n    'md-sys-elevation-level-4': '0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4)',\r\n    'md-sys-elevation-level-5': '0 12px 16px 1px rgba(0, 0, 0, 0.14), 0 4px 22px 3px rgba(0, 0, 0, 0.12), 0 6px 7px -4px rgba(0, 0, 0, 0.4)'\r\n\r\n}",
+          "summary": "The theme elevation tokens."
+        },
+        {
+          "kind": "variable",
+          "name": "elevation0",
+          "default": "css`\r\n    .elevation-0 {\r\n        transition: var(--md-sys-elevation-transition);\r\n        box-shadow: var(--md-sys-elevation-level-0);\r\n    }\r\n`",
+          "type": {
+            "text": "cssmodule"
+          },
+          "summary": "Elevation Style 0."
+        },
+        {
+          "kind": "variable",
+          "name": "elevation1",
+          "default": "css`\r\n    .elevation-1 {\r\n        transition: var(--md-sys-elevation-transition);\r\n        box-shadow: var(--md-sys-elevation-level-1);\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "elevation2",
+          "default": "css`\r\n    .elevation-2 {\r\n        transition: var(--md-sys-elevation-transition);\r\n        box-shadow: var(--md-sys-elevation-level-2);\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "elevation3",
+          "default": "css`\r\n    .elevation-3 {\r\n        transition: var(--md-sys-elevation-transition);\r\n        box-shadow: var(--md-sys-elevation-level-3);\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "elevation4",
+          "default": "css`\r\n    .elevation-4 {\r\n        transition: var(--md-sys-elevation-transition);\r\n        box-shadow: var(--md-sys-elevation-level-4);\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "elevation5",
+          "default": "css`\r\n    .elevation-5 {\r\n        transition: var(--md-sys-elevation-transition);\r\n        box-shadow: var(--md-sys-elevation-level-5);\r\n    }\r\n`"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ElevationTokens",
+          "declaration": {
+            "name": "ElevationTokens",
+            "module": "providers/theme/tokens/elevation.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "elevation0",
+          "declaration": {
+            "name": "elevation0",
+            "module": "providers/theme/tokens/elevation.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "elevation1",
+          "declaration": {
+            "name": "elevation1",
+            "module": "providers/theme/tokens/elevation.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "elevation2",
+          "declaration": {
+            "name": "elevation2",
+            "module": "providers/theme/tokens/elevation.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "elevation3",
+          "declaration": {
+            "name": "elevation3",
+            "module": "providers/theme/tokens/elevation.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "elevation4",
+          "declaration": {
+            "name": "elevation4",
+            "module": "providers/theme/tokens/elevation.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "elevation5",
+          "declaration": {
+            "name": "elevation5",
+            "module": "providers/theme/tokens/elevation.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "providers/theme/tokens/spacing.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "SpacingTokens",
+          "type": {
+            "text": "designtoken"
+          },
+          "default": "{\r\n    'md-sys-spacing-0': '0px',\r\n    'md-sys-spacing-1': '8px',\r\n    'md-sys-spacing-2': '16px',\r\n}",
+          "summary": "The theme spacing tokens."
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SpacingTokens",
+          "declaration": {
+            "name": "SpacingTokens",
+            "module": "providers/theme/tokens/spacing.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "providers/theme/tokens/typography.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "TypographyTokens",
+          "type": {
+            "text": "designtoken"
+          },
+          "default": "{\r\n    // Font Family\r\n    'md-ref-typeface-brand-regular': \"Roboto, 'Noto Sans SC', sans-serif\",\r\n    'md-ref-typeface-brand-mono': \"'Roboto Mono', monospace\",\r\n\r\n    // Weight\r\n    'md-ref-typeface-weight-regular': '400',\r\n    'md-ref-typeface-weight-medium': '500', \r\n\r\n    // Font (shorthand)\r\n    'md-sys-typescale-display-large': '{md-ref-typeface-weight-regular} 57px/64px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-display-medium': '{md-ref-typeface-weight-regular} 45px/52px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-display-small': '{md-ref-typeface-weight-regular} 36px/44px {md-ref-typeface-brand-regular}',\r\n\r\n    'md-sys-typescale-headline-large': '{md-ref-typeface-weight-regular} 32px/40px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-headline-medium': '{md-ref-typeface-weight-regular} 28px/36px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-headline-small': '{md-ref-typeface-weight-regular} 24px/32px {md-ref-typeface-brand-regular}',\r\n\r\n    'md-sys-typescale-title-large': '{md-ref-typeface-weight-medium} 22px/28px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-title-medium': '{md-ref-typeface-weight-medium} 16px/24px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-title-small': '{md-ref-typeface-weight-medium} 14px/20px {md-ref-typeface-brand-regular}',\r\n\r\n    'md-sys-typescale-label-large': '{md-ref-typeface-weight-medium} 14px/20px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-label-medium': '{md-ref-typeface-weight-medium} 12px/16px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-label-small': '{md-ref-typeface-weight-medium} 11px/16px {md-ref-typeface-brand-regular}',\r\n\r\n    'md-sys-typescale-body-large': '{md-ref-typeface-weight-regular} 16px/24px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-body-medium': '{md-ref-typeface-weight-regular} 14px/20px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-body-small': '{md-ref-typeface-weight-regular} 12px/16px {md-ref-typeface-brand-regular}',\r\n\r\n    'md-sys-typescale-code-large': '{md-ref-typeface-weight-regular} 16px/24px {md-ref-typeface-brand-mono}',\r\n    'md-sys-typescale-code-medium': '{md-ref-typeface-weight-regular} 14px/20px {md-ref-typeface-brand-mono}',\r\n    'md-sys-typescale-code-small': '{md-ref-typeface-weight-regular} 12px/16px {md-ref-typeface-brand-mono}',\r\n\r\n    // Tracking (Letter Spacing)\r\n    'md-sys-typescale-display-large-tracking': '0px',\r\n    'md-sys-typescale-display-medium-tracking': '0px',\r\n    'md-sys-typescale-display-small-tracking': '0px',\r\n\r\n    'md-sys-typescale-headline-large-tracking': '0px',\r\n    'md-sys-typescale-headline-medium-tracking': '0px',\r\n    'md-sys-typescale-headline-small-tracking': '0px',\r\n\r\n    'md-sys-typescale-title-large-tracking': '0px',\r\n    'md-sys-typescale-title-medium-tracking': '0.15px',\r\n    'md-sys-typescale-title-small-tracking': '0.1px',\r\n\r\n    'md-sys-typescale-label-large-tracking': '0.1px',\r\n    'md-sys-typescale-label-medium-tracking': '0.5px',\r\n    'md-sys-typescale-label-small-tracking': '0.5px',\r\n\r\n    'md-sys-typescale-body-large-tracking': '0.15px',\r\n    'md-sys-typescale-body-medium-tracking': '0.25px',\r\n    'md-sys-typescale-body-small-tracking': '0.4px',\r\n\r\n    'md-sys-typescale-code-large-tracking': '0px',\r\n    'md-sys-typescale-code-medium-tracking': '0px',\r\n    'md-sys-typescale-code-small-tracking': '0px'\r\n}",
+          "summary": "The theme typography tokens."
+        },
+        {
+          "kind": "variable",
+          "name": "displayLarge",
+          "default": "css`\r\n    .typography-display-large {\r\n        font: var(--md-sys-typescale-display-large);\r\n        letter-spacing: var(--md-sys-typescale-display-large-tracking);\r\n        -webkit-font-smoothing: antialiased;\r\n        white-space: nowrap;\r\n        overflow: hidden;\r\n        text-overflow: ellipsis;\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "displayMedium",
+          "default": "css`\r\n    .typography-display-medium {\r\n        font: var(--md-sys-typescale-display-medium);\r\n        letter-spacing: var(--md-sys-typescale-display-medium-tracking);\r\n        -webkit-font-smoothing: antialiased;\r\n        white-space: nowrap;\r\n        overflow: hidden;\r\n        text-overflow: ellipsis;\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "displaySmall",
+          "default": "css`\r\n    .typography-display-small {\r\n        font: var(--md-sys-typescale-display-small);\r\n        letter-spacing: var(--md-sys-typescale-display-small-tracking);\r\n        -webkit-font-smoothing: antialiased;\r\n        white-space: nowrap;\r\n        overflow: hidden;\r\n        text-overflow: ellipsis;\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "headlineLarge",
+          "default": "css`\r\n    .typography-headline-large {\r\n        font: var(--md-sys-typescale-headline-large);\r\n        letter-spacing: var(--md-sys-typescale-headline-large-tracking);\r\n        -webkit-font-smoothing: antialiased;\r\n        white-space: nowrap;\r\n        overflow: hidden;\r\n        text-overflow: ellipsis;\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "headlineMedium",
+          "default": "css`\r\n    .typography-headline-medium {\r\n        font: var(--md-sys-typescale-headline-medium);\r\n        letter-spacing: var(--md-sys-typescale-headline-medium-tracking);\r\n        -webkit-font-smoothing: antialiased;\r\n        white-space: nowrap;\r\n        overflow: hidden;\r\n        text-overflow: ellipsis;\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "headlineSmall",
+          "default": "css`\r\n    .typography-headline-small {\r\n        font: var(--md-sys-typescale-headline-small);\r\n        letter-spacing: var(--md-sys-typescale-headline-small-tracking);\r\n        -webkit-font-smoothing: antialiased;\r\n        white-space: nowrap;\r\n        overflow: hidden;\r\n        text-overflow: ellipsis;\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "titleLarge",
+          "default": "css`\r\n    .typography-title-large {\r\n        font: var(--md-sys-typescale-title-large);\r\n        letter-spacing: var(--md-sys-typescale-title-large-tracking);\r\n        -webkit-font-smoothing: antialiased;\r\n        white-space: nowrap;\r\n        overflow: hidden;\r\n        text-overflow: ellipsis;\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "titleMedium",
+          "default": "css`\r\n    .typography-title-medium {\r\n        font: var(--md-sys-typescale-title-medium);\r\n        letter-spacing: var(--md-sys-typescale-title-medium-tracking);\r\n        -webkit-font-smoothing: antialiased;\r\n        white-space: nowrap;\r\n        overflow: hidden;\r\n        text-overflow: ellipsis;\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "titleSmall",
+          "default": "css`\r\n    .typography-title-small {\r\n        font: var(--md-sys-typescale-title-small);\r\n        letter-spacing: var(--md-sys-typescale-title-small-tracking);\r\n        -webkit-font-smoothing: antialiased;\r\n        white-space: nowrap;\r\n        overflow: hidden;\r\n        text-overflow: ellipsis;\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "labelLarge",
+          "default": "css`\r\n    .typography-label-large {\r\n        font: var(--md-sys-typescale-label-large);\r\n        letter-spacing: var(--md-sys-typescale-label-large-tracking);\r\n        -webkit-font-smoothing: antialiased;\r\n        white-space: nowrap;\r\n        overflow: hidden;\r\n        text-overflow: ellipsis;\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "labelMedium",
+          "default": "css`\r\n    .typography-label-medium {\r\n        font: var(--md-sys-typescale-label-medium);\r\n        letter-spacing: var(--md-sys-typescale-label-medium-tracking);\r\n        -webkit-font-smoothing: antialiased;\r\n        white-space: nowrap;\r\n        overflow: hidden;\r\n        text-overflow: ellipsis;\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "labelSmall",
+          "default": "css`\r\n    .typography-label-small {\r\n        font: var(--md-sys-typescale-label-small);\r\n        letter-spacing: var(--md-sys-typescale-label-small-tracking);\r\n        -webkit-font-smoothing: antialiased;\r\n        white-space: nowrap;\r\n        overflow: hidden;\r\n        text-overflow: ellipsis;\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "bodyLarge",
+          "default": "css`\r\n    .typography-body-large {\r\n        font: var(--md-sys-typescale-body-large);\r\n        letter-spacing: var(--md-sys-typescale-body-large-tracking);\r\n        -webkit-font-smoothing: antialiased;\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "bodyMedium",
+          "default": "css`\r\n    .typography-body-medium {\r\n        font: var(--md-sys-typescale-body-medium);\r\n        letter-spacing: var(--md-sys-typescale-body-medium-tracking);\r\n        -webkit-font-smoothing: antialiased;\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "bodySmall",
+          "default": "css`\r\n    .typography-body-small {\r\n        font: var(--md-sys-typescale-body-small);\r\n        letter-spacing: var(--md-sys-typescale-body-small-tracking);\r\n        -webkit-font-smoothing: antialiased;\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "codeLarge",
+          "default": "css`\r\n    .typography-code-large {\r\n        font: var(--md-sys-typescale-code-large);\r\n        letter-spacing: var(--md-sys-typescale-code-large-tracking);\r\n        -webkit-font-smoothing: antialiased;\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "codeMedium",
+          "default": "css`\r\n    .typography-code-medium {\r\n        font: var(--md-sys-typescale-code-medium);\r\n        letter-spacing: var(--md-sys-typescale-code-medium-tracking);\r\n        -webkit-font-smoothing: antialiased;\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "codeSmall",
+          "default": "css`\r\n    .typography-code-small {\r\n        font: var(--md-sys-typescale-code-small);\r\n        letter-spacing: var(--md-sys-typescale-code-small-tracking);\r\n        -webkit-font-smoothing: antialiased;\r\n    }\r\n`"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "TypographyTokens",
+          "declaration": {
+            "name": "TypographyTokens",
+            "module": "providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "displayLarge",
+          "declaration": {
+            "name": "displayLarge",
+            "module": "providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "displayMedium",
+          "declaration": {
+            "name": "displayMedium",
+            "module": "providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "displaySmall",
+          "declaration": {
+            "name": "displaySmall",
+            "module": "providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "headlineLarge",
+          "declaration": {
+            "name": "headlineLarge",
+            "module": "providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "headlineMedium",
+          "declaration": {
+            "name": "headlineMedium",
+            "module": "providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "headlineSmall",
+          "declaration": {
+            "name": "headlineSmall",
+            "module": "providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "titleLarge",
+          "declaration": {
+            "name": "titleLarge",
+            "module": "providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "titleMedium",
+          "declaration": {
+            "name": "titleMedium",
+            "module": "providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "titleSmall",
+          "declaration": {
+            "name": "titleSmall",
+            "module": "providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "labelLarge",
+          "declaration": {
+            "name": "labelLarge",
+            "module": "providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "labelMedium",
+          "declaration": {
+            "name": "labelMedium",
+            "module": "providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "labelSmall",
+          "declaration": {
+            "name": "labelSmall",
+            "module": "providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "bodyLarge",
+          "declaration": {
+            "name": "bodyLarge",
+            "module": "providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "bodyMedium",
+          "declaration": {
+            "name": "bodyMedium",
+            "module": "providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "bodySmall",
+          "declaration": {
+            "name": "bodySmall",
+            "module": "providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "codeLarge",
+          "declaration": {
+            "name": "codeLarge",
+            "module": "providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "codeMedium",
+          "declaration": {
+            "name": "codeMedium",
+            "module": "providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "codeSmall",
+          "declaration": {
+            "name": "codeSmall",
+            "module": "providers/theme/tokens/typography.js"
+          }
+        }
+      ]
+    }
+  ]
+}

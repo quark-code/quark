@@ -11,6 +11,8 @@ export class DemoBrandSwitcher extends LitElement {
         return [css`
             :host {
                 display: block;
+                transition: var(--theme-transition);
+                margin-right: 32px;
             }
 
             :host([hidden]) {
