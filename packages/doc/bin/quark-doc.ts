@@ -14,6 +14,7 @@ const config = fs.pathExistsSync(root + '/quark-doc.config.js') ? require(root +
     destDir: 'docs'
 };
 
+
 if (config) {
     if (!config.srcDir) {
         config.srcDir = 'docs_src';
@@ -73,7 +74,8 @@ function processPage(pageInfo) {
     const content = {
         fileInfo: pageInfo,
         config: templateData.config,
-        render: templateData.render
+        render: templateData.render,
+        data: null
     }
 
     if (!content.config) {

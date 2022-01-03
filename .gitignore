@@ -10,6 +10,10 @@ packages/theme/**/*.js
 packages/theme/**/*.js.map
 packages/theme/**/*.d.ts
 
+packages/doc/**/*.js
+packages/doc/**/*.js.map
+packages/doc/**/*.d.ts
+
 # Logs
 logs
 *.log

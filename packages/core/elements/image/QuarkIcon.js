@@ -29,6 +29,6 @@ export class QuarkIcon extends QuarkElement {
     }
 
     render() {
-        return unsafeSVG(window.themeManager.getIcon(this.icon));
+        return unsafeSVG(window.themeManager.getIconContent(this.icon));
     }
 }

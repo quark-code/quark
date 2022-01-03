@@ -3,12 +3,11 @@
 MIT License
 Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
-const root = process.cwd();
 const Prism = require('prismjs');
 const prettify = require('html-prettify');
 const marked = require("marked");
-const fs = require('fs-extra');
-const config = require(root + '/quark-doc.config');
+const fse = require('fs-extra');
+const quarkConfig = require(process.cwd() + '/quark-doc.config');
 
 const loadLanguages = require('prismjs/components/');
 loadLanguages(['powershell']);
@@ -88,13 +87,13 @@ function table(strings, ...values) {
 }
 
 function pageExists(page) {
-    const path = `${__dirname}\\${config.srcDir}\\${page}.template.js`;
-    return fs.pathExistsSync(path); 
+    const path = `${__dirname}\\${quarkConfig.srcDir}\\${page}.template.js`;
+    return fse.pathExistsSync(path); 
 }
 
 function includeExists(include) {
-    const path = `${__dirname}\\${config.srcDir}\\_includes\\${include}.template.js`;
-    return fs.pathExistsSync(path);
+    const path = `${__dirname}\\${quarkConfig.srcDir}\\_includes\\${include}.template.js`;
+    return fse.pathExistsSync(path);
 }
 
 module.exports = {

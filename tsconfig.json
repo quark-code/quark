@@ -21,7 +21,7 @@
     },
     "include": [
         "./**/*.ts"
-    ],
+, "packages/doc/bin/quark-doc.js", "packages/doc/index.js"    ],
     "exclude": [
         "./build/**/*" 
     ]
