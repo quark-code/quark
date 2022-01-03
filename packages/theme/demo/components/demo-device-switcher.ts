@@ -5,8 +5,10 @@ Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
 import { themeManager } from "../../index";
 import { html, css, LitElement } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 
-export class DemoModeSwitcher extends LitElement {
+@customElement('demo-device-switcher')
+export class DemoDeviceSwitcher extends LitElement {
     static get styles() {
         return [css`
             :host {
@@ -48,44 +50,35 @@ export class DemoModeSwitcher extends LitElement {
         `];
     }
 
-    static get properties() {
-        return {
-            modes: {
-                type: Array
-            },
+    @property({ type: Array })
+    devices: Array<string>;
 
-            selectedIndex: {
-                type: Number,
-                attribute: 'selected-index'
-            }
-        };
-    }
+    @property({type: Number, attribute: 'selected-index'})
+    selectedIndex: number;
 
     constructor() {
         super();
-        this.modes = ['System', 'Light', 'Dark'];
+        this.devices = ['Desktop', 'Mobile'];
         this.selectedIndex = 0;
     }
 
     render() {
         return html`
-            <div class="title">Mode</div>
+            <div class="title">Device</div>
             <div class="container">
-                ${this.modes.map((mode, index) => html`
+                ${this.devices.map((device, index) => html`
                     <div class="item">
-                        <input type="radio" id="${mode}" name="mode" @change="${this._modeChanged}" ?checked="${this.selectedIndex === index}">
-                        <label for="${mode}">${mode}</label>
+                        <input type="radio" id="${device}" name="device" @change="${this._deviceChanged}" ?checked="${this.selectedIndex === index}">
+                        <label for="${device}">${device}</label>
                     </div>
                 `)}
             </div>
         `;
     }
 
-    _modeChanged(e) {
+    _deviceChanged(e: any) {
         if (e.target.checked) {
-            themeManager.mode = e.target.id.toLowerCase();
+            themeManager.deviceType = e.target.id.toLowerCase();
         }
     }
 }
-
-window.customElements.define('demo-mode-switcher', DemoModeSwitcher);

@@ -5,8 +5,10 @@ Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
 import { themeManager } from "../../index";
 import { html, css, LitElement } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 
-export class DemoBrandSwitcher extends LitElement {
+@customElement('demo-icon-variant-switcher')
+export class DemoIconVariantSwitcher extends LitElement {
     static get styles() {
         return [css`
             :host {
@@ -48,33 +50,26 @@ export class DemoBrandSwitcher extends LitElement {
         `];
     }
 
-    static get properties() {
-        return {
-            brands: {
-                type: Array
-            },
+    @property({ type: Array })
+    variants: Array<string>;
 
-            selectedIndex: {
-                type: Number,
-                attribute: 'selected-index'
-            }
-        };
-    }
+    @property({type: Number, attribute: 'selected-index'})
+    selectedIndex: number;
 
     constructor() {
         super();
-        this.brands = [];
+        this.variants = [];
         this.selectedIndex = 0;
     }
 
     render() {
         return html`
-            <div class="title">Brand</div>
+            <div class="title">Icon Variant</div>
             <div class="container">
-                ${this.brands.map((brand, index) => html`
+                ${this.variants.map((variant, index) => html`
                     <div class="item">
-                        <input type="radio" id="${brand}" name="brand" @change="${this._brandChanged}" ?checked="${this.selectedIndex === index}">
-                        <label for="${brand}">${brand}</label>
+                        <input type="radio" id="${variant}" name="variant" @change="${this._variantChanged}" ?checked="${this.selectedIndex === index}">
+                        <label for="${variant}">${variant}</label>
                     </div>
                 `)}
             </div>
@@ -82,14 +77,12 @@ export class DemoBrandSwitcher extends LitElement {
     }
 
     load() {
-        this.brands = [...themeManager.themeNames];
+        this.variants = [...themeManager.iconVariants];
     }
 
-    _brandChanged(e) {
+    _variantChanged(e: any) {
         if (e.target.checked) {
-            themeManager.use(e.target.id);
+            themeManager.iconVariant = e.target.id;
         }
     }
 }
-
-window.customElements.define('demo-brand-switcher', DemoBrandSwitcher);

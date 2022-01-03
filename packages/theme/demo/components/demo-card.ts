@@ -4,7 +4,9 @@ MIT License
 Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
 import { html, css, LitElement } from 'lit';
+import { customElement } from 'lit/decorators.js';
 
+@customElement('demo-card')
 export class DemoCard extends LitElement {
     static get styles() {
         return [css`
@@ -29,20 +31,7 @@ export class DemoCard extends LitElement {
         `];
     }
 
-    static get properties() {
-        return {
-
-        };
-    }
-
-    constructor() {
-        super();
-
-    }
-
     render() {
         return html`<slot></slot>`;
     }
 }
-
-window.customElements.define('demo-card', DemoCard);

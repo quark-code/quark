@@ -6,7 +6,9 @@ Copyright (c) 2021 Paul H Mason. All rights reserved.
 import { themeManager } from "../../index";
 import { html, css, LitElement } from 'lit';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
+import { customElement, property } from 'lit/decorators.js';
 
+@customElement('demo-icon')
 export class DemoIcon extends LitElement {
     static get styles() {
         return [css`
@@ -32,14 +34,9 @@ export class DemoIcon extends LitElement {
             }
         `];
     }
-
-    static get properties() {
-        return {
-            icon: {
-                type: String
-            }
-        };
-    }
+  
+    @property({ type: String })
+    icon: string;
 
     constructor() {
         super();
@@ -51,5 +48,3 @@ export class DemoIcon extends LitElement {
         return html`${icon ? unsafeHTML(icon) : null}`;
     }
 }
-
-window.customElements.define('demo-icon', DemoIcon);

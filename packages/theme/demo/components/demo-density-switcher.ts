@@ -5,8 +5,10 @@ Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
 import { themeManager } from "../../index";
 import { html, css, LitElement } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 
-export class DemoIconVariantSwitcher extends LitElement {
+@customElement('demo-density-switcher')
+export class DemoDensitySwitcher extends LitElement {
     static get styles() {
         return [css`
             :host {
@@ -22,7 +24,7 @@ export class DemoIconVariantSwitcher extends LitElement {
             :host([disabled]) {
                 pointer-events: none;
             }
-            
+
             .container {
                 display: flex;
                 flex-wrap: wrap;
@@ -48,48 +50,35 @@ export class DemoIconVariantSwitcher extends LitElement {
         `];
     }
 
-    static get properties() {
-        return {
-            variants: {
-                type: Array
-            },
+    @property({ type: Array })
+    densities: Array<string>;
 
-            selectedIndex: {
-                type: Number,
-                attribute: 'selected-index'
-            }
-        };
-    }
+    @property({type: Number, attribute: 'selected-index'})
+    selectedIndex: number;
 
     constructor() {
         super();
-        this.variants = [];
-        this.selectedIndex = 0;
+        this.densities = ['Compact', 'Comfortable', 'Sparse'];
+        this.selectedIndex = 1;
     }
 
     render() {
         return html`
-            <div class="title">Icon Variant</div>
+            <div class="title">Density</div>
             <div class="container">
-                ${this.variants.map((variant, index) => html`
+                ${this.densities.map((density, index) => html`
                     <div class="item">
-                        <input type="radio" id="${variant}" name="variant" @change="${this._variantChanged}" ?checked="${this.selectedIndex === index}">
-                        <label for="${variant}">${variant}</label>
+                        <input type="radio" id="${density}" name="density" @change="${this._densityChanged}" ?checked="${this.selectedIndex === index}">
+                        <label for="${density}">${density}</label>
                     </div>
                 `)}
             </div>
         `;
     }
 
-    load() {
-        this.variants = [...themeManager.iconVariants];
-    }
-
-    _variantChanged(e) {
+    _densityChanged(e: any) {
         if (e.target.checked) {
-            themeManager.iconVariant = e.target.id;
+            themeManager.density = e.target.id.toLowerCase();
         }
     }
 }
-
-window.customElements.define('demo-icon-variant-switcher', DemoIconVariantSwitcher);

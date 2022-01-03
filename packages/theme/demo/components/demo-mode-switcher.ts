@@ -5,8 +5,10 @@ Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
 import { themeManager } from "../../index";
 import { html, css, LitElement } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 
-export class DemoDensitySwitcher extends LitElement {
+@customElement('demo-mode-switcher')
+export class DemoModeSwitcher extends LitElement {
     static get styles() {
         return [css`
             :host {
@@ -48,44 +50,35 @@ export class DemoDensitySwitcher extends LitElement {
         `];
     }
 
-    static get properties() {
-        return {
-            densities: {
-                type: Array
-            },
+    @property({ type: Array })
+    modes: Array<string>;
 
-            selectedIndex: {
-                type: Number,
-                attribute: 'selected-index'
-            }
-        };
-    }
+    @property({type: Number, attribute: 'selected-index'})
+    selectedIndex: number;
 
     constructor() {
         super();
-        this.densities = ['Compact', 'Comfortable', 'Sparse'];
-        this.selectedIndex = 1;
+        this.modes = ['System', 'Light', 'Dark'];
+        this.selectedIndex = 0;
     }
 
     render() {
         return html`
-            <div class="title">Density</div>
+            <div class="title">Mode</div>
             <div class="container">
-                ${this.densities.map((density, index) => html`
+                ${this.modes.map((mode, index) => html`
                     <div class="item">
-                        <input type="radio" id="${density}" name="density" @change="${this._densityChanged}" ?checked="${this.selectedIndex === index}">
-                        <label for="${density}">${density}</label>
+                        <input type="radio" id="${mode}" name="mode" @change="${this._modeChanged}" ?checked="${this.selectedIndex === index}">
+                        <label for="${mode}">${mode}</label>
                     </div>
                 `)}
             </div>
         `;
     }
 
-    _densityChanged(e) {
+    _modeChanged(e: any) {
         if (e.target.checked) {
-            themeManager.density = e.target.id.toLowerCase();
+            themeManager.mode = e.target.id.toLowerCase();
         }
     }
 }
-
-window.customElements.define('demo-density-switcher', DemoDensitySwitcher);

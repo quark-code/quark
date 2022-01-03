@@ -5,8 +5,10 @@ Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
 import { themeManager } from "../../index";
 import { html, css, LitElement } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 
-export class DemoDeviceSwitcher extends LitElement {
+@customElement('demo-brand-switcher')
+export class DemoBrandSwitcher extends LitElement {
     static get styles() {
         return [css`
             :host {
@@ -22,7 +24,7 @@ export class DemoDeviceSwitcher extends LitElement {
             :host([disabled]) {
                 pointer-events: none;
             }
-
+            
             .container {
                 display: flex;
                 flex-wrap: wrap;
@@ -47,45 +49,41 @@ export class DemoDeviceSwitcher extends LitElement {
             }
         `];
     }
+    
 
-    static get properties() {
-        return {
-            devices: {
-                type: Array
-            },
+    @property({ type: Array })
+    brands: Array<string>;
 
-            selectedIndex: {
-                type: Number,
-                attribute: 'selected-index'
-            }
-        };
-    }
+    @property({type: Number, attribute: 'selected-index'})
+    selectedIndex: number;
 
     constructor() {
         super();
-        this.devices = ['Desktop', 'Mobile'];
+        this.brands = [];
         this.selectedIndex = 0;
     }
 
     render() {
         return html`
-            <div class="title">Device</div>
+            <div class="title">Brand</div>
             <div class="container">
-                ${this.devices.map((device, index) => html`
+                ${this.brands.map((brand, index) => html`
                     <div class="item">
-                        <input type="radio" id="${device}" name="device" @change="${this._deviceChanged}" ?checked="${this.selectedIndex === index}">
-                        <label for="${device}">${device}</label>
+                        <input type="radio" id="${brand}" name="brand" @change="${this._brandChanged}" ?checked="${this.selectedIndex === index}">
+                        <label for="${brand}">${brand}</label>
                     </div>
                 `)}
             </div>
         `;
     }
 
-    _deviceChanged(e) {
+    load() {
+        this.brands = [...themeManager.themeNames];
+    }
+
+    _brandChanged(e: any) {
         if (e.target.checked) {
-            themeManager.deviceType = e.target.id.toLowerCase();
+            themeManager.use(e.target.id);
         }
     }
 }
-
-window.customElements.define('demo-device-switcher', DemoDeviceSwitcher);
