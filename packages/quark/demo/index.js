@@ -15,13 +15,6 @@ provideQuarkDesignSystem()
         AliasIcon('chevron-left', 'back-icon')
         */
     )
-    .registerComponents(
-        /*
-        QbButton('my-button'),
-        QbIcon('my-icon'),
-        QbStepper('my-stepper')
-        */
-    )
     .registerThemes(
         defaultThemeBrand
     )

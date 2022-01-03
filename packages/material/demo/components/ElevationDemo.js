@@ -7,10 +7,6 @@ import { html, css, QuarkElement } from '@quark-elements/core/elements';
 import { elevation0, elevation1, elevation2, elevation3, elevation4, elevation5, titleMedium } from '../../styling';
 
 export class ElevationDemo extends QuarkElement {
-    static get defaultTag() {
-        return 'elevation-demo';
-    }
-
     static get styles() {
         return [
             elevation0, elevation1, elevation2, elevation3, elevation4, elevation5, titleMedium,
@@ -60,3 +56,5 @@ export class ElevationDemo extends QuarkElement {
         `;
     }
 }
+
+ElevationDemo.register('elevation-demo');

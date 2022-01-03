@@ -3,3 +3,6 @@
 /demo
 /demo-build
 /**/test
+/**/*.ts
+
+!/**/*.d.ts

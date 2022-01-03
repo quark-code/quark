@@ -4,9 +4,685 @@
   "modules": [
     {
       "kind": "javascript-module",
+      "path": "../core/index.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../core/elements/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./QuarkElement.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./button/QuarkButton.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./panel/QuarkPanel.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../core/elements/QuarkElement.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "QuarkElement",
+          "members": [
+            {
+              "kind": "method",
+              "name": "as",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "name"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "asDefault",
+              "static": true
+            },
+            {
+              "kind": "field",
+              "name": "isLTR",
+              "privacy": "public",
+              "description": "Whether or not the text direction is LTR (default) or RTL.",
+              "type": {
+                "text": "boolean"
+              },
+              "attribute": "isLTR",
+              "readonly": true,
+              "default": true
+            },
+            {
+              "kind": "field",
+              "name": "dir",
+              "type": {
+                "text": "string"
+              },
+              "default": "'ltr'",
+              "privacy": "public",
+              "description": "The text direction.",
+              "attribute": "dir",
+              "reflects": true,
+              "allowedvalues": [
+                "ltr",
+                "rtl"
+              ]
+            }
+          ],
+          "attributes": [
+            {
+              "name": "dir",
+              "description": "The text direction.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "dir",
+              "allowedvalues": [
+                "ltr",
+                "rtl"
+              ]
+            },
+            {
+              "name": "isLTR",
+              "description": "Whether or not the text direction is LTR (default) or RTL.",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "isLTR",
+              "readonly": true,
+              "default": true
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "summary": "The base component class for all Quark components.",
+          "type": {
+            "text": "component"
+          },
+          "displayname": "Element ",
+          "category": "Core ",
+          "customElement": true
+        },
+        {
+          "kind": "variable",
+          "name": "name"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "name",
+          "declaration": {
+            "name": "anonymous_0",
+            "module": "../core/elements/QuarkElement.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "name",
+          "declaration": {
+            "name": "anonymous_1",
+            "module": "../core/elements/QuarkElement.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "css",
+          "declaration": {
+            "name": "css",
+            "module": "../core/elements/QuarkElement.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "html",
+          "declaration": {
+            "name": "html",
+            "module": "../core/elements/QuarkElement.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "svg",
+          "declaration": {
+            "name": "svg",
+            "module": "../core/elements/QuarkElement.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "QuarkElement",
+          "declaration": {
+            "name": "QuarkElement",
+            "module": "../core/elements/QuarkElement.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../core/events/TestEvent.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "TestEvent",
+          "members": [
+            {
+              "kind": "field",
+              "name": "eventName",
+              "type": {
+                "text": "string"
+              },
+              "static": true,
+              "default": "'test-event'"
+            },
+            {
+              "kind": "field",
+              "name": "prop1",
+              "default": "prop1"
+            },
+            {
+              "kind": "field",
+              "name": "prop2",
+              "default": "prop2"
+            }
+          ],
+          "superclass": {
+            "name": "Event",
+            "module": "../core/events/TestEvent.js"
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "TestEvent",
+          "declaration": {
+            "name": "TestEvent",
+            "module": "../core/events/TestEvent.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../core/providers/DesignSystemProvider.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "DesignSystemProvider",
+          "members": [
+            {
+              "kind": "field",
+              "name": "themeType"
+            },
+            {
+              "kind": "method",
+              "name": "registerComponents"
+            },
+            {
+              "kind": "method",
+              "name": "registerIcons"
+            },
+            {
+              "kind": "method",
+              "name": "registerIcon"
+            },
+            {
+              "kind": "method",
+              "name": "registerThemes"
+            },
+            {
+              "kind": "method",
+              "name": "useThemeBrand",
+              "parameters": [
+                {
+                  "name": "name"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "clearThemeBrand"
+            },
+            {
+              "kind": "method",
+              "name": "withThemeMode",
+              "parameters": [
+                {
+                  "name": "mode",
+                  "default": "'system'"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "withDensity",
+              "parameters": [
+                {
+                  "name": "density",
+                  "default": "'normal'"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "withDirection",
+              "parameters": [
+                {
+                  "name": "dir",
+                  "default": "'ltr'"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "withDevice",
+              "parameters": [
+                {
+                  "name": "device",
+                  "default": "'desktop'"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "_themeType",
+              "default": "themeType"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "DesignSystemProvider",
+          "declaration": {
+            "name": "DesignSystemProvider",
+            "module": "../core/providers/DesignSystemProvider.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Theme",
+          "declaration": {
+            "name": "Theme",
+            "module": "../core/providers/DesignSystemProvider.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "themeManager",
+          "declaration": {
+            "name": "themeManager",
+            "module": "../core/providers/DesignSystemProvider.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../core/providers/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./DesignSystemProvider.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../core/utils/ScopedCustomElementRegistry.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../core/elements/button/QuarkButton.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "QuarkButton",
+          "superclass": {
+            "name": "QuarkElement",
+            "module": "/core/elements/QuarkElement.js"
+          },
+          "summary": "The base component class for all Quark button components.",
+          "type": {
+            "text": "component"
+          },
+          "displayname": "Button ",
+          "category": "Core ",
+          "attributes": [
+            {
+              "name": "dir",
+              "description": "The text direction.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "dir",
+              "allowedvalues": [
+                "ltr",
+                "rtl"
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "name": "isLTR",
+              "description": "Whether or not the text direction is LTR (default) or RTL.",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "isLTR",
+              "readonly": true,
+              "default": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "as",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "name"
+                }
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "asDefault",
+              "static": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "isLTR",
+              "privacy": "public",
+              "description": "Whether or not the text direction is LTR (default) or RTL.",
+              "type": {
+                "text": "boolean"
+              },
+              "attribute": "isLTR",
+              "readonly": true,
+              "default": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "dir",
+              "type": {
+                "text": "string"
+              },
+              "default": "'ltr'",
+              "privacy": "public",
+              "description": "The text direction.",
+              "attribute": "dir",
+              "reflects": true,
+              "allowedvalues": [
+                "ltr",
+                "rtl"
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "QuarkButton",
+          "declaration": {
+            "name": "QuarkButton",
+            "module": "../core/elements/button/QuarkButton.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../core/elements/panel/QuarkPanel.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "QuarkPanel",
+          "slots": [
+            {
+              "description": "Default",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "as",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "name"
+                }
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "asDefault",
+              "static": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "isLTR",
+              "privacy": "public",
+              "description": "Whether or not the text direction is LTR (default) or RTL.",
+              "type": {
+                "text": "boolean"
+              },
+              "attribute": "isLTR",
+              "readonly": true,
+              "default": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "dir",
+              "type": {
+                "text": "string"
+              },
+              "default": "'ltr'",
+              "privacy": "public",
+              "description": "The text direction.",
+              "attribute": "dir",
+              "reflects": true,
+              "allowedvalues": [
+                "ltr",
+                "rtl"
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "QuarkElement",
+            "module": "/core/elements/QuarkElement.js"
+          },
+          "summary": "The base component class for all Quark panel components.",
+          "type": {
+            "text": "component"
+          },
+          "displayname": "Panel ",
+          "category": "Core ",
+          "attributes": [
+            {
+              "name": "dir",
+              "description": "The text direction.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "dir",
+              "allowedvalues": [
+                "ltr",
+                "rtl"
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "name": "isLTR",
+              "description": "Whether or not the text direction is LTR (default) or RTL.",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "isLTR",
+              "readonly": true,
+              "default": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "QuarkPanel",
+          "declaration": {
+            "name": "QuarkPanel",
+            "module": "../core/elements/panel/QuarkPanel.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "index.js",
       "declarations": [],
       "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "demo-build/f80100c3.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "e",
+          "members": [
+            {
+              "kind": "field",
+              "name": "hasDarkValue"
+            },
+            {
+              "kind": "method",
+              "name": "getValue",
+              "parameters": [
+                {
+                  "name": "e"
+                },
+                {
+                  "name": "t"
+                },
+                {
+                  "name": "s"
+                },
+                {
+                  "name": "i",
+                  "default": "null"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "_name",
+              "default": "e"
+            },
+            {
+              "kind": "field",
+              "name": "_values",
+              "default": "t"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "e",
+          "declaration": {
+            "name": "anonymous_0",
+            "module": "demo-build/f80100c3.js"
+          }
+        }
+      ]
     },
     {
       "kind": "javascript-module",
@@ -294,14 +970,230 @@
         {
           "kind": "class",
           "description": "Don't use this.",
-          "name": "QmKitchenSinkElement",
+          "name": "QmKitchenSink",
+          "cssProperties": [
+            {
+              "description": "The red background color.",
+              "name": "--background-color-red",
+              "default": "<color> | #FF0000"
+            },
+            {
+              "description": "The blue background color.",
+              "name": "--background-color-blue",
+              "default": "<color> | (no default)"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "The button",
+              "name": "button"
+            }
+          ],
           "slots": [
             {
               "description": "Default",
               "name": ""
             }
           ],
-          "members": [],
+          "members": [
+            {
+              "kind": "field",
+              "name": "defaultTag",
+              "static": true
+            },
+            {
+              "kind": "method",
+              "name": "sayHello",
+              "parameters": [
+                {
+                  "name": "name",
+                  "description": "The name to say \"Hello\" to.",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "description": "Formats a greeting",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "_protectedMethod",
+              "parameters": [
+                {
+                  "name": "foo",
+                  "description": "The text to write to the console.",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "description": "Formats a greeting",
+              "return": {
+                "type": {
+                  "text": "null"
+                }
+              }
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "'Bob'",
+              "privacy": "public",
+              "description": "The name to say \"Hello\" to.",
+              "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "count",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "privacy": "public",
+              "description": "The number of times the button has been clicked.",
+              "attribute": "count"
+            },
+            {
+              "kind": "field",
+              "name": "_protectedProperty",
+              "type": {
+                "text": "number"
+              },
+              "default": "5",
+              "privacy": "public",
+              "description": "This is a protected property.",
+              "attribute": "_protectedProperty"
+            },
+            {
+              "kind": "method",
+              "name": "as",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "name"
+                }
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "asDefault",
+              "static": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "isLTR",
+              "privacy": "public",
+              "description": "Whether or not the text direction is LTR (default) or RTL.",
+              "type": {
+                "text": "boolean"
+              },
+              "attribute": "isLTR",
+              "readonly": true,
+              "default": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "dir",
+              "type": {
+                "text": "string"
+              },
+              "default": "'ltr'",
+              "privacy": "public",
+              "description": "The text direction.",
+              "attribute": "dir",
+              "reflects": true,
+              "allowedvalues": [
+                "ltr",
+                "rtl"
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            }
+          ],
+          "events": [
+            {
+              "description": "Indicates when the count changes",
+              "name": "count-changed"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "name",
+              "description": "The name to say \"Hello\" to.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "name"
+            },
+            {
+              "name": "count",
+              "description": "The number of times the button has been clicked.",
+              "type": {
+                "text": "number"
+              },
+              "fieldName": "count"
+            },
+            {
+              "name": "_protectedProperty",
+              "description": "This is a protected property.",
+              "type": {
+                "text": "number"
+              },
+              "fieldName": "_protectedProperty"
+            },
+            {
+              "name": "dir",
+              "description": "The text direction.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "dir",
+              "allowedvalues": [
+                "ltr",
+                "rtl"
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "name": "isLTR",
+              "description": "Whether or not the text direction is LTR (default) or RTL.",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "isLTR",
+              "readonly": true,
+              "default": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            }
+          ],
           "superclass": {
             "name": "QuarkElement",
             "package": "@quark-elements/core/elements"
@@ -313,27 +1205,9 @@
           "tagName": "qm-kitchen-sink",
           "customElement": true,
           "displayname": "Kitchen Sink"
-        },
-        {
-          "kind": "function",
-          "name": "QmKitchenSink",
-          "parameters": [
-            {
-              "name": "name",
-              "default": "'qm-kitchen-sink'"
-            }
-          ]
         }
       ],
       "exports": [
-        {
-          "kind": "js",
-          "name": "QmKitchenSinkElement",
-          "declaration": {
-            "name": "QmKitchenSinkElement",
-            "module": "elements/demo/QmKitchenSink.js"
-          }
-        },
         {
           "kind": "js",
           "name": "QmKitchenSink",
@@ -390,14 +1264,13 @@
         {
           "kind": "class",
           "description": "Some random description.",
-          "name": "QmFilledPanelElement",
-          "slots": [
-            {
-              "description": "Default",
-              "name": ""
-            }
-          ],
+          "name": "QmFilledPanel",
           "members": [
+            {
+              "kind": "field",
+              "name": "defaultTag",
+              "static": true
+            },
             {
               "kind": "field",
               "name": "name",
@@ -433,6 +1306,65 @@
                 "filled",
                 "raised"
               ]
+            },
+            {
+              "kind": "method",
+              "name": "as",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "name"
+                }
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "asDefault",
+              "static": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "isLTR",
+              "privacy": "public",
+              "description": "Whether or not the text direction is LTR (default) or RTL.",
+              "type": {
+                "text": "boolean"
+              },
+              "attribute": "isLTR",
+              "readonly": true,
+              "default": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "dir",
+              "type": {
+                "text": "string"
+              },
+              "default": "'ltr'",
+              "privacy": "public",
+              "description": "The text direction.",
+              "attribute": "dir",
+              "reflects": true,
+              "allowedvalues": [
+                "ltr",
+                "rtl"
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
             }
           ],
           "attributes": [
@@ -465,10 +1397,40 @@
                 "filled",
                 "raised"
               ]
+            },
+            {
+              "name": "dir",
+              "description": "The text direction.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "dir",
+              "allowedvalues": [
+                "ltr",
+                "rtl"
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "name": "isLTR",
+              "description": "Whether or not the text direction is LTR (default) or RTL.",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "isLTR",
+              "readonly": true,
+              "default": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
             }
           ],
           "superclass": {
-            "name": "QuarkPanelElement",
+            "name": "QuarkPanel",
             "package": "@quark-elements/core/elements"
           },
           "summary": "A filled variant Material Design panel.",
@@ -479,27 +1441,9 @@
           "customElement": true,
           "displayname": "Filled Panel",
           "category": "Panels "
-        },
-        {
-          "kind": "function",
-          "name": "QmFilledPanel",
-          "parameters": [
-            {
-              "name": "name",
-              "default": "'qm-filled-panel'"
-            }
-          ]
         }
       ],
       "exports": [
-        {
-          "kind": "js",
-          "name": "QmFilledPanelElement",
-          "declaration": {
-            "name": "QmFilledPanelElement",
-            "module": "elements/panel/QmFilledPanel.js"
-          }
-        },
         {
           "kind": "js",
           "name": "QmFilledPanel",
@@ -517,16 +1461,75 @@
         {
           "kind": "class",
           "description": "Some random description.",
-          "name": "QmFlatPanelElement",
-          "slots": [
+          "name": "QmFlatPanel",
+          "members": [
             {
-              "description": "Default",
-              "name": ""
+              "kind": "field",
+              "name": "defaultTag",
+              "static": true
+            },
+            {
+              "kind": "method",
+              "name": "as",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "name"
+                }
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "asDefault",
+              "static": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "isLTR",
+              "privacy": "public",
+              "description": "Whether or not the text direction is LTR (default) or RTL.",
+              "type": {
+                "text": "boolean"
+              },
+              "attribute": "isLTR",
+              "readonly": true,
+              "default": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "dir",
+              "type": {
+                "text": "string"
+              },
+              "default": "'ltr'",
+              "privacy": "public",
+              "description": "The text direction.",
+              "attribute": "dir",
+              "reflects": true,
+              "allowedvalues": [
+                "ltr",
+                "rtl"
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
             }
           ],
-          "members": [],
           "superclass": {
-            "name": "QuarkPanelElement",
+            "name": "QuarkPanel",
             "package": "@quark-elements/core/elements"
           },
           "summary": "A flat variant Material Design panel.",
@@ -536,28 +1539,42 @@
           "tagName": "qm-flat-panel",
           "customElement": true,
           "displayname": "Flat Panel",
-          "category": "Panels "
-        },
-        {
-          "kind": "function",
-          "name": "QmFlatPanel",
-          "parameters": [
+          "category": "Panels ",
+          "attributes": [
             {
-              "name": "name",
-              "default": "'qm-flat-panel'"
+              "name": "dir",
+              "description": "The text direction.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "dir",
+              "allowedvalues": [
+                "ltr",
+                "rtl"
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "name": "isLTR",
+              "description": "Whether or not the text direction is LTR (default) or RTL.",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "isLTR",
+              "readonly": true,
+              "default": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
             }
           ]
         }
       ],
       "exports": [
-        {
-          "kind": "js",
-          "name": "QmFlatPanelElement",
-          "declaration": {
-            "name": "QmFlatPanelElement",
-            "module": "elements/panel/QmFlatPanel.js"
-          }
-        },
         {
           "kind": "js",
           "name": "QmFlatPanel",
@@ -575,16 +1592,75 @@
         {
           "kind": "class",
           "description": "Some random description.",
-          "name": "QmOutlinedPanelElement",
-          "slots": [
+          "name": "QmOutlinedPanel",
+          "members": [
             {
-              "description": "Default",
-              "name": ""
+              "kind": "field",
+              "name": "defaultTag",
+              "static": true
+            },
+            {
+              "kind": "method",
+              "name": "as",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "name"
+                }
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "asDefault",
+              "static": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "isLTR",
+              "privacy": "public",
+              "description": "Whether or not the text direction is LTR (default) or RTL.",
+              "type": {
+                "text": "boolean"
+              },
+              "attribute": "isLTR",
+              "readonly": true,
+              "default": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "dir",
+              "type": {
+                "text": "string"
+              },
+              "default": "'ltr'",
+              "privacy": "public",
+              "description": "The text direction.",
+              "attribute": "dir",
+              "reflects": true,
+              "allowedvalues": [
+                "ltr",
+                "rtl"
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
             }
           ],
-          "members": [],
           "superclass": {
-            "name": "QuarkPanelElement",
+            "name": "QuarkPanel",
             "package": "@quark-elements/core/elements"
           },
           "summary": "An outlined variant Material Design panel.",
@@ -594,28 +1670,42 @@
           "tagName": "qm-outlined-panel",
           "customElement": true,
           "displayname": "Outlined Panel",
-          "category": "Panels "
-        },
-        {
-          "kind": "function",
-          "name": "QmOutlinedPanel",
-          "parameters": [
+          "category": "Panels ",
+          "attributes": [
             {
-              "name": "name",
-              "default": "'qm-outlined-panel'"
+              "name": "dir",
+              "description": "The text direction.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "dir",
+              "allowedvalues": [
+                "ltr",
+                "rtl"
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "name": "isLTR",
+              "description": "Whether or not the text direction is LTR (default) or RTL.",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "isLTR",
+              "readonly": true,
+              "default": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
             }
           ]
         }
       ],
       "exports": [
-        {
-          "kind": "js",
-          "name": "QmOutlinedPanelElement",
-          "declaration": {
-            "name": "QmOutlinedPanelElement",
-            "module": "elements/panel/QmOutlinedPanel.js"
-          }
-        },
         {
           "kind": "js",
           "name": "QmOutlinedPanel",
@@ -633,16 +1723,75 @@
         {
           "kind": "class",
           "description": "Some random description.",
-          "name": "QmRaisedPanelElement",
-          "slots": [
+          "name": "QmRaisedPanel",
+          "members": [
             {
-              "description": "Default",
-              "name": ""
+              "kind": "field",
+              "name": "defaultTag",
+              "static": true
+            },
+            {
+              "kind": "method",
+              "name": "as",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "name"
+                }
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "asDefault",
+              "static": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "isLTR",
+              "privacy": "public",
+              "description": "Whether or not the text direction is LTR (default) or RTL.",
+              "type": {
+                "text": "boolean"
+              },
+              "attribute": "isLTR",
+              "readonly": true,
+              "default": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "dir",
+              "type": {
+                "text": "string"
+              },
+              "default": "'ltr'",
+              "privacy": "public",
+              "description": "The text direction.",
+              "attribute": "dir",
+              "reflects": true,
+              "allowedvalues": [
+                "ltr",
+                "rtl"
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
             }
           ],
-          "members": [],
           "superclass": {
-            "name": "QuarkPanelElement",
+            "name": "QuarkPanel",
             "package": "@quark-elements/core/elements"
           },
           "summary": "A raised variant Material Design panel.",
@@ -652,28 +1801,42 @@
           "tagName": "qm-raised-panel",
           "customElement": true,
           "displayname": "Raised Panel",
-          "category": "Panels "
-        },
-        {
-          "kind": "function",
-          "name": "QmRaisedPanel",
-          "parameters": [
+          "category": "Panels ",
+          "attributes": [
             {
-              "name": "name",
-              "default": "'qm-raised-panel'"
+              "name": "dir",
+              "description": "The text direction.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "dir",
+              "allowedvalues": [
+                "ltr",
+                "rtl"
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "name": "isLTR",
+              "description": "Whether or not the text direction is LTR (default) or RTL.",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "isLTR",
+              "readonly": true,
+              "default": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
             }
           ]
         }
       ],
       "exports": [
-        {
-          "kind": "js",
-          "name": "QmRaisedPanelElement",
-          "declaration": {
-            "name": "QmRaisedPanelElement",
-            "module": "elements/panel/QmRaisedPanel.js"
-          }
-        },
         {
           "kind": "js",
           "name": "QmRaisedPanel",
@@ -761,7 +1924,7 @@
           "type": {
             "text": "designtoken"
           },
-          "default": "{\r\n    'md-sys-color-primary': {\r\n        light: '#6750A4',\r\n        dark: '#D0BCFF'\r\n    },\r\n\r\n    'md-sys-color-primary-container': {\r\n        light: '#EADDFF',\r\n        dark: '#4F378B'\r\n    },\r\n    \r\n    'md-sys-color-secondary': {\r\n        light: '#625B71',\r\n        dark: '#CCC2DC'\r\n    },\r\n    \r\n    'md-sys-color-secondary-container': {\r\n        light: '#E8DEF8',\r\n        dark: '#4A4458'\r\n    },\r\n    \r\n    'md-sys-color-tertiary': {\r\n        light: '#7D5260',\r\n        dark: '#EFB8C8'\r\n    },\r\n    \r\n    'md-sys-color-tertiary-container': {\r\n        light: '#FFD8E4',\r\n        dark: '#633B48'\r\n    },\r\n    \r\n    'md-sys-color-surface': {\r\n        //light: '#FFFBFE',\r\n        light: '#FFFFFF',\r\n        dark: '#1E1E1E'\r\n    },\r\n    \r\n    'md-sys-color-surface-variant': {\r\n        light: '#E7E0EC',\r\n        dark: '#49454F'\r\n    },\r\n    \r\n    'md-sys-color-background': {\r\n        light: '#FAFAFA',\r\n        dark: '#1C1B1F'\r\n    },\r\n    \r\n    'md-sys-color-error': {\r\n        light: '#B3261E',\r\n        dark: '#F2B8B5'\r\n    },\r\n    \r\n    'md-sys-color-error-container': {\r\n        light: '#F9DEDC',\r\n        dark: '#8C1D18'\r\n    },\r\n    \r\n    'md-sys-color-on-primary': {\r\n        light: '#FFFFFF',\r\n        dark: '#381E72'\r\n    },\r\n    \r\n    'md-sys-color-on-primary-container': {\r\n        light: '#21005E',\r\n        dark: '#EADDFF'\r\n    },\r\n    \r\n    'md-sys-color-on-secondary': {\r\n        light: '#FFFFFF',\r\n        dark: '#332D41'\r\n    },\r\n    \r\n    'md-sys-color-on-secondary-container': {\r\n        light: '#1E192B',\r\n        dark: '#E8DEF8'\r\n    },\r\n    \r\n    'md-sys-color-on-tertiary': {\r\n        light: '#FFFFFF',\r\n        dark: '#492532'\r\n    },\r\n    \r\n    'md-sys-color-on-tertiary-container': {\r\n        light: '#370B1E',\r\n        dark: '#FFD8E4'\r\n    },\r\n    \r\n    'md-sys-color-on-surface': {\r\n        light: '#1C1B1F',\r\n        dark: '#E6E1E5'\r\n    },\r\n    \r\n    'md-sys-color-on-surface-variant': {\r\n        light: '#49454E',\r\n        dark: '#CAC4D0'\r\n    },\r\n    \r\n    'md-sys-color-on-error': {\r\n        light: '#FFFFFF',\r\n        dark: '#601410'\r\n    },\r\n    \r\n    'md-sys-color-on-error-container': {\r\n        light: '#370B1E',\r\n        dark: '#F2B8B5'\r\n    },\r\n    \r\n    'md-sys-color-on-background': {\r\n        light: '#1C1B1F',\r\n        dark: '#E6E1E5'\r\n    },\r\n\r\n    'md-sys-color-outline': {\r\n        light: '#E1E1E1',\r\n        dark: '#938F99'\r\n    },\r\n    \r\n    /*\r\n    'md-sys-color-outline': {\r\n        light: '#79747E',\r\n        dark: '#938F99'\r\n    },\r\n    */\r\n\r\n    /*\r\n    'md-sys-color-shadow': {\r\n        light: '#000000',\r\n        dark: '#000000'\r\n    },\r\n    */\r\n    \r\n    'md-sys-color-inverse-surface': {\r\n        light: '#313033',\r\n        dark: '#E6E1E5'\r\n    },\r\n    \r\n    'md-sys-color-inverse-on-surface': {\r\n        light: '#F4EFF4',\r\n        dark: '#313033'\r\n    },\r\n    \r\n    'md-sys-color-inverse-primary': {\r\n        light: '#D0BCFF',\r\n        dark: '#6750A4'\r\n    }\r\n}",
+          "default": "{\r\n    'md-sys-color-primary': {\r\n        light: '#6750A4',\r\n        dark: '#D0BCFF'\r\n    },\r\n\r\n    'md-sys-color-primary-container': {\r\n        light: '#EADDFF',\r\n        dark: '#4F378B'\r\n    },\r\n    \r\n    'md-sys-color-secondary': {\r\n        light: '#625B71',\r\n        dark: '#CCC2DC'\r\n    },\r\n    \r\n    'md-sys-color-secondary-container': {\r\n        light: '#E8DEF8',\r\n        dark: '#4A4458'\r\n    },\r\n    \r\n    'md-sys-color-tertiary': {\r\n        light: '#7D5260',\r\n        dark: '#EFB8C8'\r\n    },\r\n    \r\n    'md-sys-color-tertiary-container': {\r\n        light: '#FFD8E4',\r\n        dark: '#633B48'\r\n    },\r\n    \r\n    'md-sys-color-surface': {\r\n        //light: '#FFFBFE',\r\n        light: '#FFFFFF',\r\n        //dark: '#1E1E1E'\r\n        dark: '#1C1B1F'\r\n    },\r\n    \r\n    'md-sys-color-surface-variant': {\r\n        light: '#E7E0EC',\r\n        dark: '#49454F'\r\n    },\r\n    \r\n    'md-sys-color-background': {\r\n        light: '#FAFAFA',\r\n        dark: '#1C1B1F'\r\n    },\r\n    \r\n    'md-sys-color-error': {\r\n        light: '#B3261E',\r\n        dark: '#F2B8B5'\r\n    },\r\n    \r\n    'md-sys-color-error-container': {\r\n        light: '#F9DEDC',\r\n        dark: '#8C1D18'\r\n    },\r\n    \r\n    'md-sys-color-on-primary': {\r\n        light: '#FFFFFF',\r\n        dark: '#381E72'\r\n    },\r\n    \r\n    'md-sys-color-on-primary-container': {\r\n        light: '#21005E',\r\n        dark: '#EADDFF'\r\n    },\r\n    \r\n    'md-sys-color-on-secondary': {\r\n        light: '#FFFFFF',\r\n        dark: '#332D41'\r\n    },\r\n    \r\n    'md-sys-color-on-secondary-container': {\r\n        light: '#1E192B',\r\n        dark: '#E8DEF8'\r\n    },\r\n    \r\n    'md-sys-color-on-tertiary': {\r\n        light: '#FFFFFF',\r\n        dark: '#492532'\r\n    },\r\n    \r\n    'md-sys-color-on-tertiary-container': {\r\n        light: '#370B1E',\r\n        dark: '#FFD8E4'\r\n    },\r\n    \r\n    'md-sys-color-on-surface': {\r\n        light: '#1C1B1F',\r\n        dark: '#E6E1E5'\r\n    },\r\n    \r\n    'md-sys-color-on-surface-variant': {\r\n        light: '#49454E',\r\n        dark: '#CAC4D0'\r\n    },\r\n    \r\n    'md-sys-color-on-error': {\r\n        light: '#FFFFFF',\r\n        dark: '#601410'\r\n    },\r\n    \r\n    'md-sys-color-on-error-container': {\r\n        light: '#370B1E',\r\n        dark: '#F2B8B5'\r\n    },\r\n    \r\n    'md-sys-color-on-background': {\r\n        light: '#1C1B1F',\r\n        dark: '#E6E1E5'\r\n    },\r\n\r\n    'md-sys-color-outline': {\r\n        light: '#E1E1E1',\r\n        dark: '#938F99'\r\n    },\r\n    \r\n    /*\r\n    'md-sys-color-outline': {\r\n        light: '#79747E',\r\n        dark: '#938F99'\r\n    },\r\n    */\r\n\r\n    /*\r\n    'md-sys-color-shadow': {\r\n        light: '#000000',\r\n        dark: '#000000'\r\n    },\r\n    */\r\n    \r\n    'md-sys-color-inverse-surface': {\r\n        light: '#313033',\r\n        dark: '#E6E1E5'\r\n    },\r\n    \r\n    'md-sys-color-inverse-on-surface': {\r\n        light: '#F4EFF4',\r\n        dark: '#313033'\r\n    },\r\n    \r\n    'md-sys-color-inverse-primary': {\r\n        light: '#D0BCFF',\r\n        dark: '#6750A4'\r\n    }\r\n}",
           "summary": "The theme color tokens."
         }
       ],
@@ -786,7 +1949,7 @@
           "type": {
             "text": "designtoken"
           },
-          "default": "{\r\n    'md-sys-elevation-transition': 'box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1)',\r\n    'md-sys-elevation-level-0': 'none',\r\n    'md-sys-elevation-level-1': '0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px -1px rgba(0, 0, 0, 0.2)',\r\n    'md-sys-elevation-level-2': '0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 1px 8px 0 rgba(0, 0, 0, 0.12), 0 3px 3px -2px rgba(0, 0, 0, 0.4)',\r\n    'md-sys-elevation-level-3': '0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.4)',\r\n    'md-sys-elevation-level-4': '0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4)',\r\n    'md-sys-elevation-level-5': '0 12px 16px 1px rgba(0, 0, 0, 0.14), 0 4px 22px 3px rgba(0, 0, 0, 0.12), 0 6px 7px -4px rgba(0, 0, 0, 0.4)'\r\n\r\n}",
+          "default": "{\r\n    'md-sys-elevation-transition': 'box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1)',\r\n    'md-sys-elevation-level-0': 'none',\r\n    // 1 - 5%\r\n    'md-sys-elevation-level-1': {\r\n        light: '0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px -1px rgba(0, 0, 0, 0.2)',\r\n        dark: 'none'\r\n    },\r\n    // 3 - 8%\r\n    'md-sys-elevation-level-2': {\r\n        light: '0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 1px 8px 0 rgba(0, 0, 0, 0.12), 0 3px 3px -2px rgba(0, 0, 0, 0.4)',\r\n        dark: 'none'\r\n    },\r\n    // 6 - 11%\r\n    'md-sys-elevation-level-3': {\r\n        light: '0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.4)',\r\n        dark: 'none'\r\n    },\r\n    // 8 - 12%\r\n    'md-sys-elevation-level-4': {\r\n        light: '0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4)',\r\n        dark: 'none'\r\n    },\r\n    // 12 - 14%\r\n    'md-sys-elevation-level-5': {\r\n        light: '0 12px 16px 1px rgba(0, 0, 0, 0.14), 0 4px 22px 3px rgba(0, 0, 0, 0.12), 0 6px 7px -4px rgba(0, 0, 0, 0.4)',\r\n        dark: 'none'\r\n    },\r\n\r\n    /*\r\n    'md-sys-elevation-level-0-overlay': 'rgba(255, 255, 255, 0)',\r\n    // 1 - 5%\r\n    'md-sys-elevation-level-1-overlay': {\r\n        light: 'rgba(255, 255, 255, 0)',\r\n        dark: 'rgba(255, 255, 255, 0.05)'\r\n    },\r\n    // 3 - 8%\r\n    'md-sys-elevation-level-2-overlay': {\r\n        light: 'rgba(255, 255, 255, 0)',\r\n        dark: 'rgba(255, 255, 255, 0.08)'\r\n    },\r\n    // 6 - 11%\r\n    'md-sys-elevation-level-3-overlay': {\r\n        light: 'rgba(255, 255, 255, 0)',\r\n        dark: 'rgba(255, 255, 255, 0.11)'\r\n    },\r\n    // 8 - 12%\r\n    'md-sys-elevation-level-4-overlay': {\r\n        light: 'rgba(255, 255, 255, 0)',\r\n        dark: 'rgba(255, 255, 255, 0.12)'\r\n    },\r\n    // 12 - 14%\r\n    'md-sys-elevation-level-5-overlay': {\r\n        light: 'rgba(255, 255, 255, 0)',\r\n        dark: 'rgba(255, 255, 255, 0.14)'\r\n    }\r\n    */\r\n}",
           "summary": "The theme elevation tokens."
         },
         {
@@ -801,27 +1964,57 @@
         {
           "kind": "variable",
           "name": "elevation1",
-          "default": "css`\r\n    .elevation-1 {\r\n        transition: var(--md-sys-elevation-transition);\r\n        box-shadow: var(--md-sys-elevation-level-1);\r\n    }\r\n`"
+          "default": "css`\r\n    .elevation-1 {\r\n        position: relative;\r\n        overflow: hidden;\r\n        transition: var(--md-sys-elevation-transition);\r\n        box-shadow: var(--md-sys-elevation-level-1);\r\n    }\r\n\r\n    .elevation-1:before {\r\n        content: '';\r\n        position: absolute;\r\n        pointer-events: none;\r\n        left: 0;\r\n        top: 0;\r\n        width: 100%;\r\n        height: 100%;\r\n        opacity: 0.05;\r\n        background-color: var(--md-sys-color-primary);\r\n    }\r\n`"
         },
         {
           "kind": "variable",
           "name": "elevation2",
-          "default": "css`\r\n    .elevation-2 {\r\n        transition: var(--md-sys-elevation-transition);\r\n        box-shadow: var(--md-sys-elevation-level-2);\r\n    }\r\n`"
+          "default": "css`\r\n    .elevation-2 {\r\n        position: relative;\r\n        overflow: hidden;\r\n        transition: var(--md-sys-elevation-transition);\r\n        box-shadow: var(--md-sys-elevation-level-2);\r\n    }\r\n\r\n    .elevation-2:before {\r\n        content: '';\r\n        position: absolute;\r\n        pointer-events: none;\r\n        left: 0;\r\n        top: 0;\r\n        width: 100%;\r\n        height: 100%;\r\n        opacity: 0.08;\r\n        background-color: var(--md-sys-color-primary);\r\n    }\r\n`"
         },
         {
           "kind": "variable",
           "name": "elevation3",
-          "default": "css`\r\n    .elevation-3 {\r\n        transition: var(--md-sys-elevation-transition);\r\n        box-shadow: var(--md-sys-elevation-level-3);\r\n    }\r\n`"
+          "default": "css`\r\n    .elevation-3 {\r\n        position: relative;\r\n        overflow: hidden;\r\n        transition: var(--md-sys-elevation-transition);\r\n        box-shadow: var(--md-sys-elevation-level-3);\r\n    }\r\n\r\n    .elevation-3:before {\r\n        content: '';\r\n        position: absolute;\r\n        pointer-events: none;\r\n        left: 0;\r\n        top: 0;\r\n        width: 100%;\r\n        height: 100%;\r\n        opacity: 0.11;\r\n        background-color: var(--md-sys-color-primary);\r\n    }\r\n`"
         },
         {
           "kind": "variable",
           "name": "elevation4",
-          "default": "css`\r\n    .elevation-4 {\r\n        transition: var(--md-sys-elevation-transition);\r\n        box-shadow: var(--md-sys-elevation-level-4);\r\n    }\r\n`"
+          "default": "css`\r\n    .elevation-4 {\r\n        position: relative;\r\n        overflow: hidden;\r\n        transition: var(--md-sys-elevation-transition);\r\n        box-shadow: var(--md-sys-elevation-level-4);\r\n    }\r\n\r\n    .elevation-4:before {\r\n        content: '';\r\n        position: absolute;\r\n        pointer-events: none;\r\n        left: 0;\r\n        top: 0;\r\n        width: 100%;\r\n        height: 100%;\r\n        opacity: 0.12;\r\n        background-color: var(--md-sys-color-primary);\r\n    }\r\n`"
         },
         {
           "kind": "variable",
           "name": "elevation5",
-          "default": "css`\r\n    .elevation-5 {\r\n        transition: var(--md-sys-elevation-transition);\r\n        box-shadow: var(--md-sys-elevation-level-5);\r\n    }\r\n`"
+          "default": "css`\r\n    .elevation-5 {\r\n        position: relative;\r\n        overflow: hidden;\r\n        transition: var(--md-sys-elevation-transition);\r\n        box-shadow: var(--md-sys-elevation-level-5);\r\n    }\r\n\r\n    .elevation-5:before {\r\n        content: '';\r\n        position: absolute;\r\n        pointer-events: none;\r\n        left: 0;\r\n        top: 0;\r\n        width: 100%;\r\n        height: 100%;\r\n        opacity: 0.14;\r\n        background-color: var(--md-sys-color-primary);\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "hostElevation0",
+          "default": "css`\r\n    :host {\r\n        transition: var(--md-sys-elevation-transition);\r\n        box-shadow: var(--md-sys-elevation-level-0);\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "hostElevation1",
+          "default": "css`\r\n    :host {\r\n        position: relative;\r\n        overflow: hidden;\r\n        transition: var(--md-sys-elevation-transition);\r\n        box-shadow: var(--md-sys-elevation-level-1);\r\n    }\r\n\r\n    :host:before {\r\n        content: '';\r\n        position: absolute;\r\n        pointer-events: none;\r\n        left: 0;\r\n        top: 0;\r\n        width: 100%;\r\n        height: 100%;\r\n        opacity: 0.05;\r\n        background-color: var(--md-sys-color-primary);\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "hostElevation2",
+          "default": "css`\r\n    :host {\r\n        position: relative;\r\n        overflow: hidden;\r\n        transition: var(--md-sys-elevation-transition);\r\n        box-shadow: var(--md-sys-elevation-level-2);\r\n    }\r\n\r\n    :host:before {\r\n        content: '';\r\n        position: absolute;\r\n        pointer-events: none;\r\n        left: 0;\r\n        top: 0;\r\n        width: 100%;\r\n        height: 100%;\r\n        opacity: 0.08;\r\n        background-color: var(--md-sys-color-primary);\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "hostElevation3",
+          "default": "css`\r\n    :host {\r\n        position: relative;\r\n        overflow: hidden;\r\n        transition: var(--md-sys-elevation-transition);\r\n        box-shadow: var(--md-sys-elevation-level-3);\r\n    }\r\n\r\n    :host:before {\r\n        content: '';\r\n        position: absolute;\r\n        pointer-events: none;\r\n        left: 0;\r\n        top: 0;\r\n        width: 100%;\r\n        height: 100%;\r\n        opacity: 0.11;\r\n        background-color: var(--md-sys-color-primary);\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "hostElevation4",
+          "default": "css`\r\n    :host {\r\n        position: relative;\r\n        overflow: hidden;\r\n        transition: var(--md-sys-elevation-transition);\r\n        box-shadow: var(--md-sys-elevation-level-4);\r\n    }\r\n\r\n    :host:before {\r\n        content: '';\r\n        position: absolute;\r\n        pointer-events: none;\r\n        left: 0;\r\n        top: 0;\r\n        width: 100%;\r\n        height: 100%;\r\n        opacity: 0.12;\r\n        background-color: var(--md-sys-color-primary);\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "hostElevation5",
+          "default": "css`\r\n    :host {\r\n        position: relative;\r\n        overflow: hidden;\r\n        transition: var(--md-sys-elevation-transition);\r\n        box-shadow: var(--md-sys-elevation-level-5);\r\n    }\r\n\r\n    :host:before {\r\n        content: '';\r\n        position: absolute;\r\n        pointer-events: none;\r\n        left: 0;\r\n        top: 0;\r\n        width: 100%;\r\n        height: 100%;\r\n        opacity: 0.14;\r\n        background-color: var(--md-sys-color-primary);\r\n    }\r\n`"
         }
       ],
       "exports": [
@@ -880,6 +2073,54 @@
             "name": "elevation5",
             "module": "providers/theme/tokens/elevation.js"
           }
+        },
+        {
+          "kind": "js",
+          "name": "hostElevation0",
+          "declaration": {
+            "name": "hostElevation0",
+            "module": "providers/theme/tokens/elevation.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "hostElevation1",
+          "declaration": {
+            "name": "hostElevation1",
+            "module": "providers/theme/tokens/elevation.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "hostElevation2",
+          "declaration": {
+            "name": "hostElevation2",
+            "module": "providers/theme/tokens/elevation.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "hostElevation3",
+          "declaration": {
+            "name": "hostElevation3",
+            "module": "providers/theme/tokens/elevation.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "hostElevation4",
+          "declaration": {
+            "name": "hostElevation4",
+            "module": "providers/theme/tokens/elevation.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "hostElevation5",
+          "declaration": {
+            "name": "hostElevation5",
+            "module": "providers/theme/tokens/elevation.js"
+          }
         }
       ]
     },
@@ -918,7 +2159,7 @@
           "type": {
             "text": "designtoken"
           },
-          "default": "{\r\n    // Font Family\r\n    'md-ref-typeface-brand-regular': \"Roboto, 'Noto Sans SC', sans-serif\",\r\n    'md-ref-typeface-brand-mono': \"'Roboto Mono', monospace\",\r\n\r\n    // Weight\r\n    'md-ref-typeface-weight-regular': '400',\r\n    'md-ref-typeface-weight-medium': '500', \r\n\r\n    // Font (shorthand)\r\n    'md-sys-typescale-display-large': '{md-ref-typeface-weight-regular} 57px/64px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-display-medium': '{md-ref-typeface-weight-regular} 45px/52px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-display-small': '{md-ref-typeface-weight-regular} 36px/44px {md-ref-typeface-brand-regular}',\r\n\r\n    'md-sys-typescale-headline-large': '{md-ref-typeface-weight-regular} 32px/40px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-headline-medium': '{md-ref-typeface-weight-regular} 28px/36px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-headline-small': '{md-ref-typeface-weight-regular} 24px/32px {md-ref-typeface-brand-regular}',\r\n\r\n    'md-sys-typescale-title-large': '{md-ref-typeface-weight-medium} 22px/28px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-title-medium': '{md-ref-typeface-weight-medium} 16px/24px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-title-small': '{md-ref-typeface-weight-medium} 14px/20px {md-ref-typeface-brand-regular}',\r\n\r\n    'md-sys-typescale-label-large': '{md-ref-typeface-weight-medium} 14px/20px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-label-medium': '{md-ref-typeface-weight-medium} 12px/16px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-label-small': '{md-ref-typeface-weight-medium} 11px/16px {md-ref-typeface-brand-regular}',\r\n\r\n    'md-sys-typescale-body-large': '{md-ref-typeface-weight-regular} 16px/24px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-body-medium': '{md-ref-typeface-weight-regular} 14px/20px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-body-small': '{md-ref-typeface-weight-regular} 12px/16px {md-ref-typeface-brand-regular}',\r\n\r\n    'md-sys-typescale-code-large': '{md-ref-typeface-weight-regular} 16px/24px {md-ref-typeface-brand-mono}',\r\n    'md-sys-typescale-code-medium': '{md-ref-typeface-weight-regular} 14px/20px {md-ref-typeface-brand-mono}',\r\n    'md-sys-typescale-code-small': '{md-ref-typeface-weight-regular} 12px/16px {md-ref-typeface-brand-mono}',\r\n\r\n    // Tracking (Letter Spacing)\r\n    'md-sys-typescale-display-large-tracking': '0px',\r\n    'md-sys-typescale-display-medium-tracking': '0px',\r\n    'md-sys-typescale-display-small-tracking': '0px',\r\n\r\n    'md-sys-typescale-headline-large-tracking': '0px',\r\n    'md-sys-typescale-headline-medium-tracking': '0px',\r\n    'md-sys-typescale-headline-small-tracking': '0px',\r\n\r\n    'md-sys-typescale-title-large-tracking': '0px',\r\n    'md-sys-typescale-title-medium-tracking': '0.15px',\r\n    'md-sys-typescale-title-small-tracking': '0.1px',\r\n\r\n    'md-sys-typescale-label-large-tracking': '0.1px',\r\n    'md-sys-typescale-label-medium-tracking': '0.5px',\r\n    'md-sys-typescale-label-small-tracking': '0.5px',\r\n\r\n    'md-sys-typescale-body-large-tracking': '0.15px',\r\n    'md-sys-typescale-body-medium-tracking': '0.25px',\r\n    'md-sys-typescale-body-small-tracking': '0.4px',\r\n\r\n    'md-sys-typescale-code-large-tracking': '0px',\r\n    'md-sys-typescale-code-medium-tracking': '0px',\r\n    'md-sys-typescale-code-small-tracking': '0px'\r\n}",
+          "default": "{\r\n    // Font Family\r\n    'md-ref-typeface-brand-regular': \"Roboto, 'Noto Sans SC', sans-serif\",\r\n    'md-ref-typeface-brand-mono': \"'Roboto Mono', monospace\",\r\n\r\n    // Weight\r\n    'md-ref-typeface-weight-light': '200',\r\n    'md-ref-typeface-weight-regular': '400',\r\n    'md-ref-typeface-weight-medium': '500', \r\n    'md-ref-typeface-weight-bold': '600', \r\n\r\n    // Font (shorthand)\r\n    'md-sys-typescale-display-large': '{md-ref-typeface-weight-regular} 57px/64px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-display-medium': '{md-ref-typeface-weight-regular} 45px/52px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-display-small': '{md-ref-typeface-weight-regular} 36px/44px {md-ref-typeface-brand-regular}',\r\n\r\n    'md-sys-typescale-headline-large': '{md-ref-typeface-weight-regular} 32px/40px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-headline-medium': '{md-ref-typeface-weight-regular} 28px/36px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-headline-small': '{md-ref-typeface-weight-regular} 24px/32px {md-ref-typeface-brand-regular}',\r\n\r\n    'md-sys-typescale-title-large': '{md-ref-typeface-weight-medium} 22px/28px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-title-medium': '{md-ref-typeface-weight-medium} 16px/24px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-title-small': '{md-ref-typeface-weight-medium} 14px/20px {md-ref-typeface-brand-regular}',\r\n\r\n    'md-sys-typescale-label-large': '{md-ref-typeface-weight-medium} 14px/20px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-label-medium': '{md-ref-typeface-weight-medium} 12px/16px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-label-small': '{md-ref-typeface-weight-medium} 11px/16px {md-ref-typeface-brand-regular}',\r\n\r\n    'md-sys-typescale-body-large': '{md-ref-typeface-weight-regular} 16px/24px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-body-medium': '{md-ref-typeface-weight-regular} 14px/20px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-body-small': '{md-ref-typeface-weight-regular} 12px/16px {md-ref-typeface-brand-regular}',\r\n\r\n    'md-sys-typescale-code-large': '{md-ref-typeface-weight-regular} 16px/24px {md-ref-typeface-brand-mono}',\r\n    'md-sys-typescale-code-medium': '{md-ref-typeface-weight-regular} 14px/20px {md-ref-typeface-brand-mono}',\r\n    'md-sys-typescale-code-small': '{md-ref-typeface-weight-regular} 12px/16px {md-ref-typeface-brand-mono}',\r\n\r\n    // Tracking (Letter Spacing)\r\n    'md-sys-typescale-display-large-tracking': '0px',\r\n    'md-sys-typescale-display-medium-tracking': '0px',\r\n    'md-sys-typescale-display-small-tracking': '0px',\r\n\r\n    'md-sys-typescale-headline-large-tracking': '0px',\r\n    'md-sys-typescale-headline-medium-tracking': '0px',\r\n    'md-sys-typescale-headline-small-tracking': '0px',\r\n\r\n    'md-sys-typescale-title-large-tracking': '0px',\r\n    'md-sys-typescale-title-medium-tracking': '0.15px',\r\n    'md-sys-typescale-title-small-tracking': '0.1px',\r\n\r\n    'md-sys-typescale-label-large-tracking': '0.1px',\r\n    'md-sys-typescale-label-medium-tracking': '0.5px',\r\n    'md-sys-typescale-label-small-tracking': '0.5px',\r\n\r\n    'md-sys-typescale-body-large-tracking': '0.15px',\r\n    'md-sys-typescale-body-medium-tracking': '0.25px',\r\n    'md-sys-typescale-body-small-tracking': '0.4px',\r\n\r\n    'md-sys-typescale-code-large-tracking': '0px',\r\n    'md-sys-typescale-code-medium-tracking': '0px',\r\n    'md-sys-typescale-code-small-tracking': '0px'\r\n}",
           "summary": "The theme typography tokens."
         },
         {

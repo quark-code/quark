@@ -10,6 +10,8 @@ import { ElevationTokens } from './tokens/elevation.js';
 import { BorderTokens } from './tokens/border.js';
 import { SpacingTokens } from './tokens/spacing.js';
 
+import { CoreIcons } from './icons/core.js';
+
  /**
   * @customtype theme
   * @summary The Material Design theme definition.
@@ -29,11 +31,12 @@ export class MaterialTheme extends Theme {
 
     static get icons() {
         return {
-            
+            ...CoreIcons
         }
     }
 
-    constructor(name, accent, onAccent) {
+    constructor(name, overrides) {
         super(name);
+
     }
 }

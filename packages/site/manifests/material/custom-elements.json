@@ -1,0 +1,2646 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "../core/index.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../core/elements/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./QuarkElement.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./button/QuarkButton.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./panel/QuarkPanel.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./image/QuarkIcon.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../core/elements/QuarkElement.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "QuarkElement",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_registerTokens",
+              "static": true
+            },
+            {
+              "kind": "method",
+              "name": "register",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "tagName"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "isLTR",
+              "privacy": "public",
+              "description": "Whether or not the text direction is LTR (default) or RTL.",
+              "type": {
+                "text": "boolean"
+              },
+              "attribute": "isLTR",
+              "readonly": true,
+              "default": true
+            },
+            {
+              "kind": "field",
+              "name": "dir",
+              "type": {
+                "text": "string"
+              },
+              "default": "'ltr'",
+              "privacy": "public",
+              "description": "The text direction.",
+              "attribute": "dir",
+              "reflects": true,
+              "allowedvalues": [
+                "ltr",
+                "rtl"
+              ]
+            }
+          ],
+          "attributes": [
+            {
+              "name": "dir",
+              "description": "The text direction.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "dir",
+              "allowedvalues": [
+                "ltr",
+                "rtl"
+              ]
+            },
+            {
+              "name": "isLTR",
+              "description": "Whether or not the text direction is LTR (default) or RTL.",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "isLTR",
+              "readonly": true,
+              "default": true
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "summary": "The base component class for all Quark components.",
+          "type": {
+            "text": "component"
+          },
+          "displayname": "Element ",
+          "category": "Core ",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "tagName",
+          "declaration": {
+            "name": "anonymous_0",
+            "module": "../core/elements/QuarkElement.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "css",
+          "declaration": {
+            "name": "css",
+            "module": "../core/elements/QuarkElement.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "html",
+          "declaration": {
+            "name": "html",
+            "module": "../core/elements/QuarkElement.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "svg",
+          "declaration": {
+            "name": "svg",
+            "module": "../core/elements/QuarkElement.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "QuarkElement",
+          "declaration": {
+            "name": "QuarkElement",
+            "module": "../core/elements/QuarkElement.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../core/events/TestEvent.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "TestEvent",
+          "members": [
+            {
+              "kind": "field",
+              "name": "eventName",
+              "type": {
+                "text": "string"
+              },
+              "static": true,
+              "default": "'test-event'"
+            },
+            {
+              "kind": "field",
+              "name": "prop1",
+              "default": "prop1"
+            },
+            {
+              "kind": "field",
+              "name": "prop2",
+              "default": "prop2"
+            }
+          ],
+          "superclass": {
+            "name": "Event",
+            "module": "../core/events/TestEvent.js"
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "TestEvent",
+          "declaration": {
+            "name": "TestEvent",
+            "module": "../core/events/TestEvent.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../core/providers/DesignSystemProvider.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "DesignSystemProvider",
+          "members": [
+            {
+              "kind": "field",
+              "name": "themeType"
+            },
+            {
+              "kind": "method",
+              "name": "registerIcons",
+              "parameters": [
+                {
+                  "name": "icons"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "registerIcon",
+              "parameters": [
+                {
+                  "name": "name"
+                },
+                {
+                  "name": "value"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "registerThemes"
+            },
+            {
+              "kind": "method",
+              "name": "registerTokens",
+              "parameters": [
+                {
+                  "name": "tokens"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "useThemeBrand",
+              "parameters": [
+                {
+                  "name": "name"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "clearThemeBrand"
+            },
+            {
+              "kind": "method",
+              "name": "withThemeMode",
+              "parameters": [
+                {
+                  "name": "mode",
+                  "default": "'system'"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "withDensity",
+              "parameters": [
+                {
+                  "name": "density",
+                  "default": "'normal'"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "withDirection",
+              "parameters": [
+                {
+                  "name": "dir",
+                  "default": "'ltr'"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "withDevice",
+              "parameters": [
+                {
+                  "name": "device",
+                  "default": "'desktop'"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "withIconVariant",
+              "parameters": [
+                {
+                  "name": "variant",
+                  "default": "'default'"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "_themeType",
+              "default": "themeType"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "DesignSystemProvider",
+          "declaration": {
+            "name": "DesignSystemProvider",
+            "module": "../core/providers/DesignSystemProvider.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Theme",
+          "declaration": {
+            "name": "Theme",
+            "module": "../core/providers/DesignSystemProvider.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "themeManager",
+          "declaration": {
+            "name": "themeManager",
+            "module": "../core/providers/DesignSystemProvider.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../core/providers/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./DesignSystemProvider.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../core/utils/ScopedCustomElementRegistry.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../core/elements/button/QuarkButton.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "QuarkButton",
+          "superclass": {
+            "name": "QuarkElement",
+            "module": "/core/elements/QuarkElement.js"
+          },
+          "summary": "The base component class for all Quark button components.",
+          "type": {
+            "text": "component"
+          },
+          "displayname": "Button ",
+          "category": "Core ",
+          "attributes": [
+            {
+              "name": "dir",
+              "description": "The text direction.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "dir",
+              "allowedvalues": [
+                "ltr",
+                "rtl"
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "name": "isLTR",
+              "description": "Whether or not the text direction is LTR (default) or RTL.",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "isLTR",
+              "readonly": true,
+              "default": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "_registerTokens",
+              "static": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "register",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "tagName"
+                }
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "isLTR",
+              "privacy": "public",
+              "description": "Whether or not the text direction is LTR (default) or RTL.",
+              "type": {
+                "text": "boolean"
+              },
+              "attribute": "isLTR",
+              "readonly": true,
+              "default": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "dir",
+              "type": {
+                "text": "string"
+              },
+              "default": "'ltr'",
+              "privacy": "public",
+              "description": "The text direction.",
+              "attribute": "dir",
+              "reflects": true,
+              "allowedvalues": [
+                "ltr",
+                "rtl"
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "QuarkButton",
+          "declaration": {
+            "name": "QuarkButton",
+            "module": "../core/elements/button/QuarkButton.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../core/elements/image/QuarkIcon.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "QuarkIcon",
+          "members": [
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "privacy": "public",
+              "description": "The name of the registered icon.",
+              "attribute": "icon"
+            },
+            {
+              "kind": "method",
+              "name": "_registerTokens",
+              "static": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "register",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "tagName"
+                }
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "isLTR",
+              "privacy": "public",
+              "description": "Whether or not the text direction is LTR (default) or RTL.",
+              "type": {
+                "text": "boolean"
+              },
+              "attribute": "isLTR",
+              "readonly": true,
+              "default": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "dir",
+              "type": {
+                "text": "string"
+              },
+              "default": "'ltr'",
+              "privacy": "public",
+              "description": "The text direction.",
+              "attribute": "dir",
+              "reflects": true,
+              "allowedvalues": [
+                "ltr",
+                "rtl"
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "icon",
+              "description": "The name of the registered icon.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "icon"
+            },
+            {
+              "name": "dir",
+              "description": "The text direction.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "dir",
+              "allowedvalues": [
+                "ltr",
+                "rtl"
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "name": "isLTR",
+              "description": "Whether or not the text direction is LTR (default) or RTL.",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "isLTR",
+              "readonly": true,
+              "default": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "QuarkElement",
+            "module": "/core/elements/QuarkElement.js"
+          },
+          "summary": "The base component class for an element that displays a single icon.",
+          "type": {
+            "text": "component"
+          },
+          "displayname": "Icon ",
+          "category": "Core "
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "QuarkIcon",
+          "declaration": {
+            "name": "QuarkIcon",
+            "module": "../core/elements/image/QuarkIcon.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../core/elements/panel/QuarkPanel.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "QuarkPanel",
+          "slots": [
+            {
+              "description": "Default",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "_registerTokens",
+              "static": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "register",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "tagName"
+                }
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "isLTR",
+              "privacy": "public",
+              "description": "Whether or not the text direction is LTR (default) or RTL.",
+              "type": {
+                "text": "boolean"
+              },
+              "attribute": "isLTR",
+              "readonly": true,
+              "default": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "dir",
+              "type": {
+                "text": "string"
+              },
+              "default": "'ltr'",
+              "privacy": "public",
+              "description": "The text direction.",
+              "attribute": "dir",
+              "reflects": true,
+              "allowedvalues": [
+                "ltr",
+                "rtl"
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "QuarkElement",
+            "module": "/core/elements/QuarkElement.js"
+          },
+          "summary": "The base component class for all Quark panel components.",
+          "type": {
+            "text": "component"
+          },
+          "displayname": "Panel ",
+          "category": "Core ",
+          "attributes": [
+            {
+              "name": "dir",
+              "description": "The text direction.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "dir",
+              "allowedvalues": [
+                "ltr",
+                "rtl"
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "name": "isLTR",
+              "description": "Whether or not the text direction is LTR (default) or RTL.",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "isLTR",
+              "readonly": true,
+              "default": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "QuarkPanel",
+          "declaration": {
+            "name": "QuarkPanel",
+            "module": "../core/elements/panel/QuarkPanel.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../material/index.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../material/quark-doc.config.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../material/rollup-docs.config.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "module": "../material/rollup-docs.config.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../material/providers/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "provideMaterialDesignSystem",
+          "declaration": {
+            "name": "provideMaterialDesignSystem",
+            "module": "./MaterialDesignSystemProvider.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "MaterialTheme",
+          "declaration": {
+            "name": "MaterialTheme",
+            "module": "./MaterialDesignSystemProvider.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../material/providers/MaterialDesignSystemProvider.js",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "provideMaterialDesignSystem"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "provideMaterialDesignSystem",
+          "declaration": {
+            "name": "provideMaterialDesignSystem",
+            "module": "../material/providers/MaterialDesignSystemProvider.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "MaterialTheme",
+          "declaration": {
+            "name": "MaterialTheme",
+            "module": "../material/providers/MaterialDesignSystemProvider.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "themeManager",
+          "declaration": {
+            "name": "themeManager",
+            "module": "../material/providers/MaterialDesignSystemProvider.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../material/styling/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "displayLarge",
+          "declaration": {
+            "name": "displayLarge",
+            "module": "../providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "displayMedium",
+          "declaration": {
+            "name": "displayMedium",
+            "module": "../providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "displaySmall",
+          "declaration": {
+            "name": "displaySmall",
+            "module": "../providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "headlineLarge",
+          "declaration": {
+            "name": "headlineLarge",
+            "module": "../providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "headlineMedium",
+          "declaration": {
+            "name": "headlineMedium",
+            "module": "../providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "headlineSmall",
+          "declaration": {
+            "name": "headlineSmall",
+            "module": "../providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "titleLarge",
+          "declaration": {
+            "name": "titleLarge",
+            "module": "../providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "titleMedium",
+          "declaration": {
+            "name": "titleMedium",
+            "module": "../providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "titleSmall",
+          "declaration": {
+            "name": "titleSmall",
+            "module": "../providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "labelLarge",
+          "declaration": {
+            "name": "labelLarge",
+            "module": "../providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "labelMedium",
+          "declaration": {
+            "name": "labelMedium",
+            "module": "../providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "labelSmall",
+          "declaration": {
+            "name": "labelSmall",
+            "module": "../providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "bodyLarge",
+          "declaration": {
+            "name": "bodyLarge",
+            "module": "../providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "bodyMedium",
+          "declaration": {
+            "name": "bodyMedium",
+            "module": "../providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "bodySmall",
+          "declaration": {
+            "name": "bodySmall",
+            "module": "../providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "codeLarge",
+          "declaration": {
+            "name": "codeLarge",
+            "module": "../providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "codeMedium",
+          "declaration": {
+            "name": "codeMedium",
+            "module": "../providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "codeSmall",
+          "declaration": {
+            "name": "codeSmall",
+            "module": "../providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "elevation0",
+          "declaration": {
+            "name": "elevation0",
+            "module": "../providers/theme/tokens/elevation.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "elevation1",
+          "declaration": {
+            "name": "elevation1",
+            "module": "../providers/theme/tokens/elevation.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "elevation2",
+          "declaration": {
+            "name": "elevation2",
+            "module": "../providers/theme/tokens/elevation.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "elevation3",
+          "declaration": {
+            "name": "elevation3",
+            "module": "../providers/theme/tokens/elevation.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "elevation4",
+          "declaration": {
+            "name": "elevation4",
+            "module": "../providers/theme/tokens/elevation.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "elevation5",
+          "declaration": {
+            "name": "elevation5",
+            "module": "../providers/theme/tokens/elevation.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../material/elements/demo/qm-kitchen-sink.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Don't use this.",
+          "name": "QmKitchenSink",
+          "cssProperties": [
+            {
+              "description": "The red background color.",
+              "name": "--background-color-red",
+              "default": "<color> | #FF0000"
+            },
+            {
+              "description": "The blue background color.",
+              "name": "--background-color-blue",
+              "default": "<color> | (no default)"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "The button",
+              "name": "button"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Default",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "sayHello",
+              "parameters": [
+                {
+                  "name": "name",
+                  "description": "The name to say \"Hello\" to.",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "description": "Formats a greeting",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "_protectedMethod",
+              "parameters": [
+                {
+                  "name": "foo",
+                  "description": "The text to write to the console.",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "description": "Formats a greeting",
+              "return": {
+                "type": {
+                  "text": "null"
+                }
+              }
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "'Bob'",
+              "privacy": "public",
+              "description": "The name to say \"Hello\" to.",
+              "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "count",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "privacy": "public",
+              "description": "The number of times the button has been clicked.",
+              "attribute": "count"
+            },
+            {
+              "kind": "field",
+              "name": "_protectedProperty",
+              "type": {
+                "text": "number"
+              },
+              "default": "5",
+              "privacy": "public",
+              "description": "This is a protected property.",
+              "attribute": "_protectedProperty"
+            },
+            {
+              "kind": "method",
+              "name": "_registerTokens",
+              "static": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "register",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "tagName"
+                }
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "isLTR",
+              "privacy": "public",
+              "description": "Whether or not the text direction is LTR (default) or RTL.",
+              "type": {
+                "text": "boolean"
+              },
+              "attribute": "isLTR",
+              "readonly": true,
+              "default": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "dir",
+              "type": {
+                "text": "string"
+              },
+              "default": "'ltr'",
+              "privacy": "public",
+              "description": "The text direction.",
+              "attribute": "dir",
+              "reflects": true,
+              "allowedvalues": [
+                "ltr",
+                "rtl"
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            }
+          ],
+          "events": [
+            {
+              "description": "Indicates when the count changes",
+              "name": "count-changed"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "name",
+              "description": "The name to say \"Hello\" to.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "name"
+            },
+            {
+              "name": "count",
+              "description": "The number of times the button has been clicked.",
+              "type": {
+                "text": "number"
+              },
+              "fieldName": "count"
+            },
+            {
+              "name": "_protectedProperty",
+              "description": "This is a protected property.",
+              "type": {
+                "text": "number"
+              },
+              "fieldName": "_protectedProperty"
+            },
+            {
+              "name": "dir",
+              "description": "The text direction.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "dir",
+              "allowedvalues": [
+                "ltr",
+                "rtl"
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "name": "isLTR",
+              "description": "Whether or not the text direction is LTR (default) or RTL.",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "isLTR",
+              "readonly": true,
+              "default": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "QuarkElement",
+            "package": "@quark-elements/core/elements"
+          },
+          "summary": "A demo component for documentation testing.",
+          "type": {
+            "text": "component"
+          },
+          "tagName": "qm-kitchen-sink",
+          "customElement": true,
+          "displayname": "Kitchen Sink",
+          "designsystem": "Material "
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "QmKitchenSink",
+          "declaration": {
+            "name": "QmKitchenSink",
+            "module": "../material/elements/demo/qm-kitchen-sink.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../material/elements/image/qm-icon.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "QmIcon",
+          "members": [
+            {
+              "kind": "field",
+              "name": "designTokens",
+              "static": true
+            },
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "privacy": "public",
+              "description": "The name of the registered icon.",
+              "attribute": "icon",
+              "inheritedFrom": {
+                "name": "QuarkIcon",
+                "module": "../core/elements/image/QuarkIcon.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "_registerTokens",
+              "static": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "register",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "tagName"
+                }
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "isLTR",
+              "privacy": "public",
+              "description": "Whether or not the text direction is LTR (default) or RTL.",
+              "type": {
+                "text": "boolean"
+              },
+              "attribute": "isLTR",
+              "readonly": true,
+              "default": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "dir",
+              "type": {
+                "text": "string"
+              },
+              "default": "'ltr'",
+              "privacy": "public",
+              "description": "The text direction.",
+              "attribute": "dir",
+              "reflects": true,
+              "allowedvalues": [
+                "ltr",
+                "rtl"
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "QuarkIcon",
+            "package": "@quark-elements/core/elements"
+          },
+          "summary": "An element that displays a single icon.",
+          "type": {
+            "text": "component"
+          },
+          "tagName": "qm-icon",
+          "customElement": true,
+          "displayname": "Icon ",
+          "designsystem": "Material ",
+          "category": "Image ",
+          "attributes": [
+            {
+              "name": "icon",
+              "description": "The name of the registered icon.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "icon",
+              "inheritedFrom": {
+                "name": "QuarkIcon",
+                "module": "../core/elements/image/QuarkIcon.js"
+              }
+            },
+            {
+              "name": "dir",
+              "description": "The text direction.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "dir",
+              "allowedvalues": [
+                "ltr",
+                "rtl"
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "name": "isLTR",
+              "description": "Whether or not the text direction is LTR (default) or RTL.",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "isLTR",
+              "readonly": true,
+              "default": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "QmIcon",
+          "declaration": {
+            "name": "QmIcon",
+            "module": "../material/elements/image/qm-icon.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../material/elements/panel/qm-filled-panel.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Some random description.",
+          "name": "QmFilledPanel",
+          "members": [
+            {
+              "kind": "field",
+              "name": "name",
+              "privacy": "public",
+              "description": "The name to say \"Hello\" to.",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "count",
+              "privacy": "public",
+              "description": "The number of times the button has been clicked.",
+              "type": {
+                "text": "number"
+              },
+              "attribute": "count"
+            },
+            {
+              "kind": "field",
+              "name": "variant",
+              "privacy": "public",
+              "description": "The different visual styles.",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "variant",
+              "allowedvalues": [
+                "text",
+                "outlined",
+                "filled",
+                "raised"
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_registerTokens",
+              "static": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "register",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "tagName"
+                }
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "isLTR",
+              "privacy": "public",
+              "description": "Whether or not the text direction is LTR (default) or RTL.",
+              "type": {
+                "text": "boolean"
+              },
+              "attribute": "isLTR",
+              "readonly": true,
+              "default": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "dir",
+              "type": {
+                "text": "string"
+              },
+              "default": "'ltr'",
+              "privacy": "public",
+              "description": "The text direction.",
+              "attribute": "dir",
+              "reflects": true,
+              "allowedvalues": [
+                "ltr",
+                "rtl"
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "name",
+              "description": "The name to say \"Hello\" to.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "name"
+            },
+            {
+              "name": "count",
+              "description": "The number of times the button has been clicked.",
+              "type": {
+                "text": "number"
+              },
+              "fieldName": "count"
+            },
+            {
+              "name": "variant",
+              "description": "The different visual styles.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "variant",
+              "allowedvalues": [
+                "text",
+                "outlined",
+                "filled",
+                "raised"
+              ]
+            },
+            {
+              "name": "dir",
+              "description": "The text direction.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "dir",
+              "allowedvalues": [
+                "ltr",
+                "rtl"
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "name": "isLTR",
+              "description": "Whether or not the text direction is LTR (default) or RTL.",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "isLTR",
+              "readonly": true,
+              "default": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "QuarkPanel",
+            "package": "@quark-elements/core/elements"
+          },
+          "summary": "A filled variant Material Design panel.",
+          "type": {
+            "text": "component"
+          },
+          "tagName": "qm-filled-panel",
+          "customElement": true,
+          "displayname": "Filled Panel",
+          "designsystem": "Material ",
+          "category": "Panels "
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "QmFilledPanel",
+          "declaration": {
+            "name": "QmFilledPanel",
+            "module": "../material/elements/panel/qm-filled-panel.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../material/elements/panel/qm-flat-panel.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Some random description.",
+          "name": "QmFlatPanel",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_registerTokens",
+              "static": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "register",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "tagName"
+                }
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "isLTR",
+              "privacy": "public",
+              "description": "Whether or not the text direction is LTR (default) or RTL.",
+              "type": {
+                "text": "boolean"
+              },
+              "attribute": "isLTR",
+              "readonly": true,
+              "default": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "dir",
+              "type": {
+                "text": "string"
+              },
+              "default": "'ltr'",
+              "privacy": "public",
+              "description": "The text direction.",
+              "attribute": "dir",
+              "reflects": true,
+              "allowedvalues": [
+                "ltr",
+                "rtl"
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "QuarkPanel",
+            "package": "@quark-elements/core/elements"
+          },
+          "summary": "A flat variant Material Design panel.",
+          "type": {
+            "text": "component"
+          },
+          "tagName": "qm-flat-panel",
+          "customElement": true,
+          "displayname": "Flat Panel",
+          "designsystem": "Material ",
+          "category": "Panels ",
+          "attributes": [
+            {
+              "name": "dir",
+              "description": "The text direction.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "dir",
+              "allowedvalues": [
+                "ltr",
+                "rtl"
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "name": "isLTR",
+              "description": "Whether or not the text direction is LTR (default) or RTL.",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "isLTR",
+              "readonly": true,
+              "default": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "QmFlatPanel",
+          "declaration": {
+            "name": "QmFlatPanel",
+            "module": "../material/elements/panel/qm-flat-panel.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../material/elements/panel/qm-outlined-panel.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Some random description.",
+          "name": "QmOutlinedPanel",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_registerTokens",
+              "static": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "register",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "tagName"
+                }
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "isLTR",
+              "privacy": "public",
+              "description": "Whether or not the text direction is LTR (default) or RTL.",
+              "type": {
+                "text": "boolean"
+              },
+              "attribute": "isLTR",
+              "readonly": true,
+              "default": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "dir",
+              "type": {
+                "text": "string"
+              },
+              "default": "'ltr'",
+              "privacy": "public",
+              "description": "The text direction.",
+              "attribute": "dir",
+              "reflects": true,
+              "allowedvalues": [
+                "ltr",
+                "rtl"
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "QuarkPanel",
+            "package": "@quark-elements/core/elements"
+          },
+          "summary": "An outlined variant Material Design panel.",
+          "type": {
+            "text": "component"
+          },
+          "tagName": "qm-outlined-panel",
+          "customElement": true,
+          "displayname": "Outlined Panel",
+          "designsystem": "Material ",
+          "category": "Panels ",
+          "attributes": [
+            {
+              "name": "dir",
+              "description": "The text direction.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "dir",
+              "allowedvalues": [
+                "ltr",
+                "rtl"
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "name": "isLTR",
+              "description": "Whether or not the text direction is LTR (default) or RTL.",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "isLTR",
+              "readonly": true,
+              "default": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "QmOutlinedPanel",
+          "declaration": {
+            "name": "QmOutlinedPanel",
+            "module": "../material/elements/panel/qm-outlined-panel.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../material/elements/panel/qm-raised-panel.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Some random description.",
+          "name": "QmRaisedPanel",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_registerTokens",
+              "static": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "register",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "tagName"
+                }
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "isLTR",
+              "privacy": "public",
+              "description": "Whether or not the text direction is LTR (default) or RTL.",
+              "type": {
+                "text": "boolean"
+              },
+              "attribute": "isLTR",
+              "readonly": true,
+              "default": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "dir",
+              "type": {
+                "text": "string"
+              },
+              "default": "'ltr'",
+              "privacy": "public",
+              "description": "The text direction.",
+              "attribute": "dir",
+              "reflects": true,
+              "allowedvalues": [
+                "ltr",
+                "rtl"
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "QuarkPanel",
+            "package": "@quark-elements/core/elements"
+          },
+          "summary": "A raised variant Material Design panel.",
+          "type": {
+            "text": "component"
+          },
+          "tagName": "qm-raised-panel",
+          "customElement": true,
+          "displayname": "Raised Panel",
+          "designsystem": "Material ",
+          "category": "Panels ",
+          "attributes": [
+            {
+              "name": "dir",
+              "description": "The text direction.",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "dir",
+              "allowedvalues": [
+                "ltr",
+                "rtl"
+              ],
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            },
+            {
+              "name": "isLTR",
+              "description": "Whether or not the text direction is LTR (default) or RTL.",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "isLTR",
+              "readonly": true,
+              "default": true,
+              "inheritedFrom": {
+                "name": "QuarkElement",
+                "module": "../core/elements/QuarkElement.js"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "QmRaisedPanel",
+          "declaration": {
+            "name": "QmRaisedPanel",
+            "module": "../material/elements/panel/qm-raised-panel.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../material/providers/theme/MaterialTheme.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Some random description.",
+          "name": "MaterialTheme",
+          "members": [
+            {
+              "kind": "field",
+              "name": "tokens",
+              "static": true
+            },
+            {
+              "kind": "field",
+              "name": "icons",
+              "static": true
+            }
+          ],
+          "superclass": {
+            "name": "Theme",
+            "package": "@quark-elements/core/providers"
+          },
+          "summary": "The Material Design theme definition.",
+          "type": {
+            "text": "theme"
+          },
+          "displayname": "Material Theme"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MaterialTheme",
+          "declaration": {
+            "name": "MaterialTheme",
+            "module": "../material/providers/theme/MaterialTheme.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../material/providers/theme/icons/core.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "CoreIcons",
+          "type": {
+            "text": "object"
+          },
+          "default": "{\r\n    'chevron-left': '<g><path d=\"M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z\"/></g>',\r\n    'chevron-right': '<g><path d=\"M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z\"/></g>',\r\n    'chevron-up': '<g><path d=\"M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z\"/></g>',\r\n    'chevron-down': '<g><path d=\"M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z\"/></g>',\r\n    'arrow-left': '<g><path d=\"M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z\"></path></g>',\r\n    'arrow-right': '<g><path d=\"M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z\"></path></g>',\r\n    'arrow-up': '<g><path d=\"M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z\"></path></g>',\r\n    'arrow-down': '<g><path d=\"M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z\"></path></g>',\r\n    'arrow-drop-left': '<g><path d=\"M14 7l-5 5 5 5V7z\"/></g>',\r\n    'arrow-drop-right': '<g><path d=\"M10 17l5-5-5-5v10z\"/></g>',\r\n    'arrow-drop-up': '<g><path d=\"M7 14l5-5 5 5z\"/></g>',\r\n    'arrow-drop-down': '<g><path d=\"M7 10l5 5 5-5z\"/></g>',\r\n    'edit': '<g><path d=\"M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z\"></path></g>',\r\n    'check': '<g><path d=\"M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z\"></path></g>',\r\n    'cross': '<g><path d=\"M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z\"></path></g>',\r\n    'error': '<g><path d=\"M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z\"></path></g>',\r\n    'menu': '<g><path d=\"M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z\"></path></g>',\r\n    'settings': '<g><path d=\"M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z\"></path></g>',\r\n    'search': '<g><path d=\"M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z\"></path></g>'\r\n}"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CoreIcons",
+          "declaration": {
+            "name": "CoreIcons",
+            "module": "../material/providers/theme/icons/core.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../material/providers/theme/tokens/border.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "BorderTokens",
+          "type": {
+            "text": "designtoken"
+          },
+          "default": "{\r\n    'md-sys-border-radius-transition': 'border-radius 0.28s cubic-bezier(0.4, 0, 0.2, 1)',\r\n    'md-sys-border-radius-0': '0px',\r\n    'md-sys-border-radius-1': '8px',\r\n    'md-sys-border-radius-2': '12px',\r\n    'md-sys-border-radius-3': '16px',\r\n    'md-sys-border-radius-4': '28px',\r\n    'md-sys-border-radius-5': '9999px',\r\n\r\n    'md-sys-border-width-transition': 'border-radius 0.28s cubic-bezier(0.4, 0, 0.2, 1)',\r\n    'md-sys-border-width-1': '1px'\r\n}",
+          "summary": "The theme border tokens."
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "BorderTokens",
+          "declaration": {
+            "name": "BorderTokens",
+            "module": "../material/providers/theme/tokens/border.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../material/providers/theme/tokens/color.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "ColorTokens",
+          "type": {
+            "text": "designtoken"
+          },
+          "default": "{\r\n    'md-sys-color-primary': {\r\n        light: '#6750A4',\r\n        dark: '#D0BCFF'\r\n    },\r\n\r\n    'md-sys-color-primary-container': {\r\n        light: '#EADDFF',\r\n        dark: '#4F378B'\r\n    },\r\n    \r\n    'md-sys-color-secondary': {\r\n        light: '#625B71',\r\n        dark: '#CCC2DC'\r\n    },\r\n    \r\n    'md-sys-color-secondary-container': {\r\n        light: '#E8DEF8',\r\n        dark: '#4A4458'\r\n    },\r\n    \r\n    'md-sys-color-tertiary': {\r\n        light: '#7D5260',\r\n        dark: '#EFB8C8'\r\n    },\r\n    \r\n    'md-sys-color-tertiary-container': {\r\n        light: '#FFD8E4',\r\n        dark: '#633B48'\r\n    },\r\n    \r\n    'md-sys-color-surface': {\r\n        //light: '#FFFBFE',\r\n        light: '#FFFFFF',\r\n        //dark: '#1E1E1E'\r\n        dark: '#1C1B1F'\r\n    },\r\n    \r\n    'md-sys-color-surface-variant': {\r\n        light: '#E7E0EC',\r\n        dark: '#49454F'\r\n    },\r\n    \r\n    'md-sys-color-background': {\r\n        light: '#FAFAFA',\r\n        dark: '#1C1B1F'\r\n    },\r\n    \r\n    'md-sys-color-error': {\r\n        light: '#B3261E',\r\n        dark: '#F2B8B5'\r\n    },\r\n    \r\n    'md-sys-color-error-container': {\r\n        light: '#F9DEDC',\r\n        dark: '#8C1D18'\r\n    },\r\n    \r\n    'md-sys-color-on-primary': {\r\n        light: '#FFFFFF',\r\n        dark: '#381E72'\r\n    },\r\n    \r\n    'md-sys-color-on-primary-container': {\r\n        light: '#21005E',\r\n        dark: '#EADDFF'\r\n    },\r\n    \r\n    'md-sys-color-on-secondary': {\r\n        light: '#FFFFFF',\r\n        dark: '#332D41'\r\n    },\r\n    \r\n    'md-sys-color-on-secondary-container': {\r\n        light: '#1E192B',\r\n        dark: '#E8DEF8'\r\n    },\r\n    \r\n    'md-sys-color-on-tertiary': {\r\n        light: '#FFFFFF',\r\n        dark: '#492532'\r\n    },\r\n    \r\n    'md-sys-color-on-tertiary-container': {\r\n        light: '#370B1E',\r\n        dark: '#FFD8E4'\r\n    },\r\n    \r\n    'md-sys-color-on-surface': {\r\n        light: '#1C1B1F',\r\n        dark: '#E6E1E5'\r\n    },\r\n    \r\n    'md-sys-color-on-surface-variant': {\r\n        light: '#49454E',\r\n        dark: '#CAC4D0'\r\n    },\r\n    \r\n    'md-sys-color-on-error': {\r\n        light: '#FFFFFF',\r\n        dark: '#601410'\r\n    },\r\n    \r\n    'md-sys-color-on-error-container': {\r\n        light: '#370B1E',\r\n        dark: '#F2B8B5'\r\n    },\r\n    \r\n    'md-sys-color-on-background': {\r\n        light: '#1C1B1F',\r\n        dark: '#E6E1E5'\r\n    },\r\n\r\n    'md-sys-color-outline': {\r\n        light: '#E1E1E1',\r\n        dark: '#938F99'\r\n    },\r\n    \r\n    /*\r\n    'md-sys-color-outline': {\r\n        light: '#79747E',\r\n        dark: '#938F99'\r\n    },\r\n    */\r\n\r\n    /*\r\n    'md-sys-color-shadow': {\r\n        light: '#000000',\r\n        dark: '#000000'\r\n    },\r\n    */\r\n    \r\n    'md-sys-color-inverse-surface': {\r\n        light: '#313033',\r\n        dark: '#E6E1E5'\r\n    },\r\n    \r\n    'md-sys-color-inverse-on-surface': {\r\n        light: '#F4EFF4',\r\n        dark: '#313033'\r\n    },\r\n    \r\n    'md-sys-color-inverse-primary': {\r\n        light: '#D0BCFF',\r\n        dark: '#6750A4'\r\n    }\r\n}",
+          "summary": "The theme color tokens."
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ColorTokens",
+          "declaration": {
+            "name": "ColorTokens",
+            "module": "../material/providers/theme/tokens/color.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../material/providers/theme/tokens/elevation.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "ElevationTokens",
+          "type": {
+            "text": "designtoken"
+          },
+          "default": "{\r\n    'md-sys-elevation-transition': 'box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1)',\r\n    'md-sys-elevation-level-0': 'none',\r\n    // 1 - 5%\r\n    'md-sys-elevation-level-1': {\r\n        light: '0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px -1px rgba(0, 0, 0, 0.2)',\r\n        dark: 'none'\r\n    },\r\n    // 3 - 8%\r\n    'md-sys-elevation-level-2': {\r\n        light: '0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 1px 8px 0 rgba(0, 0, 0, 0.12), 0 3px 3px -2px rgba(0, 0, 0, 0.4)',\r\n        dark: 'none'\r\n    },\r\n    // 6 - 11%\r\n    'md-sys-elevation-level-3': {\r\n        light: '0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.4)',\r\n        dark: 'none'\r\n    },\r\n    // 8 - 12%\r\n    'md-sys-elevation-level-4': {\r\n        light: '0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4)',\r\n        dark: 'none'\r\n    },\r\n    // 12 - 14%\r\n    'md-sys-elevation-level-5': {\r\n        light: '0 12px 16px 1px rgba(0, 0, 0, 0.14), 0 4px 22px 3px rgba(0, 0, 0, 0.12), 0 6px 7px -4px rgba(0, 0, 0, 0.4)',\r\n        dark: 'none'\r\n    },\r\n\r\n    /*\r\n    'md-sys-elevation-level-0-overlay': 'rgba(255, 255, 255, 0)',\r\n    // 1 - 5%\r\n    'md-sys-elevation-level-1-overlay': {\r\n        light: 'rgba(255, 255, 255, 0)',\r\n        dark: 'rgba(255, 255, 255, 0.05)'\r\n    },\r\n    // 3 - 8%\r\n    'md-sys-elevation-level-2-overlay': {\r\n        light: 'rgba(255, 255, 255, 0)',\r\n        dark: 'rgba(255, 255, 255, 0.08)'\r\n    },\r\n    // 6 - 11%\r\n    'md-sys-elevation-level-3-overlay': {\r\n        light: 'rgba(255, 255, 255, 0)',\r\n        dark: 'rgba(255, 255, 255, 0.11)'\r\n    },\r\n    // 8 - 12%\r\n    'md-sys-elevation-level-4-overlay': {\r\n        light: 'rgba(255, 255, 255, 0)',\r\n        dark: 'rgba(255, 255, 255, 0.12)'\r\n    },\r\n    // 12 - 14%\r\n    'md-sys-elevation-level-5-overlay': {\r\n        light: 'rgba(255, 255, 255, 0)',\r\n        dark: 'rgba(255, 255, 255, 0.14)'\r\n    }\r\n    */\r\n}",
+          "summary": "The theme elevation tokens."
+        },
+        {
+          "kind": "variable",
+          "name": "elevation0",
+          "default": "css`\r\n    .elevation-0 {\r\n        transition: var(--md-sys-elevation-transition);\r\n        box-shadow: var(--md-sys-elevation-level-0);\r\n    }\r\n`",
+          "type": {
+            "text": "cssmodule"
+          },
+          "summary": "Elevation Style 0."
+        },
+        {
+          "kind": "variable",
+          "name": "elevation1",
+          "default": "css`\r\n    .elevation-1 {\r\n        position: relative;\r\n        overflow: hidden;\r\n        transition: var(--md-sys-elevation-transition);\r\n        box-shadow: var(--md-sys-elevation-level-1);\r\n    }\r\n\r\n    .elevation-1:before {\r\n        content: '';\r\n        position: absolute;\r\n        pointer-events: none;\r\n        left: 0;\r\n        top: 0;\r\n        width: 100%;\r\n        height: 100%;\r\n        opacity: 0.05;\r\n        background-color: var(--md-sys-color-primary);\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "elevation2",
+          "default": "css`\r\n    .elevation-2 {\r\n        position: relative;\r\n        overflow: hidden;\r\n        transition: var(--md-sys-elevation-transition);\r\n        box-shadow: var(--md-sys-elevation-level-2);\r\n    }\r\n\r\n    .elevation-2:before {\r\n        content: '';\r\n        position: absolute;\r\n        pointer-events: none;\r\n        left: 0;\r\n        top: 0;\r\n        width: 100%;\r\n        height: 100%;\r\n        opacity: 0.08;\r\n        background-color: var(--md-sys-color-primary);\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "elevation3",
+          "default": "css`\r\n    .elevation-3 {\r\n        position: relative;\r\n        overflow: hidden;\r\n        transition: var(--md-sys-elevation-transition);\r\n        box-shadow: var(--md-sys-elevation-level-3);\r\n    }\r\n\r\n    .elevation-3:before {\r\n        content: '';\r\n        position: absolute;\r\n        pointer-events: none;\r\n        left: 0;\r\n        top: 0;\r\n        width: 100%;\r\n        height: 100%;\r\n        opacity: 0.11;\r\n        background-color: var(--md-sys-color-primary);\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "elevation4",
+          "default": "css`\r\n    .elevation-4 {\r\n        position: relative;\r\n        overflow: hidden;\r\n        transition: var(--md-sys-elevation-transition);\r\n        box-shadow: var(--md-sys-elevation-level-4);\r\n    }\r\n\r\n    .elevation-4:before {\r\n        content: '';\r\n        position: absolute;\r\n        pointer-events: none;\r\n        left: 0;\r\n        top: 0;\r\n        width: 100%;\r\n        height: 100%;\r\n        opacity: 0.12;\r\n        background-color: var(--md-sys-color-primary);\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "elevation5",
+          "default": "css`\r\n    .elevation-5 {\r\n        position: relative;\r\n        overflow: hidden;\r\n        transition: var(--md-sys-elevation-transition);\r\n        box-shadow: var(--md-sys-elevation-level-5);\r\n    }\r\n\r\n    .elevation-5:before {\r\n        content: '';\r\n        position: absolute;\r\n        pointer-events: none;\r\n        left: 0;\r\n        top: 0;\r\n        width: 100%;\r\n        height: 100%;\r\n        opacity: 0.14;\r\n        background-color: var(--md-sys-color-primary);\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "hostElevation0",
+          "default": "css`\r\n    :host {\r\n        transition: var(--md-sys-elevation-transition);\r\n        box-shadow: var(--md-sys-elevation-level-0);\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "hostElevation1",
+          "default": "css`\r\n    :host {\r\n        position: relative;\r\n        overflow: hidden;\r\n        transition: var(--md-sys-elevation-transition);\r\n        box-shadow: var(--md-sys-elevation-level-1);\r\n    }\r\n\r\n    :host:before {\r\n        content: '';\r\n        position: absolute;\r\n        pointer-events: none;\r\n        left: 0;\r\n        top: 0;\r\n        width: 100%;\r\n        height: 100%;\r\n        opacity: 0.05;\r\n        background-color: var(--md-sys-color-primary);\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "hostElevation2",
+          "default": "css`\r\n    :host {\r\n        position: relative;\r\n        overflow: hidden;\r\n        transition: var(--md-sys-elevation-transition);\r\n        box-shadow: var(--md-sys-elevation-level-2);\r\n    }\r\n\r\n    :host:before {\r\n        content: '';\r\n        position: absolute;\r\n        pointer-events: none;\r\n        left: 0;\r\n        top: 0;\r\n        width: 100%;\r\n        height: 100%;\r\n        opacity: 0.08;\r\n        background-color: var(--md-sys-color-primary);\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "hostElevation3",
+          "default": "css`\r\n    :host {\r\n        position: relative;\r\n        overflow: hidden;\r\n        transition: var(--md-sys-elevation-transition);\r\n        box-shadow: var(--md-sys-elevation-level-3);\r\n    }\r\n\r\n    :host:before {\r\n        content: '';\r\n        position: absolute;\r\n        pointer-events: none;\r\n        left: 0;\r\n        top: 0;\r\n        width: 100%;\r\n        height: 100%;\r\n        opacity: 0.11;\r\n        background-color: var(--md-sys-color-primary);\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "hostElevation4",
+          "default": "css`\r\n    :host {\r\n        position: relative;\r\n        overflow: hidden;\r\n        transition: var(--md-sys-elevation-transition);\r\n        box-shadow: var(--md-sys-elevation-level-4);\r\n    }\r\n\r\n    :host:before {\r\n        content: '';\r\n        position: absolute;\r\n        pointer-events: none;\r\n        left: 0;\r\n        top: 0;\r\n        width: 100%;\r\n        height: 100%;\r\n        opacity: 0.12;\r\n        background-color: var(--md-sys-color-primary);\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "hostElevation5",
+          "default": "css`\r\n    :host {\r\n        position: relative;\r\n        overflow: hidden;\r\n        transition: var(--md-sys-elevation-transition);\r\n        box-shadow: var(--md-sys-elevation-level-5);\r\n    }\r\n\r\n    :host:before {\r\n        content: '';\r\n        position: absolute;\r\n        pointer-events: none;\r\n        left: 0;\r\n        top: 0;\r\n        width: 100%;\r\n        height: 100%;\r\n        opacity: 0.14;\r\n        background-color: var(--md-sys-color-primary);\r\n    }\r\n`"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ElevationTokens",
+          "declaration": {
+            "name": "ElevationTokens",
+            "module": "../material/providers/theme/tokens/elevation.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "elevation0",
+          "declaration": {
+            "name": "elevation0",
+            "module": "../material/providers/theme/tokens/elevation.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "elevation1",
+          "declaration": {
+            "name": "elevation1",
+            "module": "../material/providers/theme/tokens/elevation.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "elevation2",
+          "declaration": {
+            "name": "elevation2",
+            "module": "../material/providers/theme/tokens/elevation.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "elevation3",
+          "declaration": {
+            "name": "elevation3",
+            "module": "../material/providers/theme/tokens/elevation.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "elevation4",
+          "declaration": {
+            "name": "elevation4",
+            "module": "../material/providers/theme/tokens/elevation.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "elevation5",
+          "declaration": {
+            "name": "elevation5",
+            "module": "../material/providers/theme/tokens/elevation.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "hostElevation0",
+          "declaration": {
+            "name": "hostElevation0",
+            "module": "../material/providers/theme/tokens/elevation.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "hostElevation1",
+          "declaration": {
+            "name": "hostElevation1",
+            "module": "../material/providers/theme/tokens/elevation.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "hostElevation2",
+          "declaration": {
+            "name": "hostElevation2",
+            "module": "../material/providers/theme/tokens/elevation.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "hostElevation3",
+          "declaration": {
+            "name": "hostElevation3",
+            "module": "../material/providers/theme/tokens/elevation.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "hostElevation4",
+          "declaration": {
+            "name": "hostElevation4",
+            "module": "../material/providers/theme/tokens/elevation.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "hostElevation5",
+          "declaration": {
+            "name": "hostElevation5",
+            "module": "../material/providers/theme/tokens/elevation.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../material/providers/theme/tokens/spacing.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "SpacingTokens",
+          "type": {
+            "text": "designtoken"
+          },
+          "default": "{\r\n    'md-sys-spacing-0': '0px',\r\n    'md-sys-spacing-1': '8px',\r\n    'md-sys-spacing-2': '16px',\r\n}",
+          "summary": "The theme spacing tokens."
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SpacingTokens",
+          "declaration": {
+            "name": "SpacingTokens",
+            "module": "../material/providers/theme/tokens/spacing.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../material/providers/theme/tokens/typography.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "TypographyTokens",
+          "type": {
+            "text": "designtoken"
+          },
+          "default": "{\r\n    // Font Family\r\n    'md-ref-typeface-brand-regular': \"Roboto, 'Noto Sans SC', sans-serif\",\r\n    'md-ref-typeface-brand-mono': \"'Roboto Mono', monospace\",\r\n\r\n    // Weight\r\n    'md-ref-typeface-weight-light': '200',\r\n    'md-ref-typeface-weight-regular': '400',\r\n    'md-ref-typeface-weight-medium': '500', \r\n    'md-ref-typeface-weight-bold': '600',\r\n\r\n    // Font (shorthand)\r\n    'md-sys-typescale-display-large': '{md-ref-typeface-weight-regular} 57px/64px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-display-medium': '{md-ref-typeface-weight-regular} 45px/52px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-display-small': '{md-ref-typeface-weight-regular} 36px/44px {md-ref-typeface-brand-regular}',\r\n\r\n    'md-sys-typescale-headline-large': '{md-ref-typeface-weight-regular} 32px/40px {md-ref-typeface-brand-regular}', \r\n    'md-sys-typescale-headline-medium': '{md-ref-typeface-weight-regular} 28px/36px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-headline-small': '{md-ref-typeface-weight-regular} 24px/32px {md-ref-typeface-brand-regular}',\r\n\r\n    'md-sys-typescale-title-large': '{md-ref-typeface-weight-medium} 22px/28px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-title-medium': '{md-ref-typeface-weight-medium} 16px/24px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-title-small': '{md-ref-typeface-weight-medium} 14px/20px {md-ref-typeface-brand-regular}',\r\n\r\n    'md-sys-typescale-label-large': '{md-ref-typeface-weight-medium} 14px/20px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-label-medium': '{md-ref-typeface-weight-medium} 12px/16px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-label-small': '{md-ref-typeface-weight-medium} 11px/16px {md-ref-typeface-brand-regular}',\r\n\r\n    'md-sys-typescale-body-large': '{md-ref-typeface-weight-regular} 16px/24px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-body-medium': '{md-ref-typeface-weight-regular} 14px/20px {md-ref-typeface-brand-regular}',\r\n    'md-sys-typescale-body-small': '{md-ref-typeface-weight-regular} 12px/16px {md-ref-typeface-brand-regular}',\r\n\r\n    'md-sys-typescale-code-large': '{md-ref-typeface-weight-regular} 16px/24px {md-ref-typeface-brand-mono}',\r\n    'md-sys-typescale-code-medium': '{md-ref-typeface-weight-regular} 14px/20px {md-ref-typeface-brand-mono}',\r\n    'md-sys-typescale-code-small': '{md-ref-typeface-weight-regular} 12px/16px {md-ref-typeface-brand-mono}',\r\n\r\n    // Tracking (Letter Spacing)\r\n    'md-sys-typescale-display-large-tracking': '0px',\r\n    'md-sys-typescale-display-medium-tracking': '0px',\r\n    'md-sys-typescale-display-small-tracking': '0px',\r\n\r\n    'md-sys-typescale-headline-large-tracking': '0px',\r\n    'md-sys-typescale-headline-medium-tracking': '0px',\r\n    'md-sys-typescale-headline-small-tracking': '0px',\r\n\r\n    'md-sys-typescale-title-large-tracking': '0px',\r\n    'md-sys-typescale-title-medium-tracking': '0.15px',\r\n    'md-sys-typescale-title-small-tracking': '0.1px',\r\n\r\n    'md-sys-typescale-label-large-tracking': '0.1px',\r\n    'md-sys-typescale-label-medium-tracking': '0.5px',\r\n    'md-sys-typescale-label-small-tracking': '0.5px',\r\n\r\n    'md-sys-typescale-body-large-tracking': '0.15px',\r\n    'md-sys-typescale-body-medium-tracking': '0.25px',\r\n    'md-sys-typescale-body-small-tracking': '0.4px',\r\n\r\n    'md-sys-typescale-code-large-tracking': '0px',\r\n    'md-sys-typescale-code-medium-tracking': '0px',\r\n    'md-sys-typescale-code-small-tracking': '0px'\r\n}",
+          "summary": "The theme typography tokens."
+        },
+        {
+          "kind": "variable",
+          "name": "displayLarge",
+          "default": "css`\r\n    .typography-display-large {\r\n        font: var(--md-sys-typescale-display-large);\r\n        letter-spacing: var(--md-sys-typescale-display-large-tracking);\r\n        -webkit-font-smoothing: antialiased;\r\n        white-space: nowrap;\r\n        overflow: hidden;\r\n        text-overflow: ellipsis;\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "displayMedium",
+          "default": "css`\r\n    .typography-display-medium {\r\n        font: var(--md-sys-typescale-display-medium);\r\n        letter-spacing: var(--md-sys-typescale-display-medium-tracking);\r\n        -webkit-font-smoothing: antialiased;\r\n        white-space: nowrap;\r\n        overflow: hidden;\r\n        text-overflow: ellipsis;\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "displaySmall",
+          "default": "css`\r\n    .typography-display-small {\r\n        font: var(--md-sys-typescale-display-small);\r\n        letter-spacing: var(--md-sys-typescale-display-small-tracking);\r\n        -webkit-font-smoothing: antialiased;\r\n        white-space: nowrap;\r\n        overflow: hidden;\r\n        text-overflow: ellipsis;\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "headlineLarge",
+          "default": "css`\r\n    .typography-headline-large {\r\n        font: var(--md-sys-typescale-headline-large);\r\n        letter-spacing: var(--md-sys-typescale-headline-large-tracking);\r\n        -webkit-font-smoothing: antialiased;\r\n        white-space: nowrap;\r\n        overflow: hidden;\r\n        text-overflow: ellipsis;\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "headlineMedium",
+          "default": "css`\r\n    .typography-headline-medium {\r\n        font: var(--md-sys-typescale-headline-medium);\r\n        letter-spacing: var(--md-sys-typescale-headline-medium-tracking);\r\n        -webkit-font-smoothing: antialiased;\r\n        white-space: nowrap;\r\n        overflow: hidden;\r\n        text-overflow: ellipsis;\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "headlineSmall",
+          "default": "css`\r\n    .typography-headline-small {\r\n        font: var(--md-sys-typescale-headline-small);\r\n        letter-spacing: var(--md-sys-typescale-headline-small-tracking);\r\n        -webkit-font-smoothing: antialiased;\r\n        white-space: nowrap;\r\n        overflow: hidden;\r\n        text-overflow: ellipsis;\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "titleLarge",
+          "default": "css`\r\n    .typography-title-large {\r\n        font: var(--md-sys-typescale-title-large);\r\n        letter-spacing: var(--md-sys-typescale-title-large-tracking);\r\n        -webkit-font-smoothing: antialiased;\r\n        white-space: nowrap;\r\n        overflow: hidden;\r\n        text-overflow: ellipsis;\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "titleMedium",
+          "default": "css`\r\n    .typography-title-medium {\r\n        font: var(--md-sys-typescale-title-medium);\r\n        letter-spacing: var(--md-sys-typescale-title-medium-tracking);\r\n        -webkit-font-smoothing: antialiased;\r\n        white-space: nowrap;\r\n        overflow: hidden;\r\n        text-overflow: ellipsis;\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "titleSmall",
+          "default": "css`\r\n    .typography-title-small {\r\n        font: var(--md-sys-typescale-title-small);\r\n        letter-spacing: var(--md-sys-typescale-title-small-tracking);\r\n        -webkit-font-smoothing: antialiased;\r\n        white-space: nowrap;\r\n        overflow: hidden;\r\n        text-overflow: ellipsis;\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "labelLarge",
+          "default": "css`\r\n    .typography-label-large {\r\n        font: var(--md-sys-typescale-label-large);\r\n        letter-spacing: var(--md-sys-typescale-label-large-tracking);\r\n        -webkit-font-smoothing: antialiased;\r\n        white-space: nowrap;\r\n        overflow: hidden;\r\n        text-overflow: ellipsis;\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "labelMedium",
+          "default": "css`\r\n    .typography-label-medium {\r\n        font: var(--md-sys-typescale-label-medium);\r\n        letter-spacing: var(--md-sys-typescale-label-medium-tracking);\r\n        -webkit-font-smoothing: antialiased;\r\n        white-space: nowrap;\r\n        overflow: hidden;\r\n        text-overflow: ellipsis;\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "labelSmall",
+          "default": "css`\r\n    .typography-label-small {\r\n        font: var(--md-sys-typescale-label-small);\r\n        letter-spacing: var(--md-sys-typescale-label-small-tracking);\r\n        -webkit-font-smoothing: antialiased;\r\n        white-space: nowrap;\r\n        overflow: hidden;\r\n        text-overflow: ellipsis;\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "bodyLarge",
+          "default": "css`\r\n    .typography-body-large {\r\n        font: var(--md-sys-typescale-body-large);\r\n        letter-spacing: var(--md-sys-typescale-body-large-tracking);\r\n        -webkit-font-smoothing: antialiased;\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "bodyMedium",
+          "default": "css`\r\n    .typography-body-medium {\r\n        font: var(--md-sys-typescale-body-medium);\r\n        letter-spacing: var(--md-sys-typescale-body-medium-tracking);\r\n        -webkit-font-smoothing: antialiased;\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "bodySmall",
+          "default": "css`\r\n    .typography-body-small {\r\n        font: var(--md-sys-typescale-body-small);\r\n        letter-spacing: var(--md-sys-typescale-body-small-tracking);\r\n        -webkit-font-smoothing: antialiased;\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "codeLarge",
+          "default": "css`\r\n    .typography-code-large {\r\n        font: var(--md-sys-typescale-code-large);\r\n        letter-spacing: var(--md-sys-typescale-code-large-tracking);\r\n        -webkit-font-smoothing: antialiased;\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "codeMedium",
+          "default": "css`\r\n    .typography-code-medium {\r\n        font: var(--md-sys-typescale-code-medium);\r\n        letter-spacing: var(--md-sys-typescale-code-medium-tracking);\r\n        -webkit-font-smoothing: antialiased;\r\n    }\r\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "codeSmall",
+          "default": "css`\r\n    .typography-code-small {\r\n        font: var(--md-sys-typescale-code-small);\r\n        letter-spacing: var(--md-sys-typescale-code-small-tracking);\r\n        -webkit-font-smoothing: antialiased;\r\n    }\r\n`"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "TypographyTokens",
+          "declaration": {
+            "name": "TypographyTokens",
+            "module": "../material/providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "displayLarge",
+          "declaration": {
+            "name": "displayLarge",
+            "module": "../material/providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "displayMedium",
+          "declaration": {
+            "name": "displayMedium",
+            "module": "../material/providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "displaySmall",
+          "declaration": {
+            "name": "displaySmall",
+            "module": "../material/providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "headlineLarge",
+          "declaration": {
+            "name": "headlineLarge",
+            "module": "../material/providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "headlineMedium",
+          "declaration": {
+            "name": "headlineMedium",
+            "module": "../material/providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "headlineSmall",
+          "declaration": {
+            "name": "headlineSmall",
+            "module": "../material/providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "titleLarge",
+          "declaration": {
+            "name": "titleLarge",
+            "module": "../material/providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "titleMedium",
+          "declaration": {
+            "name": "titleMedium",
+            "module": "../material/providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "titleSmall",
+          "declaration": {
+            "name": "titleSmall",
+            "module": "../material/providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "labelLarge",
+          "declaration": {
+            "name": "labelLarge",
+            "module": "../material/providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "labelMedium",
+          "declaration": {
+            "name": "labelMedium",
+            "module": "../material/providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "labelSmall",
+          "declaration": {
+            "name": "labelSmall",
+            "module": "../material/providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "bodyLarge",
+          "declaration": {
+            "name": "bodyLarge",
+            "module": "../material/providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "bodyMedium",
+          "declaration": {
+            "name": "bodyMedium",
+            "module": "../material/providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "bodySmall",
+          "declaration": {
+            "name": "bodySmall",
+            "module": "../material/providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "codeLarge",
+          "declaration": {
+            "name": "codeLarge",
+            "module": "../material/providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "codeMedium",
+          "declaration": {
+            "name": "codeMedium",
+            "module": "../material/providers/theme/tokens/typography.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "codeSmall",
+          "declaration": {
+            "name": "codeSmall",
+            "module": "../material/providers/theme/tokens/typography.js"
+          }
+        }
+      ]
+    }
+  ]
+}

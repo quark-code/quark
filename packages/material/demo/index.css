@@ -5,11 +5,19 @@ html {
 }
 
 body {
+    --dot-size: 1px;
+    --dot-space: 16px;
+    --dot-gap: calc(var(--dot-space) - var(--dot-size));
+    --dot-color: var(--md-sys-color-on-background);
     height: 100%;
     padding: 8px;
     margin: 0;
     box-sizing: border-box;
-    background-color: var(--md-sys-color-background);
+    /*background-color: var(--md-sys-color-background);*/
+    background:
+		linear-gradient(90deg, var(--md-sys-color-background) var(--dot-gap), transparent 1%) center,
+		linear-gradient(var(--md-sys-color-background) var(--dot-gap), transparent 1%) center, var(--dot-color);
+	background-size: var(--dot-space) var(--dot-space);
     color: var(--md-sys-color-on-background);
 }
 

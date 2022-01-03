@@ -1,0 +1,53 @@
+{
+  "name": "@quark-elements/quark",
+  "version": "0.0.1",
+  "description": "A simple no frills native Web Component library.",
+  "main": "index.js",
+  "module": "index.js",
+  "private": false,
+  "scripts": {
+    "build-demo": "npm run build-quark-demo",
+    "build-quark-demo": "rimraf demo-build && rollup -c ./demo/rollup.config.js",
+    "serve-demo": "npm run serve-quark-demo",
+    "serve-quark-demo": "web-dev-server --node-resolve --app-index demo/index.html --open",
+    "serve-demo-build": "npm run serve-quark-demo-build",
+    "serve-quark-demo-build": "web-dev-server --node-resolve --app-index demo-build/index.html --open",
+    "test": "npm run test-quark",
+    "test-coverage": "npm run test-quark-coverage",
+    "test-quark": "web-test-runner test/**/*.test.js --node-resolve --playwright --browsers chromium firefox webkit",
+    "test-quark-coverage": "web-test-runner test/**/*.test.js --node-resolve --coverage --playwright --browsers chromium firefox webkit",
+    "serve-coverage": "npm run serve-quark-coverage",
+    "serve-quark-coverage": "web-dev-server --app-index coverage/lcov-report/index.html --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quark-elements/quark.git",
+    "directory": "packages/quark"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Paul H Mason",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/quark-elements/quark/issues"
+  },
+  "homepage": "https://github.com/quark-elements/quark#readme",
+  "dependencies": {
+    "@quark-elements/core": "^0.0.1",
+    "@quark-elements/theme": "^0.0.1"
+  },
+  "devDependencies": {
+    "@web/dev-server": "~0.1.28",
+    "@web/test-runner": "^0.13.22",
+    "@open-wc/testing": "^3.0.3",
+    "@web/test-runner-playwright": "^0.8.8",
+    "@open-wc/building-rollup": "^2.0.1",
+    "@custom-elements-manifest/analyzer": "^0.5.7",
+    "deepmerge": "^4.2.2",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.60.2",
+    "rollup-plugin-copy": "^3.4.0"
+  }
+}

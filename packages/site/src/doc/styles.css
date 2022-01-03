@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto:400,500&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+}

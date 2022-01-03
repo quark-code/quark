@@ -16,15 +16,17 @@ export const TypographyTokens = {
     'md-ref-typeface-brand-mono': "'Roboto Mono', monospace",
 
     // Weight
+    'md-ref-typeface-weight-light': '200',
     'md-ref-typeface-weight-regular': '400',
     'md-ref-typeface-weight-medium': '500', 
+    'md-ref-typeface-weight-bold': '600',
 
     // Font (shorthand)
     'md-sys-typescale-display-large': '{md-ref-typeface-weight-regular} 57px/64px {md-ref-typeface-brand-regular}',
     'md-sys-typescale-display-medium': '{md-ref-typeface-weight-regular} 45px/52px {md-ref-typeface-brand-regular}',
     'md-sys-typescale-display-small': '{md-ref-typeface-weight-regular} 36px/44px {md-ref-typeface-brand-regular}',
 
-    'md-sys-typescale-headline-large': '{md-ref-typeface-weight-regular} 32px/40px {md-ref-typeface-brand-regular}',
+    'md-sys-typescale-headline-large': '{md-ref-typeface-weight-regular} 32px/40px {md-ref-typeface-brand-regular}', 
     'md-sys-typescale-headline-medium': '{md-ref-typeface-weight-regular} 28px/36px {md-ref-typeface-brand-regular}',
     'md-sys-typescale-headline-small': '{md-ref-typeface-weight-regular} 24px/32px {md-ref-typeface-brand-regular}',
 

@@ -120,7 +120,7 @@
         }
 
         th, td {
-            border: 1px solid lightgray;
+            border: 1px solid #E4E4E4;
             text-align: left;
             padding: 0 16px;
             height: var(--theme-spacing-row-height);
@@ -139,6 +139,7 @@
         <demo-brand-switcher id="brandSwitcher"></demo-brand-switcher>
         <demo-density-switcher></demo-density-switcher>
         <demo-device-switcher></demo-device-switcher>
+        <demo-icon-variant-switcher id="iconVariantSwitcher"></demo-icon-variant-switcher>
     </div>
 
     <div class="row-container">
@@ -262,6 +263,9 @@
         window.addEventListener('load', (event) => {
             const brandSwitcher = document.getElementById('brandSwitcher');
             brandSwitcher.load();
+
+            const iconVariantSwitcher = document.getElementById('iconVariantSwitcher');
+            iconVariantSwitcher.load();
 
             const body = document.querySelector('body');
             body.hidden = false;

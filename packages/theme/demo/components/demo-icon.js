@@ -47,8 +47,8 @@ export class DemoIcon extends LitElement {
     }
 
     render() {
-        const icon = themeManager.getIcon(this.icon);
-        return html`${icon ? unsafeHTML(icon.content) : null}`;
+        const icon = themeManager.getIconContent(this.icon);
+        return html`${icon ? unsafeHTML(icon) : null}`;
     }
 }
 

@@ -4,8 +4,6 @@ MIT License
 Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
 import { css, html, svg, LitElement } from 'lit';
-import { adoptStyles } from '@lit/reactive-element/css-tag.js';
-import '../utils/ScopedCustomElementRegistry.js';
 
 const QuarkElements = new Set();
 
@@ -24,29 +22,52 @@ dirObserver.observe(document.documentElement, {
     attributeFilter: ['dir'],
 });
 
+/**
+ * @customtype component
+ * @summary The base component class for all Quark components.
+ * @displayname Element
+ * @category Core
+ */
 class QuarkElement extends LitElement {
-    static as(name) {
-        name = name || this.defaultTag;
-        
-        if (name && !customElements.get(name)) {
-            customElements.define(name, this);
+    static _registerTokens() {
+        if (!this._tokensRegistered) {
+            if (this.designTokens && window.designSystemProvider) {
+                window.designSystemProvider.registerTokens(this.designTokens);
+            }
+
+            this._tokensRegistered = true;
         }
     }
 
-    static asDefault() {
-        const name = this.defaultTag;
-        
-        if (name && !customElements.get(name)) {
-            customElements.define(name, this);
-        }
+    static register(tagName) {
+        this._registerTokens();
+        window.customElements.define(tagName, this);
     }
 
     static get properties() {
         return {
+            /**
+             * The text direction.
+             * @type {string}
+             * @allowedvalues ["ltr", "rtl"]
+             */
+            dir: {
+                type: String,
+                reflect: true
+            },
 
+            /**
+             * Whether or not the text direction is LTR (default) or RTL.
+             * @type {boolean}
+             * @readonly true
+             * @default true
+            */
+            isLTR: {
+                type: Boolean
+            }
         }
     }
-
+    
     get isLTR() {
         return this.dir === 'ltr';
     }
@@ -59,32 +80,13 @@ class QuarkElement extends LitElement {
     connectedCallback() {
         super.connectedCallback();
 
-        this.setAttribute('dir', document.documentElement.dir === 'rtl' ? 'rtl' : 'ltr');
+        this.dir = document.documentElement.dir === 'rtl' ? 'rtl' : 'ltr';
         QuarkElements.add(this);
     }
 
     disconnectedCallback() {
         QuarkElements.delete(this);
         super.disconnectedCallback();
-    }
-
-    createRenderRoot() {
-        const constructor = this.constructor;
-        const { registry, elementDefinitions, shadowRootOptions } = constructor;
-
-        if (elementDefinitions && !registry) {
-            constructor.registry = new CustomElementRegistry();
-            Object.entries(elementDefinitions).forEach(([tagName, klass]) => constructor.registry.define(tagName, klass));
-        }
-
-        const renderRoot = (this.renderOptions.creationScope = this.attachShadow({
-            ...shadowRootOptions,
-            customElements: constructor.registry,
-        }));
-
-        adoptStyles(renderRoot, this.constructor.elementStyles);
-
-        return renderRoot;
     }
 }
 

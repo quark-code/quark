@@ -5,9 +5,9 @@ Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
 import { provideQuarkDesignSystem, QuarkTheme, AliasIcon } from '@quark-elements/quark';
 
-import { QbButton } from '@quark-elements/quark/elements/button';
-import { QbStepper } from '@quark-elements/quark/elements/stepper';
-import { QbIcon } from '@quark-elements/quark/elements/icon/QbIcon.js';
+import '@quark-elements/quark/elements/button/qb-button.js';
+import '@quark-elements/quark/elements/stepper/qb-stepper.js';
+import '@quark-elements/quark/elements/icon/qb-icon.js';
 
 import { EditIcon, ErrorIcon } from './customIcons.js';
 
@@ -20,11 +20,6 @@ provideQuarkDesignSystem()
         EditIcon('my-edit-icon'),
         ErrorIcon('my-error-icon'),
         AliasIcon('chevron-left', 'back-icon')
-    )
-    .registerComponents(
-        QbButton('my-button'),
-        QbIcon('my-icon'),
-        QbStepper('my-stepper')
     )
     .registerThemes(
         redThemeBrand,

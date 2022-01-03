@@ -10,10 +10,6 @@ import {
 } from '../../styling';
 
 export class TypographyDemo extends QuarkElement {
-    static get defaultTag() {
-        return 'typography-demo';
-    }
-
     static get styles() {
         return [
             displayLarge, displayMedium, displaySmall, 
@@ -66,3 +62,5 @@ export class TypographyDemo extends QuarkElement {
         `;
     }
 }
+
+TypographyDemo.register('typography-demo');

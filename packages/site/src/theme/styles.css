@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto:400,500&display=swap');
+
+:root {
+    /* PAGE CONTAINER */
+    --page-container-background: var(--theme-window-color); 
+    --page-container-on-background: var(--theme-on-window-color); 
+
+    /* NAVIGATOR */
+    --page-navigator-outline: var(--theme-border-color);
+    --page-navigator-background: var(--theme-surface-color); 
+    --page-navigator-on-background: var(--theme-on-surface-color);
+    --page-navigator-background-hover: var(--theme-border-color);
+    --page-navigator-on-background-hover: var(--theme-on-surface-color);
+    --page-navigator-background-selected: var(--theme-primary-light-color);
+    --page-navigator-on-background-selected: var(--theme-on-primary-light-color);
+    --page-navigator-root-on-background: var(--theme-on-surface-color);
+
+    /* SEARCH FIELD */
+    --search-field-background: var(--theme-surface-color); 
+    --search-field-on-background: var(--theme-on-surface-color);
+    --search-field-outline: var(--theme-border-color);
+
+    /* COMPONENT HEADER */
+    --component-header-background: var(--theme-primary-light-color);
+    --component-header-on-background: var(--theme-on-primary-light-color);
+
+    /* PAGE TABS */ 
+    --page-tabs-on-background: var(--theme-on-surface-color);
+    --page-tabs-background-hover: var(--theme-border-color);
+    --page-tabs-on-background-hover: var(--theme-on-surface-color);
+    --page-tabs-background-selected: var(--theme-primary-light-color);
+    --page-tabs-on-background-selected: var(--theme-on-primary-light-color);
+    --page-tabs-outline: var(--theme-border-color);
+
+    /* COLLAPSIBLE PANEL */
+    --collapsible-panel-on-background: var(--theme-on-surface-color);
+    --collapsible-panel-border: 1px solid var(--theme-border-color);
+    --collapsible-panel-outline: 2px solid var(--theme-on-surface-color);
+
+    /* COMPONENT PART */
+    --component-part-on-background: var(--theme-on-surface-color);
+    --component-part-tag-background: var(--theme-border-color);
+    --component-part-tag-on-background: var(--theme-on-surface-color);
+
+    /* COMPONENT PROTECTED PANEL */
+    --collapsible-protected-panel-background: var(--theme-border-color);
+    --collapsible-protected-panel-on-background: var(--theme-on-surface-color);
+    --collapsible-protected-panel-outline: var(--theme-on-surface-color);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    font: normal 400 14px/100% Roboto;
+}
+
+page-container {
+    width: 100%;
+    height: 100%;
+}
+
+page-navigator {
+    min-width: 300px;
+    height: 100%;
+    border-right: 1px solid #E4E4E4; 
+}
+
+.page-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%; 
+}
+
+.md-content {
+    overflow: auto;
+    padding: 0 16px;
+}
+
+pre {
+    padding: 16px; 
+    background-color: #1E1E1E;
+    border-radius: 5px;
+}
+
+pre * {
+    font-size: 14px !important;
+}

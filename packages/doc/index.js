@@ -10,6 +10,9 @@ const marked = require("marked");
 const fs = require('fs-extra');
 const config = require(root + '/quark-doc.config');
 
+const loadLanguages = require('prismjs/components/');
+loadLanguages(['powershell']);
+
 marked.setOptions({
     renderer: new marked.Renderer(),
     pedantic: false,
@@ -19,7 +22,10 @@ marked.setOptions({
     smartLists: true,
     smartypants: false,
     xhtml: false,
-    highlight: (code, lang) => Prism.highlight(code, Prism.languages[lang], lang)
+    highlight: (code, lang) => {
+        lang = lang || 'javascript';
+        return Prism.highlight(code, Prism.languages[lang], lang);
+    }
 });
 
 
@@ -29,6 +35,11 @@ function html(strings, ...values) {
 
 function md(strings, ...values) {
     return marked(html(strings, ...values));
+}
+
+function mdRaw(text) {
+    const data = marked(text);
+    return data;
 }
 
 function code(data, language = 'markup', options) {
@@ -58,6 +69,10 @@ function code(data, language = 'markup', options) {
 }
 
 function escape(unsafe) {
+    if (!((typeof unsafe === 'string' || unsafe instanceof String))) {
+        unsafe = String(unsafe);
+    } 
+
     return unsafe ? unsafe
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
@@ -85,6 +100,7 @@ function includeExists(include) {
 module.exports = {
     html: html,
     md: md,
+    mdRaw: mdRaw,
     code: code,
     table: table,
     escape: escape,

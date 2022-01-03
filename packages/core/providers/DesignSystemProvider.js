@@ -8,21 +8,31 @@ import { Theme, themeManager } from "@quark-elements/theme";
 class DesignSystemProvider {
     constructor(themeType) {
         this._themeType = themeType;
+
+        if (window.designSystemProvider) {
+            throw 'A design system provider already exists';
+        } else {
+            window.designSystemProvider = this;
+        }
     }
 
     get themeType() {
         return this._themeType;
     }
-    
-    registerComponents() {
+
+    registerIcons(icons) {
+        if (this._themeType) {
+            this._themeType.addIcons(icons);
+        }
+
         return this;
     }
 
-    registerIcons() {
-        return this;
-    }
+    registerIcon(name, value) {
+        if (this._themeType) {
+            this._themeType.addIcon(name, value);
+        }
 
-    registerIcon() {
         return this;
     }
 
@@ -37,6 +47,14 @@ class DesignSystemProvider {
             }
         }
 
+        return this;
+    }
+
+    registerTokens(tokens) {
+        if (this._themeType) {
+            this._themeType.addTokens(tokens);
+        }
+        
         return this;
     }
 
@@ -69,7 +87,13 @@ class DesignSystemProvider {
     }
 
     withDevice(device = 'desktop') {
-        
+        themeManager.device = device;
+        return this;
+    }
+
+    withIconVariant(variant = 'default') {
+        themeManager.iconVariant = variant;
+        return this;
     }
 }
 

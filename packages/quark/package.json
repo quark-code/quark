@@ -4,7 +4,7 @@
   "description": "A simple no frills native Web Component library.",
   "main": "index.js",
   "module": "index.js",
-  "private": false,
+  "private": true,
   "scripts": {
     "build-demo": "npm run build-quark-demo",
     "build-quark-demo": "rimraf demo-build && rollup -c ./demo/rollup.config.js",

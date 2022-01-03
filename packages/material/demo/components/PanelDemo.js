@@ -4,21 +4,13 @@ MIT License
 Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
 import { html, css, QuarkElement } from '@quark-elements/core/elements';
-import { QmFilledPanel, QmFlatPanel, QmOutlinedPanel, QmRaisedPanel } from '../../elements/panel';
+import '../../elements/panel/qm-filled-panel.js';
+import '../../elements/panel/qm-flat-panel.js';
+import '../../elements/panel/qm-outlined-panel.js';
+import '../../elements/panel/qm-raised-panel.js';
 import { bodyLarge } from '../../styling';
 
 export class PanelDemo extends QuarkElement {
-    static get defaultTag() {
-        return 'panel-demo';
-    }
-
-    static elementDefinitions = {
-        'demo-filled-panel': QmFilledPanel,
-        'demo-flat-panel': QmFlatPanel,
-        'demo-outlined-panel': QmOutlinedPanel,
-        'demo-raised-panel': QmRaisedPanel
-    };
-
     static get styles() {
         return [bodyLarge,
             css`
@@ -54,11 +46,13 @@ export class PanelDemo extends QuarkElement {
     render() {
         return html`
             <div class="container typography-body-large">
-                <demo-flat-panel>Flat Panel</demo-flat-panel>
-                <demo-outlined-panel>Outlined Panel</demo-outlined-panel>
-                <demo-filled-panel>Filled panel</demo-filled-panel>
-                <demo-raised-panel>Raised Panel</demo-raised-panel>
+                <qm-flat-panel>Flat Panel</qm-flat-panel>
+                <qm-outlined-panel>Outlined Panel</qm-outlined-panel>
+                <qm-filled-panel>Filled panel</qm-filled-panel>
+                <qm-raised-panel>Raised Panel</qm-raised-panel>
             </div>
         `;
     }
 }
+
+PanelDemo.register('panel-demo');

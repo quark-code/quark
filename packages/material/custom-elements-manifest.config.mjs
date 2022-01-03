@@ -7,9 +7,14 @@ import { parse } from 'comment-parser';
 let done = false;
 
 export default {
-    globs: ['**/*.js'],
-    exclude: ['(demo|docs-src|docs)/**/*.js'],
+    //globs: ['node_modules/@quark-elements/core/**/*.js', '**/*.js'],
+    //exclude: ['node_modules/@quark-elements/core/(demo|test)/**/*.js', '(demo|test|docs-src|docs)/**/*.js'],
+    globs: ['../core/**/*.js', '**/*.js'],
+    exclude: ['../core/(node_modules|demo|test)/**/*.js', '(demo|test|docs-src|docs)/**/*.js'],
+
     litelement: true,
+
+    //globs: ['node_modules/my-dependency/**/*.js'], 
 
     /*
     overrideModuleCreation: ({ts, globs}) => {
@@ -30,8 +35,8 @@ export default {
                     case ts.SyntaxKind.ClassDeclaration: {
                         const className = node.name.getText();
                         const classDoc = moduleDoc?.declarations?.find(declaration => declaration.name === className);
-                        const customClassTags = ['dependency', 'since', 'status', 'description', 'defaulttag', 'customtype', 'displayname', 'category'];
-                        const customProperyTags = ['allowedvalues'];
+                        const customClassTags = ['dependency', 'since', 'status', 'description', 'defaulttag', 'customtype', 'displayname', 'category', 'designsystem'];
+                        const customProperyTags = ['allowedvalues', 'default', 'readonly'];
                         let customComments = '/**';
 
                         node.jsDoc?.forEach(jsDoc => {
@@ -52,6 +57,11 @@ export default {
                                     case 'defaulttag': {
                                         classDoc['tagName'] = t.name;
                                         classDoc['customElement'] = true;
+                                        break;
+                                    }
+
+                                    case 'designsystem': {
+                                        classDoc['designsystem'] = `${t.name} ${t.description}`;
                                         break;
                                     }
 

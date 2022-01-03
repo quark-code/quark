@@ -53,6 +53,7 @@ export const ElevationTokens = {
         dark: 'none'
     },
 
+    /*
     'md-sys-elevation-level-0-overlay': 'rgba(255, 255, 255, 0)',
     // 1 - 5%
     'md-sys-elevation-level-1-overlay': {
@@ -79,6 +80,7 @@ export const ElevationTokens = {
         light: 'rgba(255, 255, 255, 0)',
         dark: 'rgba(255, 255, 255, 0.14)'
     }
+    */
 };
 
 
@@ -103,7 +105,7 @@ export const elevation1 = css`
         box-shadow: var(--md-sys-elevation-level-1);
     }
 
-    .elevation-1:after {
+    .elevation-1:before {
         content: '';
         position: absolute;
         pointer-events: none;
@@ -111,7 +113,8 @@ export const elevation1 = css`
         top: 0;
         width: 100%;
         height: 100%;
-        background-color: var(--md-sys-elevation-level-1-overlay);
+        opacity: 0.05;
+        background-color: var(--md-sys-color-primary);
     }
 `;
 
@@ -123,7 +126,7 @@ export const elevation2 = css`
         box-shadow: var(--md-sys-elevation-level-2);
     }
 
-    .elevation-2:after {
+    .elevation-2:before {
         content: '';
         position: absolute;
         pointer-events: none;
@@ -131,7 +134,8 @@ export const elevation2 = css`
         top: 0;
         width: 100%;
         height: 100%;
-        background-color: var(--md-sys-elevation-level-2-overlay);
+        opacity: 0.08;
+        background-color: var(--md-sys-color-primary);
     }
 `;
 
@@ -143,7 +147,7 @@ export const elevation3 = css`
         box-shadow: var(--md-sys-elevation-level-3);
     }
 
-    .elevation-3:after {
+    .elevation-3:before {
         content: '';
         position: absolute;
         pointer-events: none;
@@ -151,7 +155,8 @@ export const elevation3 = css`
         top: 0;
         width: 100%;
         height: 100%;
-        background-color: var(--md-sys-elevation-level-3-overlay);
+        opacity: 0.11;
+        background-color: var(--md-sys-color-primary);
     }
 `;
 
@@ -163,7 +168,7 @@ export const elevation4 = css`
         box-shadow: var(--md-sys-elevation-level-4);
     }
 
-    .elevation-4:after {
+    .elevation-4:before {
         content: '';
         position: absolute;
         pointer-events: none;
@@ -171,7 +176,8 @@ export const elevation4 = css`
         top: 0;
         width: 100%;
         height: 100%;
-        background-color: var(--md-sys-elevation-level-4-overlay);
+        opacity: 0.12;
+        background-color: var(--md-sys-color-primary);
     }
 `;
 
@@ -183,7 +189,7 @@ export const elevation5 = css`
         box-shadow: var(--md-sys-elevation-level-5);
     }
 
-    .elevation-5:after {
+    .elevation-5:before {
         content: '';
         position: absolute;
         pointer-events: none;
@@ -191,7 +197,8 @@ export const elevation5 = css`
         top: 0;
         width: 100%;
         height: 100%;
-        background-color: var(--md-sys-elevation-level-5-overlay);
+        opacity: 0.14;
+        background-color: var(--md-sys-color-primary);
     }
 `;
 
@@ -211,7 +218,7 @@ export const hostElevation1 = css`
         box-shadow: var(--md-sys-elevation-level-1);
     }
 
-    :host:after {
+    :host:before {
         content: '';
         position: absolute;
         pointer-events: none;
@@ -219,7 +226,8 @@ export const hostElevation1 = css`
         top: 0;
         width: 100%;
         height: 100%;
-        background-color: var(--md-sys-elevation-level-1-overlay);
+        opacity: 0.05;
+        background-color: var(--md-sys-color-primary);
     }
 `;
 
@@ -231,7 +239,7 @@ export const hostElevation2 = css`
         box-shadow: var(--md-sys-elevation-level-2);
     }
 
-    :host:after {
+    :host:before {
         content: '';
         position: absolute;
         pointer-events: none;
@@ -239,7 +247,8 @@ export const hostElevation2 = css`
         top: 0;
         width: 100%;
         height: 100%;
-        background-color: var(--md-sys-elevation-level-2-overlay);
+        opacity: 0.08;
+        background-color: var(--md-sys-color-primary);
     }
 `;
 
@@ -251,7 +260,7 @@ export const hostElevation3 = css`
         box-shadow: var(--md-sys-elevation-level-3);
     }
 
-    :host:after {
+    :host:before {
         content: '';
         position: absolute;
         pointer-events: none;
@@ -259,7 +268,8 @@ export const hostElevation3 = css`
         top: 0;
         width: 100%;
         height: 100%;
-        background-color: var(--md-sys-elevation-level-3-overlay);
+        opacity: 0.11;
+        background-color: var(--md-sys-color-primary);
     }
 `;
 
@@ -271,7 +281,7 @@ export const hostElevation4 = css`
         box-shadow: var(--md-sys-elevation-level-4);
     }
 
-    :host:after {
+    :host:before {
         content: '';
         position: absolute;
         pointer-events: none;
@@ -279,7 +289,8 @@ export const hostElevation4 = css`
         top: 0;
         width: 100%;
         height: 100%;
-        background-color: var(--md-sys-elevation-level-4-overlay);
+        opacity: 0.12;
+        background-color: var(--md-sys-color-primary);
     }
 `;
 
@@ -291,7 +302,7 @@ export const hostElevation5 = css`
         box-shadow: var(--md-sys-elevation-level-5);
     }
 
-    :host:after {
+    :host:before {
         content: '';
         position: absolute;
         pointer-events: none;
@@ -299,6 +310,7 @@ export const hostElevation5 = css`
         top: 0;
         width: 100%;
         height: 100%;
-        background-color: var(--md-sys-elevation-level-5-overlay);
+        opacity: 0.14;
+        background-color: var(--md-sys-color-primary);
     }
 `;

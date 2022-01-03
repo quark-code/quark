@@ -7,11 +7,7 @@ import { html, css, QuarkElement } from '@quark-elements/core/elements';
 import { titleLarge } from '../../styling';
 
 export class ColorDemo extends QuarkElement {
-    static get defaultTag() {
-        return 'color-demo';
-    }
-
-    static get styles() {
+      static get styles() {
         return [titleLarge,
             css`
                 :host {
@@ -39,7 +35,7 @@ export class ColorDemo extends QuarkElement {
                     justify-content: center;
                     align-items: center;
                     border-radius: var(--md-sys-border-radius-2);
-                    box-shadow: var(--md-sys-elevation-level-2);
+                    box-shadow: var(--md-sys-elevation-level-1);
                 }
 
                 .primary {
@@ -99,7 +95,7 @@ export class ColorDemo extends QuarkElement {
 
                 .outline {
                     background-color: var(--md-sys-color-outline);
-                    color: white;
+                    color: var(--md-sys-color-on-surface);
                 }
             `
         ];
@@ -128,3 +124,5 @@ export class ColorDemo extends QuarkElement {
         `;
     }
 }
+
+ColorDemo.register('color-demo');

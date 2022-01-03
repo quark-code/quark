@@ -1,4 +1,6 @@
-export { TypographyDemo } from './TypographyDemo.js';
-export { ColorDemo } from './ColorDemo.js';
-export { ElevationDemo } from './ElevationDemo.js';
-export { PanelDemo } from './PanelDemo.js';
+import './TypographyDemo.js';
+import './ColorDemo.js';
+import './ElevationDemo.js';
+import './PanelDemo.js';
+import './ThemeDemo.js';
+import './IconDemo.js';

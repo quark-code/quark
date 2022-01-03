@@ -136,10 +136,6 @@ function createPages(pageInfo) {
 
         // Build pages.
         renderData.forEach(renderDataItem => {
-
-            if (renderDataItem.include) {
-                console.log(renderDataItem.include)
-            }
             // Create path            
             let currentPath = `${config.destDir}`;
 
@@ -151,7 +147,12 @@ function createPages(pageInfo) {
                 }
             });
 
+            /*
             if (!((page.fileInfo.pathParts.length === 0) && (page.fileInfo.fileName === 'index'))) {
+                currentPath = renderDataItem.name ? `${currentPath}/${renderDataItem.name}` : `${currentPath}/${page.fileInfo.fileName}`;
+            }
+            */
+            if (page.fileInfo.fileName !== 'index') {
                 currentPath = renderDataItem.name ? `${currentPath}/${renderDataItem.name}` : `${currentPath}/${page.fileInfo.fileName}`;
             }
 

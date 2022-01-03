@@ -2,7 +2,7 @@ The `@quark-elements/theme` package is a generic theming library for web compone
 
 # Installation
 
-```
+```powershell
 npm install @quark-elements/theme --save
 ```
 
@@ -16,6 +16,10 @@ Before getting into creating themes, there are 3 import concepts to understand.
 * Device Type: This can either be `mobile` or `desktop`. A theme or brand can provide different tokens and icons based on the device type. Note, the device type is determined by the browser and large tablets are considered `desktop`.
 
 To theme an application, you need to import `Theme` in order to create a theme template, and `themeManager` which is used to register the theme brands that you create and set the active theme brand.
+
+```html
+<div class="thing">Hello</div>
+```
 
 ```javascript
 import { Theme, themeManager } from '@quark-elements/theme';

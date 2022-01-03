@@ -3,7 +3,7 @@ const config = {
     destDir: 'docs',
     copy: [
         {
-            src: './docs-src/styles/styles.css',
+            src: './docs-src/styles.css',
             dest: 'styles.css'
         },
         {

@@ -5,295 +5,244 @@ Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
 import { DesignToken } from './DesignToken.js';
 import { Icon } from './Icon.js';
-
-export { DesignToken, Icon }
-
-export class ThemeDensity {
-    static get compact() {
-        return 'compact';
-    }
-
-    static get comfortable() {
-        return 'comfortable';
-    }
-
-    static get sparse() {
-        return 'sparse';
-    }
-
-    static isValid(value) {
-        return ['compact', 'comfortable', 'sparse'].indexOf(value) > -1;
-    }
-}
-
-export class ThemeMode {
-    static get system() {
-        return 'system';
-    }
-
-    static get light() {
-        return 'light';
-    }
-
-    static get dark() {
-        return 'dark';
-    }
-
-    static isValid(value) {
-        return ['system', 'light', 'dark'].indexOf(value) > -1;
-    }
-}
-
-export class DeviceType {
-    static get mobile() {
-        return 'mobile';
-    }
-
-    static get desktop() {
-        return 'desktop';
-    }
-
-    static isValid(value) {
-        return ['mobile', 'desktop'].indexOf(value) > -1;
-    }
-}
-
+import { ThemeMode, ThemeDensity, DeviceType } from './Types.js';
+export { DesignToken, Icon };
 export class Theme {
     constructor(name) {
+        this._styleSheet = null;
         this._tokensDirty = true;
+        this._mode = ThemeMode.System;
+        this._density = ThemeDensity.Comfortable;
+        this._deviceType = DeviceType.Desktop;
+        this._iconVariant = 'default';
+        this._localTokens = new Map();
+        this._localIcons = new Map();
         this._name = name;
-        this._mode = ThemeMode.system;
-        this._density = ThemeDensity.comfortable;
-        this._deviceType = DeviceType.desktop;
         this._localTokens = new Map();
         this._localIcons = new Map();
         this._loadGlobalTokens();
         this._loadGlobalIcons();
     }
-
     get name() {
         return this._name;
     }
-
     get mode() {
         return this._mode;
     }
-
     set mode(value) {
-        if ((this._mode !== value) && ThemeMode.isValid(value)) {
+        if (this._mode !== value) {
             this._mode = value;
             this._tokensDirty = true;
         }
     }
-
     get density() {
         return this._density;
     }
-
     set density(value) {
-        if ((this._density !== value) && ThemeDensity.isValid(value)) {
+        if (this._density !== value) {
             this._density = value;
             this._tokensDirty = true;
         }
     }
-
     get deviceType() {
         return this._deviceType;
     }
-
     set deviceType(value) {
-        if ((this._deviceType !== value) && DeviceType.isValid(value)) {
+        if (this._deviceType !== value) {
             this._deviceType = value;
             this._tokensDirty = true;
-            this._changeIconDeviceType();
         }
     }
-
+    get iconVariant() {
+        return this._iconVariant;
+    }
+    set iconVariant(value) {
+        if (this._iconVariant !== value) {
+            this._iconVariant = value;
+        }
+    }
+    get iconVariants() {
+        return [...new Set([...this.localIcons.values(), ...Theme.globalIcons.values()].map(icon => icon.variants).flat())].sort();
+    }
     get styleSheet() {
         if (this._tokensDirty) {
             this._styleSheet = this._createStyleSheet();
         }
-
         return this._styleSheet;
     }
-
     register() {
         window.themeManager.register(this);
         return this;
     }
-
     unregister() {
         window.themeManager.unregister(this.name);
         return this;
     }
-
     use() {
         window.themeManager.use(this.name);
         return this;
     }
-
     makeDefault() {
         window.themeManager.makeDefault(this.name);
         return this;
     }
-
     // TOKENS
     /**
      * Gets all the global (static) tokens.
      */
     static get globalTokens() {
-        if (!this._globalTokens) {
-            this._globalTokens = new Map();
-        }
-
         return this._globalTokens;
     }
-
     /**
      * Gets all the local (instance) tokens.
      */
     get localTokens() {
         return this._localTokens;
     }
-
     /**
      * Gets all the local (instance) and global (static) token names.
      */
     get tokenNames() {
         return [...new Set([...this.localTokens.keys(), ...Theme.globalTokens.keys()])].sort();
     }
-
     static addToken(name, values) {
-        if (!Theme.globalTokens.has(name)) {
-            Theme.globalTokens.set(name, new DesignToken(name, values));
-            this._tokensDirty = true;
-        } else {
-            console.warn(`Global design token '${name}' already exists.`);
+        Theme.globalTokens.set(name, new DesignToken(name, values));
+    }
+    static addTokens(tokens) {
+        if (!tokens)
+            return;
+        const tokenNames = Object.getOwnPropertyNames(tokens);
+        for (let i = 0; i < tokenNames.length; i++) {
+            const tokenName = tokenNames[i];
+            const tokenContent = tokens[tokenName];
+            if (tokenContent) {
+                Theme.globalTokens.set(tokenName, new DesignToken(tokenName, tokenContent));
+            }
         }
     }
-
     addToken(name, values) {
         this.localTokens.set(name, new DesignToken(name, values));
         this._styleSheet = null;
         this._tokensDirty = true;
     }
-
+    addTokens(tokens) {
+        if (!tokens)
+            return;
+        const tokenNames = Object.getOwnPropertyNames(tokens);
+        for (let i = 0; i < tokenNames.length; i++) {
+            const tokenName = tokenNames[i];
+            const tokenContent = tokens[tokenName];
+            if (tokenContent) {
+                this.localTokens.set(tokenName, new DesignToken(tokenName, tokenContent));
+            }
+        }
+        this._styleSheet = null;
+        this._tokensDirty = true;
+    }
     _loadGlobalTokens() {
         if (!Theme._globalTokensLoaded) {
-            if (this.constructor.tokens) {
-                const tokenNames = Object.getOwnPropertyNames(this.constructor.tokens);
-
+            const constructor = this.constructor;
+            const { tokens } = constructor;
+            if (tokens) {
+                const tokenNames = Object.getOwnPropertyNames(tokens);
                 for (let i = 0; i < tokenNames.length; i++) {
                     const tokenName = tokenNames[i];
-                    const tokenContent = this.constructor.tokens[tokenName];
-
+                    const tokenContent = tokens[tokenName];
                     if (tokenContent) {
                         Theme.addToken(tokenName, tokenContent);
-                    } else {
-                        console.warn(`Global design token '${tokenName}' is invalid.`);
                     }
                 }
             }
-
             Theme._globalTokensLoaded = true;
         }
     }
-
     // ICONS
     /**
      * Gets all the global (static) icons.
      */
     static get globalIcons() {
-        if (!this._globalIcons) {
-            this._globalIcons = new Map();
-        }
-
         return this._globalIcons;
     }
-
     /**
      * Gets all the local (instance) icons.
      */
     get localIcons() {
         return this._localIcons;
     }
-
     /**
      * Gets all the instance and global (static) icon names.
      */
     get iconNames() {
         return [...new Set([...this.localIcons.keys(), ...Theme.globalIcons.keys()])].sort();
     }
-
     static addIcon(name, value) {
         if (name && value) {
-            if (!Theme.globalIcons.has(name)) {
-                Theme.globalIcons.set(name, new Icon(name, value, this.deviceType));
-            } else {
-                console.warn(`Global icon '${name}' already exists.`);
-            }
+            Theme.globalIcons.set(name, new Icon(name, value));
         }
     }
-
+    static addIcons(icons) {
+        const iconNames = Object.getOwnPropertyNames(icons);
+        for (let i = 0; i < iconNames.length; i++) {
+            const iconName = iconNames[i];
+            const iconContent = icons[iconName];
+            Theme.globalIcons.set(iconName, new Icon(iconName, iconContent));
+        }
+    }
     addIcon(name, value) {
         if (name && value) {
-            this.localIcons.set(name, new Icon(name, value, this.deviceType));
+            this.localIcons.set(name, new Icon(name, value));
         }
     }
-
+    addIcons(icons) {
+        const iconNames = Object.getOwnPropertyNames(icons);
+        for (let i = 0; i < iconNames.length; i++) {
+            const iconName = iconNames[i];
+            const iconContent = icons[iconName];
+            this.localIcons.set(iconName, new Icon(iconName, iconContent));
+        }
+    }
     static aliasIcon(name, alias) {
         if (name && alias && name !== alias) {
             const icon = Theme.globalIcons.get(name);
-
             if (icon) {
                 Theme.globalIcons.set(alias, icon);
             }
         }
     }
-
     aliasIcon(name, alias) {
         if (name && alias && name !== alias) {
             const icon = this.getIcon(name);
-
             if (icon) {
                 this.localIcons.set(alias, icon);
             }
         }
     }
-
     renameIcon(name, newName) {
         this._renameMapIcon(name, newName, this.localIcons);
         this._renameMapIcon(name, newName, Theme.globalIcons);
     }
-
     getIcon(name) {
-        return this.localIcons.has(name) ? this.localIcons.get(name) : Theme.globalIcons.get(name);
+        return (this.localIcons.has(name) ? this.localIcons.get(name) : Theme.globalIcons.get(name)) || null;
     }
-
-    _changeIconDeviceType() {
-        const icons = [...Theme.globalIcons.values(), ...this.localIcons.values()];
-
-        for (let i = 0; i < icons.length; i++) {
-            icons[i].deviceType = this.deviceType;
-        }
+    getIconContent(name) {
+        const icon = this.getIcon(name);
+        return icon ? icon.getContent(this.iconVariant) : null;
     }
-
     _loadGlobalIcons() {
         if (!Theme._globalIconsLoaded) {
-            if (this.constructor.icons) {
-                const iconNames = Object.getOwnPropertyNames(this.constructor.icons);
-
+            const constructor = this.constructor;
+            const { icons } = constructor;
+            if (icons) {
+                const iconNames = Object.getOwnPropertyNames(icons);
                 for (let i = 0; i < iconNames.length; i++) {
                     const iconName = iconNames[i];
-                    const iconContent = this.constructor.icons[iconName];
-                    Theme.globalIcons.set(iconName, new Icon(iconName, iconContent, this.deviceType));
+                    const iconContent = icons[iconName];
+                    Theme.globalIcons.set(iconName, new Icon(iconName, iconContent));
                 }
             }
-
             Theme._globalIconsLoaded = true;
         }
     }
-
     _renameMapIcon(name, newName, map) {
         if ((map.has(name)) && (!map.has(newName))) {
             const iconData = map.get(name);
@@ -301,46 +250,45 @@ export class Theme {
             map.set(newName, iconData);
         }
     }
-
     _createStyleSheet() {
-        if (!this._allTokens) {
-            this._allTokens = [...new Map([...this.constructor.globalTokens, ...this.localTokens]).values()];
+        if (!this._allTokens || this._tokensDirty) {
+            this._allTokens = [...new Map([...Theme.globalTokens, ...this.localTokens]).values()];
         }
-
         //console.time('Create Stylesheet');
         this._tokensDirty = false;
         const themeLightCssVariablesArray = [];
         const themeDarkCssVariablesArray = [];
         const themeAllCssVariablesArray = [];
-        
         for (let i = 0; i < this._allTokens.length; i++) {
             const token = this._allTokens[i];
-            const light = `${token.cssVariable}: ${token.getValue('light', this.deviceType, this.density)}`;
-
+            const light = `${token.cssVariable}: ${token.getValue(ThemeMode.Light, this.deviceType, this.density)}`;
             themeLightCssVariablesArray.push(light);
-
-            if (this.mode !== ThemeMode.light) {
+            if (this.mode !== ThemeMode.Light) {
                 if (token.hasDarkValue) {
-                    const dark = `${token.cssVariable}: ${token.getValue('dark', this.deviceType, this.density)}`;
+                    const dark = `${token.cssVariable}: ${token.getValue(ThemeMode.Dark, this.deviceType, this.density)}`;
                     themeDarkCssVariablesArray.push(dark);
                     themeAllCssVariablesArray.push(dark);
-                } else {
-                    if (this.mode === ThemeMode.dark) {
+                }
+                else {
+                    if (this.mode === ThemeMode.Dark) {
                         themeAllCssVariablesArray.push(light);
                     }
                 }
             }
         }
-        
         const themeLightCssVariables = themeLightCssVariablesArray.join(';\n');
         const themeDarkCssVariables = themeDarkCssVariablesArray.join(';\n');
         const themeAllCssVariables = themeAllCssVariablesArray.join(';\n');
         //console.timeEnd('Create Stylesheet');
-
         switch (this.mode) {
-            case ThemeMode.light: return `:root {${themeLightCssVariables}}`;
-            case ThemeMode.dark: return `:root {${themeAllCssVariables}}`;
+            case ThemeMode.Light: return `:root {${themeLightCssVariables}}`;
+            case ThemeMode.Dark: return `:root {${themeAllCssVariables}}`;
             default: return `:root {${themeLightCssVariables}} @media (prefers-color-scheme: dark) {:root {${themeDarkCssVariables}}}`;
         }
     }
 }
+Theme._globalTokensLoaded = false;
+Theme._globalIconsLoaded = false;
+Theme._globalTokens = new Map();
+Theme._globalIcons = new Map();
+//# sourceMappingURL=Theme.js.map

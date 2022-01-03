@@ -1,0 +1,41 @@
+{
+  "name": "@quark-elements/theme",
+  "version": "0.0.1",
+  "description": "A generic theming library for web components.",
+  "main": "index.js",
+  "module": "index.js",
+  "private": false,
+  "scripts": {
+    "build-demo": "npm run build-theme-demo",
+    "build-theme-demo": "rimraf demo-build && rollup -c ./demo/rollup.config.js",
+    "serve-demo": "npm run serve-theme-demo",
+    "serve-theme-demo": "web-dev-server --node-resolve --app-index demo/index.html --open",
+    "serve-demo-build": "npm run serve-theme-demo-build",
+    "serve-theme-demo-build": "web-dev-server --node-resolve --app-index demo-build/index.html --open",
+    "test": "npm run test-theme",
+    "test-coverage": "npm run test-theme-coverage",
+    "test-theme": "web-test-runner test/**/*.test.js --node-resolve --playwright --browsers chromium firefox webkit",
+    "test-theme-simple": "web-test-runner test/**/*.test.js --node-resolve",
+    "test-theme-coverage": "web-test-runner test/**/*.test.js --node-resolve --coverage --playwright --browsers chromium firefox webkit",
+    "test-theme-coverage-simple": "web-test-runner test/**/*.test.js --node-resolve --coverage",
+    "serve-coverage": "npm run serve-theme-coverage",
+    "serve-theme-coverage": "web-dev-server --app-index coverage/lcov-report/index.html --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quark-elements/quark.git",
+    "directory": "packages/theme"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Paul H Mason",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/quark-elements/quark/issues"
+  },
+  "homepage": "https://github.com/quark-elements/quark#readme",
+  "devDependencies": {
+    
+  }
+}

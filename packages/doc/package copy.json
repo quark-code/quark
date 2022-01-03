@@ -1,0 +1,51 @@
+{
+  "name": "@quark-elements/doc",
+  "version": "0.0.1",
+  "description": "A simple static site generator.",
+  "main": "index.js",
+  "module": "index.js",
+  "private": false,
+  "scripts": {
+    "test": "",
+    "build": "",
+    "serve": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quark-elements/quark.git",
+    "directory": "packages/doc"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Paul H Mason",
+  "license": "MIT",
+  "bin": {
+    "quark-doc": "/bin/quark-doc.js"
+  },
+  "bugs": {
+    "url": "https://github.com/quark-elements/quark/issues"
+  },
+  "homepage": "https://github.com/quark-elements/quark#readme",
+  "dependencies": {
+    "fs-extra": "^10.0.0",
+    "html-prettify": "^1.0.3",
+    "marked": "^3.0.4",
+    "prismjs": "^1.25.0",
+    "prism-themes": "^1.9.0"
+  },
+  "devDependencies": {
+    "@web/test-runner": "^0.13.22",
+    "@open-wc/testing": "^3.0.3",
+    "@open-wc/building-rollup": "^2.0.1",
+    "@rollup/plugin-node-resolve": "^13.0.4",
+    "@rollup/plugin-replace": "^3.0.0",
+    "deepmerge": "^4.2.2",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.60.2",
+    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-summary": "^1.2.3",
+    "rollup-plugin-terser": "^7.0.2"
+  }
+}

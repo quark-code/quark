@@ -4,7 +4,7 @@
   "description": "A Material Design native Web Component library.",
   "main": "index.js",
   "module": "index.js",
-  "private": false,
+  "private": true,
   "scripts": {
     "build-demo": "npm run build-material-demo",
     "build-material-demo": "rimraf demo-build && rollup -c ./demo/rollup.config.js",
@@ -18,16 +18,7 @@
     "test-material-coverage": "web-test-runner test/**/*.test.js --node-resolve --coverage --playwright --browsers chromium firefox webkit",
     "serve-coverage": "npm run serve-material-coverage",
     "serve-material-coverage": "web-dev-server --app-index coverage/lcov-report/index.html --open",
-    "analyze-material": "cem analyze --config \"custom-elements-manifest.config.mjs\"",
-    "analyze-material-old": "cem analyze --config custom-elements-manifest.config.js --litelement --globs \"**/*.js\" --exclude \"(demo|docs-src|docs)/**/*.js\"",
-    "analyze-material-old-older": "cem analyze --litelement --globs \"**/*.js\" --exclude \"demo/**/*.js\"",
-
-    "docs": "npm run material-docs",
-    "material-docs": "npm run material-docs-clean && npm run analyze-material && npm run material-docs-build && npm run material-docs-gen",
-    "material-docs-clean": "rimraf docs",
-    "material-docs-build": "rollup -c ./rollup-docs.config.js",
-    "material-docs-gen": "quark-doc",
-    "material-docs-serve": "web-dev-server --root-dir=docs --node-resolve --open"
+    "analyze-material": "cem analyze --config \"custom-elements-manifest.config.mjs\""
   },
   "repository": {
     "type": "git",
@@ -48,6 +39,7 @@
     "@quark-elements/theme": "^0.0.1"
   },
   "devDependencies": {
+    "playground-elements": "^0.14.7",
     "@quark-elements/doc": "^0.0.1",
     "@web/dev-server": "~0.1.28",
     "@web/test-runner": "^0.13.22",

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doc Component Demo</title>
+    <link rel="stylesheet" type="text/css" href="index.css" />
+
+    <script type="module">
+        import './index.js';
+    </script>
+</head>
+<body hidden>
+    <page-container>
+        <page-state key="bob"></page-state>
+        <page-navigator id="nav" slot="navigator"></page-navigator>
+        <div class="page-content" slot="content">
+            <component-header display-name="Horizontal Stepper" component-name="QmHorizontalStepper" tag="qm-horizontal-stepper"
+                              superclass="QuarkElement" superclass-url="#quark-element" superclass-package="@quark-elements/core" superclass-package-url="#quark-element-package"
+                              summary="A Material Design Horizontal Stepper Component.">
+            </component-header>
+            <page-tabs selected-index="2">
+                <page-tab label="Overview">Overview</page-tab>
+                <page-tab label="Demos">Demos</page-tab>
+                <page-tab label="Documentation">
+                    <collapsible-panel label="Attributes" persist-key="attributes">
+                        <component-part caption="count:&nbsp;" detail="number | 0" description="The number of times the button has been clicked."
+                                        superclass="QuarkElement" superclass-url="#quark-element-1" readonly>
+                        </component-part>
+
+                        <component-part caption="count:&nbsp;" detail="number | 0" description="The number of times the button has been clicked."
+                                        superclass="QuarkElement" superclass-url="#quark-element-2" readonly>
+                        </component-part>
+
+                        <collapsible-protected-panel persist-key="attributes_protected" collapsed label-open="Hide 1 protected property" label-closed="Show 1 protected property">
+                            <component-part caption="_count:&nbsp;" detail="number | 0" description="The number of times the button has been clicked."
+                                            superclass="QuarkElement" superclass-url="#quark-element-3" readonly>
+                            </component-part>
+                        </collapsible-protected-panel>
+                    </collapsible-panel>
+                    <collapsible-panel label="Properties" persist-key="properties">stuff</collapsible-panel>
+                    <collapsible-panel label="Methods" persist-key="methods">stuff</collapsible-panel>
+                    <collapsible-panel label="Events" persist-key="events">stuff</collapsible-panel>
+                    <collapsible-panel label="Slots" persist-key="slots">stuff</collapsible-panel>
+                    <collapsible-panel label="CSS Properties" persist-key="css_properties">stuff</collapsible-panel>
+                    <collapsible-panel label="CSS Parts" persist-key="css_parts">stuff</collapsible-panel>
+                </page-tab>
+            </page-tabs>
+        </div>
+    </page-container>
+</body>
+</html>

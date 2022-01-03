@@ -43,7 +43,7 @@ export const ColorTokens = {
         //light: '#FFFBFE',
         light: '#FFFFFF',
         //dark: '#1E1E1E'
-        dark: '#FF1C1B1F'
+        dark: '#1C1B1F'
     },
     
     'md-sys-color-surface-variant': {
