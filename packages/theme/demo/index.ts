@@ -6,6 +6,7 @@ Copyright (c) 2021 Paul H Mason. All rights reserved.
 import './components';
 import { Theme, themeManager } from '../index.js';
 import { Icons, Colors, Typography, Transitions, Border, Spacing } from './theme';
+import { ThemeMode } from '../lib/Types.js';
 
 /**
 This is based on the "Wireframe Web Kit (desktop)" for Adobe XD.
@@ -25,7 +26,7 @@ class TestTheme extends Theme {
         }
     }
 
-    constructor(name, primaryLight, primary, primaryDark) {
+    constructor(name: string, primaryLight: string, primary: string, primaryDark: string) {
         super(name);
         
         // Override primary colors per theme.
@@ -51,7 +52,7 @@ greenThemeBrand.addToken('theme-border-radius-m', '25px');
 themeManager.register(blueThemeBrand);
 themeManager.register(redThemeBrand);
 themeManager.register(greenThemeBrand);
-themeManager.mode = 'system';
+themeManager.mode = ThemeMode.System;
 //themeManager.iconVariant = 'twoTone';
 themeManager.use(blueThemeBrand.name);
 

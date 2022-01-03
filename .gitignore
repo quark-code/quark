@@ -8,6 +8,7 @@ TODO.*
 # Build artifacts
 packages/theme/**/*.js
 packages/theme/**/*.js.map
+packages/theme/**/*.d.ts
 
 # Logs
 logs
