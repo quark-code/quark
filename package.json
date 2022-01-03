@@ -5,12 +5,12 @@
   "private": false,
   "scripts": {
     "test-theme": "web-test-runner packages/theme/test/**/*.test.js --node-resolve --playwright --browsers chromium firefox webkit",
+    "test-theme-simple": "web-test-runner packages/theme/test/**/*.test.js --node-resolve",
 
     "build": "tsc --build",
-    "test": "npm run test-theme",
+    "test": "npm run test-theme-simple",
 
     "serve-demo-theme": "web-dev-server --node-resolve --app-index packages/theme/demo/index.html --open",
-    "test-theme-simple": "web-test-runner packages/theme/test/**/*.test.js --node-resolve",
     "test-theme-coverage": "web-test-runner packages/theme/test/**/*.test.js --node-resolve --coverage",
     "serve-theme-coverage": "web-dev-server --app-index packages/theme/coverage/lcov-report/index.html --open"
   },
