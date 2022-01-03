@@ -11,10 +11,6 @@ export class IconValues {
     private _variants: Array<string>;
 
     constructor(values: IconData) {
-        if (!values) {
-            throw 'Invalid icon definition.';
-        }
-
         if (typeof values === 'string') {
             this._content.set('default', `<svg viewBox="0 0 24 24">${values}</svg>`);
         } else {

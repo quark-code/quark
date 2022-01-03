@@ -27,6 +27,38 @@ export default [
             format: 'esm',
         },
         plugins: plugins
+    },
+    {
+      input: 'src/doc/index.js',
+      output: {
+          file: 'dest/doc/index.bundle.js',
+          format: 'esm',
+      },
+      plugins: plugins
+  },
+    {
+        input: 'src/theme/index.js',
+        output: {
+            file: 'dest/theme/index.bundle.js',
+            format: 'esm',
+        },
+        plugins: plugins
+    },
+    {
+        input: 'src/core/index.js',
+        output: {
+            file: 'dest/core/index.bundle.js',
+            format: 'esm',
+        },
+        plugins: plugins
+    },
+    {
+        input: 'src/material/index.js',
+        output: {
+            file: 'dest/material/index.bundle.js',
+            format: 'esm',
+        },
+        plugins: plugins
     }
 ]
 ;

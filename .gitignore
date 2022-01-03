@@ -9,6 +9,7 @@ TODO.*
 packages/theme/**/*.js
 packages/theme/**/*.js.map
 packages/theme/**/*.d.ts
+packages/theme/demo-build/**/*.*
 
 packages/doc/**/*.js
 packages/doc/**/*.js.map
