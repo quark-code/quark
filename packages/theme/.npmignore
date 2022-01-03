@@ -1,8 +1,0 @@
-/test
-/coverage
-/demo
-/demo-build
-/**/test
-/**/*.ts
-
-!/**/*.d.ts

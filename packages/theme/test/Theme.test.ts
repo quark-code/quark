@@ -4,7 +4,9 @@ MIT License
 Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
 import { expect } from '@open-wc/testing';
-import { Theme, ThemeMode, ThemeDensity, DeviceType, DesignToken, Icon } from '../index.js';
+import { Theme } from '../lib/Theme.js';
+import { ThemeMode, ThemeDensity, DeviceType } from '../lib/Types.js';
+import '../lib/ThemeManager.js';
 
 class TestTheme extends Theme {
     static get icons() {

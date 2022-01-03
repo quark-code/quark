@@ -1,10 +1,13 @@
-/notes
 /docs
 /**/notes
 /**/docs
 /**/dest
 /**/demo-build
 TODO.*
+
+# Build artifacts
+packages/theme/**/*.js
+packages/theme/**/*.js.map
 
 # Logs
 logs

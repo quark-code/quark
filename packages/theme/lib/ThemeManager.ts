@@ -7,6 +7,14 @@ import { ThemeMode, ThemeDensity, DeviceType, TextDirection } from './Types.js';
 import { Theme } from './Theme.js';
 import { Icon } from './Icon.js';
 
+declare global {
+    interface Window { themeManager: ThemeManager; }
+}
+
+declare global {
+    interface Navigator { userAgentData: any; }
+}
+
 export class ThemeManager {
     private _themes: Map<string, Theme> = new Map<string, Theme>();
     private _activeTheme: Theme = null;
@@ -134,7 +142,7 @@ export class ThemeManager {
         this._defaultThemeName = name;
     }
 
-    use(name: string) {
+    use(name: string = null) {
         const theme = this._themes.get(name ?? (this._defaultThemeName ?? 'default'));
 
         if (theme) {
@@ -199,3 +207,5 @@ export class ThemeManager {
         return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     }
 }
+
+export const themeManager = window.themeManager = window.themeManager || new ThemeManager();

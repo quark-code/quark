@@ -10,7 +10,11 @@ export class Icon {
     private _name: string;
     private _content: IconValues;
 
-    constructor(name: string, values: IconData) {
+    constructor(name: string, values: IconData = null) {
+        if (!values) {
+            throw 'An icon must have a value.';
+        }
+
         this._name = name;
         this._content = new IconValues(values);
     }
@@ -27,7 +31,7 @@ export class Icon {
         return this._content.defaultVariant;
     }
 
-    getContent(variant: string) {
+    getContent(variant?: string) {
         return this._content.getIcon(variant);
     }
 }

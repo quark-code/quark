@@ -11,11 +11,7 @@ export class DesignToken {
     private _cssVariable: string;
     private _values: DesignTokenValues;
 
-    constructor(name: string, values: DesignTokenData) {
-        if (!name) {
-            throw 'A design token must have a name.';
-        }
-
+    constructor(name: string, values: DesignTokenData = null) {
         if (!values) {
             throw 'A design token must have a value.';
         }
@@ -37,7 +33,7 @@ export class DesignToken {
         return this._values.hasDarkValue;
     }
 
-    getValue(mode: ThemeMode, device: DeviceType, density: ThemeDensity) {
+    getValue(mode: ThemeMode = ThemeMode.System, device: DeviceType = DeviceType.Desktop, density: ThemeDensity = ThemeDensity.Comfortable) {
         return this._values.getValue(mode, device, density);
     }
 }

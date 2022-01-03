@@ -142,7 +142,7 @@ export class Theme {
         Theme.globalTokens.set(name, new DesignToken(name, values));
     }
 
-    static addTokens(tokens: any) {
+    static addTokens(tokens: any = null) {
         if (!tokens) return;
 
         const tokenNames = Object.getOwnPropertyNames(tokens);
@@ -163,7 +163,7 @@ export class Theme {
         this._tokensDirty = true;
     }
 
-    addTokens(tokens: any) {
+    addTokens(tokens: any = null) {
         if (!tokens) return;
 
         const tokenNames = Object.getOwnPropertyNames(tokens);

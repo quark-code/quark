@@ -108,6 +108,6 @@ describe('icon', () => {
     });
 
     it('throws an exception if no icon data is provided', async () => {
-        expect(() => new Icon('test-icon')).to.throw('Invalid icon definition.');
+        expect(() => new Icon('test-icon')).to.throw('An icon must have a value.');
     });
 });

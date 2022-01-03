@@ -28,7 +28,7 @@ export class DesignTokenValues {
         return this._hasDarkValue;
     }
 
-    getValue(mode: ThemeMode, device: DeviceType, density: ThemeDensity, data: string | object = null) {
+    getValue(mode: ThemeMode = ThemeMode.System, device: DeviceType = DeviceType.Desktop, density: ThemeDensity = ThemeDensity.Comfortable, data: string | object = null) {
         const key: string = `${mode}:${device}:${density}`;
 
         if (this._valueMap.has(key)) {
