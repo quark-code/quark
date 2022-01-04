@@ -19,7 +19,7 @@
     "site-analyze": "npm run site-core-analyze && npm run site-material-analyze",
     "site-docs-build": "rollup -c packages/site/rollup.config.js",
     "site-docs-gen": "node packages/doc/bin/quark-doc.js",
-    "site-docs": "npm run site-docs-clean && npm run site-analyze && npm run site-docs-build && npm run site-docs-gen",
+    "site-docs": "npm run build && npm run site-docs-clean && npm run site-analyze && npm run site-docs-build && npm run site-docs-gen",
     "site-docs-serve": "web-dev-server --root-dir=packages/site/dest --node-resolve --open",
     "site-demo-serve": "web-dev-server --root-dir=packages/site/demo --node-resolve --open"
   },

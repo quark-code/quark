@@ -28,20 +28,20 @@ marked.setOptions({
 });
 
 
-function html(strings, ...values) {
+function _html(strings, ...values) {
     return strings.map((str, idx) => str + (Array.isArray(values[idx]) ? values[idx].join('\n') : values[idx] || '')).join('');
 }
 
-function md(strings, ...values) {
-    return marked(html(strings, ...values));
+function _md(strings, ...values) {
+    return marked(_html(strings, ...values));
 }
 
-function mdRaw(text) {
+function _mdRaw(text) {
     const data = marked(text);
     return data;
 }
 
-function code(data, language = 'markup', options) {
+function _code(data, language = 'markup', options) {
     let inline = false;
 
     if (options) {
@@ -67,7 +67,7 @@ function code(data, language = 'markup', options) {
     return '';  
 }
 
-function escape(unsafe) {
+function _escape(unsafe) {
     if (!((typeof unsafe === 'string' || unsafe instanceof String))) {
         unsafe = String(unsafe);
     } 
@@ -80,29 +80,29 @@ function escape(unsafe) {
         .replace(/'/g, "&#039;") : unsafe;
  }
 
-function table(strings, ...values) {
+function _table(strings, ...values) {
     const dataArray = strings.map((str, idx) => str + (values[idx] || '')).join('').split('\n');
     const data = dataArray.map(line => line.trim()).filter(line => line.length > 0).join('\n');
     return prettify(marked(data));
 }
 
-function pageExists(page) {
+function _pageExists(page) {
     const path = `${__dirname}\\${quarkConfig.srcDir}\\${page}.template.js`;
     return fse.pathExistsSync(path); 
 }
 
-function includeExists(include) {
+function _includeExists(include) {
     const path = `${__dirname}\\${quarkConfig.srcDir}\\_includes\\${include}.template.js`;
     return fse.pathExistsSync(path);
 }
 
 module.exports = {
-    html: html,
-    md: md,
-    mdRaw: mdRaw,
-    code: code,
-    table: table,
-    escape: escape,
-    pageExists: pageExists,
-    includeExists: includeExists
+    html: _html,
+    md: _md,
+    mdRaw: _mdRaw,
+    code: _code,
+    table: _table,
+    escape: _escape,
+    pageExists: _pageExists,
+    includeExists: _includeExists
 }

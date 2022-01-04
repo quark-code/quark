@@ -24,6 +24,10 @@ packages/material/**/*.js
 packages/material/**/*.js.map
 packages/material/**/*.d.ts
 
+packages/site/**/*.js
+packages/site/**/*.js.map
+packages/site/**/*.d.ts
+
 # Logs
 logs
 *.log
