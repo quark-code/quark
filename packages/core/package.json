@@ -5,6 +5,9 @@
   "main": "index.js",
   "module": "index.js",
   "private": false,
+  "scripts": {
+    "pub": "npm publish --dry-run"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/quark-elements/quark.git",

@@ -4,8 +4,9 @@ MIT License
 Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
 import { css, html, svg, LitElement } from 'lit';
-
-const QuarkElements = new Set();
+import { property } from 'lit/decorators.js';
+import { DesignTokenShape } from '@quark-elements/theme/lib/Types.js';
+const QuarkElements = new Set<HTMLElement>();
 
 const updateDir = () => {
     const dir = document.documentElement.dir === 'rtl' ? 'rtl' : 'ltr';
@@ -29,52 +30,43 @@ dirObserver.observe(document.documentElement, {
  * @category Core
  */
 class QuarkElement extends LitElement {
+    static _tokensRegistered = false;
+    static designTokens? : DesignTokenShape;
+
     static _registerTokens() {
         if (!this._tokensRegistered) {
-            if (this.designTokens && window.designSystemProvider) {
-                window.designSystemProvider.registerTokens(this.designTokens);
+            const constructor = this.constructor as typeof QuarkElement;
+            const { designTokens } = constructor;
+            if (designTokens && window.designSystemProvider) {
+                window.designSystemProvider.registerTokens(designTokens);
             }
 
             this._tokensRegistered = true;
         }
     }
 
-    static register(tagName) {
+    static register(tagName: string) {
         this._registerTokens();
         window.customElements.define(tagName, this);
     }
 
-    static get properties() {
-        return {
-            /**
-             * The text direction.
-             * @type {string}
-             * @allowedvalues ["ltr", "rtl"]
-             */
-            dir: {
-                type: String,
-                reflect: true
-            },
+    /**
+    * The text direction.
+    * @type {string}
+    * @allowedvalues ["ltr", "rtl"]
+    */
+    @property({ type: String, reflect: true })
+    dir: string = 'ltr';
 
-            /**
-             * Whether or not the text direction is LTR (default) or RTL.
-             * @type {boolean}
-             * @readonly true
-             * @default true
-            */
-            isLTR: {
-                type: Boolean
-            }
-        }
-    }
-    
+    /**
+    * Whether or not the text direction is LTR (default) or RTL.
+    * @type {boolean}
+    * @readonly true
+    * @default true
+    */
+    @property({ type: Boolean })
     get isLTR() {
         return this.dir === 'ltr';
-    }
-
-    constructor() {
-        super();
-        this.dir = 'ltr';
     }
 
     connectedCallback() {

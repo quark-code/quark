@@ -5,7 +5,7 @@ Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
 import { DesignToken } from './DesignToken.js';
 import { Icon } from './Icon.js';
-import { ThemeMode, ThemeDensity, DeviceType } from './Types.js';
+import { ThemeMode, ThemeDensity, DeviceType, IconShape } from './Types.js';
 
 export { DesignToken, Icon }
 
@@ -231,7 +231,7 @@ export class Theme {
         }
     }
 
-    static addIcons(icons: any) {
+    static addIcons(icons: IconShape) {
         const iconNames = Object.getOwnPropertyNames(icons);
 
         for (let i = 0; i < iconNames.length; i++) {
@@ -247,7 +247,7 @@ export class Theme {
         }
     }
 
-    addIcons(icons: any) {
+    addIcons(icons: IconShape) {
         const iconNames = Object.getOwnPropertyNames(icons);
 
         for (let i = 0; i < iconNames.length; i++) {

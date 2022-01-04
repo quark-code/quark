@@ -3,14 +3,12 @@
 MIT License
 Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
-import { IconData } from './Types.js';
-
 export class IconValues {
     private _content: Map<string, string> = new Map();
     private _default: string = 'default';
     private _variants: Array<string>;
 
-    constructor(values: IconData) {
+    constructor(values: any) {
         if (typeof values === 'string') {
             this._content.set('default', `<svg viewBox="0 0 24 24">${values}</svg>`);
         } else {

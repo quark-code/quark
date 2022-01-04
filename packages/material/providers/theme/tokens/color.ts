@@ -3,12 +3,13 @@
 MIT License
 Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
+import { DesignTokenShape } from '@quark-elements/theme/lib/Types.js';
  /**
   * @type designtoken
   * @summary The theme color tokens.
   * @description - Some random description.
   */
-export const ColorTokens = {
+export const ColorTokens: DesignTokenShape = {
     'md-sys-color-primary': {
         light: '#6750A4',
         dark: '#D0BCFF'

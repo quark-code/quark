@@ -16,6 +16,10 @@ packages/doc/**/*.js
 packages/doc/**/*.js.map
 packages/doc/**/*.d.ts
 
+packages/core/**/*.js
+packages/core/**/*.js.map
+packages/core/**/*.d.ts
+
 # Logs
 logs
 *.log

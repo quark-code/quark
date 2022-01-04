@@ -3,8 +3,8 @@
 MIT License
 Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
-import { html, css, QuarkElement } from '@quark-elements/core/elements';
-
+import { html, css, QuarkElement } from '@quark-elements/core/elements/QuarkElement.js';
+import { property } from 'lit/decorators.js';
 /**
  * @customtype component
  * @summary A demo component for documentation testing.
@@ -21,33 +21,6 @@ import { html, css, QuarkElement } from '@quark-elements/core/elements';
  * @cssproperty [--background-color-blue=<color> | (no default)] - The blue background color. 
  */
 export class QmKitchenSink extends QuarkElement {
-    static get properties() {
-        return {
-            /**
-             * The name to say "Hello" to.
-             * @type {string}
-             */
-            name: {
-                type: String,
-                attribute: 'name'
-            },
-
-            /**
-             * The number of times the button has been clicked.
-             * @type {number}
-             */
-            count: { type: Number },
-
-            /**
-             * This is a protected property.
-             * @type {number}
-             */
-            _protectedProperty: {
-                type: Number,
-            }
-        };
-    }
-
     static get styles() {
         return [css`
             :host {
@@ -64,13 +37,26 @@ export class QmKitchenSink extends QuarkElement {
         `];
     }
 
-    constructor() {
-        super();
+    /**
+    * The name to say "Hello" to.
+    * @type {string}
+    */
+    @property({ type: String })
+    name: string = 'bob';
 
-        this.name = 'Bob';
-        this.count = 0;
-        this._protectedProperty = 5;
-    }
+    /**
+    * The number of times the button has been clicked.
+    * @type {number}
+    */
+    @property({ type: Number })
+    count: number = 0;
+
+    /**
+    * This is a protected property.
+    * @type {number}
+    */
+    @property({ type: Number })
+    _protectedProperty: number = 5;
 
     render() {
         return html`

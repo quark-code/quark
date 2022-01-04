@@ -4,13 +4,13 @@ MIT License
 Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
 import { css } from 'lit';
-
+import { DesignTokenShape } from '@quark-elements/theme/lib/Types.js';
  /**
   * @type designtoken
   * @summary The theme typography tokens.
   * @description - Some random description.
   */
-export const TypographyTokens = {
+export const TypographyTokens: DesignTokenShape = {
     // Font Family
     'md-ref-typeface-brand-regular': "Roboto, 'Noto Sans SC', sans-serif",
     'md-ref-typeface-brand-mono': "'Roboto Mono', monospace",

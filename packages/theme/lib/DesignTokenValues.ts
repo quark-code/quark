@@ -3,10 +3,10 @@
 MIT License
 Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
-import { ThemeMode, DeviceType, ThemeDensity, DesignTokenData } from './Types.js';
+import { ThemeMode, DeviceType, ThemeDensity, DesignTokenShape } from './Types.js';
 
 export class DesignTokenValues {
-    private _values: DesignTokenData;
+    private _values: DesignTokenShape;
     private _valueMap: Map<string, object> = new Map<string, object>();
     private _hasDarkValue: boolean = false;
 
@@ -18,7 +18,7 @@ export class DesignTokenValues {
             .replace(/\s*:\s*/, ', ');
     }
 
-    constructor(values: DesignTokenData) {
+    constructor(values: DesignTokenShape) {
         this._values = values;
         this._valueMap = new Map();
         this._hasDarkValue = this._values['dark'] ? true : false;
@@ -28,14 +28,14 @@ export class DesignTokenValues {
         return this._hasDarkValue;
     }
 
-    getValue(mode: ThemeMode = ThemeMode.System, device: DeviceType = DeviceType.Desktop, density: ThemeDensity = ThemeDensity.Comfortable, data: string | object = null) {
+    getValue(mode: ThemeMode = ThemeMode.System, device: DeviceType = DeviceType.Desktop, density: ThemeDensity = ThemeDensity.Comfortable, data: DesignTokenShape = null) {
         const key: string = `${mode}:${device}:${density}`;
 
         if (this._valueMap.has(key)) {
             return this._valueMap.get(key)
         }
 
-        const val: DesignTokenData = data || this._values;
+        const val: any = data || this._values;
         let result = null;
 
         if (typeof val === 'string') {

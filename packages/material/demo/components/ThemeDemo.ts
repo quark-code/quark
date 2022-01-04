@@ -3,7 +3,9 @@
 MIT License
 Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
-import { html, css, QuarkElement } from '@quark-elements/core/elements';
+import { html, css, QuarkElement } from '@quark-elements/core/elements/QuarkElement.js';
+import { themeManager } from '@quark-elements/theme';
+import { property } from 'lit/decorators.js';
 import '../../elements/panel/qm-outlined-panel.js';
 
 export class ThemeDemo extends QuarkElement {
@@ -63,61 +65,29 @@ export class ThemeDemo extends QuarkElement {
         ];
     }
 
-    static get properties() {
-        return {
-            brands: {
-                type: Array
-            },
+    @property({ type: Array })
+    brands: Array<string> = [];
 
-            selectedBrandIndex: {
-                type: Number,
-                attribute: 'selected-brand-index'
-            },
+    @property({ type: Number, attribute: 'selected-brand-index' })
+    selectedBrandIndex: number = 0;
 
-            modes: {
-                type: Array
-            },
+    @property({ type: Array })
+    modes: Array<string> = ['System', 'Light', 'Dark'];
 
-            selectedModeIndex: {
-                type: Number,
-                attribute: 'selected-mode-index'
-            },
+    @property({ type: Number, attribute: 'selected-mode-index' })
+    selectedModeIndex: number = 0;
 
-            densities: {
-                type: Array
-            },
+    @property({ type: Array })
+    densities: Array<string> = ['Compact', 'Comfortable', 'Sparse'];
 
-            selectedDensityIndex: {
-                type: Number,
-                attribute: 'selected-index'
-            },
+    @property({ type: Number, attribute: 'selected-density-index' })
+    selectedDensityIndex: number = 1;
 
-            devices: {
-                type: Array
-            },
+    @property({ type: Array })
+    devices: Array<string> = ['Desktop', 'Mobile'];
 
-            selectedDeviceIndex: {
-                type: Number,
-                attribute: 'selected-index'
-            }
-        }
-    }
-
-    constructor() {
-        super();
-
-        this.brands = [];
-        this.selectedBrandIndex = 0;
-
-        this.modes = ['System', 'Light', 'Dark'];
-        this.selectedModeIndex = 0;
-
-        this.densities = ['Compact', 'Comfortable', 'Sparse'];
-        this.selectedDensityIndex = 1;
-
-        this.devices = ['Desktop', 'Mobile'];
-        this.selectedDeviceIndex = 0;
-    }
+    @property({ type: Number, attribute: 'selected-brand-index' })
+    selectedDeviceIndex: number = 0;
 
     connectedCallback() {
         super.connectedCallback();

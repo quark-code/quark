@@ -2,3 +2,8 @@
 /test
 /coverage
 /**/test
+/**/*.ts
+/**/*.js.map
+
+!*.d.ts
+!/bin/*.d.ts

@@ -3,3 +3,5 @@
 /**/test
 /demo
 /demo-build
+/**/*.ts
+/**/*.js.map

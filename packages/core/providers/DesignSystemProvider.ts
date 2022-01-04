@@ -3,10 +3,16 @@
 MIT License
 Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
-import { Theme, themeManager } from "@quark-elements/theme";
+import { Theme, themeManager, ThemeMode, ThemeDensity, TextDirection, DeviceType } from "@quark-elements/theme";
+
+declare global {
+    interface Window { designSystemProvider: DesignSystemProvider; }
+}
 
 class DesignSystemProvider {
-    constructor(themeType) {
+    private _themeType: typeof Theme;
+
+    constructor(themeType: typeof Theme) {
         this._themeType = themeType;
 
         if (window.designSystemProvider) {
@@ -20,7 +26,7 @@ class DesignSystemProvider {
         return this._themeType;
     }
 
-    registerIcons(icons) {
+    registerIcons(icons: any) {
         if (this._themeType) {
             this._themeType.addIcons(icons);
         }
@@ -28,7 +34,7 @@ class DesignSystemProvider {
         return this;
     }
 
-    registerIcon(name, value) {
+    registerIcon(name: string, value: any) {
         if (this._themeType) {
             this._themeType.addIcon(name, value);
         }
@@ -36,12 +42,12 @@ class DesignSystemProvider {
         return this;
     }
 
-    registerThemes() {
-        for (let i = 0; i < arguments.length; i++) {
-            const arg = arguments[i];
+    registerThemes(...args: Array<Theme>) {
+        for (let i = 0; i < args.length; i++) {
+            const arg = args[i];
 
             if (arg instanceof this._themeType) {
-                arguments[i].register();
+                args[i].register();
             } else {
                 console.warn('Theme is not of the correct type');
             }
@@ -50,7 +56,7 @@ class DesignSystemProvider {
         return this;
     }
 
-    registerTokens(tokens) {
+    registerTokens(tokens: any) {
         if (this._themeType) {
             this._themeType.addTokens(tokens);
         }
@@ -58,7 +64,7 @@ class DesignSystemProvider {
         return this;
     }
 
-    useThemeBrand(name) {
+    useThemeBrand(name: string) {
         if (name) {
             themeManager.use(name);
         }
@@ -71,23 +77,23 @@ class DesignSystemProvider {
         return this;
     }
 
-    withThemeMode(mode = 'system') {
+    withThemeMode(mode: ThemeMode = ThemeMode.System) {
         themeManager.mode = mode;
         return this;
     }
 
-    withDensity(density = 'normal') {
+    withDensity(density: ThemeDensity = ThemeDensity.Comfortable) {
         themeManager.density = density;
         return this;
     }
 
-    withDirection(dir = 'ltr') {
+    withDirection(dir: TextDirection = TextDirection.LTR) {
         themeManager.dir = dir;
         return this;
     }
 
-    withDevice(device = 'desktop') {
-        themeManager.device = device;
+    withDevice(deviceType: DeviceType = DeviceType.Desktop) {
+        themeManager.deviceType = deviceType;
         return this;
     }
 
@@ -97,4 +103,4 @@ class DesignSystemProvider {
     }
 }
 
-export { DesignSystemProvider, Theme, themeManager }
+export { DesignSystemProvider, Theme, themeManager, ThemeMode, ThemeDensity, TextDirection, DeviceType }

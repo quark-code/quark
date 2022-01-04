@@ -3,7 +3,7 @@
 MIT License
 Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
-import { html, css, QuarkElement } from '@quark-elements/core/elements';
+import { html, css, QuarkElement } from '@quark-elements/core/elements/QuarkElement.js';
 import { elevation0, elevation1, elevation2, elevation3, elevation4, elevation5, titleMedium } from '../../styling';
 
 export class ElevationDemo extends QuarkElement {

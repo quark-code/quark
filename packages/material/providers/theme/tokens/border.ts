@@ -3,12 +3,13 @@
 MIT License
 Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
+import { DesignTokenShape } from '@quark-elements/theme/lib/Types.js';
 /**
 * @type designtoken
 * @summary The theme border tokens.
 * @description - Some random description.
 */
-export const BorderTokens = {
+export const BorderTokens: DesignTokenShape = {
     'md-sys-border-radius-transition': 'border-radius 0.28s cubic-bezier(0.4, 0, 0.2, 1)',
     'md-sys-border-radius-0': '0px',
     'md-sys-border-radius-1': '8px',

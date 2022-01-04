@@ -3,23 +3,24 @@
 MIT License
 Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
-import { css, QuarkPanel } from '@quark-elements/core/elements';
+import { QuarkPanel } from '@quark-elements/core/elements/panel/QuarkPanel.js';
+import { css } from '@quark-elements/core/elements/QuarkElement.js';
+import { hostElevation1 } from '../../providers/theme/tokens/elevation';
 
  /**
   * @customtype component
-  * @summary A flat variant Material Design panel.
+  * @summary A raised variant Material Design panel.
   * @description - Some random description.
-  * @defaulttag qm-flat-panel
-  * @displayname Flat Panel
+  * @defaulttag qm-raised-panel
+  * @displayname Raised Panel
   * @designsystem Material
   * @category Panels
   */
-export class QmFlatPanel extends QuarkPanel {
+export class QmRaisedPanel extends QuarkPanel {
     static get styles() {
-        return [css`
+        return [hostElevation1, css`
             :host {
                 display: block;
-                overflow: hidden;
                 box-sizing: border-box;
                 border-radius: var(--md-sys-border-radius-2);
                 color: var(--md-sys-color-on-surface);
@@ -37,4 +38,4 @@ export class QmFlatPanel extends QuarkPanel {
     }
 }
 
-QmFlatPanel.register('qm-flat-panel');
+QmRaisedPanel.register('qm-raised-panel');

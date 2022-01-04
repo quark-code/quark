@@ -4,7 +4,7 @@ MIT License
 Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
 import { css } from 'lit';
-
+import { DesignTokenShape } from '@quark-elements/theme/lib/Types.js';
  /**
   * @type designtoken
   * @summary The theme elevation tokens.
@@ -24,7 +24,7 @@ export const ElevationTokens = {
 */
 
 // ELEVATION TOKENS
-export const ElevationTokens = {
+export const ElevationTokens: DesignTokenShape = {
     'md-sys-elevation-transition': 'box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1)',
     'md-sys-elevation-level-0': 'none',
     // 1 - 5%

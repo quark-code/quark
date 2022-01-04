@@ -3,7 +3,7 @@
 MIT License
 Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
-import { ThemeMode, DeviceType, ThemeDensity, DesignTokenData } from './Types.js';
+import { ThemeMode, DeviceType, ThemeDensity } from './Types.js';
 import { DesignTokenValues } from './DesignTokenValues.js';
 
 export class DesignToken {
@@ -11,7 +11,7 @@ export class DesignToken {
     private _cssVariable: string;
     private _values: DesignTokenValues;
 
-    constructor(name: string, values: DesignTokenData = null) {
+    constructor(name: string, values: any = null) {
         if (!values) {
             throw 'A design token must have a value.';
         }

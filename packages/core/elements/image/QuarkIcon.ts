@@ -5,7 +5,7 @@ Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
 import { QuarkElement } from '../QuarkElement.js';
 import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
-
+import { property } from 'lit/decorators.js';
 /**
  * @customtype component
  * @summary The base component class for an element that displays a single icon.
@@ -13,20 +13,12 @@ import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
  * @category Core
  */
 export class QuarkIcon extends QuarkElement {
-    static properties = {
-        /**
-        * The name of the registered icon.
-        * @type {string}
-        */
-        icon: {
-            type: String
-        }
-    };
-
-    constructor() {
-        super();
-        this.icon = '';
-    }
+    /**
+    * The name of the registered icon.
+    * @type {string}
+    */
+    @property({ type: String })
+    icon: string = '';
 
     render() {
         return unsafeSVG(window.themeManager.getIconContent(this.icon));

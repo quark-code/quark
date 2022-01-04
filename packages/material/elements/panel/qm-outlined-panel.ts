@@ -3,8 +3,8 @@
 MIT License
 Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
-import { css, QuarkPanel } from '@quark-elements/core/elements';
-
+import { QuarkPanel } from '@quark-elements/core/elements/panel/QuarkPanel.js';
+import { css } from '@quark-elements/core/elements/QuarkElement.js';
  /**
   * @customtype component
   * @summary An outlined variant Material Design panel.

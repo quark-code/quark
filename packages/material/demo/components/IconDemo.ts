@@ -3,7 +3,7 @@
 MIT License
 Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
-import { html, css, QuarkElement } from '@quark-elements/core/elements';
+import { html, css, QuarkElement } from '@quark-elements/core/elements/QuarkElement.js';
 import '../../elements/panel/qm-outlined-panel.js';
 import '../../elements/image/qm-icon.js';
 

@@ -1,4 +1,11 @@
-export const CoreIcons = {
+/**
+@license
+MIT License
+Copyright (c) 2021 Paul H Mason. All rights reserved.
+*/
+import { IconShape } from '@quark-elements/theme/lib/Types.js';
+
+export const CoreIcons: IconShape = {
     'chevron-left': '<g><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></g>',
     'chevron-right': '<g><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></g>',
     'chevron-up': '<g><path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"/></g>',
