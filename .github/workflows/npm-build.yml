@@ -22,7 +22,7 @@ jobs:
           node-version: 14
           cache: 'npm'
       - run: npm install
-      - run: lerna bootstrap
+      - run: lerna bootstrap --ci
       - run: npm run build --if-present
       - run: npm test --if-present
       - run: npm run site-docs --if-present
