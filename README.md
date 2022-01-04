@@ -18,16 +18,16 @@ npm install @quark-elements/core --save
 
 [Full Documentation]()
 
-# Quark
-A native Web Component library suitable for "desktop-like" web applications with a compact monochromatic UI (similar to Visual Studio Code).
+# Material
+A native Web Component library implementing Google's Material Design 3.
 
 ## Installation
 ```
-npm install @quark-elements/quark --save
+npm install @quark-elements/material --save
 ```
 
 ## Documentation
-[Overview](./packages/quark/README.md)
+[Overview](./packages/material/README.md)
 
 [Full Documentation]()
 

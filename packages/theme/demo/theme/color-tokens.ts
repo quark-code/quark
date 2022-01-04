@@ -1,4 +1,7 @@
-export const Colors = {
+import { ThemeMode, DesignTokenShape } from '../../lib/Types.js';
+
+
+export const Colors: DesignTokenShape = {
     // Window
     'theme-window-color': {
         light: {
@@ -9,7 +12,7 @@ export const Colors = {
 
         dark: {
             mobile: '#1A237E',
-            desktop: '#1E1E1E'
+            desktop: '#1E1E1E',
         }
     },
     'theme-on-window-color': {
@@ -46,7 +49,7 @@ export const Colors = {
         light: 'rgba(0, 0, 0, 0.2)',
         dark: 'rgba(255, 255, 255, 0.2)'
     },
-    
+
     // Primary
     'theme-primary-light-color': '#90CAF9',
     'theme-on-primary-light-color': 'rgba(0, 0, 0, 0.87)',

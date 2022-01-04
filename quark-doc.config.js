@@ -2,7 +2,7 @@ const sites = ['', 'doc/', 'theme/', 'core/', 'material/'];
 
 function addSiteFiles(site) {
     config.copy.push({
-        src: `./src/${site}styles.css`,
+        src: `packages/site/src/${site}styles.css`,
         dest: `${site}styles.css`
     });
 
@@ -13,8 +13,8 @@ function addSiteFiles(site) {
 }
 
 const config = {
-    srcDir: 'src',
-    destDir: 'dest',
+    srcDir: 'packages/site/src',
+    destDir: 'packages/site/dest',
     copy: []
 }
 

@@ -36,6 +36,37 @@ export type DesignTokenData = any;
 
 export type IconData = any;
 
+export type IconShape = {
+    [key: string]: string | {
+        icon: string;
+        size?: number;
+    } | {
+        default?: string;
+        variants: {
+            [key: string]: string | {
+                icon: string;
+                size?: number;
+            }
+        };
+    };
+}
+
+export type DesignTokenShape = {
+    [key: string]: string | {
+        [property in keyof { light?: string; dark?: string}]: string | {
+            [property in keyof { mobile?: string; desktop?: string}]: string | {
+                [property in keyof { compact?: string; comfortable?: string; sparse?: string}]: string;
+            };
+        };
+    } | {
+        [property in keyof { mobile?: string; desktop?: string}]: string | {
+            [property in keyof { compact?: string; comfortable?: string; sparse?: string}]: string;
+        };
+    } | {
+        [property in keyof { compact?: string; comfortable?: string; sparse?: string}]: string;
+    }
+}
+
 /*
 export class DeviceType {
     private static _allowedValues: Array<string> = ['mobile', 'desktop'];

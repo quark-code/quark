@@ -21,71 +21,43 @@ const plugins = [
 
 export default [
     {
-        input: 'src/index.js',
+        input: 'packages/site/src/index.js',
         output: {
-            file: 'dest/index.bundle.js',
+            file: 'packages/site/dest/index.bundle.js',
             format: 'esm',
         },
         plugins: plugins
     },
     {
-      input: 'src/doc/index.js',
+      input: 'packages/site/src/doc/index.js',
       output: {
-          file: 'dest/doc/index.bundle.js',
+          file: 'packages/site/dest/doc/index.bundle.js',
           format: 'esm',
       },
       plugins: plugins
   },
     {
-        input: 'src/theme/index.js',
+        input: 'packages/site/src/theme/index.js',
         output: {
-            file: 'dest/theme/index.bundle.js',
+            file: 'packages/site/dest/theme/index.bundle.js',
             format: 'esm',
         },
         plugins: plugins
     },
     {
-        input: 'src/core/index.js',
+        input: 'packages/site/src/core/index.js',
         output: {
-            file: 'dest/core/index.bundle.js',
+            file: 'packages/site/dest/core/index.bundle.js',
             format: 'esm',
         },
         plugins: plugins
     },
     {
-        input: 'src/material/index.js',
+        input: 'packages/site/src/material/index.js',
         output: {
-            file: 'dest/material/index.bundle.js',
+            file: 'packages/site/dest/material/index.bundle.js',
             format: 'esm',
         },
         plugins: plugins
     }
-]
-;
-
-
-
-/*
-[
-  {
-    input: 'main-a.js',
-    output: {
-      file: 'dist/bundle-a.js',
-      format: 'cjs'
-    }
-  },
-  {
-    input: 'main-b.js',
-    output: [
-      {
-        file: 'dist/bundle-b1.js',
-        format: 'cjs'
-      },
-      {
-        file: 'dist/bundle-b2.js',
-        format: 'es'
-      }
-    ]
-  }
-]
-*/
+];

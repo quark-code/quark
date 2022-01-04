@@ -7,9 +7,9 @@ import { parse } from 'comment-parser';
 let done = false;
 
 export default {
-    globs: ['../core/**/*.js', '../material/**/*.js'],
-    exclude: ['../core/(node_modules|demo|test|manifests)/**/*.js', '../material/(node_modules|demo|demo-build|docs|docs-src|test|manifests)/**/*.js'],
-    outdir: '/manifests/material',
+    globs: ['packages/core/**/*.js'],
+    exclude: ['packages/core/(node_modules|demo|test|manifests)/**/*.js'],
+    outdir: './manifests/core',
     litelement: true,
     dev: false,
 
@@ -21,6 +21,7 @@ export default {
                 switch (node.kind) {
                     case ts.SyntaxKind.ClassDeclaration: {
                         const className = node.name.getText();
+
                         const classDoc = moduleDoc?.declarations?.find(declaration => declaration.name === className);
                         const customClassTags = ['dependency', 'since', 'status', 'description', 'defaulttag', 'customtype', 'displayname', 'category', 'designsystem'];
                         const customProperyTags = ['allowedvalues', 'default', 'readonly'];
@@ -110,8 +111,8 @@ export default {
                         node.members?.forEach(member => {
                             const memberName = member.name?.getText();
 
-                            if (memberName && member.body) {
-                                if (memberName === 'properties') {
+                            if (memberName) {
+                                if (memberName === 'properties') { 
                                     const properties = member.body ? member.body.statements[0].expression.properties : member.initializer.properties;
                                     properties.forEach(prop => {
                                         const propName = prop.name.getText();

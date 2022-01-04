@@ -4,17 +4,26 @@
   "description": "Monorepo of all Quark Web Component packages.",
   "private": false,
   "scripts": {
+    "build": "tsc --build",
+    "test": "npm run build && web-test-runner",
+    "test-coverage": "npm run build && web-test-runner --coverage",
+    "serve-test-coverage": "web-dev-server --app-index coverage/lcov-report/index.html --open",
+
     "test-theme": "web-test-runner packages/theme/test/**/*.test.js --node-resolve",
     "test-theme-coverage": "web-test-runner packages/theme/test/**/*.test.js --node-resolve --coverage",
     "build-theme-demo": "rimraf packages/theme/demo-build && rollup -c packages/theme/demo/rollup.config.js",
     "serve-theme-demo": "web-dev-server --node-resolve --app-index packages/theme/demo/index.html --open",
-    "serve-theme-demo-build": "web-dev-server --node-resolve --app-index packages/theme/demo-build/index.html --open",   
+    "serve-theme-demo-build": "web-dev-server --node-resolve --app-index packages/theme/demo-build/index.html --open",
 
-    "build": "tsc --build",
-    "test": "npm run build && web-test-runner",
-    "test-coverage": "npm run build && web-test-runner --coverage",
-    "serve-test-coverage": "web-dev-server --app-index coverage/lcov-report/index.html --open"
-    
+    "site-docs-clean": "rimraf packages/site/dest",
+    "site-core-analyze": "cem analyze --config \"manifests/core/custom-elements-manifest.config.mjs\"",
+    "site-material-analyze": "cem analyze --config \"manifests/material/custom-elements-manifest.config.mjs\"",
+    "site-analyze": "npm run site-core-analyze && npm run site-material-analyze",
+    "site-docs-build": "rollup -c ./rollup-doc.config.js",
+    "site-docs-gen": "quark-doc",
+    "site-docs": "npm run site-docs-clean && npm run site-analyze && npm run site-docs-build && npm run site-docs-gen",
+    "site-docs-serve": "web-dev-server --root-dir=packages/site/dest --node-resolve --open",
+    "site-demo-serve": "web-dev-server --root-dir=packages/site/demo --node-resolve --open"
   },
   "repository": {
     "type": "git",
@@ -27,6 +36,7 @@
   },
   "homepage": "https://github.com/quark-elements/quark#readme",
   "devDependencies": {
+    "@quark-elements/doc": "file:packages/doc",
     "@web/dev-server": "~0.1.28",
     "@web/test-runner": "^0.13.22",
     "@open-wc/testing": "^3.0.3",
@@ -47,6 +57,14 @@
     "lit": "^2.0.2",
     "copyfiles": "^2.4.1",
     "lerna": "^4.0.0",
-    "typescript": "^4.5.4"
-  }
+    "typescript": "^4.5.4",
+    "prism-themes": "^1.9.0",
+    "comment-parser": "^1.1.5",
+    "@custom-elements-manifest/analyzer": "^0.5.7",
+    "@rollup/plugin-node-resolve": "^13.0.4",
+    "@rollup/plugin-replace": "^3.0.0",
+    "rollup-plugin-summary": "^1.2.3",
+    "rollup-plugin-terser": "^7.0.2"
+  },
+  "customElements": "manifests/material/custom-elements.json"
 }

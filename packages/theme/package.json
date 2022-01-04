@@ -1,33 +1,25 @@
 {
-  "name": "@quark-elements/theme",
-  "version": "0.0.1",
-  "description": "A generic theming library for web components.",
-  "main": "index.js",
-  "module": "index.js",
-  "private": false,
-  "scripts": {
-    "build-demo": "npm run build-theme-demo",
-    "build-theme-demo": "rimraf demo-build && rollup -c ./demo/rollup.config.js",
-    "serve-demo": "npm run serve-theme-demo",
-    "serve-theme-demo": "web-dev-server --node-resolve --app-index demo/index.html --open",
-    "serve-demo-build": "npm run serve-theme-demo-build",
-    "serve-theme-demo-build": "web-dev-server --node-resolve --app-index demo-build/index.html --open"   
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/quark-elements/quark.git",
-    "directory": "packages/theme"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "author": "Paul H Mason",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/quark-elements/quark/issues"
-  },
-  "homepage": "https://github.com/quark-elements/quark#readme",
-  "devDependencies": {
-    "lit": "^2.0.2"
-  }
+    "name": "@quark-elements/theme",
+    "version": "0.0.1",
+    "description": "A generic theming library for web components.",
+    "main": "index.js",
+    "module": "index.js",
+    "private": false,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/quark-elements/quark.git",
+        "directory": "packages/theme"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "author": "Paul H Mason",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/quark-elements/quark/issues"
+    },
+    "homepage": "https://github.com/quark-elements/quark#readme",
+    "devDependencies": {
+        "lit": "^2.0.2"
+    }
 }

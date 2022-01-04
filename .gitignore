@@ -3,6 +3,7 @@
 /**/docs
 /**/dest
 /**/demo-build
+/**/manifests/**/custom-elements.json
 TODO.*
 
 # Build artifacts

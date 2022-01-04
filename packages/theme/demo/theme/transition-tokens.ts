@@ -1,4 +1,6 @@
-export const Transitions = {
+import { DesignTokenShape } from '../../lib/Types.js';
+
+export const Transitions: DesignTokenShape = {
     'theme-transition-duration': '0.2s',
     'theme-transition': `
         color {theme-transition-duration} linear, 

@@ -4,7 +4,7 @@ const { html, mdRaw } = require('@quark-elements/doc');
 let md_data = null;
 
 try {
-    md_data = fs.readFileSync('../theme/README.md', 'utf8');
+    md_data = fs.readFileSync('packages/theme/README.md', 'utf8');
 } catch (err) {
     console.log(err)
 }

@@ -5,49 +5,57 @@ Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
 import { expect } from '@open-wc/testing';
 import { Theme } from '../lib/Theme.js';
-import { ThemeMode, ThemeDensity, DeviceType } from '../lib/Types.js';
+import { ThemeMode, ThemeDensity, DeviceType, DesignTokenShape, IconShape } from '../lib/Types.js';
 import '../lib/ThemeManager.js';
+
+const icons: IconShape = {
+    'icon-1': '1',
+    'icon-2': '2',
+}
+
+const tokens: DesignTokenShape = {
+    'test-token': {
+        light: {
+            desktop: {
+                compact: 'red',
+                comfortable: 'green',
+                sparse: 'blue'
+            },
+            mobile: {
+                compact: 'yellow',
+                comfortable: 'orange',
+                sparse: 'pink'
+            }
+        },
+        dark: {
+            desktop: {
+                compact: 'grey',
+                comfortable: 'silver',
+                sparse: 'aqua'
+            },
+            mobile: {
+                compact: 'magenta',
+                comfortable: 'brown',
+                sparse: 'white'
+            }
+        }
+    }
+}
 
 class TestTheme extends Theme {
     static get icons() {
         return {
-            'icon-1': '1',
-            'icon-2': '2',
+            ...icons
         }
     }
 
     static get tokens() {
         return {
-            'test-token': {
-                light: {
-                    desktop: {
-                        compact: 'red',
-                        comfortable: 'green',
-                        sparse: 'blue'
-                    },
-                    mobile: {
-                        compact: 'yellow',
-                        comfortable: 'orange',
-                        sparse: 'pink'
-                    }
-                },
-                dark: {
-                    desktop: {
-                        compact: 'grey',
-                        comfortable: 'silver',
-                        sparse: 'aqua'
-                    },
-                    mobile: {
-                        compact: 'magenta',
-                        comfortable: 'brown',
-                        sparse: 'white'
-                    }
-                }
-            }
+            ...tokens
         }
     }
 
-    constructor(name) {
+    constructor(name: string) {
         super(name);
     }
 }

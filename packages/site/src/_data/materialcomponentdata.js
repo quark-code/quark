@@ -1,4 +1,4 @@
-let components = require('../../manifests/material/custom-elements.json');
+let components = require('../../../../manifests/material/custom-elements.json');
 
 const allData = {
     components: [],

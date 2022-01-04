@@ -1,4 +1,6 @@
-export const Border = {
+import { DesignTokenShape } from '../../lib/Types.js';
+
+export const Border: DesignTokenShape = {
     'theme-border-radius-none': '0px',
     'theme-border-radius-s': '2px',
     'theme-border-radius-m': '5px',
