@@ -8,19 +8,17 @@
     "test": "npm run build && web-test-runner",
     "test-coverage": "npm run build && web-test-runner --coverage",
     "serve-test-coverage": "web-dev-server --app-index coverage/lcov-report/index.html --open",
-
     "test-theme": "web-test-runner packages/theme/test/**/*.test.js --node-resolve",
     "test-theme-coverage": "web-test-runner packages/theme/test/**/*.test.js --node-resolve --coverage",
     "build-theme-demo": "rimraf packages/theme/demo-build && rollup -c packages/theme/demo/rollup.config.js",
     "serve-theme-demo": "web-dev-server --node-resolve --app-index packages/theme/demo/index.html --open",
     "serve-theme-demo-build": "web-dev-server --node-resolve --app-index packages/theme/demo-build/index.html --open",
-    
     "site-docs-clean": "rimraf packages/site/dest",
     "site-core-analyze": "cem analyze --config \"manifests/core/custom-elements-manifest.config.mjs\"",
     "site-material-analyze": "cem analyze --config \"manifests/material/custom-elements-manifest.config.mjs\"",
     "site-analyze": "npm run site-core-analyze && npm run site-material-analyze",
     "site-docs-build": "rollup -c packages/site/rollup.config.js",
-    "site-docs-gen": "quark-doc",
+    "site-docs-gen": "node packages/doc/bin/quark-doc.js",
     "site-docs": "npm run site-docs-clean && npm run site-analyze && npm run site-docs-build && npm run site-docs-gen",
     "site-docs-serve": "web-dev-server --root-dir=packages/site/dest --node-resolve --open",
     "site-demo-serve": "web-dev-server --root-dir=packages/site/demo --node-resolve --open"
@@ -36,7 +34,6 @@
   },
   "homepage": "https://github.com/quark-elements/quark#readme",
   "devDependencies": {
-    "@quark-elements/doc": "file:packages/doc",
     "@web/dev-server": "~0.1.28",
     "@web/test-runner": "^0.13.22",
     "@open-wc/testing": "^3.0.3",
