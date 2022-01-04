@@ -8,7 +8,7 @@ import '../../elements/panel/qm-filled-panel.js';
 import '../../elements/panel/qm-flat-panel.js';
 import '../../elements/panel/qm-outlined-panel.js';
 import '../../elements/panel/qm-raised-panel.js';
-import { bodyLarge } from '../../styling';
+import { bodyLarge } from '../../providers/theme/tokens/typography.js';
 
 export class PanelDemo extends QuarkElement {
     static get styles() {

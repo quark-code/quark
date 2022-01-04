@@ -4,7 +4,7 @@ MIT License
 Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
 import { html, css, QuarkElement } from '@quark-elements/core/elements/QuarkElement.js';
-import { titleLarge } from '../../styling';
+import { titleLarge } from '../../providers/theme/tokens/typography.js';
 
 export class ColorDemo extends QuarkElement {
       static get styles() {

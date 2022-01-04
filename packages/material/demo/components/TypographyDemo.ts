@@ -7,7 +7,7 @@ import { html, css, QuarkElement } from '@quark-elements/core/elements/QuarkElem
 import { 
     displayLarge, displayMedium, displaySmall, headlineLarge, headlineMedium, headlineSmall, titleLarge, titleMedium, titleSmall, 
     labelLarge, labelMedium, labelSmall, bodyLarge, bodyMedium, bodySmall, codeLarge, codeMedium, codeSmall 
-} from '../../styling';
+} from '../../providers/theme/tokens/typography.js';
 
 export class TypographyDemo extends QuarkElement {
     static get styles() {

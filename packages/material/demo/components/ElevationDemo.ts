@@ -4,7 +4,8 @@ MIT License
 Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
 import { html, css, QuarkElement } from '@quark-elements/core/elements/QuarkElement.js';
-import { elevation0, elevation1, elevation2, elevation3, elevation4, elevation5, titleMedium } from '../../styling';
+import { elevation0, elevation1, elevation2, elevation3, elevation4, elevation5 } from '../../providers/theme/tokens/elevation.js';
+import { titleMedium } from '../../providers/theme/tokens/typography.js';
 
 export class ElevationDemo extends QuarkElement {
     static get styles() {
