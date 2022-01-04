@@ -4,7 +4,7 @@ MIT License
 Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
 import { QuarkIcon } from '@quark-elements/core/elements/image/QuarkIcon.js';
-import { css } from '@quark-elements/core/elements/QuarkElement.js';
+import { css } from 'lit';
  /**
   * @customtype component
   * @summary An element that displays a single icon.

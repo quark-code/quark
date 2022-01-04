@@ -3,7 +3,7 @@
 MIT License
 Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
-import { css, html, svg, LitElement } from 'lit';
+import { LitElement } from 'lit';
 import { property } from 'lit/decorators.js';
 import { DesignTokenShape } from '@quark-elements/theme/lib/Types.js';
 const QuarkElements = new Set<HTMLElement>();
@@ -29,7 +29,7 @@ dirObserver.observe(document.documentElement, {
  * @displayname Element
  * @category Core
  */
-class QuarkElement extends LitElement {
+export class QuarkElement extends LitElement {
     static _tokensRegistered = false;
     static designTokens? : DesignTokenShape;
 
@@ -81,5 +81,3 @@ class QuarkElement extends LitElement {
         super.disconnectedCallback();
     }
 }
-
-export { css, html, svg, QuarkElement }
