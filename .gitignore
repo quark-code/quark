@@ -20,6 +20,10 @@ packages/core/**/*.js
 packages/core/**/*.js.map
 packages/core/**/*.d.ts
 
+packages/material/**/*.js
+packages/material/**/*.js.map
+packages/material/**/*.d.ts
+
 # Logs
 logs
 *.log
