@@ -23,7 +23,15 @@ jobs:
       - run: lerna bootstrap --no-ci
       - run: npm run build --if-present
       - run: npm test --if-present
+      - run: npm run site-docs --if-present
       - name: Publish
         run: lerna publish from-package --yes
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_key}}
+      - name: Deploy Documentation
+        uses: JamesIves/github-pages-deploy-action@4.1.7
+        with:
+          branch: main
+          folder: packages/site/dest
+          repository-name: quark-elements/quark-elements.github.io
+          token: ${{secrets.git_key}}
