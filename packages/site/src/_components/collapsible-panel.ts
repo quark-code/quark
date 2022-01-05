@@ -111,7 +111,7 @@ export class CollapsiblePanel extends QuarkElement {
 
     _getState() {
         if (!this.persistKey || !window.stateManager) return;
-        this.collapsed = window.stateManager.getValue(this.persistKey) ? true : false;
+        this.collapsed = window.stateManager.getValue(this.persistKey, false);
     }
 
     _setState() {

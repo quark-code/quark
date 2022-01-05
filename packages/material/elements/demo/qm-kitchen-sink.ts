@@ -41,6 +41,7 @@ export class QmKitchenSink extends QuarkElement {
     /**
     * The name to say "Hello" to.
     * @type {string}
+    * @attribute name
     */
     @property({ type: String })
     name: string = 'bob';
@@ -48,6 +49,7 @@ export class QmKitchenSink extends QuarkElement {
     /**
     * The number of times the button has been clicked.
     * @type {number}
+    * @attribute count
     */
     @property({ type: Number })
     count: number = 0;

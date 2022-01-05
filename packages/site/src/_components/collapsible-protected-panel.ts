@@ -57,16 +57,16 @@ export class CollapsibleProtectedPanel extends QuarkElement {
         `];
     }
 
-    @property({ type: String, attribute: 'label-open'})
+    @property({ type: String, attribute: 'label-open' })
     labelOpen: string = '';
 
-    @property({ type: String, attribute: 'label-closed'})
+    @property({ type: String, attribute: 'label-closed' })
     labelClosed: string = '';
 
-    @property({ type: Boolean})
-    collapsed: boolean = false;
+    @property({ type: Boolean, reflect: true })
+    collapsed: boolean = true;
 
-    @property({ type: String, attribute: 'persist-key'})
+    @property({ type: String, attribute: 'persist-key' })
     persistKey: string = '';
 
     firstUpdated() {
@@ -89,7 +89,7 @@ export class CollapsibleProtectedPanel extends QuarkElement {
 
     _getState() {
         if (!this.persistKey || !window.stateManager) return;
-        this.collapsed = window.stateManager.getValue(this.persistKey) ? true : false;
+        this.collapsed = window.stateManager.getValue(this.persistKey, true);
     }
 
     _setState() {

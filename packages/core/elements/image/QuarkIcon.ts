@@ -16,6 +16,7 @@ export class QuarkIcon extends QuarkElement {
     /**
     * The name of the registered icon.
     * @type {string}
+    * @attribute: icon
     */
     @property({ type: String })
     icon: string = '';

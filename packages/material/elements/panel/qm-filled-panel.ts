@@ -35,29 +35,6 @@ export class QmFilledPanel extends QuarkPanel {
             }
         `];
     }
-
-    static get properties() {
-        return {
-          /**
-           * The name to say "Hello" to.
-           * @type {string}
-           */
-          name: {type: String},
-    
-          /**
-           * The number of times the button has been clicked.
-           * @type {number}
-           */
-          count: {type: Number},
-
-          /**
-           * The different visual styles.
-           * @type {string}
-           * @allowedvalues ["text", "outlined", "filled", "raised"]
-           */
-           variant: {type: String},
-        };
-    }
 }
 
 QmFilledPanel.register('qm-filled-panel');

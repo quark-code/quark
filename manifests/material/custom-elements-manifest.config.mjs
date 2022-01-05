@@ -21,7 +21,7 @@ export default {
                         const className = node.name.getText();
                         const classDoc = moduleDoc?.declarations?.find(declaration => declaration.name === className);
                         const customClassTags = ['dependency', 'since', 'status', 'description', 'defaulttag', 'customtype', 'displayname', 'category', 'designsystem'];
-                        const customProperyTags = ['allowedvalues', 'default', 'readonly'];
+                        const customProperyTags = ['allowedvalues', 'default', 'readonly', 'attribute'];
                         let customComments = '/**';
 
                         node.jsDoc?.forEach(jsDoc => {
@@ -111,6 +111,7 @@ export default {
                             if (memberName && member.body) {
                                 if (memberName === 'properties') {
                                     const properties = member.body ? member.body.statements[0].expression.properties : member.initializer.properties;
+
                                     properties.forEach(prop => {
                                         const propName = prop.name.getText();
 
@@ -119,17 +120,58 @@ export default {
                                                 const propTagName = tag.tagName.getText();
 
                                                 if (customProperyTags.includes(propTagName)) {
-                                                    const description = tag.comment;
+                                                    let description = tag.comment;
+
+                                                    try {
+                                                        description = JSON.parse(description);
+                                                    } catch {}
+
                                                     const propField = classDoc.members.find(member => member.name === propName);
                                                     const attrField = classDoc.attributes.find(member => member.name === propName);
 
-                                                    propField[propTagName] = JSON.parse(description);
-                                                    attrField[propTagName] = propField[propTagName];
+                                                    if (propField) {
+                                                        propField[propTagName] = description;
+                                                    }
+    
+                                                    if (attrField) {
+                                                        attrField[propTagName] = description;
+                                                    }
                                                 }
                                             });
                                         });
                                     });
                                 }
+                            } else {
+                                // TypeScript Property Decorator
+                                member.body.statements.forEach(s => {
+                                    const mName = s.expression?.left?.name?.escapedText;
+
+                                    if (mName && s.jsDoc) {
+                                        s.jsDoc[0].tags?.forEach(tag => {
+                                            const propTagName = tag.tagName.getText();
+
+                                            if (customProperyTags.includes(propTagName)) {
+                                                let description = tag.comment;
+
+                                                try {
+                                                    description = JSON.parse(description);
+                                                } catch {}
+
+                                                const propField = classDoc.members.find(member => member.name === mName);
+                                                const attrField = classDoc.attributes.find(member => member.name === mName);
+
+
+                                                if (propField) {
+                                                    propField[propTagName] = description;
+                                                }
+
+                                                if (attrField) {
+                                                    attrField[propTagName] = description;
+                                                }
+                                            }
+                                        });
+                                    }
+                                });
                             }
                         });
                     }

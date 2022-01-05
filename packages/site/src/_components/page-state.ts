@@ -27,12 +27,12 @@ class PageStateManager {
         }
     }
 
-    getValue(key: string): any {
+    getValue(key: string, fallback?: any): any {
         if ((this.key) && (this._state[key] !== undefined)) {
             return this._state[key];
         }
 
-        return null;
+        return (fallback === undefined) ? null : fallback;
     }
 
     deleteValue(key: string) {

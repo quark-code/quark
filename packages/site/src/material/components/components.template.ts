@@ -45,6 +45,8 @@
 
             if (item.allowedValues && item.allowedValues.length > 0) {
                 detail += ` (${item.allowedValues.map(i => `'${i}'`).join(', ')})`;
+            } else if (item.allowedValues && item.allowedValues.length > 0) {
+                detail += ` (${item.allowedValues.map(i => `'${i}'`).join(', ')})`;
             }
         }
 
@@ -67,6 +69,8 @@
 
             if (item.allowedvalues && item.allowedvalues.length > 0) {
                 detail += ` (${item.allowedvalues.map(i => `'${i}'`).join(', ')})`;
+            } else if (item.allowedValues && item.allowedValues.length > 0) {
+                detail += ` (${item.allowedValues.map(i => `'${i}'`).join(', ')})`;
             }
         }
 

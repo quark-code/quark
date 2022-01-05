@@ -54,8 +54,9 @@ export class QuarkElement extends LitElement {
     * The text direction.
     * @type {string}
     * @allowedvalues ["ltr", "rtl"]
+    * @attribute: dir
     */
-    @property({ type: String, reflect: true })
+    @property({ type: String, reflect: true, attribute: 'dir' })
     dir: string = 'ltr';
 
     /**

@@ -66,6 +66,20 @@ function _patchAttributes(items) {
     });
 }
 
+function _addAttributes(items) {
+    items.forEach(item => {
+        item.properties.forEach(prop => {
+            if (prop.attribute) {
+                const attr = item.attributes.filter(a => a.attribute === prop.attribute);
+
+                if (attr.length === 0) {
+                    item.attributes.push(prop);
+                }
+            }
+        });
+    });
+}
+
 require('../../../../manifests/material/custom-elements.json').modules.forEach(m => {
     m.declarations.filter(d => (d.kind === 'class') || d.kind === 'mixin' || d.kind === 'controller').forEach(d => {
         //const members = d.members ? d.members.filter(m => !m.name.startsWith('_')).sort(_sort) : [];
@@ -153,6 +167,9 @@ allData.baseComponents.forEach(c => {
 allData.components.forEach(c => {
     c.slots = _mergeSlots(c, false);
 });
+
+_addAttributes(allData.baseComponents);
+_addAttributes(allData.components)
 
 // Patch attributes.
 _patchAttributes(allData.baseComponents);
