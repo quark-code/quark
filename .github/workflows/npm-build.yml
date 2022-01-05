@@ -32,3 +32,4 @@ jobs:
           branch: main # The branch the action should deploy to.
           folder: packages/site/dest # The folder the action should deploy to.
           repository-name: quark-elements/quark-elements.github.io
+          token: ${{secrets.git_key}}
