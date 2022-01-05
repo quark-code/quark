@@ -1,5 +1,5 @@
 (function () {
-    const { ComponentDataProcessor } = require('./ComponentDataProcessor');
+    const { ComponentDataProcessor } = require('../_utils/ComponentDataProcessor');
     const allData = ComponentDataProcessor('material');
 
     module.exports = () => {

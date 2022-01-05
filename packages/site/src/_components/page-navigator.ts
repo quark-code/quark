@@ -85,7 +85,7 @@ export class PageNavigator extends QuarkElement {
                 }
 
                 .item {
-                    margin: 0 4px;
+                    margin-left: 4px;
                 }
 
                 .item-label {

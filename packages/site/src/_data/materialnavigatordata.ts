@@ -1,6 +1,6 @@
 (function () {
     const baseName = 'material';
-    const { ComponentNavigatorProcessor } = require('./ComponentDataProcessor');
+    const { ComponentNavigatorProcessor } = require('../_utils/ComponentDataProcessor');
     const { componentPages, baseComponentPages } = ComponentNavigatorProcessor(baseName);
 
     module.exports = () => {

@@ -178,7 +178,7 @@ function ComponentDataProcessor(baseName: string) {
 }
 
 function ComponentNavigatorProcessor(baseName: string) {
-    const data = require(`./${baseName}componentdata`)();
+    const data = require(`../_data/${baseName}componentdata`)();
 
     function _sortPages(a, b) {
         var nameA = a.label.toUpperCase();

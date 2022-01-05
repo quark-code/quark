@@ -43,7 +43,7 @@ export class CollapsibleProtectedPanel extends QuarkElement {
                 border-radius: var(--collapsible-protected-panel-border-radius, 8px);
                 border: none;
                 padding: 8px 16px;
-                margin-top: 16px;
+                margin: 16px 0 0 24px;
             }
 
             .label * {
