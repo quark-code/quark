@@ -79,6 +79,22 @@ function ComponentDataProcessor(baseName: string) {
         });
     }
 
+    function _fixSuperclass(items) {
+        items.forEach(item => {
+            if (item.superclass) {
+                const sci = items.find(i => i.name === item.superclass.name);
+
+                if (sci) {
+                    item.superclass.packageName = sci.packageName;
+                }
+            }
+
+            item.properties.forEach(p => {
+
+            });
+        });
+    }
+
     require(`../../../../manifests/${baseName}/custom-elements.json`).modules.forEach(m => {
         m.declarations.filter(d => (d.kind === 'class') || d.kind === 'mixin' || d.kind === 'controller').forEach(d => {
             //const members = d.members ? d.members.filter(m => !m.name.startsWith('_')).sort(_sort) : [];
@@ -94,7 +110,8 @@ function ComponentDataProcessor(baseName: string) {
                         const component = {
                             name: d.name,
                             displayName: d.displayname,
-                            designSystem: d.designSystem ? d.designSystem : null,
+                            designSystem: d.designsystem ? d.designsystem : 'Core',
+                            packageName: d.packageName,
                             category: d.category ?? null,
                             superclass: d.superclass ? d.superclass : null,
                             tagName: d.tagName,
@@ -174,6 +191,9 @@ function ComponentDataProcessor(baseName: string) {
     _patchAttributes(allData.baseComponents);
     _patchAttributes(allData.components);
 
+    // Fix Superclass.
+    //_fixSuperclass([...allData.baseComponents, ...allData.components]);
+
     return allData;
 }
 
@@ -201,7 +221,8 @@ function ComponentNavigatorProcessor(baseName: string) {
             url: `/${baseName}/components/${component.name}/`,
             label: component.displayName,
             category: component.category,
-            designSystem: component.designSystem
+            designSystem: component.designSystem,
+            packageName: component.packageName
         }
     });
 
@@ -227,7 +248,8 @@ function ComponentNavigatorProcessor(baseName: string) {
             url: `/${baseName}/components/${component.name}/`,
             label: component.displayName,
             category: component.category,
-            designSystem: component.designSystem
+            designSystem: component.designSystem,
+            packageName: component.packageName
         }
     });
 

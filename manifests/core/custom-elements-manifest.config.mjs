@@ -20,6 +20,7 @@ export default {
             analyzePhase({ ts, node, moduleDoc, context }) {
                 switch (node.kind) {
                     case ts.SyntaxKind.ClassDeclaration: {
+                        const packageName = moduleDoc.path.split('/')[1];
                         const className = node.name.getText();
 
                         const classDoc = moduleDoc?.declarations?.find(declaration => declaration.name === className);
@@ -36,6 +37,8 @@ export default {
                                 }
                             });
                         });
+
+                        classDoc['packageName'] = packageName;
 
                         const parsed = parse(customComments + '\n */');
 

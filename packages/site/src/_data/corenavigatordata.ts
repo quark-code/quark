@@ -34,7 +34,10 @@
             */
             {
                 label: 'Base Components',
-                items: baseComponentPages
+                items: [{
+                    url: `/${baseName}/components/base-components-overview/`,
+                    label: 'Overview'
+                }, ...baseComponentPages]
             },
             {
                 label: 'Mixins',

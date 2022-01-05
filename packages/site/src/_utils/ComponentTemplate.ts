@@ -1,11 +1,19 @@
-function ComponentTemplate(baseName: string) {
+function ComponentTemplate(baseName: string, packages?: Array<string>) {
     const { html, escape } = require('@quark-elements/doc');
+
+    let includes: Array<string> = [`${baseName}_demos_`, `${baseName}_samples_`];
+
+    if (packages && packages.length> 0) {
+        packages.forEach(package => {
+            includes = [...includes, ...[`${package}_demos_`, `${package}_samples_`]]
+        });
+    }
 
     const config = {
         layout: baseName,
         title: 'Components',
         data: `${baseName}componentdata`,
-        include: [`${baseName}_demos_`, `${baseName}_samples_`]
+        include: includes
     }
 
     function buildCssPropertyValue(val) {
@@ -88,16 +96,15 @@ function ComponentTemplate(baseName: string) {
 
         return '';
     }
-
+  
     const render = (data, include) => {
         const allComponents = [...data.baseComponents, ...data.components];
 
         return allComponents.map(component => {
-            const demoName = `${baseName}_demos_${component.name}`;
-            const sampleName = `${baseName}_samples_${component.name}`;
+            const demoName = `${component.packageName}_demos_${component.name}`;
+            const sampleName = `${component.packageName}_samples_${component.name}`;
             const hasSuperclassUrl = component.superclass && component.superclass.name && component.superclass.name !== 'LitElement';
             const superclassUrl = hasSuperclassUrl ? `/${baseName}/components/${component.superclass.name}/` : '';
-
             const protectedPropertyCount = (component.properties && component.properties.length) ? component.properties.filter(i => i.protected).length : 0;
             const protectedMethodCount = (component.methods && component.methods.length) ? component.methods.filter(i => i.protected).length : 0;
 

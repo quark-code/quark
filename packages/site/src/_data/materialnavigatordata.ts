@@ -28,11 +28,17 @@
             },
             {
                 label: 'Components',
-                items: componentPages
+                items: [{
+                    url: `/${baseName}/components/components-overview/`,
+                    label: 'Overview'
+                }, ...componentPages]
             },
             {
                 label: 'Base Components',
-                items: baseComponentPages
+                items: [{
+                    url: `/${baseName}/components/base-components-overview/`,
+                    label: 'Overview'
+                }, ...baseComponentPages]
             },
             {
                 label: 'Mixins',
