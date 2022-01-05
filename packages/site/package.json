@@ -16,6 +16,7 @@
   "homepage": "https://github.com/quark-elements/quark#readme",
   "devDependencies": {
     "@quark-elements/core": "^0.0.1",
+    "@quark-elements/material": "^0.0.1",
     "@quark-elements/theme": "^0.0.1",
     "@quark-elements/doc": "^0.0.1"
   }

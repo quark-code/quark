@@ -165,6 +165,7 @@ export class PageNavigator extends QuarkElement {
 
     firstUpdated() {
         this._selectByUrl(window.location.pathname);
+        this._getState();
     }
 
     updated(changedProperties) {
@@ -195,7 +196,7 @@ export class PageNavigator extends QuarkElement {
                 ${this._renderItemLabel(item, key)}
 
                 ${hasItems ? html`
-                    <ul class="item-container">${item.items.map((item, index) => this._renderItem(item, `${key}_${index}`))}</ul>
+                    <ul ?collapsed="${item.collapsed}" class="item-container">${item.items.map((item, index) => this._renderItem(item, `${key}_${index}`))}</ul>
                 ` : null }
             </li>
         `;
@@ -203,7 +204,7 @@ export class PageNavigator extends QuarkElement {
 
     _renderItemLabel(item: any, key: any) {
         return (item.items && item.items.length > 0) ? html`
-            <button role="button" type="button" aria-disabled="false" class="item-label" key="${key}" @click="${this._itemToggle}" root>${item.label} ${this._renderIcon()}</button>
+            <button ?collapsed="${item.collapsed}" role="button" type="button" aria-disabled="false" class="item-label" key="${key}" @click="${this._itemToggle}" root>${item.label} ${this._renderIcon()}</button>
         ` : html`
             <a class="item-label item-label-link" linkkey="${key}" href="${item.url}" @click="${this._itemClick}">${item.label}</a>
         `;

@@ -1,5 +1,5 @@
 (function () {
-    const baseName = 'material';
+    const baseName = 'core';
     const { ComponentNavigatorProcessor } = require('./ComponentDataProcessor');
     const { componentPages, baseComponentPages } = ComponentNavigatorProcessor(baseName);
 
@@ -26,10 +26,12 @@
                     }
                 ]
             },
+            /*
             {
                 label: 'Components',
                 items: componentPages
             },
+            */
             {
                 label: 'Base Components',
                 items: baseComponentPages

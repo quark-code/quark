@@ -11,3 +11,17 @@ import '../_components/collapsible-panel.js';
 import '../_components/collapsible-protected-panel.js';
 import '../_components/component-part.js';
 import '../_components/page-state.js';
+import { provideMaterialDesignSystem, MaterialTheme, ThemeMode, ThemeDensity, TextDirection } from '@quark-elements/material/providers/MaterialDesignSystemProvider.js';
+
+const defaultThemeBrand = new MaterialTheme('default');
+
+provideMaterialDesignSystem()
+    .registerThemes(
+        defaultThemeBrand
+    )
+    .withThemeMode(ThemeMode.System)
+    .withDensity(ThemeDensity.Comfortable)
+    .withDirection(TextDirection.LTR)
+    .useThemeBrand(
+        defaultThemeBrand.name
+    );

@@ -1,4 +1,51 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto:400,500&display=swap');
+:root {
+    /* PAGE CONTAINER */
+    --page-container-background: var(--md-sys-color-background); 
+    --page-container-on-background: var(--md-sys-color-on-background); 
+
+    /* NAVIGATOR */
+    --page-navigator-outline: var(--md-sys-color-outline);
+    --page-navigator-background: var(--md-sys-color-surface); 
+    --page-navigator-on-background: var(--md-sys-color-on-surface);
+    --page-navigator-background-hover: var(--md-sys-color-outline);
+    --page-navigator-on-background-hover: var(--md-sys-color-on-surface);
+    --page-navigator-background-selected: var(--md-sys-color-primary-container);
+    --page-navigator-on-background-selected: var(--md-sys-color-on-primary-container);
+    --page-navigator-root-on-background: var(--md-sys-color-on-surface);
+
+    /* SEARCH FIELD */
+    --search-field-background: var(--md-sys-color-surface); 
+    --search-field-on-background: var(--md-sys-color-on-surface);
+    --search-field-outline: var(--md-sys-color-outline);
+
+    /* COMPONENT HEADER */
+    --component-header-background: var(--md-sys-color-primary-container);
+    --component-header-on-background: var(--md-sys-color-on-primary-container);
+
+    /* PAGE TABS */ 
+    --page-tabs-on-background: var(--md-sys-color-on-surface);
+    --page-tabs-background-hover: var(--md-sys-color-outline);
+    --page-tabs-on-background-hover: var(--md-sys-color-on-surface);
+    --page-tabs-background-selected: var(--md-sys-color-primary-container);
+    --page-tabs-on-background-selected: var(--md-sys-color-on-primary-container);
+    --page-tabs-outline: var(--md-sys-color-outline);
+
+    /* COLLAPSIBLE PANEL */
+    --collapsible-panel-on-background: var(--md-sys-color-on-surface);
+    --collapsible-panel-border: 1px solid var(--md-sys-color-outline);
+    --collapsible-panel-outline: 2px solid var(--md-sys-color-on-surface);
+
+    /* COMPONENT PART */
+    --component-part-on-background: var(--md-sys-color-on-surface);
+    --component-part-tag-background: var(--md-sys-color-outline);
+    --component-part-tag-on-background: var(--md-sys-color-on-surface);
+
+    /* COMPONENT PROTECTED PANEL */
+    --collapsible-protected-panel-background: var(--md-sys-color-outline);
+    --collapsible-protected-panel-on-background: var(--md-sys-color-on-surface);
+    --collapsible-protected-panel-outline: var(--md-sys-color-on-surface);
+}
 
 * {
     box-sizing: border-box;
