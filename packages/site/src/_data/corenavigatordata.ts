@@ -1,7 +1,7 @@
 (function () {
     const baseName = 'core';
     const { ComponentNavigatorProcessor } = require('../_utils/ComponentDataProcessor');
-    const { componentPages, baseComponentPages } = ComponentNavigatorProcessor(baseName);
+    const { componentPages, baseComponentPages, decoratorPages } = ComponentNavigatorProcessor(baseName);
 
     module.exports = () => {
         return [
@@ -58,13 +58,11 @@
                 ]
             },
             {
-                label: 'Styles',
-                items: [
-                    {
-                        url: `/${baseName}/styles/`,
-                        label: 'Overview'
-                    }
-                ]
+                label: 'Decorators',
+                items: [{
+                    url: `/${baseName}/decorators/`,
+                    label: 'Overview'
+                }, ...decoratorPages]
             }
         ];
     }

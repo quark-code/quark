@@ -81,18 +81,23 @@ export class ComponentHeader extends QuarkElement {
     @property({ type: String })
     summary: string = '';
 
+    @property({ type: String })
+    detail: string = '';
+
     render() {
         return html`
             <div class="container">
                 <div class="title">${this.displayName}</div>
-                <div class="subtitle">${this.componentName} ${this.tag ? html`&lt;${this.tag}&gt;` : null} extends ${this._renderExtends(this.superclass, this.superclassUrl, this.superclassPackage, this.superclassPackageUrl)}</div>
+                <div class="subtitle">${this.componentName} ${this.tag ? html`&lt;${this.tag}&gt;` : null} ${this._renderExtends(this.superclass, this.superclassUrl, this.superclassPackage, this.superclassPackageUrl)}</div>
+                ${this.detail ? html`<div class="subtitle">${this.detail}</div>` : null}
                 <div class="summary">${this.summary}</div>
             </div>
         `;
     }
 
+
     _renderExtends(superclass: string, superclassUrl: string, superclassPackage: string, superclassPackageUrl: string) {
-        return html`${this._renderSuperclass(superclass, superclassUrl)} ${this._renderSuperclassPackage(superclassPackage, superclassPackageUrl)}`;
+        return superclass ? html`extends ${this._renderSuperclass(superclass, superclassUrl)} ${this._renderSuperclassPackage(superclassPackage, superclassPackageUrl)}` : null;
     }
 
     _renderSuperclass(superclass: string, superclassUrl: string) {

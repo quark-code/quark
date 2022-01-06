@@ -4,7 +4,10 @@ function ComponentDataProcessor(baseName: string) {
         baseComponents: [],
         designTokens: [],
         cssModules: [],
-        themes: []
+        themes: [],
+        mixins: [],
+        controllers: [],
+        decorators: []
     }
 
     function _sort(a, b) {
@@ -79,24 +82,9 @@ function ComponentDataProcessor(baseName: string) {
         });
     }
 
-    function _fixSuperclass(items) {
-        items.forEach(item => {
-            if (item.superclass) {
-                const sci = items.find(i => i.name === item.superclass.name);
-
-                if (sci) {
-                    item.superclass.packageName = sci.packageName;
-                }
-            }
-
-            item.properties.forEach(p => {
-
-            });
-        });
-    }
-
     require(`../../../../manifests/${baseName}/custom-elements.json`).modules.forEach(m => {
-        m.declarations.filter(d => (d.kind === 'class') || d.kind === 'mixin' || d.kind === 'controller').forEach(d => {
+        //m.declarations.forEach(d => console.log(`${d.kind} - ${d.type?.text}`) )
+        m.declarations.filter(d => (d.kind === 'class') || d.kind === 'mixin' || d.kind === 'controller' || d.kind === 'function').forEach(d => {
             //const members = d.members ? d.members.filter(m => !m.name.startsWith('_')).sort(_sort) : [];
             const members = d.members ? d.members.sort(_sort) : [];
             members.forEach(m => m.protected = m.name.startsWith('_'));
@@ -106,6 +94,21 @@ function ComponentDataProcessor(baseName: string) {
 
             if (type) {
                 switch (type) {
+                    case 'decorator': {
+                        const decorator = {
+                            name: d.name,
+                            displayName: d.displayname,
+                            designSystem: d.designsystem ? d.designsystem : 'Core',
+                            packageName: d.packageName ?? null,
+                            category: d.category ?? null,
+                            summary: d.summary ?? null,
+                            parameters: d.parameters
+                        }
+
+                        allData.decorators.push(decorator);
+                        break;
+                    }
+
                     case 'component': {
                         const component = {
                             name: d.name,
@@ -191,9 +194,6 @@ function ComponentDataProcessor(baseName: string) {
     _patchAttributes(allData.baseComponents);
     _patchAttributes(allData.components);
 
-    // Fix Superclass.
-    //_fixSuperclass([...allData.baseComponents, ...allData.components]);
-
     return allData;
 }
 
@@ -215,6 +215,26 @@ function ComponentNavigatorProcessor(baseName: string) {
         return 0;
     };
 
+    function _categorize(list: Array<any>) {
+        const pages = [];
+        const categories = [...new Set(list.map(p => p.category))].filter(c => c !== null).sort();
+    
+        categories.forEach(c => {
+            pages.push({
+                label: c,
+                items: list.filter(a => a.category === c).sort(_sortPages)
+            });
+        });
+    
+        list.filter(a => a.category === null).forEach(c => {
+            pages.push(c);
+        });
+    
+        pages.sort(_sortPages);
+
+        return pages;
+    }
+
     /* COMPONENTS */
     const components = data.components.map(component => {
         return {
@@ -226,21 +246,7 @@ function ComponentNavigatorProcessor(baseName: string) {
         }
     });
 
-    const componentCategories = [...new Set(components.map(p => p.category))].filter(c => c !== null).sort();
-    const componentPages = [];
-
-    componentCategories.forEach(c => {
-        componentPages.push({
-            label: c,
-            items: components.filter(a => a.category === c).sort(_sortPages)
-        });
-    });
-
-    components.filter(a => a.category === null).forEach(c => {
-        componentPages.push(c);
-    });
-
-    componentPages.sort(_sortPages);
+    const componentPages = _categorize(components);
 
     /* BASE COMPONENTS */
     const baseComponents = data.baseComponents.map(component => {
@@ -253,25 +259,26 @@ function ComponentNavigatorProcessor(baseName: string) {
         }
     });
 
-    const baseComponentCategories = [...new Set(baseComponents.map(p => p.category))].filter(c => c !== null).sort();
-    const baseComponentPages = [];
+    const baseComponentPages = _categorize(baseComponents);
 
-    baseComponentCategories.forEach(c => {
-        baseComponentPages.push({
-            label: c,
-            items: baseComponents.filter(a => a.category === c).sort(_sortPages)
-        });
+    /* DECORATORS */
+    const decorators = data.decorators.map(decorator => {
+        return {
+            url: `/${baseName}/decorators/${decorator.name}/`,
+            label: decorator.displayName,
+            category: decorator.category,
+            designSystem: decorator.designSystem,
+            packageName: decorator.packageName
+        }
     });
 
-    baseComponents.filter(a => a.category === null).forEach(c => {
-        baseComponentPages.push(c);
-    });
+    const decoratorPages = _categorize(decorators);
 
-    baseComponentPages.sort(_sortPages);
-
+    /* RESULT */
     return {
         componentPages: componentPages,
-        baseComponentPages: baseComponentPages
+        baseComponentPages: baseComponentPages,
+        decoratorPages: decoratorPages
     }
 }
 

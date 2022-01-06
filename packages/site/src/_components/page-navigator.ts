@@ -68,6 +68,7 @@ export class PageNavigator extends QuarkElement {
                 }
 
                 .container {
+                    position: relative;
                     flex: 1;
                     overflow-x: hidden;
                     overflow-y: auto;
@@ -153,6 +154,7 @@ export class PageNavigator extends QuarkElement {
 
     private _collapsedItems: Array<any> = [];
     private _selectedItem: any = null;
+    private _selectedNode: any = null;
 
     @property({ type: String, attribute: 'persist-key' })
     persistKey: string = 'navigator';
@@ -178,10 +180,18 @@ export class PageNavigator extends QuarkElement {
         }
     }
 
+    connectedCallback() {
+        super.connectedCallback();
+
+        window.addEventListener('load', () => {
+            this.scrollToSelected();
+        });
+    }
+
     render() {
         return html`
             <search-field .value="${this._filter}" @change="${this._handleFilter}"></search-field>
-            <ul class="container">
+            <ul class="container" id="scroll_container">
                 ${this.items.map((item, index) => this._renderItem(item, `${index}`))}
             </ul>
         `;
@@ -197,7 +207,7 @@ export class PageNavigator extends QuarkElement {
 
                 ${hasItems ? html`
                     <ul ?collapsed="${item.collapsed}" class="item-container">${item.items.map((item, index) => this._renderItem(item, `${key}_${index}`))}</ul>
-                ` : null }
+                ` : null}
             </li>
         `;
     }
@@ -222,14 +232,26 @@ export class PageNavigator extends QuarkElement {
         Array.from(this.renderRoot.querySelectorAll('.item-label-link[selected]')).forEach(el => el.removeAttribute('selected'));
         el.setAttribute('selected', '');
         this._selectedItem = el.getAttribute('linkkey');
+        this._selectedNode = el;
         this._setState(false, true, false);
     }
 
     _selectByUrl(url) {
-        const el = this.renderRoot.querySelector(`a[href="${url}"]`);
+        const el: HTMLElement = this.renderRoot.querySelector(`a[href="${url}"]`);
 
         if (el) {
             this._selectItem(el);
+        }
+    }
+
+    scrollToSelected() {
+        if (this._selectedNode) {
+            const parent = (this.renderRoot as ShadowRoot).getElementById('scroll_container');
+            const rect = this._selectedNode.getBoundingClientRect();
+
+            if ((rect.top > parent.offsetTop + parent.offsetHeight) || (rect.bottom < parent.offsetTop)) {
+                this._selectedNode.scrollIntoView();
+            }
         }
     }
 
@@ -295,7 +317,7 @@ export class PageNavigator extends QuarkElement {
 
         if ((this._collapsedItems) && (this._collapsedItems.length > 0)) {
             const items = Array.from(this.renderRoot.querySelectorAll('.item-label[key]'));
-           
+
             items.forEach(el => {
                 const child = el.nextElementSibling;
                 const key = el.getAttribute('key');
@@ -315,7 +337,7 @@ export class PageNavigator extends QuarkElement {
         this._filter = e.target.value;
         this._setState(false, false, true);
     }
-    
+
     _collapseEmptyGroups(el = null) {
         el = el || this.renderRoot;
 
