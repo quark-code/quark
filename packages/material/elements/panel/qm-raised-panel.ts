@@ -10,7 +10,6 @@ import { hostElevation1 } from '../../providers/theme/tokens/elevation';
  /**
   * @customtype component
   * @summary A raised variant Material Design panel.
-  * @description - Some random description.
   * @defaulttag qm-raised-panel
   * @displayname Raised Panel
   * @designsystem Material

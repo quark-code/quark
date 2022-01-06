@@ -1,5 +1,5 @@
 function ComponentTemplate(baseName: string, packages?: Array<string>) {
-    const { html, escape } = require('@quark-elements/doc');
+    const { html, escape, mdRaw } = require('@quark-elements/doc');
 
     let includes: Array<string> = [`${baseName}_demos_components_`, `${baseName}_samples_components_`];
 
@@ -118,12 +118,12 @@ function ComponentTemplate(baseName: string, packages?: Array<string>) {
                                       summary="${component.summary}">
                     </component-header>
                     <page-tabs selected-index="0">
-                        <page-tab label="Overview">${include[sampleName] ? include[sampleName]() : 'No overview yet'}</page-tab>
-                        <page-tab label="Demos">${include[demoName] ? include[demoName]() : 'No demo yet'}</page-tab>
+                        <page-tab indent label="Overview">${include[sampleName] ? include[sampleName]() : component.description ? html`<article class="md-content">${mdRaw(component.description)}</article>` : 'No overview yet'}</page-tab>
+                        <page-tab indent label="Demos">${include[demoName] ? include[demoName]() : 'No demo yet'}</page-tab>
     
                         <page-tab label="Documentation">
                             ${component.attributes && component.attributes.length > 0 ? html`
-                                <collapsible-panel label="Attributes" persist-key="${component.name}_attributes">
+                                <collapsible-panel indent label="Attributes" persist-key="${component.name}_attributes">
                                     ${component.attributes.map(item => html`
                                         ${buildAttributePart(item)}
                                     `)}
@@ -131,7 +131,7 @@ function ComponentTemplate(baseName: string, packages?: Array<string>) {
                             `: null}
     
                             ${component.properties && component.properties.length > 0 ? html`
-                                <collapsible-panel label="Properties" persist-key="${component.name}_properties">
+                                <collapsible-panel indent label="Properties" persist-key="${component.name}_properties">
                                     ${component.properties.filter(item => !item.protected).map(item => html`
                                         ${buildPropertyPart(item)}
                                     `)}
@@ -148,7 +148,7 @@ function ComponentTemplate(baseName: string, packages?: Array<string>) {
                             `: null}
                                 
                             ${component.methods && component.methods.length > 0 ? html`
-                                <collapsible-panel label="Methods" persist-key="${component.name}_methods">
+                                <collapsible-panel indent label="Methods" persist-key="${component.name}_methods">
                                     ${component.methods.filter(item => !item.protected).map(item => html` 
                                         ${buildMethodPart(item)} 
                                     `)}      
@@ -165,7 +165,7 @@ function ComponentTemplate(baseName: string, packages?: Array<string>) {
                             `: null}
     
                             ${component.events && component.events.length > 0 ? html`
-                                <collapsible-panel label="Events" persist-key="${component.name}_events">
+                                <collapsible-panel indent label="Events" persist-key="${component.name}_events">
                                     ${component.events.map(item => html`
                                         <component-part caption="${escape(item.name)}" detail="${item.type ? escape(item.type.text) : null}" description="${escape(item.description)}" 
                                                         ${getSuperclassDetail(item)}>
@@ -175,7 +175,7 @@ function ComponentTemplate(baseName: string, packages?: Array<string>) {
                             `: null}
     
                             ${component.slots && component.slots.length > 0 ? html`
-                                <collapsible-panel label="Slots" persist-key="${component.name}_slots">
+                                <collapsible-panel indent label="Slots" persist-key="${component.name}_slots">
                                     ${component.slots.map(item => html`
                                         <component-part caption="${item.name ? escape(item.name) : '(default)'}" description="${escape(item.description)}"></component-part>
                                     `)}        
@@ -183,7 +183,7 @@ function ComponentTemplate(baseName: string, packages?: Array<string>) {
                             `: null}
     
                             ${component.cssProperties && component.cssProperties.length > 0 ? html`
-                                <collapsible-panel label="CSS Properties" persist-key="${component.name}_css_properties">
+                                <collapsible-panel indent label="CSS Properties" persist-key="${component.name}_css_properties">
                                     ${component.cssProperties.map(item => html`
                                         <component-part caption="${escape(item.name)}:&nbsp;" detail="${buildCssPropertyValue(item.default)}" description="${escape(item.description)}"></component-part>
                                     `)}        
@@ -191,7 +191,7 @@ function ComponentTemplate(baseName: string, packages?: Array<string>) {
                             `: null}
     
                             ${component.cssParts && component.cssParts.length > 0 ? html`
-                                <collapsible-panel label="CSS Parts" persist-key="${component.name}_css_parts">
+                                <collapsible-panel indent label="CSS Parts" persist-key="${component.name}_css_parts">
                                     ${component.cssParts.map(item => html`
                                         <component-part caption="${escape(item.name)}" description="${escape(item.description)}"></component-part>
                                     `)}        

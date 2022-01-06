@@ -7,9 +7,21 @@ import { QuarkElement } from '@quark-elements/core/elements/QuarkElement.js';
 import { html, css } from 'lit';
 import { property } from 'lit/decorators.js';
 /**
+ * Lorem ipsum dolor "sit" amet, `consectetur adipiscing elit`. Aenean nec augue lectus. Cras in tristique ligula, sed pulvinar est. 
+ * Nulla facilisi. Duis non tincidunt purus. Pellentesque tristique consectetur quam, non vestibulum nisi molestie vel. Fusce auctor pellentesque lectus, 
+ * vel elementum nulla euismod sed. Integer suscipit faucibus magna. Suspendisse quis justo vel mi commodo malesuada et eget massa.
+ * 
+ * ```javascript
+ * const descriptor = {
+ *     get(this: HTMLElement) {
+ *               return new EventEmitter(this, eventName);
+ *     },
+ *     enumerable: true,
+ *     configurable: true
+ * };
+ * ```
  * @customtype component
  * @summary A demo component for documentation testing.
- * @description - Don't use this.
  * @defaulttag qm-kitchen-sink
  * @displayname Kitchen Sink
  * @designsystem Material
@@ -70,7 +82,7 @@ export class QmKitchenSink extends QuarkElement {
     /**
     * Formats a greeting
     * @param name {string} The name to say "Hello" to.
-    * @returns {string} A greeting directed at `name`.
+    * @returns {string}
     */
     sayHello(name) {
         return `Hello, ${name}`;

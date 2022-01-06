@@ -6,6 +6,19 @@ Copyright (c) 2021 Paul H Mason. All rights reserved.
 import { QuarkIcon } from '@quark-elements/core/elements/image/QuarkIcon.js';
 import { css } from 'lit';
  /**
+  * Lorem ipsum dolor "sit" amet, `consectetur adipiscing elit`. Aenean nec augue lectus. Cras in tristique ligula, sed pulvinar est. 
+  * Nulla facilisi. Duis non tincidunt purus. Pellentesque tristique consectetur quam, non vestibulum nisi molestie vel. Fusce auctor pellentesque lectus, 
+  * vel elementum nulla euismod sed. Integer suscipit faucibus magna. Suspendisse quis justo vel mi commodo malesuada et eget massa.
+  * 
+  * ```javascript
+  * const descriptor = {
+  *     get(this: HTMLElement) {
+  *               return new EventEmitter(this, eventName);
+  *     },
+  *     enumerable: true,
+  *     configurable: true
+  * };
+  * ```
   * @customtype component
   * @summary An element that displays a single icon.
   * @defaulttag qm-icon

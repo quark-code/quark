@@ -21,6 +21,10 @@ export class PageTab extends QuarkElement {
             :host([disabled]) {
                 pointer-events: none;
             }
+
+            :host([indent]) {
+                padding: 24px;
+            }
         `];
     }
 

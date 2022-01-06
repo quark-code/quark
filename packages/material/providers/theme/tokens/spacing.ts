@@ -7,7 +7,6 @@ import { DesignTokenShape } from '@quark-elements/theme/lib/Types.js';
  /**
   * @type designtoken
   * @summary The theme spacing tokens.
-  * @description - Some random description.
   */
 export const SpacingTokens: DesignTokenShape = {
     'md-sys-spacing-0': '0px',

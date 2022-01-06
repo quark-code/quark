@@ -8,7 +8,6 @@ import { css } from 'lit';
  /**
   * @customtype component
   * @summary An outlined variant Material Design panel.
-  * @description - Some random description.
   * @defaulttag qm-outlined-panel
   * @displayname Outlined Panel
   * @designsystem Material

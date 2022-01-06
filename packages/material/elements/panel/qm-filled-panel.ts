@@ -8,7 +8,6 @@ import { css } from 'lit';
  /**
   * @customtype component
   * @summary A filled variant Material Design panel.
-  * @description - Some random description.
   * @defaulttag qm-filled-panel
   * @displayname Filled Panel
   * @designsystem Material

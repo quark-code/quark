@@ -8,7 +8,6 @@ import { DesignTokenShape } from '@quark-elements/theme/lib/Types.js';
  /**
   * @type designtoken
   * @summary The theme elevation tokens.
-  * @description - Some random description.
   */
 
  /*
@@ -88,7 +87,6 @@ export const ElevationTokens: DesignTokenShape = {
 /**
   * @type cssmodule
   * @summary Elevation Style 0.
-  * @description - Some random description.
   */
 export const elevation0 = css`
     .elevation-0 {

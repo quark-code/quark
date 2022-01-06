@@ -10,4 +10,5 @@ import '../_components/page-tabs.js';
 import '../_components/collapsible-panel.js';
 import '../_components/collapsible-protected-panel.js';
 import '../_components/component-part.js';
+import '../_components/decorator-part.js';
 import '../_components/page-state.js';

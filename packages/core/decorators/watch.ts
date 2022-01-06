@@ -3,9 +3,10 @@
  * @summary A property change observer.
  * @displayname watch
  * @category Core
+ * @param propName {string | Array<string>} The name of the property to watch, or an array of property names.
  */
 export function watch(propName?: string | Array<string>) {
-    return (protoOrDescriptor: any, name: string): any => {       
+    return (protoOrDescriptor: any, name: string) => {       
         const { updated } = protoOrDescriptor;
 
         protoOrDescriptor.updated = function (changedProps: Map<string, any>) {

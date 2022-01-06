@@ -102,7 +102,9 @@ function ComponentDataProcessor(baseName: string) {
                             packageName: d.packageName ?? null,
                             category: d.category ?? null,
                             summary: d.summary ?? null,
-                            parameters: d.parameters
+                            description: d.description ?? null,
+                            parameters: d.parameters,
+                            return: d.return ? d.return : { type: { text: 'void' } }
                         }
 
                         allData.decorators.push(decorator);
@@ -119,6 +121,7 @@ function ComponentDataProcessor(baseName: string) {
                             superclass: d.superclass ? d.superclass : null,
                             tagName: d.tagName,
                             summary: d.summary,
+                            description: d.description,
                             cssProperties: d.cssProperties ? d.cssProperties.sort(_sort) : [],
                             cssParts: d.cssParts ? d.cssParts.sort(_sort) : [],
                             slots: d.slots ? d.slots.sort(_sort) : [],
@@ -127,6 +130,7 @@ function ComponentDataProcessor(baseName: string) {
                             properties: members ? members.filter(m => (m.kind === 'field' && !m.static)).map(m => {
                                 return {
                                     name: m.name,
+                                    summary: m.summary,
                                     description: m.description,
                                     type: m.type,
                                     attribute: m.attribute,
@@ -140,9 +144,10 @@ function ComponentDataProcessor(baseName: string) {
                             methods: members ? members.filter(m => (m.kind === 'method' && !m.static)).map(m => {
                                 return {
                                     name: m.name,
+                                    summary: m.summary,
                                     description: m.description,
                                     parameters: m.parameters,
-                                    return: m.return,
+                                    return: m.return ? m.return : { type: { text: 'void' } },
                                     inheritedFrom: m.inheritedFrom,
                                     protected: m.protected
                                 };

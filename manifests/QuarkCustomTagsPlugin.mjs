@@ -11,7 +11,7 @@ export const QuarkCustomTagsPlugin = {
                 const packageName = moduleDoc.path.split('/')[1];
                 const functionName = node.name.getText();
                 const funcDoc = moduleDoc?.declarations?.find(declaration => declaration.name === functionName);
-                const customTags = ['description', 'customtype', 'displayname', 'category', 'designsystem'];
+                const customTags = ['customtype', 'displayname', 'category', 'designsystem'];
                 funcDoc['packageName'] = packageName;
 
                 node.jsDoc?.forEach(jsDoc => {
@@ -43,7 +43,7 @@ export const QuarkCustomTagsPlugin = {
                 const className = node.name.getText();
 
                 const classDoc = moduleDoc?.declarations?.find(declaration => declaration.name === className);
-                const customClassTags = ['dependency', 'since', 'status', 'description', 'defaulttag', 'customtype', 'displayname', 'category', 'designsystem'];
+                const customClassTags = ['dependency', 'since', 'status', 'defaulttag', 'customtype', 'displayname', 'category', 'designsystem'];
                 const customProperyTags = ['allowedvalues', 'default', 'readonly', 'attribute'];
                 let customComments = '/**';
 
@@ -72,11 +72,6 @@ export const QuarkCustomTagsPlugin = {
 
                             case 'designsystem': {
                                 classDoc['designsystem'] = `${t.name} ${t.description}`;
-                                break;
-                            }
-
-                            case 'description': {
-                                classDoc['description'] = t.description;
                                 break;
                             }
 

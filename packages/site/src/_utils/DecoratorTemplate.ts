@@ -1,12 +1,28 @@
 function DecoratorTemplate(baseName: string, packages?: Array<string>) {
-    const { html, escape } = require('@quark-elements/doc');
+    const { html, escape, mdRaw } = require('@quark-elements/doc');
 
-    let includes: Array<string> = [`${baseName}_demos_decorators_`, `${baseName}_samples_decorators_`];
+    let includes: Array<string> = [`${baseName}_samples_decorators_`];
 
     if (packages && packages.length> 0) {
         packages.forEach(package => {
-            includes = [...includes, ...[`${package}_demos_decorators_`, `${package}_samples_decorators_`]]
+            includes = [...includes, ...[`${package}_samples_decorators_`]]
         });
+    }
+
+    function _buildParamString(params) {
+        if (params && params.length > 0) {
+            return params.map(p => `${p.name}${p.type && p.type.text ? `: ${p.type.text}` : ''}`);
+        }
+
+        return '';
+    }
+
+    function _buildReturnValue(ret) {
+        if (ret && ret.type && ret.type.text) {
+            return ret.type.text;
+        }
+
+        return 'void';
     }
 
     const config = {
@@ -20,7 +36,6 @@ function DecoratorTemplate(baseName: string, packages?: Array<string>) {
         const decorators = data.decorators;
 
         return decorators.map(decorator => {
-            const demoName = `${decorator.packageName}_demos_decorators_${decorator.name}`;
             const sampleName = `${decorator.packageName}_samples_decorators_${decorator.name}`;
 
             return {
@@ -28,22 +43,16 @@ function DecoratorTemplate(baseName: string, packages?: Array<string>) {
                 name: decorator.name,
                 content: html`
                     <component-header display-name="${decorator.displayName}" detail="@${decorator.name} from ${decorator.packageName}" summary="${decorator.summary}"></component-header>
-
-                    ${include[sampleName] ? html`
-                        <collapsible-panel label="Overview" persist-key="${decorator.name}_decorator_overview">
+                    
+                    <div style="padding: 16px;">
+                        <decorator-part name="${decorator.name}" params="${_buildParamString(decorator.parameters)}" return-value="${_buildReturnValue(decorator.return)}"></decorator-part>
+                    
+                        ${include[sampleName] ? html`
                             <section>${include[sampleName]()}</section>
-                        </collapsible-panel>
-                    `: null}
-
-                    ${include[demoName] ? html`
-                        <collapsible-panel label="Demo" persist-key="${decorator.name}_decorator_demo">
-                            <section>${include[demoName]()}</section>
-                        </collapsible-panel>
-                    `: null}
-
-                    <collapsible-panel label="API" persist-key="${decorator.name}_decorator_api">
-                        <div>TODO</div>
-                    </collapsible-panel>
+                        `: decorator.description ? html`
+                            <section class="md-content">${mdRaw(decorator.description)}</section>
+                        ` : null}
+                    </div>
                 `
             }
         });

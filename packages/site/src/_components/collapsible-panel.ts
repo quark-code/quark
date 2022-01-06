@@ -54,6 +54,7 @@ export class CollapsiblePanel extends QuarkElement {
                 border-radius: 9999px;
                 cursor: pointer;
                 user-select: none;
+                padding: 0;
                 font: var(--collapsible-panel-font, 500 16px/16px Roboto, 'Noto Sans SC', sans-serif);
             }
 
@@ -67,7 +68,11 @@ export class CollapsiblePanel extends QuarkElement {
             }
 
             .content {
-                padding-top: 16px; 
+                padding: 16px 0 0 0;
+            }
+
+            :host([indent]) .content {
+                padding: 16px 0 0 16px;
             }
 
             svg {   

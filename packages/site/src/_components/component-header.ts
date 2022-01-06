@@ -113,6 +113,7 @@ export class ComponentHeader extends QuarkElement {
     }
 
     _renderSuperclassPackage(superclassPackage: string, superclassPackageUrl: string) {
+        /*
         if (superclassPackage) {
             if (superclassPackageUrl) {
                 return html`from <a href="${superclassPackageUrl}">${superclassPackage}</a>`;
@@ -120,6 +121,7 @@ export class ComponentHeader extends QuarkElement {
 
             return html`from <span>${superclassPackage}</span>`;
         }
+        */
 
         return null;
     }

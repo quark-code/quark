@@ -15,7 +15,6 @@ import { CoreIcons } from './icons/core.js';
  /**
   * @customtype theme
   * @summary The Material Design theme definition.
-  * @description - Some random description.
   * @displayname Material Theme
   */
 export class MaterialTheme extends Theme {

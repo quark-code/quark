@@ -22,10 +22,6 @@ page-navigator {
     border-right: 1px solid #E4E4E4; 
 }
 
-component-part {
-    margin-left: 24px;
-}
-
 component-part:not(:last-of-type) {
     margin-bottom: 16px;
 }
@@ -38,4 +34,18 @@ collapsible-protected-panel:not([collapsed]) {
     display: flex;
     flex-direction: column;
     height: 100%; 
+}
+
+.md-content {
+    overflow: auto;
+}
+
+pre {
+    padding: 16px; 
+    background-color: #1E1E1E;
+    border-radius: 5px;
+}
+
+pre * {
+    font-size: 14px !important;
 }

@@ -8,7 +8,6 @@ import { css } from 'lit';
  /**
   * @customtype component
   * @summary A flat variant Material Design panel.
-  * @description - Some random description.
   * @defaulttag qm-flat-panel
   * @displayname Flat Panel
   * @designsystem Material

@@ -8,7 +8,6 @@ import { DesignTokenShape } from '@quark-elements/theme/lib/Types.js';
  /**
   * @type designtoken
   * @summary The theme typography tokens.
-  * @description - Some random description.
   */
 export const TypographyTokens: DesignTokenShape = {
     // Font Family

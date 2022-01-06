@@ -7,7 +7,6 @@ import { DesignTokenShape } from '@quark-elements/theme/lib/Types.js';
 /**
 * @type designtoken
 * @summary The theme border tokens.
-* @description - Some random description.
 */
 export const BorderTokens: DesignTokenShape = {
     'md-sys-border-radius-transition': 'border-radius 0.28s cubic-bezier(0.4, 0, 0.2, 1)',
