@@ -5,7 +5,7 @@ Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
 import { QuarkPanel } from '@quark-elements/core/elements/panel/QuarkPanel.js';
 import { css } from 'lit';
-import { hostElevation1 } from '../../providers/theme/tokens/elevation';
+import { hostElevation1 } from '../../theme/tokens/elevation';
 
  /**
   * @customtype component

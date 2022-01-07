@@ -1,35 +1,35 @@
 {
-  "name": "@quark-elements/doc",
-  "version": "0.0.1",
-  "description": "A simple static site generator.",
-  "main": "index.js",
-  "module": "index.js",
-  "private": false,
-  "scripts": {
-    "pub": "npm publish --dry-run"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/quark-elements/quark.git",
-    "directory": "packages/doc"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "author": "Paul H Mason",
-  "license": "MIT",
-  "bin": {
-    "quark-doc": "/bin/quark-doc.js"
-  },
-  "bugs": {
-    "url": "https://github.com/quark-elements/quark/issues"
-  },
-  "homepage": "https://github.com/quark-elements/quark#readme",
-  "dependencies": {
-    "fs-extra": "^10.0.0",
-    "html-prettify": "^1.0.3",
-    "marked": "^3.0.4",
-    "prismjs": "^1.25.0",
-    "prism-themes": "^1.9.0"
-  }
+    "name": "@quark-elements/doc",
+    "version": "0.0.1",
+    "description": "A simple static site generator.",
+    "main": "index.js",
+    "module": "index.js",
+    "private": false,
+    "scripts": {
+        "pub": "npm publish --dry-run"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/quark-elements/quark.git",
+        "directory": "packages/doc"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "author": "Paul H Mason",
+    "license": "MIT",
+    "bin": {
+        "quark-doc": "/bin/quark-doc.js"
+    },
+    "bugs": {
+        "url": "https://github.com/quark-elements/quark/issues"
+    },
+    "homepage": "https://github.com/quark-elements/quark#readme",
+    "dependencies": {
+        "fs-extra": "^10.0.0",
+        "html-prettify": "^1.0.3",
+        "marked": "^3.0.4",
+        "prismjs": "^1.25.0",
+        "prism-themes": "^1.9.0"
+    }
 }

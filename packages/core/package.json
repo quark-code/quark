@@ -1,29 +1,29 @@
 {
-  "name": "@quark-elements/core",
-  "version": "0.0.1",
-  "description": "A lookless native Web Component suite foundation library.",
-  "main": "index.js",
-  "module": "index.js",
-  "private": false,
-  "scripts": {
-    "pub": "npm publish --dry-run"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/quark-elements/quark.git",
-    "directory": "packages/core"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "author": "Paul H Mason",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/quark-elements/quark/issues"
-  },
-  "homepage": "https://github.com/quark-elements/quark#readme",
-  "dependencies": {
-    "@quark-elements/theme": "^0.0.1",
-    "lit": "^2.0.2"
-  }
+    "name": "@quark-elements/core",
+    "version": "0.0.1",
+    "description": "A lookless native Web Component suite foundation library.",
+    "main": "index.js",
+    "module": "index.js",
+    "private": false,
+    "scripts": {
+        "pub": "npm publish --dry-run"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/quark-elements/quark.git",
+        "directory": "packages/core"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "author": "Paul H Mason",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/quark-elements/quark/issues"
+    },
+    "homepage": "https://github.com/quark-elements/quark#readme",
+    "dependencies": {
+        "@quark-elements/theme": "^0.0.1",
+        "lit": "^2.1.1"
+    }
 }

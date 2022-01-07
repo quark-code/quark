@@ -1,23 +1,24 @@
 {
-  "name": "@quark-elements/site",
-  "version": "0.0.1",
-  "description": "The documentation site for Quark.",
-  "private": true,
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/quark-elements/quark.git",
-    "directory": "packages/site"
-  },
-  "author": "Paul H Mason",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/quark-elements/quark/issues"
-  },
-  "homepage": "https://github.com/quark-elements/quark#readme",
-  "devDependencies": {
-    "@quark-elements/core": "^0.0.1",
-    "@quark-elements/material": "^0.0.1",
-    "@quark-elements/theme": "^0.0.1",
-    "@quark-elements/doc": "^0.0.1"
-  }
+    "name": "@quark-elements/site",
+    "version": "0.0.1",
+    "description": "The documentation site for Quark.",
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/quark-elements/quark.git",
+        "directory": "packages/site"
+    },
+    "author": "Paul H Mason",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/quark-elements/quark/issues"
+    },
+    "homepage": "https://github.com/quark-elements/quark#readme",
+    "devDependencies": {
+        "@quark-elements/core": "^0.0.1",
+        "@quark-elements/material": "^0.0.1",
+        "@quark-elements/theme": "^0.0.1",
+        "@quark-elements/doc": "^0.0.1",
+        "lit": "^2.1.1"
+    }
 }

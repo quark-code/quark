@@ -36,6 +36,5 @@ export class MaterialTheme extends Theme {
 
     constructor(name: string) {
         super(name);
-
     }
 }

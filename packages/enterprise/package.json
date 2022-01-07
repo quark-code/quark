@@ -1,17 +1,14 @@
 {
-    "name": "@quark-elements/theme",
+    "name": "@quark-elements/enterprise",
     "version": "0.0.1",
-    "description": "A generic theming library for web components.",
+    "description": "A native Web Component library for desktop-like enterprise applications.",
     "main": "index.js",
     "module": "index.js",
     "private": false,
-    "scripts": {
-        "pub": "npm publish --dry-run"
-    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/quark-elements/quark.git",
-        "directory": "packages/theme"
+        "directory": "packages/enterprise"
     },
     "publishConfig": {
         "access": "public"
@@ -22,7 +19,9 @@
         "url": "https://github.com/quark-elements/quark/issues"
     },
     "homepage": "https://github.com/quark-elements/quark#readme",
-    "devDependencies": {
+    "dependencies": {
+        "@quark-elements/core": "^0.0.1",
+        "@quark-elements/theme": "^0.0.1",
         "lit": "^2.1.1"
     }
 }

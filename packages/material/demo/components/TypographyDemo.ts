@@ -8,7 +8,7 @@ import { html, css } from 'lit';
 import { 
     displayLarge, displayMedium, displaySmall, headlineLarge, headlineMedium, headlineSmall, titleLarge, titleMedium, titleSmall, 
     labelLarge, labelMedium, labelSmall, bodyLarge, bodyMedium, bodySmall, codeLarge, codeMedium, codeSmall 
-} from '../../providers/theme/tokens/typography.js';
+} from '../../theme/tokens/typography.js';
 
 export class TypographyDemo extends QuarkElement {
     static get styles() {

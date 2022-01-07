@@ -3,7 +3,7 @@
 MIT License
 Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
-import { provideMaterialDesignSystem, MaterialTheme, ThemeMode, ThemeDensity, TextDirection } from '../providers/MaterialDesignSystemProvider.js';
+import { provideMaterialDesignSystem, MaterialTheme, ThemeMode, ThemeDensity, TextDirection } from '../MaterialDesignSystem.js';
 import './components';
 
 const defaultThemeBrand = new MaterialTheme('default');

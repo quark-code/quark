@@ -5,8 +5,8 @@ Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
 import { QuarkElement } from '@quark-elements/core/elements/QuarkElement.js';
 import { html, css } from 'lit';
-import { elevation0, elevation1, elevation2, elevation3, elevation4, elevation5 } from '../../providers/theme/tokens/elevation.js';
-import { titleMedium } from '../../providers/theme/tokens/typography.js';
+import { elevation0, elevation1, elevation2, elevation3, elevation4, elevation5 } from '../../theme/tokens/elevation.js';
+import { titleMedium } from '../../theme/tokens/typography.js';
 
 export class ElevationDemo extends QuarkElement {
     static get styles() {

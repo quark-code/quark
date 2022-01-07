@@ -77,4 +77,15 @@ export default [
         plugins: plugins,
         onwarn: warningOverride
     }
+    /*
+    {
+        input: 'packages/site/src/enterprise/index.js',
+        output: {
+            file: 'packages/site/dest/enterprise/index.bundle.js',
+            format: 'esm',
+        },
+        plugins: plugins,
+        onwarn: warningOverride
+    }
+    */
 ];
