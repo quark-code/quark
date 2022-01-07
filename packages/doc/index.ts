@@ -10,7 +10,7 @@ const fse = require('fs-extra');
 const quarkConfig = require(process.cwd() + '/quark-doc.config');
 
 const loadLanguages = require('prismjs/components/');
-loadLanguages(['powershell']);
+loadLanguages(['powershell', 'typescript', 'ts']);
 
 marked.setOptions({
     renderer: new marked.Renderer(),
@@ -22,7 +22,7 @@ marked.setOptions({
     smartypants: false,
     xhtml: false,
     highlight: (code, lang) => {
-        lang = lang || 'javascript';
+        lang = lang || 'powershell';
         return Prism.highlight(code, Prism.languages[lang], lang);
     }
 });
@@ -37,6 +37,7 @@ function _md(strings, ...values) {
 }
 
 function _mdRaw(text) {
+    text = text.replace(/&at;/g, "@");
     const data = marked(text);
     return data;
 }

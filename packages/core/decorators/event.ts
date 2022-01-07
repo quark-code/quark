@@ -18,25 +18,25 @@ export class EventEmitter<T> {
 }
 
 /**
- * Lorem ipsum dolor "sit" amet, `consectetur adipiscing elit`. Aenean nec augue lectus. Cras in tristique ligula, sed pulvinar est. 
- * Nulla facilisi. Duis non tincidunt purus. Pellentesque tristique consectetur quam, non vestibulum nisi molestie vel. Fusce auctor pellentesque lectus, 
- * vel elementum nulla euismod sed. Integer suscipit faucibus magna. Suspendisse quis justo vel mi commodo malesuada et eget massa.
- * 
- * ```javascript
- * const descriptor = {
- *     get(this: HTMLElement) {
- *               return new EventEmitter(this, eventName);
- *     },
- *     enumerable: true,
- *     configurable: true
- * };
- * ```
- * @customtype decorator
- * @summary A custom event emitter.
- * @displayname event
- * @category Core
- * @param eventName {string} The name of the event to emit.
- */
+All events are composed, cancelable, and bubble. Calling emit() will return the dispatched event.
+
+## Usage:
+
+```ts
+import { EventEmitter, event } from 'quark-web-components/utils/decorators';
+
+// Declare the emitter.
+&at;event('some-event') someEvent: EventEmitter<string>;
+
+// Emit the event:
+this.someEvent.emit('something happened');
+```
+@customtype decorator
+@summary A custom event emitter.
+@displayname event
+@category Core
+@param eventName {string} The name of the event to emit.
+*/
 export function event(eventName: string) {
     return (protoOrDescriptor: any, name: string): any => {
         const descriptor = {

@@ -23,7 +23,7 @@ function ComponentTemplate(baseName: string, packages?: Array<string>) {
 
     function buildMethodParameters(val) {
         if (val) {
-            return `(${val.map(item => `${item.name}${item.type ? `: ${item.type.text}` : ''}`).join(', ')})`;
+            return `(${val.map(item => `${item.name}${item.optional ? '?' : ''}${item.type ? `: ${item.type.text}` : ''}`).join(', ')})`;
         }
 
         return '()';

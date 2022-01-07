@@ -11,7 +11,7 @@ function DecoratorTemplate(baseName: string, packages?: Array<string>) {
 
     function _buildParamString(params) {
         if (params && params.length > 0) {
-            return params.map(p => `${p.name}${p.type && p.type.text ? `: ${p.type.text}` : ''}`);
+            return params.map(p => `${p.name}${p.optional ? '?' : ''}${p.type && p.type.text ? `: ${p.type.text}` : ''}`);
         }
 
         return '';
