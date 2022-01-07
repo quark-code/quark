@@ -44,7 +44,7 @@ function DecoratorTemplate(baseName: string, packages?: Array<string>) {
                 content: html`
                     <component-header display-name="${decorator.displayName}" detail="@${decorator.name} from ${decorator.packageName}" summary="${decorator.summary}"></component-header>
                     
-                    <div style="padding: 16px;">
+                    <div style="padding: 16px; overflow-y: auto;">
                         <decorator-part name="${decorator.name}" params="${_buildParamString(decorator.parameters)}" return-value="${_buildReturnValue(decorator.return)}"></decorator-part>
                     
                         ${include[sampleName] ? html`
