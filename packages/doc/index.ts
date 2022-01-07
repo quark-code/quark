@@ -27,6 +27,17 @@ marked.setOptions({
     }
 });
 
+function _read(path: string): string {
+    let data = null;
+
+    try {
+        data = fse.readFileSync(path, 'utf8');
+    } catch (err) {
+        console.log(err)
+    }
+
+    return data;
+}
 
 function _html(strings, ...values) {
     return strings.map((str, idx) => str + (Array.isArray(values[idx]) ? values[idx].join('\n') : values[idx] || '')).join('');
@@ -105,5 +116,6 @@ module.exports = {
     table: _table,
     escape: _escape,
     pageExists: _pageExists,
-    includeExists: _includeExists
+    includeExists: _includeExists,
+    read: _read
 }

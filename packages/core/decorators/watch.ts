@@ -11,7 +11,7 @@
  * import { watch } from '@quark-elements/core/decorators/watch.js';
  * 
  * &at;watch('propName')
- * handlePropChange(propName, oldValue, newValue) {
+ * handlePropChange(propName: string, oldValue: any, newValue: any) {
 *    // Whatever
  * }
  * ```
@@ -22,7 +22,7 @@
  * import { watch } from '@quark-elements/core/decorators/watch.js';
  * 
  * &at;watch(['propName1', 'propName2']) 
- * handlePropChange(propName, oldValue, newValue) {
+ * handlePropChange(propName: string, oldValue: any, newValue: any) {
  *     // Whatever
  * }
  * ```
@@ -33,7 +33,7 @@
  * import { watch } from '@quark-elements/core/decorators/watch.js';
  * 
  * &at;watch() 
- * handlePropChange(propName, oldValue, newValue) {
+ * handlePropChange(propName: string, oldValue: any, newValue: any) {
  *     // Whatever
  * }
  * ```
