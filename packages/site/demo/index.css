@@ -2,8 +2,8 @@
 
 :root {
     /* PAGE CONTAINER */
-    --page-container-background: var(--theme-window-color); 
-    --page-container-on-background: var(--theme-on-window-color); 
+    --page-container-background: var(--theme-surface-color); 
+    --page-container-on-background: var(--theme-on-surface-color); 
 
     /* NAVIGATOR */
     --page-navigator-outline: var(--theme-border-color);

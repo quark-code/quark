@@ -7,7 +7,17 @@ function ComponentDataProcessor(baseName: string) {
         themes: [],
         mixins: [],
         controllers: [],
-        decorators: []
+        decorators: [],
+        summaries: {
+            components: [],
+            baseComponents: [],
+            designTokens: [],
+            cssModules: [],
+            themes: [],
+            mixins: [],
+            controllers: [],
+            decorators: []
+        }
     }
 
     function _sort(a, b) {
@@ -108,6 +118,12 @@ function ComponentDataProcessor(baseName: string) {
                         }
 
                         allData.decorators.push(decorator);
+                        allData.summaries.decorators.push({
+                            name: decorator.name,
+                            displayName: decorator.displayName,
+                            summary: decorator.summary,
+                            category: decorator.category
+                        });
                         break;
                     }
 
@@ -156,9 +172,21 @@ function ComponentDataProcessor(baseName: string) {
 
                         if (component.tagName) {
                             allData.components.push(component);
+                            allData.summaries.components.push({
+                                name: component.name,
+                                displayName: component.displayName,
+                                summary: component.summary,
+                                category: component.category
+                            });
                         } else {
                             delete component.tagName;
                             allData.baseComponents.push(component);
+                            allData.summaries.baseComponents.push({
+                                name: component.name,
+                                displayName: component.displayName,
+                                summary: component.summary,
+                                category: component.category
+                            });
                         }
 
                         break;
@@ -198,6 +226,8 @@ function ComponentDataProcessor(baseName: string) {
     // Patch attributes.
     _patchAttributes(allData.baseComponents);
     _patchAttributes(allData.components);
+
+    // Create summaries.
 
     return allData;
 }

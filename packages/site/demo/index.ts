@@ -200,5 +200,5 @@ class DocTheme extends Theme {
 const defaultThemeBrand = new DocTheme('default');
 
 themeManager.register(defaultThemeBrand);
-themeManager.mode = ThemeMode.Dark;
+themeManager.mode = ThemeMode.System;
 themeManager.use(defaultThemeBrand.name);

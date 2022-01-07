@@ -1,15 +1,6 @@
 (function () {
-    const { html, read, mdRaw } = require('@quark-elements/doc');
-
-    const config = {
-        layout: 'material',
-        title: 'Decorators'
-    }
-
-    const render = () => {
-        const md_data = read('packages/site/src/_content/decorators/overview.md');
-        return html`<article class="md-content">${mdRaw(md_data)}</article>`
-    };
+    const { DecoratorOverviewTemplate } = require('../../_utils/DecoratorOverviewTemplate');
+    const { config, render } = DecoratorOverviewTemplate('material');
 
     module.exports = {
         config: config,

@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto:400,500&display=swap');
 :root {
     /* PAGE CONTAINER */
-    --page-container-background: var(--md-sys-color-background); 
-    --page-container-on-background: var(--md-sys-color-on-background); 
+    --page-container-background: var(--md-sys-color-surface); 
+    --page-container-on-background: var(--md-sys-color-on-surface); 
 
     /* NAVIGATOR */
     --page-navigator-outline: var(--md-sys-color-outline);
@@ -63,7 +63,7 @@ html, body {
 
 h1, h2, h3, h4, h5, h6 {
     padding: 0;
-    margin: 16px 0;
+    margin: 0 0 16px 0;
 }
 
 p {
@@ -113,6 +113,7 @@ collapsible-protected-panel:not([collapsed]) {
 
 .md-content {
     overflow: auto;
+    margin: 16px;
 }
 
 code {
@@ -134,4 +135,34 @@ pre code {
 
 pre * {
     font-size: 14px !important;
+}
+
+blockquote {
+    display: inline-block;
+    margin: 0;
+    padding: 8px 16px;
+    background-color: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+    border-left: 4px solid var(--md-sys-color-primary);
+}
+
+.summary-table {
+    display: inline-block;
+    font: var(--md-sys-typescale-body-medium);
+    border-spacing: 0;
+    border-collapse: collapse;
+    border: 1px solid var(--md-sys-color-outline);
+}
+
+.summary-table th {
+    padding: 8px 16px;
+    text-align: left;
+    font-weight: 500;
+    border-bottom: 1px solid var(--md-sys-color-outline);
+}
+
+.summary-table td {
+    padding: 8px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--md-sys-color-outline);
 }

@@ -24,7 +24,7 @@ export class PageNavigator extends QuarkElement {
                     --page-navigator-on-background-selected: #181818;
                     --page-navigator-root-on-background: #181818;
                     --page-navigator-item-border-radius: 9999px;
-                    --page-navigator-item-height: 36px;
+                    --page-navigator-item-height: 28px;
                     --page-navigator-item-font: 400 14px/14px Roboto, 'Noto Sans SC', sans-serif;
                     --page-navigator-root-item-font: 500 14px/14px Roboto, 'Noto Sans SC', sans-serif;
                     */
@@ -73,7 +73,6 @@ export class PageNavigator extends QuarkElement {
                     overflow-x: hidden;
                     overflow-y: auto;
                     margin-top: 16px;
-                    padding: 0 11px;
                 }
 
                 .item-container {
@@ -85,17 +84,28 @@ export class PageNavigator extends QuarkElement {
                     display: none;
                 }
 
-                .item {
-                    margin-left: 4px;
+                .item[top-level] {
+                    padding: 0 8px;
+                    margin-bottom: 8px;
+                }
+
+                .item[top-level]:first-of-type {
+                    padding-top: 8px;
+                    border-top: 1px solid var(--page-navigator-outline, #E4E4E4);
+                }
+  
+                .item[top-level]:not(:last-of-type) {
+                    padding-bottom: 8px;
+                    border-bottom: 1px solid var(--page-navigator-outline, #E4E4E4);
                 }
 
                 .item-label {
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
-                    height: var(--page-navigator-item-height, 36px);
-                    padding: 16px;
-                    margin: 6px 0;
+                    height: var(--page-navigator-item-height, 28px);
+                    padding: 0 8px 0 16px;
+                    margin: 2px 0;
                     box-sizing: border-box;
                     border-radius: var(--page-navigator-item-border-radius, 9999px);
                     cursor: pointer;
@@ -192,17 +202,17 @@ export class PageNavigator extends QuarkElement {
         return html`
             <search-field .value="${this._filter}" @change="${this._handleFilter}"></search-field>
             <ul class="container" id="scroll_container">
-                ${this.items.map((item, index) => this._renderItem(item, `${index}`))}
+                ${this.items.map((item, index) => this._renderItem(item, `${index}`, true))}
             </ul>
         `;
     }
 
-    _renderItem(item: any, key: any) {
+    _renderItem(item: any, key: any, topLevel: boolean = false) {
         const hasItems = item.items && item.items.length > 0;
         const hidden = !hasItems && this._filter && item.label.toLowerCase().indexOf(this._filter.toLowerCase()) === -1;
 
         return html`
-            <li class="item" ?hidden="${hidden}">
+            <li class="item" ?hidden="${hidden}" ?top-level="${topLevel}">
                 ${this._renderItemLabel(item, key)}
 
                 ${hasItems ? html`

@@ -13,7 +13,7 @@ html, body {
 
 h1, h2, h3, h4, h5, h6 {
     padding: 0;
-    margin: 16px 0;
+    margin: 0 0 16px 0;
 }
 
 p {
@@ -63,6 +63,7 @@ collapsible-protected-panel:not([collapsed]) {
 
 .md-content {
     overflow: auto;
+    margin: 16px;
 }
 
 code {
@@ -84,4 +85,35 @@ pre code {
 
 pre * {
     font-size: 14px !important;
+}
+
+blockquote {
+    display: inline-block;
+    margin: 0;
+    padding: 8px 16px;
+    background-color: #EADDFF;
+    color: #21005E;
+    border-left: 4px solid #6750A4;
+}
+
+.summary-table {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    border-spacing: 0;
+    border-collapse: collapse;
+    border: 1px solid #E4E4E4;
+}
+
+.summary-table th {
+    padding: 8px 16px;
+    text-align: left;
+    font-weight: 500;
+    border-bottom: 1px solid #E4E4E4;
+}
+
+.summary-table td {
+    padding: 8px 16px;
+    text-align: left;
+    border-bottom: 1px solid #E4E4E4;
 }

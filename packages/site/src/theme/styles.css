@@ -2,8 +2,8 @@
 
 :root {
     /* PAGE CONTAINER */
-    --page-container-background: var(--theme-window-color); 
-    --page-container-on-background: var(--theme-on-window-color); 
+    --page-container-background: var(--theme-surface-color); 
+    --page-container-on-background: var(--theme-on-surface-color); 
 
     /* NAVIGATOR */
     --page-navigator-outline: var(--theme-border-color);
@@ -65,7 +65,7 @@ p {
 
 h1, h2, h3, h4, h5, h6 {
     padding: 0;
-    margin: 16px 0;
+    margin: 0 0 16px 0;
 }
 
 h1 {   
@@ -103,6 +103,7 @@ page-navigator {
 
 .md-content {
     overflow: auto;
+    margin: 16px;
 }
 
 code {
@@ -124,4 +125,13 @@ pre code {
 
 pre * {
     font-size: 14px !important;
+}
+
+blockquote {
+    display: inline-block;
+    margin: 0 0 0 24px;
+    padding: 8px 16px;
+    background-color: var(--theme-primary-light-color);
+    color: var(--theme-on-primary-light-color);
+    border-left: 4px solid var(--theme-primary-color);
 }

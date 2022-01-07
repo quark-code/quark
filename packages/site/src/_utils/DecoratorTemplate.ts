@@ -1,5 +1,5 @@
 function DecoratorTemplate(baseName: string, packages?: Array<string>) {
-    const { html, escape, mdRaw } = require('@quark-elements/doc');
+    const { html, mdRaw } = require('@quark-elements/doc');
 
     let includes: Array<string> = [`${baseName}_samples_decorators_`];
 
