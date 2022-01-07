@@ -18,25 +18,25 @@ export class EventEmitter<T> {
 }
 
 /**
-All events are composed, cancelable, and bubble. Calling emit() will return the dispatched event.
-
-## Usage:
-
-```ts
-import { EventEmitter, event } from 'quark-web-components/utils/decorators';
-
-// Declare the emitter.
-&at;event('some-event') someEvent: EventEmitter<string>;
-
-// Emit the event:
-this.someEvent.emit('something happened');
-```
-@customtype decorator
-@summary A custom event emitter.
-@displayname event
-@category Core
-@param eventName {string} The name of the event to emit.
-*/
+ * All events are composed, cancelable, and bubble. Calling `emit()` will return the dispatched event.
+ * 
+ * ### Usage
+ * 
+ * ```ts
+ * import { EventEmitter, event } from 'quark-web-components/utils/decorators';
+ * 
+ * // Declare the emitter.
+ * &at;event('some-event') someEvent: EventEmitter<string>;
+ * 
+ * // Emit the event:
+ * this.someEvent.emit('something happened');
+ * ```
+ * @customtype decorator
+ * @summary A custom event emitter.
+ * @displayname event
+ * @category Core
+ * @param eventName {string} The name of the event to emit.
+ */
 export function event(eventName: string) {
     return (protoOrDescriptor: any, name: string): any => {
         const descriptor = {

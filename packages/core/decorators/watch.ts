@@ -1,48 +1,48 @@
 /**
-Runs after an observed property changes, e.g. @property or @state. This will only run after the first
-update, so initial attribute => property mappings will not trigger the watch handler.
-
-Note that changing props in a watch handler *will* trigger a rerender. To make pre-update changes to observed
-properties, use the `update()` method instead.
-
-## Usage:
-
-```ts
-import { watch } from '@quark-elements/core/decorators/watch.js';
-
-&at;watch('propName')
-handlePropChange(propName, oldValue, newValue) {
-    // Whatever
-}
-```
-
-You can watch multiple properties with the same handler by passing an array of property names.
-
-```ts
-import { watch } from '@quark-elements/core/decorators/watch.js';
-
-&at;watch(['propName1', 'propName2']) 
-handlePropChange(propName, oldValue, newValue) {
-    // Whatever
-}
-```
-
-You can watch all properties with the same handler by not passing a property name parameter.
-
-```ts
-import { watch } from '@quark-elements/core/decorators/watch.js';
-
-&at;watch() 
-handlePropChange(propName, oldValue, newValue) {
-    // Whatever
-}
-```
-@customtype decorator
-@summary A property change observer.
-@displayname watch
-@category Core
-@param [propName] {string | Array<string>} The name of the property to watch, or an array of property names.
-*/
+ * Runs after an observed property changes, e.g. `&at;property` or `&at;state`. This will only run after the first
+ * update, so initial attribute => property mappings will not trigger the watch handler.
+ * 
+ * Note that changing props in a watch handler *will* trigger a rerender. To make pre-update changes to observed
+ * properties, use the `update()` method instead.
+ * 
+ * ### Usage
+ * 
+ * ```ts
+ * import { watch } from '@quark-elements/core/decorators/watch.js';
+ * 
+ * &at;watch('propName')
+ * handlePropChange(propName, oldValue, newValue) {
+*    // Whatever
+ * }
+ * ```
+ * 
+ * You can watch multiple properties with the same handler by passing an array of property names.
+ * 
+ * ```ts
+ * import { watch } from '@quark-elements/core/decorators/watch.js';
+ * 
+ * &at;watch(['propName1', 'propName2']) 
+ * handlePropChange(propName, oldValue, newValue) {
+ *     // Whatever
+ * }
+ * ```
+ * 
+ * You can watch all properties with the same handler by not passing a property name parameter.
+ * 
+ * ```ts
+ * import { watch } from '@quark-elements/core/decorators/watch.js';
+ * 
+ * &at;watch() 
+ * handlePropChange(propName, oldValue, newValue) {
+ *     // Whatever
+ * }
+ * ```
+ * @customtype decorator
+ * @summary A property change observer.
+ * @displayname watch
+ * @category Core
+ * @param [propName] {string | Array<string>} The name of the property to watch, or an array of property names.
+ */
 export function watch(propName?: string | Array<string>) {
     return (protoOrDescriptor: any, name: string) => {       
         const { updated } = protoOrDescriptor;
