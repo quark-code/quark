@@ -76,8 +76,7 @@ export default [
         },
         plugins: plugins,
         onwarn: warningOverride
-    }
-    /*
+    },
     {
         input: 'packages/site/src/enterprise/index.js',
         output: {
@@ -87,5 +86,4 @@ export default [
         plugins: plugins,
         onwarn: warningOverride
     }
-    */
 ];

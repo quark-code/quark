@@ -20,6 +20,11 @@
                 label: 'Material',
                 description: 'A suite of Material Design Web Components.',
                 url: '/material/'
+            },
+            {
+                label: 'Enterprise',
+                description: 'A native Web Component library for desktop-like enterprise applications.',
+                url: '/enterprise/'
             }
         ];
     };

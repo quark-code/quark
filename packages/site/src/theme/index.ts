@@ -4,10 +4,7 @@ MIT License
 Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
 import { Theme, themeManager, ThemeMode, DesignTokenShape } from '@quark-elements/theme';
-
-import '../_components/page-container.js';
-import '../_components/page-navigator.js';
-import '../_components/page-state.js';
+import '../_utils/DesignSystemLayoutImports.js';
 
 const Colors: DesignTokenShape = {
     // Window

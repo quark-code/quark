@@ -4,11 +4,11 @@ MIT License
 Copyright (c) 2021 Paul H Mason. All rights reserved.
 */
 import '../_utils/DesignSystemLayoutImports.js';
-import { provideMaterialDesignSystem, MaterialTheme, ThemeMode, ThemeDensity, TextDirection } from '@quark-elements/material/MaterialDesignSystem.js';
+import { provideEnterpriseDesignSystem, EnterpriseTheme, ThemeMode, ThemeDensity, TextDirection } from '@quark-elements/enterprise/EnterpriseDesignSystem.js';
 
-const defaultThemeBrand = new MaterialTheme('default');
+const defaultThemeBrand = new EnterpriseTheme('default');
 
-provideMaterialDesignSystem()
+provideEnterpriseDesignSystem()
     .registerThemes(
         defaultThemeBrand
     )

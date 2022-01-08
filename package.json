@@ -16,7 +16,8 @@
     "site-docs-clean": "rimraf packages/site/dest",
     "site-core-analyze": "cem analyze --config \"manifests/core/custom-elements-manifest.config.mjs\"",
     "site-material-analyze": "cem analyze --config \"manifests/material/custom-elements-manifest.config.mjs\"",
-    "site-analyze": "npm run site-core-analyze && npm run site-material-analyze",
+    "site-enterprise-analyze": "cem analyze --config \"manifests/enterprise/custom-elements-manifest.config.mjs\"",
+    "site-analyze": "npm run site-core-analyze && npm run site-material-analyze && npm run site-enterprise-analyze",
     "site-docs-build": "rollup -c packages/site/rollup.config.js",
     "site-docs-gen": "node packages/doc/bin/quark-doc.js",
     "site-docs": "npm run build && npm run site-docs-clean && npm run site-analyze && npm run site-docs-build && npm run site-docs-gen",
@@ -66,5 +67,5 @@
     "rollup-plugin-terser": "^7.0.2",
     "typescript": "^4.5.4"
   },
-  "customElements": "manifests/material/custom-elements.json"
+  "customElements": "manifests/enterprise/custom-elements.json"
 }

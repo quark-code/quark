@@ -1,4 +1,4 @@
-const sites = ['', 'doc/', 'theme/', 'core/', 'material/'];
+const sites = ['', 'doc/', 'theme/', 'core/', 'material/', 'enterprise/'];
 
 function addSiteFiles(site) {
     config.copy.push({
