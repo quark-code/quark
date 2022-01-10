@@ -32,7 +32,7 @@ export enum TextDirection {
     RTL = 'rtl'
 }
 
-export type IconShape = {
+export type IconShape = null | {
     [key: string]: string | {
         icon: string;
         size?: number;
@@ -47,7 +47,7 @@ export type IconShape = {
     };
 }
 
-export type DesignTokenShape = {
+export type DesignTokenShape = null | {
     [key: string]: string | {
         [property in keyof { light?: string; dark?: string }]: string | {
             [property in keyof { mobile?: string; desktop?: string }]: string | {

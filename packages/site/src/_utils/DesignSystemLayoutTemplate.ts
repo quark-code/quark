@@ -24,8 +24,7 @@ function DesignSystemLayoutTemplate(baseName: string) {
                 <link rel="stylesheet" href="${rel}styles.css">
                 <title>${data.title}</title>
 
-                <script type="module">
-                    import '${rel}index.bundle.js';
+                <script src="${rel}index.bundle.js">
                 </script>
 
                 <script>

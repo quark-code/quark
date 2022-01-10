@@ -15,8 +15,7 @@
                 <link rel="stylesheet" href="./styles.css">
                 <title>${data.title}</title>
     
-                <script type="module">
-                    import './index.bundle.js';
+                <script src="./index.bundle.js">
                 </script>
     
                 <script>

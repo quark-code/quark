@@ -30,7 +30,7 @@ export class Icon {
         return this._content.defaultVariant;
     }
 
-    getContent(variant?: string) {
-        return this._content.getIcon(variant);
+    getContent(variant?: string): string | null {
+        return this._content.getIcon(variant) ?? null;
     }
 }

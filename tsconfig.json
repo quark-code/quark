@@ -8,6 +8,7 @@
             "es2017",
             "dom"
         ],
+        "importHelpers": true,
         //"strict": true,
         "esModuleInterop": false,
         "allowSyntheticDefaultImports": true,

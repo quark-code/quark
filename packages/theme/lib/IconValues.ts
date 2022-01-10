@@ -59,7 +59,7 @@ export class IconValues {
         return this._default;
     }
 
-    getIcon(variant: string) {
+    getIcon(variant?: string) : string {
         return this._content.has(variant) ? this._content.get(variant) : this._content.get(this._default) || null;
     }
 }

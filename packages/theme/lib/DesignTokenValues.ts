@@ -7,7 +7,7 @@ import { ThemeMode, DeviceType, ThemeDensity, DesignTokenShape } from './Types.j
 
 export class DesignTokenValues {
     private _values: DesignTokenShape;
-    private _valueMap: Map<string, object> = new Map<string, object>();
+    private _valueMap: Map<string, string> = new Map<string, string>();
     private _hasDarkValue: boolean = false;
 
     static _convertValue(value: string): string {
@@ -21,22 +21,22 @@ export class DesignTokenValues {
     constructor(values: DesignTokenShape) {
         this._values = values;
         this._valueMap = new Map();
-        this._hasDarkValue = this._values['dark'] ? true : false;
+        this._hasDarkValue = (this._values) ? (this._values['dark'] ? true : false) : false;
     }
 
     get hasDarkValue(): boolean {
         return this._hasDarkValue;
     }
 
-    getValue(mode: ThemeMode = ThemeMode.System, device: DeviceType = DeviceType.Desktop, density: ThemeDensity = ThemeDensity.Comfortable, data: DesignTokenShape = null) {
+    getValue(mode: ThemeMode = ThemeMode.System, device: DeviceType = DeviceType.Desktop, density: ThemeDensity = ThemeDensity.Comfortable, data: DesignTokenShape = null): string | null {
         const key: string = `${mode}:${device}:${density}`;
+        let result = null;
 
         if (this._valueMap.has(key)) {
-            return this._valueMap.get(key)
+            return this._valueMap.get(key) ?? null;
         }
 
         const val: any = data || this._values;
-        let result = null;
 
         if (typeof val === 'string') {
             result = DesignTokenValues._convertValue(val);
@@ -72,7 +72,7 @@ export class DesignTokenValues {
             }
         }
 
-        if (result !== null) {
+        if ((result !== null) && (result !== undefined)) {
             this._valueMap.set(key, result);
         }
 
